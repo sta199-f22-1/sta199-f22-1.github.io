@@ -1,0 +1,8 @@
+---
+title: "HW 01: Pet Names"
+date: "September 14, 2022"
+categories: "Homework"
+---
+
+Add instructions for assignment. 
+

@@ -1,0 +1,47 @@
+---
+title: "Schedule"
+listing:
+  - id: schedule
+    contents:
+      - weeks/week-*.qmd
+    type: table
+    fields: [title, description, subtitle]
+    field-display-names:
+      title: "Week"
+      description: "Dates"
+      subtitle: "Topic"
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+ #tbl-colwidths: [5,20,50,25]
+editor: visual
+---
+
+## Weekly schedule
+
+::: {#schedule}
+:::
+
+## Assignments
+
+Below are assignment due dates for the semester.
+You can find details and assignment instructions in the relevant week on the schedule.
+
+### Homework
+
+Homework will be due on Wednesdays at 11:59pm.
+You will have one week to complete each homework assignment.
+
+### Labs
+
+Labs will be due on Fridays at 11:59pm.
+You will start the lab during your scheduled lab section.
+
+### Exams
+
+There will be two exams on the dates:
+
+-   October 12, 9am - October 14, 11:59pm
+
+-   November 16, 9am - November 16: 11:59pm
