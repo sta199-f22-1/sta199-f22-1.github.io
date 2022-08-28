@@ -11,7 +11,7 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/sta210-s22/website
+        href: https://github.com/sta199-f22-1/sta199-f22-1.github.io
         text: GitHub
       - icon: cloud-fill
         href: https://cmgr.oit.duke.edu/containers
