@@ -18,13 +18,8 @@ website:
     creator: "@minebocek"
     image: "images/twitter-card.png"
 
-  page-footer:
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2022, Mine Çetinkaya-Rundel"
-    background: "#00539B"
-
   sidebar:
-    background: "#00539B" # Pantone Midnight - Fall 2022
+    background: "#325b74" # Pantone Midnight - Fall 2022
     logo: "images/logo.png"
     pinned: true
     align: center
@@ -76,11 +71,17 @@ website:
           - href: project-tips-resources.qmd
             text: Tips + resources
 
+  page-footer:
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2022, Mine Çetinkaya-Rundel"
+    background: "#325b74" # Pantone Midnight - Fall 2022
+
 format:
   html:
     theme:
       light: [cosmo, style/dsbox.scss]
       dark: [cosmo, style/dsbox.scss, style/dark.scss]
+    linkcolor: "#325b74" # Pantone Midnight - Fall 2022
     toc: true
     code-copy: true
     code-overflow: wrap
