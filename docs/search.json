@@ -1,50 +1,71 @@
 [
   {
-    "objectID": "labs/w3-lab02.html",
-    "href": "labs/w3-lab02.html",
-    "title": "Lab 02: Data visualization with ggplot2!",
+    "objectID": "labs/01-lab.html",
+    "href": "labs/01-lab.html",
+    "title": "HW 01 - Add title",
     "section": "",
     "text": "Add instructions for assignment."
   },
   {
-    "objectID": "labs/w2-lab01.html",
-    "href": "labs/w2-lab01.html",
-    "title": "Lab 01: Hello R!",
+    "objectID": "hw/02-hw.html",
+    "href": "hw/02-hw.html",
+    "title": "HW 01: Add name",
     "section": "",
     "text": "Add instructions for assignment."
   },
   {
-    "objectID": "weeks/week-02.html",
-    "href": "weeks/week-02.html",
-    "title": "Week 02",
+    "objectID": "hw/06-hw.html",
+    "href": "hw/06-hw.html",
+    "title": "HW 01: Add name",
     "section": "",
-    "text": "Assignments\n\n\n\n\n\n\nAssignment\n\n\nTitle\n\n\nDue\n\n\n\n\n\n\nHomework\n\n\nHW 01: Pet Names\n\n\nWed, Sep 14\n\n\n\n\nLab\n\n\nLab 01: Hello R!\n\n\nFri, Sep 16\n\n\n\n\n\n\nNo matching items\n\n\n\n\nReadings\n\nR for Data Science: Chapter 3 - Data Visualization\nIntroduction for Modern Statistics: Chapter 4 - Exploring Categorical Data\nIntroduction to Modern Statistics: Chapter 5- Exploring Numerical Data"
+    "text": "The world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.\nYou may submit the statistics experience assignment anytime between now and the deadline.\nEach experience has two parts:\n1️⃣ Have a statistics experience\n2️⃣ Make a slide summarizing on your experience\nYou must complete both parts to receive credit."
   },
   {
-    "objectID": "weeks/week-03.html",
-    "href": "weeks/week-03.html",
-    "title": "Week 03",
-    "section": "",
-    "text": "Assignments\n\n\n\n\n\n\nAssignment\n\n\nTitle\n\n\nDue\n\n\n\n\n\n\nHomework\n\n\nHW 02: Data visualization\n\n\nWed, Sep 21\n\n\n\n\nLab\n\n\nLab 02: Data visualization with ggplot2!\n\n\nFri, Sep 23\n\n\n\n\n\n\nNo matching items\n\n\n\n\nReadings"
+    "objectID": "hw/06-hw.html#part-1-experience-statistics-outside-of-the-classroom",
+    "href": "hw/06-hw.html#part-1-experience-statistics-outside-of-the-classroom",
+    "title": "HW 01: Add name",
+    "section": "Part 1: Experience statistics outside of the classroom",
+    "text": "Part 1: Experience statistics outside of the classroom\nComplete an activity in one of the categories below. Under each category are suggested activities. You do not have to do one these suggested activities. You are welcome to find other activities as long as they are related to statistics/data science and they fit in one of the six categories. If there is an activity you’d like to do but you’re not sure if it qualifies for the statistics experience, just ask!\n\nCategory 1: Attend a talk or conference\nAttend an talk, panel, or conference related to statistics or data science. If you are attending a single talk or panel, it must be at least 30 minutes to count towards the statistics experience. The event can be in-person or online.\n\n\nCategory 2: Talk with a statistician/ data scientist\nTalk with someone who uses statistics in their daily work. This could include a professor, professional in industry, graduate student, etc.\n\n\nCategory 3: Listen to a podcast / watch video\nListen to a podcast or watch a video about statistics and data science. The podcast or video must be at least 30 minutes to count towards the statistics experience. A few suggestions are below:\n\nStats + Stories Podcast\nCausal Inference Podcast\nFiveThirtyEight Model Talk\nrstudio::global 2022 talks\nrstudio::global 2021 talks\nrstudio::conf 2020 talks\n\nThis list is not exhaustive. You may listen to other podcasts or watch other statistics/data science videos not included on this list. Ask your professor if you are unsure whether a particular podcast or video will count towards the statistics experience.\n\n\nCategory 4: Participate in a data science competition or challenge\nParticipate in a statistics or data science competition. You can participate individually or with a team.\n\n\nCategory 5: Read a book on statistics/data science\nThere are a lot of books about statistics, data science, and related topics. A few suggestions are below. If you decide to read a book that isn’t on this list, ask your professor to make sure it counts toward the experience. Many of these books are available through Duke library.\n\nWeapons of Math Destruction by Cathy O’Neil\nHow Charts Lie: Getting Smarter about Visual Information by Alberto Cairo\nThe Theory that Would Not Die by Sharon Bertsch McGrayne\nThe Art of Statistics: How to learn from data by David Spiegelhalter\nThe Signal and the Noise: Why so many predictions fail - but some don’t by Nate Silver\nHow Charts Lie by Alberto Cairo\nList of books about data science ethics\n\n\n\nCategory 6: TidyTuesday\nYou may also participate in a TidyTuesday challenge. New data sets are announced on Monday afternoons.You can find more information about TidyTuesday and see the data in the TidyTuesday GitHub repo.\nA few guidelines:\n✅ Create a GitHub repo for your TidyTuesday submission. Your repo should include\n\nThe R Markdown file with all the code needed to reproduce your visualization.\nA README that includes an image of your final visualization and a short summary (~ 1 paragraph) about your visualization.\n\n✅ The visualization should include features or customization that are beyond what we’ve done in class.\n✅ Include the link to your GitHub repo in the slide summarizing your experience.\n\n\nCategory 7: Coding out loud\nWatch an episode of Coding out loud (either live or pre-recorded) and work through the project.\nA few guidelines:c\n✅ Create a GitHub repo for your Coding out loud submission. Your repo should include\n\nThe Quarto file with all the code needed to reproduce your visualization.\nA README that includes an image of your final visualization and a short summary (~ 1 paragraph) about your visualization.\n\n✅ The final product (visualuzation, table, etc.) should include features or customization that are beyond what was achieved in the Coding out loud episode.\n✅ Include the link to your GitHub repo in the slide summarizing your experience."
   },
   {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "Week 01",
-    "section": "",
-    "text": "Assignments\nThere are no assignments scheduled this week.\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nR for Data Science: Chapter 2 - Introduction\n\n\nIntro to Modern Data Science: Chapter 1 - Hello data"
+    "objectID": "hw/06-hw.html#part-2-summarize-your-experience",
+    "href": "hw/06-hw.html#part-2-summarize-your-experience",
+    "title": "HW 01: Add name",
+    "section": "Part 2: Summarize your experience",
+    "text": "Part 2: Summarize your experience\nMake one slide summarizing your experience. Submit the slide as a PDF on Gradescope.\nInclude the following on your slide:\n\nName and brief description of the event/podcast/competition/etc.\nSomething you found new, interesting, or unexpected\nHow the event/podcast/competition/etc. connects to something we’ve done in class.\nCitation or link to web page for event/competition/etc.\n\nClick here to see a template to help you get started on your slide. Your slide does not have to follow this exact format; it just needs to include the information mentioned above and be easily readable (i.e. use a reasonable font size!). Creativity is encouraged!"
   },
   {
-    "objectID": "hw/w3-hw02.html",
-    "href": "hw/w3-hw02.html",
-    "title": "HW 02: Data visualization",
+    "objectID": "hw/06-hw.html#submission",
+    "href": "hw/06-hw.html#submission",
+    "title": "HW 01: Add name",
+    "section": "Submission",
+    "text": "Submission\nSubmit the reflection as a PDF under the HW 6 - Statistics Experience assignment on Gradescope by Fri, Dec 9 at 11:59 pm ET. It must be submitted by the deadline on Gradescope to be considered for grading."
+  },
+  {
+    "objectID": "hw/04-hw.html",
+    "href": "hw/04-hw.html",
+    "title": "HW 01: Add name",
     "section": "",
     "text": "Add instructions for assignment."
   },
   {
-    "objectID": "hw/w2-hw01.html",
-    "href": "hw/w2-hw01.html",
-    "title": "HW 01: Pet Names",
+    "objectID": "hw/01-hw.html",
+    "href": "hw/01-hw.html",
+    "title": "HW 01 - Add title",
+    "section": "",
+    "text": "Add instructions for assignment."
+  },
+  {
+    "objectID": "hw/03-hw.html",
+    "href": "hw/03-hw.html",
+    "title": "HW 01: Add name",
+    "section": "",
+    "text": "Add instructions for assignment."
+  },
+  {
+    "objectID": "hw/05-hw.html",
+    "href": "hw/05-hw.html",
+    "title": "HW 01: Add name",
     "section": "",
     "text": "Add instructions for assignment."
   },
@@ -68,118 +89,6 @@
     "title": "Introduction to Data Science",
     "section": "Teaching team",
     "text": "Teaching team\n\n\n\n\n\n\n\n\n\nName\nRole\nLab section\nOffice hours\n\n\n\n\nDr. Mine Çetinkaya-Rundel (she/her)\nInstructor\n\nTue 2 pm - 4 pm, Old Chem 213 / Zoom\n\n\nBora Jin\nTA / Course organizer\nM 10:15AM - 11:30AM\n\n\n\nJordan Bryan\nHead TA\nM 1:45PM - 3:00PM\n\n\n\nRichard Fremgen\nTA\nM 3:30PM - 4:45PM\n\n\n\nLeah Johnson\nTA\nM 5:15PM - 6:30PM\n\n\n\nAlison Reynolds\nTA\nM 12:00PM - 1:15PM\n\n\n\nFoxx Hart\nTA\n\n\n\n\nAlonso Guerrero Castaneda\nTA\n\n\n\n\nJasmine Wen\nTA\n\n\n\n\nBrooke Harmon\nTA\n\n\n\n\nAmber Potter\nTA\n\n\n\n\nShawon Chowdhury\nTA"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#bullet-point-list",
-    "href": "slides/week-01/01-example.html#bullet-point-list",
-    "title": "Welcome to Intro Data Science",
-    "section": "Bullet point list",
-    "text": "Bullet point list\nUnordered\n\nItem A\nItem B\nItem C\n\nOrdered\n\nItem 1\nItem 2\nItem 3"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#incremental-list",
-    "href": "slides/week-01/01-example.html#incremental-list",
-    "title": "Welcome to Intro Data Science",
-    "section": "Incremental list",
-    "text": "Incremental list\n\n\nItem 1\nItem 2\nItem 3"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#equations",
-    "href": "slides/week-01/01-example.html#equations",
-    "title": "Welcome to Intro Data Science",
-    "section": "Equations",
-    "text": "Equations\nWrite mathematical symbols and equations using Latex.\nUse the formulas below to calculate \\(\\hat{\\beta}_1\\), the estimated slope, and \\(\\hat{\\beta}_0\\), the estimated intercept.\n\\[\n\\begin{aligned}\n&\\hat{\\beta}_1 = r \\frac{s_y}{s_x} \\\\\n&\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#code",
-    "href": "slides/week-01/01-example.html#code",
-    "title": "Welcome to Intro Data Science",
-    "section": "Code",
-    "text": "Code\n\n# Use code chunk option fig-align: center to center the plot. \nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, \n                            color = species)) + \n         geom_point() + \n  labs(x = \"Flipper Length (in mm)\",y = \"Body Mass (in g)\",\n       title = \"Flipper length vs. body mass\",\n       subtitle = \"Penguins at Palmer Station, Antartica\") +\n  scale_color_viridis_d()"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#images",
-    "href": "slides/week-01/01-example.html#images",
-    "title": "Welcome to Intro Data Science",
-    "section": "Images",
-    "text": "Images\n\nArtwork by @allison_horst"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#columns",
-    "href": "slides/week-01/01-example.html#columns",
-    "title": "Welcome to Intro Data Science",
-    "section": "Columns",
-    "text": "Columns\n\n\nCalculate the proportion of penguins from each species.\n\n\npenguins |>\n  count(species) |>\n  mutate(prop  = n / sum(n))\n\n# A tibble: 3 × 3\n  species       n  prop\n  <fct>     <int> <dbl>\n1 Adelie      152 0.442\n2 Chinstrap    68 0.198\n3 Gentoo      124 0.360"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#panels",
-    "href": "slides/week-01/01-example.html#panels",
-    "title": "Welcome to Intro Data Science",
-    "section": "Panels",
-    "text": "Panels\n\nPlotCode\n\n\n\npenguins |>\n  filter(species == \"Adelie\", !is.na(sex)) |>\n  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = sex)) + \n  geom_point() +\n  labs(x = \"Flipper Length (in mm)\",y = \"Body Mass (in g)\",\n       title = \"Flipper length vs. body mass\",\n       subtitle = \"Adelie Penguins at Palmer Station, Antartica\") +\n  scale_color_viridis_d() + \n  facet_wrap(~island)\n\n\n\n\n\n\n\npenguins |>\n  filter(species == \"Adelie\", !is.na(sex)) |>\n  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = sex)) + \n  geom_point() +\n  labs(x = \"Flipper Length (in mm)\",y = \"Body Mass (in g)\",\n       title = \"Flipper length vs. body mass\",\n       subtitle = \"Adelie Penguins at Palmer Station, Antartica\") +\n  scale_color_viridis_d() + \n  facet_wrap(~island)"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#themes",
-    "href": "slides/week-01/01-example.html#themes",
-    "title": "Welcome to Intro Data Science",
-    "section": "Themes",
-    "text": "Themes\nCustomize the appearance of the slides using\n\nBuilt-in Reveal theme\nModify built-in theme using Sass\n\nVariant of CSS that supports variables and other features\n\nCreate custom thing using Sass\n\nSpecify the theme and/or Sass file (.scss) in the YAML\n\n\n\n🔗 rstudio-conf-2022.github.io/teach-ds-course-website"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#bullet-point-list",
-    "href": "slides/week-01/02-demo.html#bullet-point-list",
-    "title": "Meet the Toolkit",
-    "section": "Bullet point list",
-    "text": "Bullet point list"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#incremental-list",
-    "href": "slides/week-01/02-demo.html#incremental-list",
-    "title": "Meet the Toolkit",
-    "section": "Incremental list",
-    "text": "Incremental list"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#equations",
-    "href": "slides/week-01/02-demo.html#equations",
-    "title": "Meet the Toolkit",
-    "section": "Equations",
-    "text": "Equations"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#code",
-    "href": "slides/week-01/02-demo.html#code",
-    "title": "Meet the Toolkit",
-    "section": "Code",
-    "text": "Code"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#images",
-    "href": "slides/week-01/02-demo.html#images",
-    "title": "Meet the Toolkit",
-    "section": "Images",
-    "text": "Images"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#columns",
-    "href": "slides/week-01/02-demo.html#columns",
-    "title": "Meet the Toolkit",
-    "section": "Columns",
-    "text": "Columns"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#panels",
-    "href": "slides/week-01/02-demo.html#panels",
-    "title": "Meet the Toolkit",
-    "section": "Panels",
-    "text": "Panels"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#themes",
-    "href": "slides/week-01/02-demo.html#themes",
-    "title": "Meet the Toolkit",
-    "section": "Themes",
-    "text": "Themes\nCustomize the appearance of the slides using\n\nBuilt-in Reveal theme\nModify built-in theme using Sass\n\nVariant of CSS that supports variables and other features\n\n\nSpecify the theme and/or Sass file (.scss) in the YAML\n\n\n\n🔗 rstudio-conf-2022.github.io/teach-ds-course-website"
   },
   {
     "objectID": "syllabus.html",
@@ -256,6 +165,6 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Under construction!"
+    "text": "week\n      dow\n      date\n      what\n      topic\n      prepare\n      slides\n      ae\n      hw\n      lab\n      exam\n      project\n      notes\n    \n  \n  \n    1\nM\n29 August\nLab\nNo lab\n\n\n\n\n\n\n\n\n    \nT\n30 August\nLecture 1\nWelcome to STA 199\n\n\n\n\n\n\n\n\n    \nTh\n1 September\nLecture 2\nMeet the toolkit\n\n\n\n\n\n\n\n\n    2\nM\n5 September\nLab 1\nHello R!\n\n\n\n\n\n\n\nRelease: Lab 1\n    \nT\n6 September\nLecture 3\nGrammar of graphics\n\n\n\n\n\n\n\n\n    \nTh\n8 September\nLecture 4\nVisualizing various types of data\n\n\n\n\n\n\n\nRelease: HW 1\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 1\n    3\nM\n12 September\nLab 2\nData visualization\n\n\n\n\n\n\n\nRelease: Lab 2\n    \nT\n13 September\nLecture 5\nGrammar of data wrangling\n\n\n\n\n\n\n\n\n    \nTh\n15 September\nLecture 6\nWorking with multiple data frames\n\n\n\n\n\n\n\nDue: HW 1 / Release: HW 2\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 2\n    4\nM\n19 September\nLab 3\nData wrangling\n\n\n\n\n\n\n\nRelease: Lab 3\n    \nT\n20 September\nLecture 7\nTidying data\n\n\n\n\n\n\n\n\n    \nTh\n22 September\nLecture 8\nData types and classes\n\n\n\n\n\n\n\nDue HW 2\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 3\n    5\nM\n26 September\nLab 4\nData tidying\n\n\n\n\n\n\n\nRelease: Lab 4\n    \nT\n27 September\nLecture 9\nImporting and recoding data\n\n\n\n\n\n\n\n\n    \nTh\n29 September\nLecture 10\nTips: Effective data visualization + troubleshooting + debugging\n\n\n\n\n\n\n\nRelease: Exam 1 at 12pm\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 4\n    6\nM\n3 October\nLab\nNo lab - Work on Exam 1\n\n\n\n\n\n\n\nDue: Exam 1 at 2pm\n    \nT\n4 October\nLecture 11\nWeb scraping\n\n\n\n\n\n\n\n\n    \nTh\n6 October\nLecture 12\nFunctions + iteration\n\n\n\n\n\n\n\nRelease: HW 3\n    7\nM\n10 October\nLab\nNo lab - Fall break\n\n\n\n\n\n\n\n\n    \nT\n11 October\nLecture\nNo lecture - Fall break\n\n\n\n\n\n\n\n\n    \nTh\n13 October\nLecture 13\nData science ethics\n\n\n\n\n\n\n\nDue: HW 3\n    8\nM\n17 October\nLab\nWork on project proposal\n\n\n\n\n\n\n\n\n    \nT\n18 October\nLecture 14\nProbability + Simpson's Paradox\n\n\n\n\n\n\n\n\n    \nTh\n20 October\nLecture 15\nThe language of models\n\n\n\n\n\n\n\n\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Project proposal\n    9\nM\n24 October\nLab 5\nExploratory data analysis\n\n\n\n\n\n\n\n\n    \nT\n25 October\nLecture 16\nModels with a single predictor\n\n\n\n\n\n\n\n\n    \nTh\n27 October\nLecture 17\nModels with multiple predictors\n\n\n\n\n\n\n\nRelease: HW 4\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 5\n    10\nM\n31 October\nLab 6\nPredicting a numerical outcome\n\n\n\n\n\n\n\n\n    \nT\n1 November\nLecture 18\nLogistic regression\n\n\n\n\n\n\n\n\n    \nTh\n3 November\nLecture 19\nPrediction and overfitting\n\n\n\n\n\n\n\nDue: HW 4 / Release: HW 5\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 6\n    11\nM\n7 November\nLab 7\nPredicting a categorical outcome\n\n\n\n\n\n\n\n\n    \nT\n8 November\nLecture 20\nQuantifying uncertainty\n\n\n\n\n\n\n\n\n    \nTh\n10 November\nLecture 21\nEstimation with bootstrap intervals\n\n\n\n\n\n\n\nDue: HW 5\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 7\n    12\nM\n14 November\nLab 8\nBootstrapping\n\n\n\n\n\n\n\n\n    \nT\n15 November\nLecture 22\nHypothesis testing via simulation\n\n\n\n\n\n\n\n\n    \nTh\n17 November\nLecture 23\nSimulation based inference overview\n\n\n\n\n\n\n\nRelease: Exam 2 at 12pm\n    \nF\n\n\n\n\n\n\n\n\n\n\nDue: Lab 8\n    13\nM\n21 November\nLab\nNo lab - Work on Exam 1\n\n\n\n\n\n\n\nDue: Exam 2 at 2pm\n    \nT\n22 November\nLecture 24\nInference with the Central Limit Theorem\n\n\n\n\n\n\n\n\n    \nTh\n24 November\nLecture\nNo lab - Thanksgiving\n\n\n\n\n\n\n\nDue: Project draft due\n    14\nM\n28 November\nLab\nProject peer review\n\n\n\n\n\n\n\n\n    \nT\n29 November\nLecture 25\nCustomizing Quarto reports and presentations\n\n\n\n\n\n\n\n\n    \nTh\n1 December\nLecture 26\nCommunicating data science results effectively\n\n\n\n\n\n\n\n\n    15\nM\n5 December\nLab\nProject presentations\n\n\n\n\n\n\n\n\n    \nT\n6 December\nLecture 25\nLooking further topic 1\n\n\n\n\n\n\n\n\n    \nTh\n8 December\nLecture 26\nLooking further topic 2\n\n\n\n\n\n\n\nDue: Project everything\n    \nF\n9 December\n\n\n\n\n\n\n\n\n\nDue: HW 6 / Statistics experience"
   }
 ]

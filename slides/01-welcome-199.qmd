@@ -1,0 +1,5 @@
+---
+title: "Welcome to STA 199"
+subtitle: "Lecture 1"
+date: "August 30, 2022"
+---

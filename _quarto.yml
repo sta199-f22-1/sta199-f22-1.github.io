@@ -5,7 +5,7 @@ project:
 website:
   title: "STA 199"
   sidebar:
-    background: "#00539B"
+    background: "#00539B" # Pantone Midnight - Fall 2022
     logo: "images/logo.png"
     pinned: true
     align: center
