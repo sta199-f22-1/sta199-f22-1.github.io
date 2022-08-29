@@ -1,8 +1,10 @@
 ---
 title: "Schedule"
+execute:
+  freeze: false
 ---
 
-**Note**: The timeline of topics and assignments might be updated throughout the semester. 
+**Note**: The timeline of topics and assignments might be updated throughout the semester.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(googlesheets4)
