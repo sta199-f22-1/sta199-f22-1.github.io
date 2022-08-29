@@ -79,8 +79,8 @@ website:
 format:
   html:
     theme:
-      light: [cosmo, style/dsbox.scss]
-      dark: [cosmo, style/dsbox.scss, style/dark.scss]
+      light: [cosmo, style/sta199.scss]
+      dark: [cosmo, style/sta199.scss, style/dark.scss]
     linkcolor: "#325b74" # Pantone Midnight - Fall 2022
     toc: true
     code-copy: true
