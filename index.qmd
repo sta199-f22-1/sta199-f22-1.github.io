@@ -1,5 +1,6 @@
 ---
-title: "STA 199: Introduction to Data science"
+title: "STA 199: Introduction to Data Science"
+subtitle: "Section 1 - Dr. Mine Çetinkaya-Rundel"
 execute:
   freeze: false
 ---

@@ -1,9 +1,6 @@
 ---
-title: "Introduction to Data Science"
-subtitle: "Section 1 - Dr. Mine Çetinkaya-Rundel"
+title: "Course overview"
 ---
-
-## Course overview
 
 Intro to data science and statistical thinking.
 Learn to explore, visualize, and analyze data to understand natural phenomena, investigate patterns, model outcomes, and make predictions, and do so in a reproducible and shareable manner.
