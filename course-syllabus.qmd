@@ -2,7 +2,9 @@
 title: "Syllabus"
 ---
 
-[**Click here**](INSERT%20LINK) **to download a PDF copy of the syllabus.**
+::: {.content-visible when-format="html"}
+[**Click here**](sta199-f22-1-syllabus.pdf) **to download a PDF copy of the syllabus.**
+:::
 
 ## Office hours
 
@@ -14,7 +16,7 @@ You are welcomed to attend the office hours for **any** STA 199 TA, regardless o
 All books are **freely available online**.
 
 |                                                                         |                          |                                   |                                                                                                                                  |
-|---------------|--------------|--------------|------------------------------|
+|----------------|--------------|--------------|------------------------------|
 | [R for Data Science, 2e](https://r4ds.hadley.nz/)                       | Grolemund, Wickham       | O'Reilly, 2nd edition, 2022       | Hard copy only available of 1st edition                                                                                          |
 | [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel, Hardin | OpenIntro Inc., 1st Edition, 2021 | Hard copy available [on Amazon](https://www.amazon.com/Introduction-Modern-Statistics-Mine-%C3%87etinkaya-Rundel/dp/1943450145/) |
 
@@ -65,7 +67,7 @@ Students should be in touch with the Student Disability Access Office to [reques
 
 ### Communication
 
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, **UPDATE LINK**.
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website: [sta199-f22-1.github.io](https://sta199-f22-1.github.io/ "STA 199 - Fall 2022 - Section 1 course website").
 
 Announcements will be emailed through Sakai Announcements periodically.
 Please check your email regularly to ensure you have the latest announcements for the course.
@@ -74,7 +76,7 @@ Please check your email regularly to ensure you have the latest announcements fo
 
 -   If you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.
 -   The teaching team is here to help you be successful in the course. You are encouraged to attend office hours to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. Please use them!
--   Outside of class and office hours, any general questions about course content or assignments should be posted on [Ed Discussion](https://edstem.org/us/courses/8027/discussion/). There is a chance another student has already asked a similar question, so please check the other posts in Ed Discussion before adding a new question. If you know the answer to a question posted in the discussion forum, I encourage you to respond!
+-   Outside of class and office hours, any general questions about course content or assignments should be posted on the course Slack. There is a chance another student has already asked a similar question, so please check the other posts on Slack before adding a new question. If you know the answer to a question posted on Slack, I encourage you to respond!
 
 Check out the [Help](/help/) tab for more resources.
 
@@ -149,7 +151,7 @@ More details about the content and structure of the exams will be discussed duri
 
 ### Project (Perform)
 
-The purpose of the [project](/project/) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question.
+The purpose of the [project](project-description.html) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question.
 The project will be completed with your lab teams, and each team will present their work in video and in writing during the final exam period.
 More information about the project will be provided during the semester.
 
@@ -244,9 +246,13 @@ To request a particular lecture's video, please fill out the form at **INSERT LI
 ## Important dates
 
 -   **Aug 29:** Classes begin
--   **Sep 9**: Drop/add ends
+-   **Sep 9:** Drop/add ends
+-   **Sep 29:** Exam 1 released
+-   **Oct 3:** Exam 1 due (at 2pm)
 -   **Oct 10-11**: Fall break
 -   **Nov 11**: Last day to withdraw with W
+-   **Nov 17:** Exam 2 released
+-   **Nov 21:** Exam 2 due (at 2pm)
 -   **Nov 23-25:** Thanksgiving recess
 -   **Dec 9**: Classes end
 -   **Dec 10-13**: Reading period

@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resouces:
+    - sta199-f22-1-syllabus.pdf
 
 website:
   page-navigation: true
