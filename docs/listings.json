@@ -25,13 +25,5 @@
       "/slides/week-01/01-example.html",
       "/slides/week-01/02-demo.html"
     ]
-  },
-  {
-    "listing": "/schedule.html",
-    "items": [
-      "/weeks/week-01.html",
-      "/weeks/week-02.html",
-      "/weeks/week-03.html"
-    ]
   }
 ]

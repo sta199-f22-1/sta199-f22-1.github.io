@@ -24,8 +24,6 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -56,38 +54,8 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-schedule .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-description','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-schedule'] = new List('listing-schedule', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -145,19 +113,7 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#weekly-schedule" id="toc-weekly-schedule" class="nav-link active" data-scroll-target="#weekly-schedule">Weekly schedule</a></li>
-  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a>
-  <ul class="collapse">
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
-  <li><a href="#labs" id="toc-labs" class="nav-link" data-scroll-target="#labs">Labs</a></li>
-  <li><a href="#exams" id="toc-exams" class="nav-link" data-scroll-target="#exams">Exams</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -178,89 +134,9 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="weekly-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="weekly-schedule">Weekly schedule</h2>
-<div id="listing-schedule" class="quarto-listing quarto-listing-container-table">
-
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Week
-</th>
-<th>
-Dates
-</th>
-<th>
-Topic
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1661541575718" data-listing-reading-time-sort="1.23" data-listing-title-sort="Week 01" data-listing-filename-sort="week-01.qmd">
-<td class="listing-title">
-<a href="./weeks/week-01.html" class="title">Week 01</a>
-</td>
-<td class="listing-description">
-Aug 29 - Sep 02
-</td>
-<td class="listing-subtitle">
-Welcome to Intro Data Science
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1661541575718" data-listing-reading-time-sort="0.195" data-listing-title-sort="Week 02" data-listing-filename-sort="week-02.qmd">
-<td class="listing-title">
-<a href="./weeks/week-02.html" class="title">Week 02</a>
-</td>
-<td class="listing-description">
-Sep 05 - 09
-</td>
-<td class="listing-subtitle">
-Visualizing Data
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1661541575718" data-listing-reading-time-sort="0.025" data-listing-title-sort="Week 03" data-listing-filename-sort="week-03.qmd">
-<td class="listing-title">
-<a href="./weeks/week-03.html" class="title">Week 03</a>
-</td>
-<td class="listing-description">
-Sep 12 - 16
-</td>
-<td class="listing-subtitle">
-Wrangling Data
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="assignments" class="level2">
-<h2 class="anchored" data-anchor-id="assignments">Assignments</h2>
-<p>Below are assignment due dates for the semester. You can find details and assignment instructions in the relevant week on the schedule.</p>
-<section id="homework" class="level3">
-<h3 class="anchored" data-anchor-id="homework">Homework</h3>
-<p>Homework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.</p>
-</section>
-<section id="labs" class="level3">
-<h3 class="anchored" data-anchor-id="labs">Labs</h3>
-<p>Labs will be due on Fridays at 11:59pm. You will start the lab during your scheduled lab section.</p>
-</section>
-<section id="exams" class="level3">
-<h3 class="anchored" data-anchor-id="exams">Exams</h3>
-<p>There will be two exams on the dates:</p>
-<ul>
-<li><p>October 12, 9am - October 14, 11:59pm</p></li>
-<li><p>November 16, 9am - November 16: 11:59pm</p></li>
-</ul>
+<p>Under construction!</p>
 
 
-
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
