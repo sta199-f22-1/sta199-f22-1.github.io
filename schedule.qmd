@@ -76,11 +76,11 @@ d %>%
   sub_missing(columns = c(date, what, topic, notes), missing_text = "") %>%
   cols_align(
     align = "center", 
-    columns = c(week, dow)
+    columns = c(week, dow, prepare, slides, ae, hw, lab, exam, project)
     ) %>%
   cols_align(
     align = "left", 
-    columns = c(date, what, topic)
+    columns = c(date, what, topic, notes)
     )  
 ```
 
