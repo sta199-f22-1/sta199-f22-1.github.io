@@ -14,7 +14,7 @@ You are welcomed to attend the office hours for **any** STA 199 TA, regardless o
 All books are **freely available online**.
 
 |                                                                         |                          |                                   |                                                                                                                                  |
-|-------------------------------------------------------------------------|--------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+|---------------|--------------|--------------|------------------------------|
 | [R for Data Science, 2e](https://r4ds.hadley.nz/)                       | Grolemund, Wickham       | O'Reilly, 2nd edition, 2022       | Hard copy only available of 1st edition                                                                                          |
 | [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel, Hardin | OpenIntro Inc., 1st Edition, 2021 | Hard copy available [on Amazon](https://www.amazon.com/Introduction-Modern-Statistics-Mine-%C3%87etinkaya-Rundel/dp/1943450145/) |
 
@@ -240,43 +240,6 @@ To request a particular lecture's video, please fill out the form at **INSERT LI
 -   **COVID Symptoms, Exposure, or Infection:** Student health, safety, and well-being are the university's top priorities. To help ensure your well-being and the well-being of those around you, **please do not come to class** **if you have tested positive for COVID-19 or have possible symptoms and have not yet been tested.** If any of these situations apply to you, you must follow university guidance related to the ongoing COVID-19 pandemic and current health and safety protocols. If you are experiencing any COVID-19 symptoms, [contact student health](https://coronavirus.duke.edu/testing/#symptomatic-testing) ([dshcheckin\@duke.edu](mailto:dshcheckin@duke.edu), 919-681-9355). Learn more about current university policy related to COVID-19 at [https://coronavirus.duke.edu](https://coronavirus.duke.edu/). To keep the university community's safe and healthy as possible, you will be expected to follow these guidelines. Please reach out to me and your academic dean as soon as possible if you need to quarantine or isolate so that we can discuss arrangements for your continued participation in class.
 -   **Inclement weather:** In the event of inclement weather or other connectivity-related events that prohibit class attendance, I will notify you how we will make up missed course content and work.  Asynchronous catch-up methods may apply.
 -   **Religious accommodations:** Students are permitted by university policy to be absent from class to observe a religious holiday. Accordingly, Trinity College of Arts & Sciences and the Pratt School of Engineering have established procedures to be followed by students for notifying their instructors of an absence necessitated by the observance of a religious holiday. Please submit requests for religious accommodations at the beginning of the semester so that we can work to make suitable arrangements well ahead of time. You can find the policy and relevant notification form here: <https://trinity.duke.edu/undergraduate/academic-policies/religious-holidays>.
-
-## Additional resources
-
-### Academic Resource Center
-
-There are times may need help with the class that is beyond what can be provided by the teaching team.
-In those instances, I encourage you to visit the Academic Resource Center.
-The [Academic Resource Center (ARC)](https://arc.duke.edu) offers free services to all students during their undergraduate careers at Duke.
-Services include Learning Consultations, Peer Tutoring and Study Groups, ADHD/LD Coaching, Outreach Workshops, and more.
-Because learning is a process unique to every individual, they work with each student to discover and develop their own academic strategy for success at Duke.
-Contact the ARC to schedule an appointment.
-Undergraduates in any year, studying any discipline can benefit!
-Contact [ARC\@duke.edu](mailto:arc@duke.edu), 919-684-5917.
-
-### Mental health and wellness
-
-If your mental health concerns and/or stressful events negatively affect your daily emotional state, academic performance, or ability to participate in your daily activities, many resources are available to help you through difficult times. 
-Duke encourages all students to access these resources.
-
--   **CAPS:** [Duke Counseling & Pyschological Services (CAPS)](https://studentaffairs.duke.edu/caps) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS recognizes that we are living in unprecedented times and that the changes, challenges and stressors brought on by the COVID-19 pandemic have impacted everyone, often in ways that are tax our well-being. CAPS offers many services to Duke undergraduate students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.
--   **DuWell:** (919) 681-8421, provides Moments of Mindfulness (stress management and resilience building) and meditation programming to assist students in developing a daily emotional well-being practice. To see schedules for programs please see <https://studentaffairs.duke.edu/duwell>. All are welcome and no experience necessary.
--   **DukeReach:** Provides comprehensive outreach services to identify and support students in managing all aspects of well-being. If you have concerns about a student's behavior or health visit the website for resources and assistance: <http://studentaffairs.duke.edu/dukereach>.
--   **TimelyCare:** (formerly known as Blue Devils Care) An online platform that is a convenient, confidential, and free way for Duke students to receive 24/7 mental health support through TalkNow and scheduled counseling: <https://bluedevilscare.duke.edu>.
--   **Two-Click Support:** Duke Student Government and DukeReach partnership that connects students to help in just two clicks: <https://bit.ly/TwoClickSupport>.
-
-### Course costs
-
--   **Textbooks:** The textbooks for this course are freely available on the web.
--   **Laptops:** Each student is expected to have a laptop they can bring to each lecture and lab.
-
-If you are having difficulty with costs associated with this course, here are some resources:
-
--   [Contact the financial aid office](https://financialaid.duke.edu/contact "https://financialaid.duke.edu/contact") (whether or not you are on aid).
-    They have loans and resources for connecting students with programs on campus that might be able to help alleviate these costs.
-
--   DukeLIFE offers [course materials assistance](https://dukelife.duke.edu/programs/course-materials-assistance/ "https://dukelife.duke.edu/programs/course-materials-assistance/") for eligible students.
-    Please note that students who are eligible for DukeLIFE benefits are notified prior to the start of the semester; program resources are limited.
 
 ## Important dates
 
