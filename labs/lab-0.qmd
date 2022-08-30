@@ -40,7 +40,7 @@ Your lab TA will lead you through the Getting Started and Packages sections.
 
 ## Log in to RStudio
 
--   Go to <https://vm-manage.oit.duke.edu/containers> and login with your Duke NetID and Password.
+-   Go to <https://cmgr.oit.duke.edu/containers> and login with your Duke NetID and Password.
 -   Click `STA198-199` to log into the Docker container. You should now see the RStudio environment.
 
 ::: callout-warning
@@ -93,7 +93,7 @@ You are now ready interact with GitHub via RStudio!
 
 ## Clone the repo & start new RStudio project
 
--   Go to the course organization at [github.com/sta199-f22-1](https://github.com/sta199-f22-2) organization on GitHub.
+-   Go to the course organization at [github.com/sta199-f22-1](https://github.com/sta199-f22-1) organization on GitHub.
     Click on the repo with the prefix **lab-0**.
     It contains the starter documents you need to complete the lab.
 
