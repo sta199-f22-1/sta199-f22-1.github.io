@@ -314,6 +314,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 <meta name="twitter:title" content="STA 199 - Welcome to STA 199">
 <meta name="twitter:description" content="Lecture 1">
 <meta name="twitter:image" content="https://sta199-f22-1.github.io/images/twitter-card.png">
@@ -334,14 +336,451 @@
   <p class="date">August 30, 2022</p>
 </section>
 
-<section class="slide level2">
+<section>
+<section id="hello-world" class="title-slide slide level1 center">
+<h1>Hello world!</h1>
+<div class="cell">
 
+</div>
+</section>
+<section id="meet-the-prof" class="slide level2">
+<h2>Meet the prof</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+<p>Professor of the Practice</p>
+<p>Old Chem 213</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/01/mine.png" alt="Headshot of Dr. Mine Çetinkaya-Rundel"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="meet-the-course-team" class="slide level2 smaller">
+<h2>Meet the course team</h2>
+<ul>
+<li>Foxx Hart - Lecture helper</li>
+<li>Bora Jin - Course organizer, lab leader</li>
+<li>Jordan Bryan - Head TA, lab leader</li>
+<li>Richard Fremgen - Lab leader</li>
+<li>Leah Johnson - Lab leader</li>
+<li>Alison Reynolds - Lab leader</li>
+<li>Brooke Harmon - Lab helper</li>
+<li>Jasmine Wen - Lab helper</li>
+<li>Amber Potter - Lab helper</li>
+<li>Shawon (One) Chowdhury - Lab helper</li>
+<li>Gaurav Sirdeshmukh - Lab helper</li>
+</ul>
+</section>
+<section id="meet-each-other" class="slide level2">
+<h2>Meet each other!</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown countdown-fullscreen" id="timer_af1bce78" data-update-every="1" tabindex="0" style="top:0;right:0;bottom:0;left:0;margin:0;padding:0;font-size:30vw;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="meet-data-science" class="slide level2">
+<h2>Meet data science</h2>
+<ul>
+<li><p>Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.</p></li>
+<li><p>We’re going to learn to do this in a <code>tidy</code> way – more on that later!</p></li>
+<li><p>This is a course on introduction to data science, with an emphasis on statistical thinking.</p></li>
+</ul>
+</section>
+<section id="course-faq" class="slide level2">
+<h2>Course FAQ</h2>
+<p><strong>Q - What data science background does this course assume?</strong><br>
+A - None.</p>
+<div class="fragment">
+<p><strong>Q - Is this an intro stat course?</strong><br>
+A - While statistics <span class="math inline">\(\ne\)</span> data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is <em>not</em> your typical high school statistics course.</p>
+</div>
+<div class="fragment">
+<p><strong>Q - Will we be doing computing?</strong><br>
+A - Yes.</p>
+</div>
+</section>
+<section id="course-faq-1" class="slide level2">
+<h2>Course FAQ</h2>
+<p><strong>Q - Is this an intro CS course?</strong><br>
+A - No, but many themes are shared.</p>
+<div class="fragment">
+<p><strong>Q - What computing language will we learn?</strong><br>
+A - R.</p>
+</div>
+<div class="fragment">
+<p><strong>Q: Why not language X?</strong><br>
+A: We can discuss that over ☕.</p>
+</div>
+</section></section>
+<section>
+<section id="software" class="title-slide slide level1 center">
+<h1>Software</h1>
+
+</section>
+<section id="excel---not" class="slide level2">
+<h2>Excel - not…</h2>
+
+<img data-src="images/01/excel.png" alt="An Excel window with data about countries" class="r-stretch quarto-figure-center"></section>
+<section id="r" class="slide level2">
+<h2>R</h2>
+
+<img data-src="images/01/r.png" alt="An R shell" class="r-stretch quarto-figure-center"></section>
+<section id="rstudio" class="slide level2">
+<h2>RStudio</h2>
+
+<img data-src="images/01/rstudio.png" alt="An RStudio window" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="data-science-life-cycle" class="title-slide slide level1 center">
+<h1>Data science life cycle</h1>
+
+</section>
+<section id="data-science-life-cycle-1" class="slide level2">
+<h2>Data science life cycle</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.001.png" alt="Data science life cycle" class="r-stretch"></section>
+<section id="import" class="slide level2">
+<h2>Import</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.002.png" alt="Data science life cycle, with import highlighted" class="r-stretch"></section>
+<section id="tidy-transform" class="slide level2">
+<h2>Tidy + transform</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.003.png" alt="Data science life cycle, with tidy and transform highlighted" class="r-stretch"></section>
+<section id="visualize" class="slide level2">
+<h2>Visualize</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.004.png" alt="Data science life cycle, with visualize highlighted" class="r-stretch"></section>
+<section id="model" class="slide level2">
+<h2>Model</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.005.png" alt="Data science life cycle, with model highlighted" class="r-stretch"></section>
+<section id="understand" class="slide level2">
+<h2>Understand</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.006.png" alt="Data science life cycle, with understand highlighted" class="r-stretch"></section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/01/google-trend-index.png" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="images/01/data-science-cycle/data-science-cycle.006.png" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  date             season
+  &lt;chr&gt;            &lt;chr&gt; 
+1 23 January 2017  winter
+2 4 March 2017     spring
+3 14 June 2017     summer
+4 1 September 2017 fall  
+5 ...              ...   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="communicate" class="slide level2">
+<h2>Communicate</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.007.png" alt="Data science life cycle, with communicate highlighted" class="r-stretch"></section>
+<section id="understand-communicate" class="slide level2">
+<h2>Understand + communicate</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.008.png" alt="Data science life cycle, with understand and communicate highlighted" class="r-stretch"></section>
+<section id="program" class="slide level2">
+<h2>Program</h2>
+
+<img data-src="images/01/data-science-cycle/data-science-cycle.009.png" alt="Data science life cycle, with program highlighted" class="r-stretch"></section></section>
+<section>
+<section id="lets-dive-in" class="title-slide slide level1 center">
+<h1>Let’s dive in!</h1>
+
+</section>
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
+<div class="appex">
+<p>Or more like demo for today…</p>
+<p>📋 <a href="https://github.com/sta199-f22-1/ae-0-unvotes/">github.com/sta199-f22-1/ae-0-unvotes</a></p>
+</div>
+</section></section>
+<section>
+<section id="course-overview" class="title-slide slide level1 center">
+<h1>Course overview</h1>
+
+</section>
+<section id="homepage" class="slide level2">
+<h2>Homepage</h2>
+<p><a href="https://sta199-f22-1.github.io/" class="uri">https://sta199-f22-1.github.io/</a></p>
+<ul>
+<li>All course materials</li>
+<li>Links to Sakai, GitHub, RStudio containers, etc.</li>
+<li>Let’s take a tour!</li>
+</ul>
+</section>
+<section id="course-toolkit" class="slide level2">
+<h2>Course toolkit</h2>
+<p>All linked from the course website:</p>
+<ul>
+<li>GitHub organization: <a href="https://github.com/sta199-f22-1">github.com/sta199-f22-1</a></li>
+<li>RStudio containers: <a href="https://cmgr.oit.duke.edu/containers">cmgr.oit.duke.edu/containers</a></li>
+<li>Communication: Slack</li>
+<li>Assignment submission and feedback: Gradescope</li>
+</ul>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Reserve an RStudio Container (titled STA 198-199) before lab on Monday!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="activities-prepare-participate-practice-perform" class="slide level2 smaller">
+<h2>Activities: Prepare, Participate, Practice, Perform</h2>
+<ul>
+<li><strong>Prepare:</strong> Introduce new content and prepare for lectures by watching the videos and completing the readings</li>
+<li><strong>Participate:</strong> Attend and actively participate in lectures and labs, office hours, team meetings</li>
+<li><strong>Practice:</strong> Practice applying statistical concepts and computing with application exercises during lecture, graded for completion</li>
+<li><strong>Perform:</strong> Put together what you’ve learned to analyze real-world data
+<ul>
+<li>Lab assignments x 7 (first individual, later team-based)</li>
+<li>Homework assignments x 5 (individual)</li>
+<li>Three take-home exams x 2</li>
+<li>Term project presented in the last lab session</li>
+</ul></li>
+</ul>
+</section>
+<section id="cadence" class="slide level2">
+<h2>Cadence</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Labs:</strong> Start and make large progress on Monday in lab section, finish up by Friday 5pm of that week</li>
+<li class="fragment"><strong>HWs:</strong> Posted Thursday morning, due following Thursday</li>
+<li class="fragment"><strong>Exams:</strong> Exam released Thursday morning, no lab on Monday of following week, due Monday 2pm</li>
+<li class="fragment"><strong>Project:</strong> Deadlines throughout the semester, with some lab and lecture time dedicated to working on them, and most work done in teams outside of class</li>
+</ul>
+</div>
+</section>
+<section id="teams" class="slide level2">
+<h2>Teams</h2>
+<ul>
+<li>Team assignments
+<ul>
+<li>Assigned by me</li>
+<li>Application exercises, labs, and project</li>
+<li>Peer evaluation during teamwork and after completion</li>
+</ul></li>
+<li>Expectations and roles
+<ul>
+<li>Everyone is expected to contribute equal <em>effort</em></li>
+<li>Everyone is expected to understand <em>all</em> code turned in</li>
+<li>Individual contribution evaluated by peer evaluation, commits, etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="grading" class="slide level2 smaller">
+<h2>Grading</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Homework</td>
+<td>30% (5% x 6)</td>
+</tr>
+<tr class="even">
+<td>Labs</td>
+<td>16% (2% x 8)</td>
+</tr>
+<tr class="odd">
+<td>Project</td>
+<td>15%</td>
+</tr>
+<tr class="even">
+<td>Exam 01</td>
+<td>17%</td>
+</tr>
+<tr class="odd">
+<td>Exam 02</td>
+<td>17%</td>
+</tr>
+<tr class="even">
+<td>Application Exercises</td>
+<td>2.5%</td>
+</tr>
+<tr class="odd">
+<td>Teamwork</td>
+<td>2.5%</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="https://sta199-f22-1.github.io/course-syllabus.html">course syllabus</a> for how the final letter grade will be determined.</p>
+</section>
+<section id="support" class="slide level2">
+<h2>Support</h2>
+<ul>
+<li>Attend office hours</li>
+<li>Ask and answer questions on the discussion forum</li>
+<li>Reserve email for questions on personal matters and/or grades</li>
+<li>Read the <a href="https://sta199-f22-1.github.io/course-support.html">course support</a> page</li>
+</ul>
+</section>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ul>
+<li>Posted on Sakai (Announcements tool) and sent via email, be sure to check both regularly</li>
+<li>I’ll assume that you’ve read an announcement by the next “business” day</li>
+<li>I’ll (try my best to) send a weekly update announcement each Friday, outlining the plan for the following week and reminding you what you need to do to prepare, practice, and perform</li>
+</ul>
+</section>
+<section id="diversity-inclusion" class="slide level2 smaller">
+<h2>Diversity + inclusion</h2>
+<p>It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.</p>
+<div>
+<ul>
+<li class="fragment">Please let me know your preferred name and pronouns on the Getting to know you survey.</li>
+<li class="fragment">If you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisors and deans are excellent resources.</li>
+<li class="fragment">I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.</li>
+</ul>
+</div>
+</section>
+<section id="accessibility" class="slide level2">
+<h2>Accessibility</h2>
+<ul>
+<li><p>The <a href="https://access.duke.edu/students">Student Disability Access Office (SDAO)</a> is available to ensure that students are able to engage with their courses and related assignments.</p></li>
+<li><p>I am committed to making all course materials accessible and I’m always learning how to do this better. If any course component is not accessible to you in any way, please don’t hesitate to let me know.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="course-policies" class="title-slide slide level1 center">
+<h1>Course policies</h1>
+
+</section>
+<section id="covid-policies" class="slide level2">
+<h2>COVID policies</h2>
+<ul>
+<li><p>Wear a mask at all times!</p></li>
+<li><p>Read and follow university guidance</p></li>
+</ul>
+</section>
+<section id="late-work-waivers-regrades-policy" class="slide level2">
+<h2>Late work, waivers, regrades policy</h2>
+<ul>
+<li>We have policies!</li>
+<li>Read about them on the <a href="https://sta199-f22-1.github.io/course-syllabus.html">course syllabus</a> and refer back to them when you need it</li>
+</ul>
+</section>
+<section id="collaboration-policy" class="slide level2">
+<h2>Collaboration policy</h2>
+<ul>
+<li><p>Only work that is clearly assigned as team work should be completed collaboratively.</p></li>
+<li><p>Homeworks must be completed individually. You may <strong>not</strong> directly share answers / code with others, however you are welcome to discuss the problems in general and ask for advice.</p></li>
+<li><p>Exams must be completed individually. You may <strong>not</strong> discuss any aspect of the exam with peers. If you have questions, post as private questions on the course forum, only the teaching team will see and answer.</p></li>
+</ul>
+</section>
+<section id="sharing-reusing-code-policy" class="slide level2">
+<h2>Sharing / reusing code policy</h2>
+<ul>
+<li><p>We are aware that a huge volume of code is available on the web, and many tasks may have solutions posted</p></li>
+<li><p>Unless explicitly stated otherwise, this course’s policy is that you may make use of any online resources (e.g.&nbsp;RStudio Community, StackOverflow, etc.) but you must explicitly cite where you obtained any code you directly use or use as inspiration in your solution(s).</p></li>
+<li><p>Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source</p></li>
+</ul>
+</section>
+<section id="academic-integrity" class="slide level2">
+<h2>Academic integrity</h2>
+<blockquote>
+<p>To uphold the Duke Community Standard:</p>
+<ul>
+<li><p>I will not lie, cheat, or steal in my academic endeavors;</p></li>
+<li><p>I will conduct myself honorably in all my endeavors; and</p></li>
+<li><p>I will act if the Standard is compromised.</p></li>
+</ul>
+</blockquote>
+</section>
+<section id="most-importantly" class="slide level2">
+<h2>Most importantly!</h2>
+<p>Ask if you’re not sure if something violates a policy!</p>
+</section></section>
+<section>
+<section id="making-sta-199-a-success" class="title-slide slide level1 center">
+<h1>Making STA 199 a success</h1>
+
+</section>
+<section id="five-tips-for-success" class="slide level2">
+<h2>Five tips for success</h2>
+<ol type="1">
+<li>Complete all the preparation work before class.</li>
+<li>Ask questions.</li>
+<li>Do the readings and watch the videos.</li>
+<li>Do the homework and lab.</li>
+<li>Don’t procrastinate and don’t let a week pass by with lingering questions.</li>
+</ol>
+</section>
+<section id="learning-during-a-pandemic" class="slide level2">
+<h2>Learning during a pandemic</h2>
+<p>I want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.</p>
+<div>
+<ul>
+<li class="fragment">You never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.</li>
+<li class="fragment">I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.</li>
+</ul>
+</div>
+</section>
+<section id="this-weeks-tasks" class="slide level2">
+<h2>This week’s tasks</h2>
+<ul>
+<li>Get a GitHub account if you don’t have one (some advice for choosing a username <a href="https://happygitwithr.com/github-acct.html#username-advice" title="Happy Git with R">here</a>)</li>
+<li>Complete the Getting to know you survey if you haven’t yet done so!</li>
+<li>Read the syllabus</li>
+</ul>
+</section>
+<section id="midori-says" class="slide level2">
+<h2>Midori says…</h2>
+
+<img data-src="images/01/midori.jpeg" alt="Picture of my cat, Midori, with a speech bubble that says &quot;Read the syllabus and make Mine happy!&quot;" width="700" class="r-stretch quarto-figure-center"></section>
+<section id="its-r" class="slide level2">
+<h2>It’s R!</h2>
+<p><a href="https://twitter.com/rafamoral/status/1564376662971760642">https://twitter.com/rafamoral/status/1564376662971760642</a></p>
 
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://sta199-f22-1.github.io/">🔗 sta199-f22-1.github.io</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -556,6 +995,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

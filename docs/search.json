@@ -362,5 +362,334 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots)."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#data-science",
+    "href": "slides/01-welcome-199.html#data-science",
+    "title": "Welcome to STA 199",
+    "section": "Data science",
+    "text": "Data science\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nWe’re going to learn to do this in a tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#course-faq",
+    "href": "slides/01-welcome-199.html#course-faq",
+    "title": "Welcome to STA 199",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None.\n\nQ - Is this an intro stat course?\nA - While statistics \\(\\ne\\) data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is not your typical high school statistics course.\n\n\nQ - Will we be doing computing?\nA - Yes."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#course-faq-1",
+    "href": "slides/01-welcome-199.html#course-faq-1",
+    "title": "Welcome to STA 199",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#excel",
+    "href": "slides/01-welcome-199.html#excel",
+    "title": "Welcome to STA 199",
+    "section": "Excel",
+    "text": "Excel"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#r",
+    "href": "slides/01-welcome-199.html#r",
+    "title": "Welcome to STA 199",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#rstudio",
+    "href": "slides/01-welcome-199.html#rstudio",
+    "title": "Welcome to STA 199",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#section-7",
+    "href": "slides/01-welcome-199.html#section-7",
+    "title": "Welcome to STA 199",
+    "section": "",
+    "text": "# A tibble: 5 × 2\n  date             season\n  <chr>            <chr> \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#section-26",
+    "href": "slides/01-welcome-199.html#section-26",
+    "title": "Welcome to STA 199",
+    "section": "",
+    "text": "minecr.shinyapps.io/unvotes\n\n\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#data-science-life-cycle-1",
+    "href": "slides/01-welcome-199.html#data-science-life-cycle-1",
+    "title": "Welcome to STA 199",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#import",
+    "href": "slides/01-welcome-199.html#import",
+    "title": "Welcome to STA 199",
+    "section": "Import",
+    "text": "Import"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#tidy-transform",
+    "href": "slides/01-welcome-199.html#tidy-transform",
+    "title": "Welcome to STA 199",
+    "section": "Tidy + transform",
+    "text": "Tidy + transform"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#visualize",
+    "href": "slides/01-welcome-199.html#visualize",
+    "title": "Welcome to STA 199",
+    "section": "Visualize",
+    "text": "Visualize"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#model",
+    "href": "slides/01-welcome-199.html#model",
+    "title": "Welcome to STA 199",
+    "section": "Model",
+    "text": "Model"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#understand",
+    "href": "slides/01-welcome-199.html#understand",
+    "title": "Welcome to STA 199",
+    "section": "Understand",
+    "text": "Understand"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#section",
+    "href": "slides/01-welcome-199.html#section",
+    "title": "Welcome to STA 199",
+    "section": "",
+    "text": "# A tibble: 5 × 2\n  date             season\n  <chr>            <chr> \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#communicate",
+    "href": "slides/01-welcome-199.html#communicate",
+    "title": "Welcome to STA 199",
+    "section": "Communicate",
+    "text": "Communicate"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#understand-communicate",
+    "href": "slides/01-welcome-199.html#understand-communicate",
+    "title": "Welcome to STA 199",
+    "section": "Understand + communicate",
+    "text": "Understand + communicate"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#program",
+    "href": "slides/01-welcome-199.html#program",
+    "title": "Welcome to STA 199",
+    "section": "Program",
+    "text": "Program"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#section-16",
+    "href": "slides/01-welcome-199.html#section-16",
+    "title": "Welcome to STA 199",
+    "section": "",
+    "text": "minecr.shinyapps.io/unvotes\n\n\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#section-1",
+    "href": "slides/01-welcome-199.html#section-1",
+    "title": "Welcome to STA 199",
+    "section": "",
+    "text": "🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#application-exercise",
+    "href": "slides/01-welcome-199.html#application-exercise",
+    "title": "Welcome to STA 199",
+    "section": "Application exercise",
+    "text": "Application exercise\n\nOr more like demo for today…\n📋 github.com/sta199-f22-1/ae-0-unvotes"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#homepage",
+    "href": "slides/01-welcome-199.html#homepage",
+    "title": "Welcome to STA 199",
+    "section": "Homepage",
+    "text": "Homepage\nhttps://sta199-f22-1.github.io/\n\nAll course materials\nLinks to Sakai, GitHub, RStudio containers, etc.\nLet’s take a tour!"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#course-toolkit",
+    "href": "slides/01-welcome-199.html#course-toolkit",
+    "title": "Welcome to STA 199",
+    "section": "Course toolkit",
+    "text": "Course toolkit\nAll linked from the course website:\n\nGitHub organization: github.com/sta199-f22-1\nRStudio containers: cmgr.oit.duke.edu/containers\nCommunication: Slack\nAssignment submission and feedback: Gradescope\n\n\n\n\n\n\n\nImportant\n\n\nReserve an RStudio Container (titled STA 198-199) before lab on Monday!"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#activities-prepare-participate-practice-perform",
+    "href": "slides/01-welcome-199.html#activities-prepare-participate-practice-perform",
+    "title": "Welcome to STA 199",
+    "section": "Activities: Prepare, Participate, Practice, Perform",
+    "text": "Activities: Prepare, Participate, Practice, Perform\n\nPrepare: Introduce new content and prepare for lectures by watching the videos and completing the readings\nParticipate: Attend and actively participate in lectures and labs, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\nLab assignments x 7 (first individual, later team-based)\nHomework assignments x 5 (individual)\nThree take-home exams x 2\nTerm project presented in the last lab session"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#cadence",
+    "href": "slides/01-welcome-199.html#cadence",
+    "title": "Welcome to STA 199",
+    "section": "Cadence",
+    "text": "Cadence\n\n\nLabs: Start and make large progress on Monday in lab section, finish up by Friday 5pm of that week\nHWs: Posted Thursday morning, due following Thursday\nExams: Exam released Thursday morning, no lab on Monday of following week, due Monday 2pm\nProject: Deadlines throughout the semester, with some lab and lecture time dedicated to working on them, and most work done in teams outside of class"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#teams",
+    "href": "slides/01-welcome-199.html#teams",
+    "title": "Welcome to STA 199",
+    "section": "Teams",
+    "text": "Teams\n\nTeam assignments\n\nAssigned by me\nApplication exercises, labs, and project\nPeer evaluation during teamwork and after completion\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#grading",
+    "href": "slides/01-welcome-199.html#grading",
+    "title": "Welcome to STA 199",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n30% (5% x 6)\n\n\nLabs\n16% (2% x 8)\n\n\nProject\n15%\n\n\nExam 01\n17%\n\n\nExam 02\n17%\n\n\nApplication Exercises\n2.5%\n\n\nTeamwork\n2.5%\n\n\n\nSee course syllabus for how the final letter grade will be determined."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#support",
+    "href": "slides/01-welcome-199.html#support",
+    "title": "Welcome to STA 199",
+    "section": "Support",
+    "text": "Support\n\nAttend office hours\nAsk and answer questions on the discussion forum\nReserve email for questions on personal matters and/or grades\nRead the course support page"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#announcements",
+    "href": "slides/01-welcome-199.html#announcements",
+    "title": "Welcome to STA 199",
+    "section": "Announcements",
+    "text": "Announcements\n\nPosted on Sakai (Announcements tool) and sent via email, be sure to check both regularly\nI’ll assume that you’ve read an announcement by the next “business” day\nI’ll (try my best to) send a weekly update announcement each Friday, outlining the plan for the following week and reminding you what you need to do to prepare, practice, and perform"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#diversity-inclusion",
+    "href": "slides/01-welcome-199.html#diversity-inclusion",
+    "title": "Welcome to STA 199",
+    "section": "Diversity + inclusion",
+    "text": "Diversity + inclusion\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\n\nPlease let me know your preferred name and pronouns on the Getting to know you survey.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisors and deans are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#accessibility",
+    "href": "slides/01-welcome-199.html#accessibility",
+    "title": "Welcome to STA 199",
+    "section": "Accessibility",
+    "text": "Accessibility\n\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments.\nI am committed to making all course materials accessible and I’m always learning how to do this better. If any course component is not accessible to you in any way, please don’t hesitate to let me know."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#covid-policies",
+    "href": "slides/01-welcome-199.html#covid-policies",
+    "title": "Welcome to STA 199",
+    "section": "COVID policies",
+    "text": "COVID policies\n\nWear a mask at all times!\nRead and follow university guidance"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#late-work-waivers-regrades-policy",
+    "href": "slides/01-welcome-199.html#late-work-waivers-regrades-policy",
+    "title": "Welcome to STA 199",
+    "section": "Late work, waivers, regrades policy",
+    "text": "Late work, waivers, regrades policy\n\nWe have policies!\nRead about them on the course syllabus and refer back to them when you need it"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#collaboration-policy",
+    "href": "slides/01-welcome-199.html#collaboration-policy",
+    "title": "Welcome to STA 199",
+    "section": "Collaboration policy",
+    "text": "Collaboration policy\n\nOnly work that is clearly assigned as team work should be completed collaboratively.\nHomeworks must be completed individually. You may not directly share answers / code with others, however you are welcome to discuss the problems in general and ask for advice.\nExams must be completed individually. You may not discuss any aspect of the exam with peers. If you have questions, post as private questions on the course forum, only the teaching team will see and answer."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#sharing-reusing-code-policy",
+    "href": "slides/01-welcome-199.html#sharing-reusing-code-policy",
+    "title": "Welcome to STA 199",
+    "section": "Sharing / reusing code policy",
+    "text": "Sharing / reusing code policy\n\nWe are aware that a huge volume of code is available on the web, and many tasks may have solutions posted\nUnless explicitly stated otherwise, this course’s policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow, etc.) but you must explicitly cite where you obtained any code you directly use or use as inspiration in your solution(s).\nAny recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#academic-integrity",
+    "href": "slides/01-welcome-199.html#academic-integrity",
+    "title": "Welcome to STA 199",
+    "section": "Academic integrity",
+    "text": "Academic integrity\n\nTo uphold the Duke Community Standard:\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#most-importantly",
+    "href": "slides/01-welcome-199.html#most-importantly",
+    "title": "Welcome to STA 199",
+    "section": "Most importantly!",
+    "text": "Most importantly!\nAsk if you’re not sure if something violates a policy!"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#five-tips-for-success",
+    "href": "slides/01-welcome-199.html#five-tips-for-success",
+    "title": "Welcome to STA 199",
+    "section": "Five tips for success",
+    "text": "Five tips for success\n\nComplete all the preparation work before class.\nAsk questions.\nDo the readings and watch the videos.\nDo the homework and lab.\nDon’t procrastinate and don’t let a week pass by with lingering questions."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#learning-during-a-pandemic",
+    "href": "slides/01-welcome-199.html#learning-during-a-pandemic",
+    "title": "Welcome to STA 199",
+    "section": "Learning during a pandemic",
+    "text": "Learning during a pandemic\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#this-weeks-tasks",
+    "href": "slides/01-welcome-199.html#this-weeks-tasks",
+    "title": "Welcome to STA 199",
+    "section": "This week’s tasks",
+    "text": "This week’s tasks\n\nGet a GitHub account if you don’t have one (some advice for choosing a username here)\nComplete the Getting to know you survey if you haven’t yet done so!\nRead the syllabus"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#midori-says",
+    "href": "slides/01-welcome-199.html#midori-says",
+    "title": "Welcome to STA 199",
+    "section": "Midori says…",
+    "text": "Midori says…"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#meet-the-prof",
+    "href": "slides/01-welcome-199.html#meet-the-prof",
+    "title": "Welcome to STA 199",
+    "section": "Meet the prof",
+    "text": "Meet the prof\n\n\nDr. Mine Çetinkaya-Rundel\nProfessor of the Practice\nOld Chem 213"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#meet-the-course-team",
+    "href": "slides/01-welcome-199.html#meet-the-course-team",
+    "title": "Welcome to STA 199",
+    "section": "Meet the course team",
+    "text": "Meet the course team\n\nFoxx Hart - Lecture helper\nBora Jin - Course organizer, lab leader\nJordan Bryan - Head TA, lab leader\nRichard Fremgen - Lab leader\nLeah Johnson - Lab leader\nAlison Reynolds - Lab leader\nBrooke Harmon - Lab helper\nJasmine Wen - Lab helper\nAmber Potter - Lab helper\nShawon (One) Chowdhury - Lab helper\nGaurav Sirdeshmukh - Lab helper"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#meet-each-other",
+    "href": "slides/01-welcome-199.html#meet-each-other",
+    "title": "Welcome to STA 199",
+    "section": "Meet each other!",
+    "text": "Meet each other!\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#meet-data-science",
+    "href": "slides/01-welcome-199.html#meet-data-science",
+    "title": "Welcome to STA 199",
+    "section": "Meet data science",
+    "text": "Meet data science\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nWe’re going to learn to do this in a tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#excel---not",
+    "href": "slides/01-welcome-199.html#excel---not",
+    "title": "Welcome to STA 199",
+    "section": "Excel - not…",
+    "text": "Excel - not…"
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#its-r",
+    "href": "slides/01-welcome-199.html#its-r",
+    "title": "Welcome to STA 199",
+    "section": "It’s R!",
+    "text": "It’s R!\nhttps://twitter.com/rafamoral/status/1564376662971760642\n\n\n\n🔗 sta199-f22-1.github.io"
   }
 ]
