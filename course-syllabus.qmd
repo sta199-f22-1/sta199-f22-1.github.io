@@ -16,7 +16,7 @@ You are welcomed to attend the office hours for **any** STA 199 TA, regardless o
 All books are **freely available online**.
 
 |                                                                         |                          |                                   |                                                                                                                                  |
-|---------------|--------------|--------------|------------------------------|
+|---------------|---------------|---------------|--------------------------|
 | [R for Data Science, 2e](https://r4ds.hadley.nz/)                       | Grolemund, Wickham       | O'Reilly, 2nd edition, 2022       | Hard copy only available of 1st edition                                                                                          |
 | [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel, Hardin | OpenIntro Inc., 1st Edition, 2021 | Hard copy available [on Amazon](https://www.amazon.com/Introduction-Modern-Statistics-Mine-%C3%87etinkaya-Rundel/dp/1943450145/) |
 
@@ -162,10 +162,10 @@ The final course grade will be calculated as follows:
 | Category              | Percentage   |
 |-----------------------|--------------|
 | Homework              | 30% (5% x 6) |
-| Labs                  | 16% (2% x 8) |
+| Labs                  | 14% (2% x 7) |
 | Project               | 15%          |
-| Exam 01               | 17%          |
-| Exam 02               | 17%          |
+| Exam 01               | 18%          |
+| Exam 02               | 18%          |
 | Application Exercises | 2.5%         |
 | Teamwork              | 2.5%         |
 
@@ -243,7 +243,7 @@ To request a particular lecture's video, please fill out the form at **INSERT LI
 -   **Inclement weather:** In the event of inclement weather or other connectivity-related events that prohibit class attendance, I will notify you how we will make up missed course content and work.  Asynchronous catch-up methods may apply.
 -   **Religious accommodations:** Students are permitted by university policy to be absent from class to observe a religious holiday. Accordingly, Trinity College of Arts & Sciences and the Pratt School of Engineering have established procedures to be followed by students for notifying their instructors of an absence necessitated by the observance of a religious holiday. Please submit requests for religious accommodations at the beginning of the semester so that we can work to make suitable arrangements well ahead of time. You can find the policy and relevant notification form here: <https://trinity.duke.edu/undergraduate/academic-policies/religious-holidays>.
 
-*Note: If you’ve read this far in the syllabus, email me a picture of your pet if you have one or your favourite meme!*
+*Note: If you've read this far in the syllabus, email me a picture of your pet if you have one or your favourite meme!*
 
 ## Important dates
 
