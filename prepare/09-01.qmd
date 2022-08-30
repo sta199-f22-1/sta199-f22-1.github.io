@@ -1,0 +1,15 @@
+---
+title: "Prepare"
+subtitle: "Due: August 30, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   R for Data Science (R4DS): [Chp 1 - Introduction](https://r4ds.hadley.nz/intro.html)
+    -   Introduction to Modern Statistics (IMS): [Chp 1 - Hello data](https://openintro-ims.netlify.app/data-hello.html)
+    -   The [syllabus](course-syllabus.html)!
+-   ⌨️ Complete the [Getting to know you survey](https://sakai.duke.edu/samigo-app/servlet/Login?id=6fa7ebf3-01af-42a6-91ba-3e813d3901221661878395321)
+-   If you haven't yet done so:
+    -   Join the course Slack using the invitation link in your email.
+
+    -   Reserve a STA 198-199 container at <https://cmgr.oit.duke.edu/containers>.
