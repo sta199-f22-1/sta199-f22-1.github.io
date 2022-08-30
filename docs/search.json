@@ -1,10 +1,80 @@
 [
   {
-    "objectID": "labs/01-lab.html",
-    "href": "labs/01-lab.html",
-    "title": "HW 01 - Add title",
+    "objectID": "labs/lab-0.html",
+    "href": "labs/lab-0.html",
+    "title": "Lab 0 - Hello R!",
     "section": "",
-    "text": "Add instructions for assignment."
+    "text": "This lab will introduce you to the course computing workflow. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.\nAn additional goal is to reinforce Git and GitHub, the collaboration and version control system that we will be using throughout the course.\nAs the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.\nTo make versioning simpler, this and the next lab are solo labs. In the future, you’ll learn about collaborating on GitHub and producing a single lab report for your lab team, but for now, concentrate on getting the basics down.\nBy the end of the lab, you will…"
+  },
+  {
+    "objectID": "labs/lab-0.html#log-in-to-rstudio",
+    "href": "labs/lab-0.html#log-in-to-rstudio",
+    "title": "Lab 0 - Hello R!",
+    "section": "Log in to RStudio",
+    "text": "Log in to RStudio\n\nGo to https://vm-manage.oit.duke.edu/containers and login with your Duke NetID and Password.\nClick STA198-199 to log into the Docker container. You should now see the RStudio environment.\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you haven’t yet done so, you will need to reserve a container for STA198-199 first."
+  },
+  {
+    "objectID": "labs/lab-0.html#set-up-your-ssh-key",
+    "href": "labs/lab-0.html#set-up-your-ssh-key",
+    "title": "Lab 0 - Hello R!",
+    "section": "Set up your SSH key",
+    "text": "Set up your SSH key\nYou will authenticate GitHub using SSH. Below are an outline of the authentication steps; you are encouraged to follow along as your TA demonstrates the steps.\n\n\n\n\n\n\nNote\n\n\n\nYou only need to do this authentication process one time on a single system.\n\n\n\nType credentials::ssh_setup_github() into your console.\nR will ask “No SSH key found. Generate one now?” You should click 1 for yes.\nYou will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” You should click 1 for yes.\nYou may be asked to provide your GitHub username and password to log into GitHub. After entering this information, you should paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., sta199).\n\nYou can find more detailed instructions here if you’re interested."
+  },
+  {
+    "objectID": "labs/lab-0.html#configure-git",
+    "href": "labs/lab-0.html#configure-git",
+    "title": "Lab 0 - Hello R!",
+    "section": "Configure Git",
+    "text": "Configure Git\nThere is one more thing we need to do before getting started on the assignment. Specifically, we need to configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.\nTo do so, you will use the use_git_config() function from the usethis package.\nType the following lines of code in the console in RStudio filling in your name and the email address associated with your GitHub account.\n\nusethis::use_git_config(\n  user.name = \"GitHub username\", \n  user.email = \"Email associated with your GitHub account\"\n  )\n\nFor example, mine would be\n\nusethis::use_git_config(\n  user.name = \"mine-cetinkaya-rundel\", \n  user.email = \"cetinkaya.mine@gmail.com\"\n  )\n\nYou are now ready interact with GitHub via RStudio!"
+  },
+  {
+    "objectID": "labs/lab-0.html#clone-the-repo-start-new-rstudio-project",
+    "href": "labs/lab-0.html#clone-the-repo-start-new-rstudio-project",
+    "title": "Lab 0 - Hello R!",
+    "section": "Clone the repo & start new RStudio project",
+    "text": "Clone the repo & start new RStudio project\n\nGo to the course organization at github.com/sta199-f22-2 organization on GitHub. Click on the repo with the prefix lab-0. It contains the starter documents you need to complete the lab.\nClick on the green CODE button, select Use SSH (this might already be selected by default, and if it is, you’ll see the text Clone with SSH). Click on the clipboard icon to copy the repo URL.\nIn RStudio, go to File ➛ New Project ➛Version Control ➛ Git.\nCopy and paste the URL of your assignment repo into the dialog box Repository URL. Again, please make sure to have SSH highlighted under Clone when you copy the address.\nClick Create Project, and the files from your GitHub repo will be displayed in the Files pane in RStudio.\nClick lab-0-datasaurus.qmd to open the template Quarto file. This is where you will write up your code and narrative for the lab."
+  },
+  {
+    "objectID": "labs/lab-0.html#r-and-r-studio",
+    "href": "labs/lab-0.html#r-and-r-studio",
+    "title": "Lab 0 - Hello R!",
+    "section": "R and R Studio",
+    "text": "R and R Studio\nBelow are the components of the RStudio IDE.\n\nBelow are the components of a Quarto (.qmd) file."
+  },
+  {
+    "objectID": "labs/lab-0.html#yaml",
+    "href": "labs/lab-0.html#yaml",
+    "title": "Lab 0 - Hello R!",
+    "section": "YAML",
+    "text": "YAML\nThe top portion of your R Markdown file (between the three dashed lines) is called YAML. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.\n\n\n\n\n\n\nImportant\n\n\n\nOpen the Quarto (.qmd) file in your project, change the author name to your name, and render the document. Examine the rendered document."
+  },
+  {
+    "objectID": "labs/lab-0.html#committing-changes",
+    "href": "labs/lab-0.html#committing-changes",
+    "title": "Lab 0 - Hello R!",
+    "section": "Committing changes",
+    "text": "Committing changes\nNow, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.\nIf you have made changes to your Rmd file, you should see it listed here. Click on it to select it in this list and then click on Diff. This shows you the difference between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.\nIf you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, stage your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the Commit message box. Finally, click Commit. Note that every commit needs to have a commit message associated with it.\nYou don’t have to commit after every change, as this would get quite tedious. You should commit states that are meaningful to you for inspection, comparison, or restoration.\nIn the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.\nNow let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!"
+  },
+  {
+    "objectID": "labs/lab-0.html#push-changes",
+    "href": "labs/lab-0.html#push-changes",
+    "title": "Lab 0 - Hello R!",
+    "section": "Push changes",
+    "text": "Push changes\nNow that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.\nIn order to push your changes to GitHub, you must have staged your commit to be pushed. click on Push."
+  },
+  {
+    "objectID": "labs/lab-0.html#data-visualization-and-summary",
+    "href": "labs/lab-0.html#data-visualization-and-summary",
+    "title": "Lab 0 - Hello R!",
+    "section": "Data visualization and summary",
+    "text": "Data visualization and summary\n\nPlot y vs. x for the dino dataset. Then, calculate the correlation coefficient between x and y for this dataset.\n\nBelow is the code you will need to complete this exercise. Basically, the answer is already given, but you need to include relevant bits in your Rmd document and successfully render it and view the results.\nStart with the datasaurus_dozen and pipe it into the filter function to filter for observations where dataset == \"dino\". Store the resulting filtered data frame as a new data frame called dino_data.\n\ndino_data <- datasaurus_dozen |>\n  filter(dataset == \"dino\")\n\nThere is a lot going on here, so let’s slow down and unpack it a bit.\nFirst, the pipe operator: |>, takes what comes before it and sends it as the first argument to what comes after it. So here, we’re saying filter the datasaurus_dozen data frame for observations where dataset == \"dino\".\nSecond, the assignment operator: <-, assigns the name dino_data to the filtered data frame.\nNext, we need to visualize these data. We will use the ggplot function for this. Its first argument is the data you’re visualizing. Next we define the aesthetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the x axis will represent the variable called x and the y axis will represent the variable called y. Then, we add another layer to this plot where we define which geometric shapes we want to use to represent each observation in the data. In this case we want these to be points, hence geom_point.\n\nggplot(data = dino_data, mapping = aes(x = x, y = y)) +\n  geom_point()\n\nFor the second part of this exercise, we need to calculate a summary statistic: the correlation coefficient. Correlation coefficient, often referred to as \\(r\\) in statistics, measures the linear association between two variables. You will see that some of the pairs of variables we plot do not have a linear relationship between them. This is exactly why we want to visualize first: visualize to assess the form of the relationship, and calculate \\(r\\) only if relevant. In this case, calculating a correlation coefficient really doesn’t make sense since the relationship between x and y is definitely not linear (it’s dinosaurial)!\nFor illustrative purposes only, let’s calculate the correlation coefficient between x and y.\n\n\n\n\n\n\nNote\n\n\n\nStart with `dino_data` and calculate a summary statistic that we will call `r` as the `cor`relation between `x` and `y`.\n\n\n\ndino_data |>\n  summarize(r = cor(x, y))\n\n\nThis is a good place to pause, render, and commit changes with the commit message “Added answer for Ex 2.”\nThen, push these changes when you’re done.\n\n\nPlot y vs. x for the star dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between x and y for this dataset. How does this value compare to the r of dino?\n\n\nThis is another good place to pause, render, and commit changes with the commit message “Added answer for Ex 3.”\nThen, push these changes when you’re done.\n\n\nPlot y vs. x for the circle dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between x and y for this dataset. How does this value compare to the r of dino?\n\n\nYou should pause again, render, commit changes with the commit message “Added answer for Ex 4”.\nThen, push.\n\nFinally, let’s plot all datasets at once. In order to do this we will make use of faceting, given by the code below:\n\n\n\n\n\n\nNote\n\n\n\nFacet by the dataset variable, placing the plots in a 3 column grid, and don’t add a legend.\n\n\n\nggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+\n  geom_point()+\n  facet_wrap(~ dataset, ncol = 3) +\n  theme(legend.position = \"none\")\n\nAnd we can use the group_by function to generate all the summary correlation coefficients. We’ll go through these functions next week when we learn about data wrangling.\n\ndatasaurus_dozen |>\n  group_by(dataset) |>\n  summarize(r = cor(x, y)) \n\n\nInclude the faceted plot and the summary of the correlation coefficients in your lab write-up by including relevant code in R chunks (give them appropriate names). In the narrative below the code chunks, briefly comment on what you notice about the plots and the correlations between x and y values within each of them (one or two sentences is fine!).\n\nYou’re done with the data analysis exercises, but we’d like to do one more thing to customize the look of the report."
+  },
+  {
+    "objectID": "labs/lab-0.html#resize-your-figures",
+    "href": "labs/lab-0.html#resize-your-figures",
+    "title": "Lab 0 - Hello R!",
+    "section": "Resize your figures",
+    "text": "Resize your figures\nWe can customize the output from a particular R chunk by including options in the header that will override any global settings.\n\nIn the R chunks you wrote for Exercises 2-5, customize the settings by modifying the options in the R chunks used to create those figures.\n\nFor Exercises 2, 3, and 4, we want square figures. We can use fig.height and fig.width in the options to adjust the height and width of figures. Modify the chunks in Exercises 2-4 to be as follows:\n\n```{r}\n#| label: ex2-chunk-label\n#| fig-height: 5\n#| fig-width: 5\n\n# Your code that created the figure\n```\n\nFor Exercise 5, modify your figure to have fig-height of 10 and fig-width of 6.\nNow, save and render.\nOnce you’ve created this PDF file, you’re done!\n\nCommit all remaining changes with the commit message “Done with Lab 1!”.\nThen push."
   },
   {
     "objectID": "course-links.html",
