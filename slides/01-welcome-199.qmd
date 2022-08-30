@@ -297,26 +297,6 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 Ask if you're not sure if something violates a policy!
 
-# Making STA 199 a success
-
-## Five tips for success
-
-1.  Complete all the preparation work before class.
-2.  Ask questions.
-3.  Do the readings and watch the videos.
-4.  Do the homework and lab.
-5.  Don't procrastinate and don't let a week pass by with lingering questions.
-
-## Learning during a pandemic
-
-I want to make sure that you learn everything you were hoping to learn from this class.
-If this requires flexibility, please don't hesitate to ask.
-
-::: incremental
--   You never owe me personal information about your health (mental or physical) but you're always welcome to talk to me. If I can't help, I likely know someone who can.
--   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.
-:::
-
 ## This week's tasks
 
 -   Get a GitHub account if you don't have one (some advice for choosing a username [here](https://happygitwithr.com/github-acct.html#username-advice "Happy Git with R"))
@@ -326,38 +306,6 @@ If this requires flexibility, please don't hesitate to ask.
 ## Midori says...
 
 [![](images/01/midori.jpeg){fig-alt="Picture of my cat, Midori, with a speech bubble that says \"Read the syllabus and make Mine happy!\"" fig-align="center" width="700"}](https://sta199-f22-1.github.io/course-syllabus.html)
-
-## Course FAQ
-
-**Q - What data science background does this course assume?**\
-A - None.
-
-. . .
-
-**Q - Is this an intro stat course?**\
-A - While statistics $\ne$ data science, they are very closely related and have tremendous of overlap.
-Hence, this course is a great way to get started with statistics.
-However this course is *not* your typical high school statistics course.
-
-. . .
-
-**Q - Will we be doing computing?**\
-A - Yes.
-
-## Course FAQ
-
-**Q - Is this an intro CS course?**\
-A - No, but many themes are shared.
-
-. . .
-
-**Q - What computing language will we learn?**\
-A - R.
-
-. . .
-
-**Q: Why not language X?**\
-A: We can discuss that over ☕.
 
 ## It's the R community! 💛
 

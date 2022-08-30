@@ -3,3 +3,55 @@ title: "Meet the toolkit"
 subtitle: "Lecture 2"
 date: "September 1, 2022"
 ---
+
+# Making STA 199 a success
+
+## Five tips for success
+
+1.  Complete all the preparation work before class.
+2.  Ask questions.
+3.  Do the readings and watch the videos.
+4.  Do the homework and lab.
+5.  Don't procrastinate and don't let a week pass by with lingering questions.
+
+## Learning during a pandemic
+
+I want to make sure that you learn everything you were hoping to learn from this class.
+If this requires flexibility, please don't hesitate to ask.
+
+::: incremental
+-   You never owe me personal information about your health (mental or physical) but you're always welcome to talk to me. If I can't help, I likely know someone who can.
+-   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.
+:::
+
+## Course FAQ
+
+**Q - What data science background does this course assume?**\
+A - None.
+
+. . .
+
+**Q - Is this an intro stat course?**\
+A - While statistics $\ne$ data science, they are very closely related and have tremendous of overlap.
+Hence, this course is a great way to get started with statistics.
+However this course is *not* your typical high school statistics course.
+
+. . .
+
+**Q - Will we be doing computing?**\
+A - Yes.
+
+## Course FAQ
+
+**Q - Is this an intro CS course?**\
+A - No, but many themes are shared.
+
+. . .
+
+**Q - What computing language will we learn?**\
+A - R.
+
+. . .
+
+**Q: Why not language X?**\
+A: We can discuss that over ☕.

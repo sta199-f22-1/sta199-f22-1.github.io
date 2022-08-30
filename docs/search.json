@@ -151,7 +151,7 @@
     "href": "prepare/09-01.html",
     "title": "Prepare",
     "section": "",
-    "text": "📖 Read:\n\nR for Data Science (R4DS): Chp 1 - Introduction\nIntroduction to Modern Statistics (IMS): Chp 1 - Hello data\nThe syllabus!\n\n⌨️ Complete the Getting to know you survey\nIf you haven’t yet done so:\n\nJoin the course Slack using the invitation link in your email.\nReserve a STA 198-199 container at https://cmgr.oit.duke.edu/containers."
+    "text": "📖 Read:\n\nR for Data Science (R4DS): Chp 1 - Introduction\nIntroduction to Modern Statistics (IMS): Chp 1 - Hello data\nThe syllabus!\n\n⌨️ Do:\n\nComplete the Getting to know you survey\nGet a GitHub account if you don’t have one (some advice for choosing a username here)\n\nIf you haven’t yet done so:\n\nJoin the course Slack using the invitation link in your email.\nReserve a STA 198-199 container at https://cmgr.oit.duke.edu/containers."
   },
   {
     "objectID": "prepare/08-30.html",
@@ -448,20 +448,6 @@
     "text": "Most importantly!\nAsk if you’re not sure if something violates a policy!"
   },
   {
-    "objectID": "slides/01-welcome-199.html#five-tips-for-success",
-    "href": "slides/01-welcome-199.html#five-tips-for-success",
-    "title": "Welcome to STA 199",
-    "section": "Five tips for success",
-    "text": "Five tips for success\n\nComplete all the preparation work before class.\nAsk questions.\nDo the readings and watch the videos.\nDo the homework and lab.\nDon’t procrastinate and don’t let a week pass by with lingering questions."
-  },
-  {
-    "objectID": "slides/01-welcome-199.html#learning-during-a-pandemic",
-    "href": "slides/01-welcome-199.html#learning-during-a-pandemic",
-    "title": "Welcome to STA 199",
-    "section": "Learning during a pandemic",
-    "text": "Learning during a pandemic\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded."
-  },
-  {
     "objectID": "slides/01-welcome-199.html#this-weeks-tasks",
     "href": "slides/01-welcome-199.html#this-weeks-tasks",
     "title": "Welcome to STA 199",
@@ -476,25 +462,39 @@
     "text": "Midori says…"
   },
   {
-    "objectID": "slides/01-welcome-199.html#course-faq",
-    "href": "slides/01-welcome-199.html#course-faq",
-    "title": "Welcome to STA 199",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None.\n\nQ - Is this an intro stat course?\nA - While statistics \\(\\ne\\) data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is not your typical high school statistics course.\n\n\nQ - Will we be doing computing?\nA - Yes."
-  },
-  {
-    "objectID": "slides/01-welcome-199.html#course-faq-1",
-    "href": "slides/01-welcome-199.html#course-faq-1",
-    "title": "Welcome to STA 199",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕."
-  },
-  {
     "objectID": "slides/01-welcome-199.html#its-the-r-community",
     "href": "slides/01-welcome-199.html#its-the-r-community",
     "title": "Welcome to STA 199",
     "section": "It’s the R community! 💛",
     "text": "It’s the R community! 💛\n\n\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",
+    "href": "slides/02-meet-the-toolkit.html#five-tips-for-success",
+    "title": "Meet the toolkit",
+    "section": "Five tips for success",
+    "text": "Five tips for success\n\nComplete all the preparation work before class.\nAsk questions.\nDo the readings and watch the videos.\nDo the homework and lab.\nDon’t procrastinate and don’t let a week pass by with lingering questions."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#learning-during-a-pandemic",
+    "href": "slides/02-meet-the-toolkit.html#learning-during-a-pandemic",
+    "title": "Meet the toolkit",
+    "section": "Learning during a pandemic",
+    "text": "Learning during a pandemic\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#course-faq",
+    "href": "slides/02-meet-the-toolkit.html#course-faq",
+    "title": "Meet the toolkit",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None.\n\nQ - Is this an intro stat course?\nA - While statistics \\(\\ne\\) data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is not your typical high school statistics course.\n\n\nQ - Will we be doing computing?\nA - Yes."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#course-faq-1",
+    "href": "slides/02-meet-the-toolkit.html#course-faq-1",
+    "title": "Meet the toolkit",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕.\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "course-faq.html",
