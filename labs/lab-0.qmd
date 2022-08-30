@@ -93,7 +93,7 @@ You are now ready interact with GitHub via RStudio!
 
 ## Clone the repo & start new RStudio project
 
--   Go to the course organization at [github.com/sta199-f22-2](https://github.com/sta199-f22-2) organization on GitHub.
+-   Go to the course organization at [github.com/sta199-f22-1](https://github.com/sta199-f22-2) organization on GitHub.
     Click on the repo with the prefix **lab-0**.
     It contains the starter documents you need to complete the lab.
 
