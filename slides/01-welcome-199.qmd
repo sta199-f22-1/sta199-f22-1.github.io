@@ -59,38 +59,6 @@ countdown_fullscreen(minutes = 3)
 
 -   This is a course on introduction to data science, with an emphasis on statistical thinking.
 
-## Course FAQ
-
-**Q - What data science background does this course assume?**\
-A - None.
-
-. . .
-
-**Q - Is this an intro stat course?**\
-A - While statistics $\ne$ data science, they are very closely related and have tremendous of overlap.
-Hence, this course is a great way to get started with statistics.
-However this course is *not* your typical high school statistics course.
-
-. . .
-
-**Q - Will we be doing computing?**\
-A - Yes.
-
-## Course FAQ
-
-**Q - Is this an intro CS course?**\
-A - No, but many themes are shared.
-
-. . .
-
-**Q - What computing language will we learn?**\
-A - R.
-
-. . .
-
-**Q: Why not language X?**\
-A: We can discuss that over ☕.
-
 # Software
 
 ## Excel - not...
@@ -359,6 +327,38 @@ If this requires flexibility, please don't hesitate to ask.
 
 [![](images/01/midori.jpeg){fig-alt="Picture of my cat, Midori, with a speech bubble that says \"Read the syllabus and make Mine happy!\"" fig-align="center" width="700"}](https://sta199-f22-1.github.io/course-syllabus.html)
 
-## It's R!
+## Course FAQ
 
-[https://twitter.com/rafamoral/status/1564376662971760642](https://twitter.com/rafamoral/status/1564376662971760642)
+**Q - What data science background does this course assume?**\
+A - None.
+
+. . .
+
+**Q - Is this an intro stat course?**\
+A - While statistics $\ne$ data science, they are very closely related and have tremendous of overlap.
+Hence, this course is a great way to get started with statistics.
+However this course is *not* your typical high school statistics course.
+
+. . .
+
+**Q - Will we be doing computing?**\
+A - Yes.
+
+## Course FAQ
+
+**Q - Is this an intro CS course?**\
+A - No, but many themes are shared.
+
+. . .
+
+**Q - What computing language will we learn?**\
+A - R.
+
+. . .
+
+**Q: Why not language X?**\
+A: We can discuss that over ☕.
+
+## It's the R community! 💛
+
+[![](images/01/corn.png){fig-alt="Screenshot of a tweet from Rafa Moral saying he recorded an R version of the \"it's corn\" viral hit" fig-align="center" width="500"}](https://twitter.com/rafamoral/status/1564376662971760642)

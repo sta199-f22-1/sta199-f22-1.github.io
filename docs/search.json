@@ -231,20 +231,6 @@
     "text": "Meet data science\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nWe’re going to learn to do this in a tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
   },
   {
-    "objectID": "slides/01-welcome-199.html#course-faq",
-    "href": "slides/01-welcome-199.html#course-faq",
-    "title": "Welcome to STA 199",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None.\n\nQ - Is this an intro stat course?\nA - While statistics \\(\\ne\\) data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is not your typical high school statistics course.\n\n\nQ - Will we be doing computing?\nA - Yes."
-  },
-  {
-    "objectID": "slides/01-welcome-199.html#course-faq-1",
-    "href": "slides/01-welcome-199.html#course-faq-1",
-    "title": "Welcome to STA 199",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕."
-  },
-  {
     "objectID": "slides/01-welcome-199.html#excel---not",
     "href": "slides/01-welcome-199.html#excel---not",
     "title": "Welcome to STA 199",
@@ -483,11 +469,25 @@
     "text": "Midori says…"
   },
   {
-    "objectID": "slides/01-welcome-199.html#its-r",
-    "href": "slides/01-welcome-199.html#its-r",
+    "objectID": "slides/01-welcome-199.html#course-faq",
+    "href": "slides/01-welcome-199.html#course-faq",
     "title": "Welcome to STA 199",
-    "section": "It’s R!",
-    "text": "It’s R!\nhttps://twitter.com/rafamoral/status/1564376662971760642\n\n\n\n🔗 sta199-f22-1.github.io"
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None.\n\nQ - Is this an intro stat course?\nA - While statistics \\(\\ne\\) data science, they are very closely related and have tremendous of overlap. Hence, this course is a great way to get started with statistics. However this course is not your typical high school statistics course.\n\n\nQ - Will we be doing computing?\nA - Yes."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#course-faq-1",
+    "href": "slides/01-welcome-199.html#course-faq-1",
+    "title": "Welcome to STA 199",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕."
+  },
+  {
+    "objectID": "slides/01-welcome-199.html#its-the-r-community",
+    "href": "slides/01-welcome-199.html#its-the-r-community",
+    "title": "Welcome to STA 199",
+    "section": "It’s the R community! 💛",
+    "text": "It’s the R community! 💛\n\n\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "course-faq.html",
