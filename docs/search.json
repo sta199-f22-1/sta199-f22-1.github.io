@@ -494,7 +494,7 @@
     "href": "slides/02-meet-the-toolkit.html#course-faq-1",
     "title": "Meet the toolkit",
     "section": "Course FAQ",
-    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕.\n\n\n\n🔗 sta199-f22-1.github.io"
+    "text": "Course FAQ\nQ - Is this an intro CS course?\nA - No, but many themes are shared.\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: We can discuss that over ☕."
   },
   {
     "objectID": "course-faq.html",
@@ -656,5 +656,215 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots)."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#course-toolkit",
+    "href": "slides/02-meet-the-toolkit.html#course-toolkit",
+    "title": "Meet the toolkit",
+    "section": "Course toolkit",
+    "text": "Course toolkit\n\n\nCourse operation\n\nMaterials: sta199-f22-1.github.io\nSubmission: Gradescope\nDiscussion: Slack\nGradebook: Sakai\n\n\nDoing data science\n\nComputing:\n\nR\nRStudio\ntidyverse\nQuarto\n\nVersion control and collaboration:\n\nGit\nGitHub"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#learning-goals",
+    "href": "slides/02-meet-the-toolkit.html#learning-goals",
+    "title": "Meet the toolkit",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the course, you will be able to…\n\n\ngain insight from data\ngain insight from data, reproducibly\ngain insight from data, reproducibly, using modern programming tools and techniques\ngain insight from data, reproducibly and collaboratively, using modern programming tools and techniques\ngain insight from data, reproducibly (with literate programming and version control) and collaboratively, using modern programming tools and techniques"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#reproducibility-checklist",
+    "href": "slides/02-meet-the-toolkit.html#reproducibility-checklist",
+    "title": "Meet the toolkit",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\n\nNear-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\n\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#toolkit-for-reproducibility",
+    "href": "slides/02-meet-the-toolkit.html#toolkit-for-reproducibility",
+    "title": "Meet the toolkit",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#r-and-rstudio-1",
+    "href": "slides/02-meet-the-toolkit.html#r-and-rstudio-1",
+    "title": "Meet the toolkit",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\n\n\n\n\n\n\n\nR is an open-source statistical programming language\nR is also an environment for statistical computing and graphics\nIt’s easily extensible with packages\n\n\n\n\nRStudio is a convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nRStudio is not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#r-packages",
+    "href": "slides/02-meet-the-toolkit.html#r-packages",
+    "title": "Meet the toolkit",
+    "section": "R packages",
+    "text": "R packages\n\n\nPackages: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data1\nAs of September 2022, there are over 18,000 R packages available on CRAN (the Comprehensive R Archive Network)2\nWe’re going to work with a small (but important) subset of these!\n\n\n\n\n1 Wickham and Bryan, R Packages.\n2 CRAN contributed packages."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#tour-r-and-rstudio",
+    "href": "slides/02-meet-the-toolkit.html#tour-r-and-rstudio",
+    "title": "Meet the toolkit",
+    "section": "Tour: R and RStudio",
+    "text": "Tour: R and RStudio"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#a-short-list-for-now-of-r-essentials",
+    "href": "slides/02-meet-the-toolkit.html#a-short-list-for-now-of-r-essentials",
+    "title": "Meet the toolkit",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#r-essentials-continued",
+    "href": "slides/02-meet-the-toolkit.html#r-essentials-continued",
+    "title": "Meet the toolkit",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n?mean"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#tidyverse",
+    "href": "slides/02-meet-the-toolkit.html#tidyverse",
+    "title": "Meet the toolkit",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\n\n\n\n\n\ntidyverse.org\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#quarto-1",
+    "href": "slides/02-meet-the-toolkit.html#quarto-1",
+    "title": "Meet the toolkit",
+    "section": "Quarto",
+    "text": "Quarto\n\n\nFully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar / Google docs-like editing experience"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#tour-quarto",
+    "href": "slides/02-meet-the-toolkit.html#tour-quarto",
+    "title": "Meet the toolkit",
+    "section": "Tour: Quarto",
+    "text": "Tour: Quarto"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#environments",
+    "href": "slides/02-meet-the-toolkit.html#environments",
+    "title": "Meet the toolkit",
+    "section": "Environments",
+    "text": "Environments\n\n\n\n\n\n\nImportant\n\n\nThe environment of your Quarto document is separate from the Console!\n\n\n\nRemember this, and expect it to bite you a few times as you’re learning to work with Quarto!"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#environments-1",
+    "href": "slides/02-meet-the-toolkit.html#environments-1",
+    "title": "Meet the toolkit",
+    "section": "Environments",
+    "text": "Environments\n\n\nFirst, run the following in the console:\n\nx <- 2\nx * 3\n\n\n\nAll looks good, eh?\n\n\nThen, add the following in an R chunk in your Quarto document\n\nx * 3\n\n\n\nWhat happens? Why the error?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#how-will-we-use-quarto",
+    "href": "slides/02-meet-the-toolkit.html#how-will-we-use-quarto",
+    "title": "Meet the toolkit",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery assignment / report / project / etc. is an Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#whats-with-all-the-hexes",
+    "href": "slides/02-meet-the-toolkit.html#whats-with-all-the-hexes",
+    "title": "Meet the toolkit",
+    "section": "What’s with all the hexes?",
+    "text": "What’s with all the hexes?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#section",
+    "href": "slides/02-meet-the-toolkit.html#section",
+    "title": "Meet the toolkit",
+    "section": "",
+    "text": "AE 02 - Bechdel + R Markdown - The Bechdel test asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters. - Go to RStudio Cloud and start the assignment AE 02 - Bechdel + R Markdown. - Open and render the R Markdown document bechdel.Rmd, review the document, and fill in the blanks."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#git-and-github",
+    "href": "slides/02-meet-the-toolkit.html#git-and-github",
+    "title": "Meet the toolkit",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for web hosting and collaboration (and as our course management system!)"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#versioning",
+    "href": "slides/02-meet-the-toolkit.html#versioning",
+    "title": "Meet the toolkit",
+    "section": "Versioning",
+    "text": "Versioning"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#versioning-1",
+    "href": "slides/02-meet-the-toolkit.html#versioning-1",
+    "title": "Meet the toolkit",
+    "section": "Versioning",
+    "text": "Versioning\nwith human readable messages"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#why-do-we-need-version-control",
+    "href": "slides/02-meet-the-toolkit.html#why-do-we-need-version-control",
+    "title": "Meet the toolkit",
+    "section": "Why do we need version control?",
+    "text": "Why do we need version control?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github",
+    "href": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github",
+    "title": "Meet the toolkit",
+    "section": "How will we use Git and GitHub",
+    "text": "How will we use Git and GitHub"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github-1",
+    "href": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github-1",
+    "title": "Meet the toolkit",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github-2",
+    "href": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github-2",
+    "title": "Meet the toolkit",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github-3",
+    "href": "slides/02-meet-the-toolkit.html#how-will-we-use-git-and-github-3",
+    "title": "Meet the toolkit",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#tour-git-and-github",
+    "href": "slides/02-meet-the-toolkit.html#tour-git-and-github",
+    "title": "Meet the toolkit",
+    "section": "Tour: Git and GitHub",
+    "text": "Tour: Git and GitHub\n\nCreate a GitHub account\nVerify your GitHub email\nAdjust your GitHub settings for a more pleasant GitHub experience\n\nSettings > Emails > Uncheck “Keep my email address private”\nSettings > Emails > Update name and photo\n\n\n\nNext week…\nWork with R, RStudio, Git, and GitHub together!+\n.footnote[ +Just like a real data scientist!]\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#your-turn",
+    "href": "slides/02-meet-the-toolkit.html#your-turn",
+    "title": "Meet the toolkit",
+    "section": "Your turn!",
+    "text": "Your turn!\n\nae-0-bechdel-quarto\n\nThe Bechdel test asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.\nGo to the course GitHub organization and clone ae-0-bechdel-quarto to your container.\nOpen and render the Quarto document bechdel.qmd, review the document, and fill in the blanks."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#r-vs.-rstudio",
+    "href": "slides/02-meet-the-toolkit.html#r-vs.-rstudio",
+    "title": "Meet the toolkit",
+    "section": "R vs. RStudio",
+    "text": "R vs. RStudio\n\n\n\n\n\n\n\nSource: Modern Dive."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#git-and-github-tips",
+    "href": "slides/02-meet-the-toolkit.html#git-and-github-tips",
+    "title": "Meet the toolkit",
+    "section": "Git and GitHub tips",
+    "text": "Git and GitHub tips\n\n\nThere are millions of git commands – ok, that’s an exaggeration, but there are a lot of them – and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.\nWe will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line – skip that and move on to the next resource unless you feel comfortable trying it out.\nThere is a great resource for working with git and R: happygitwithr.com. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help."
+  },
+  {
+    "objectID": "slides/02-meet-the-toolkit.html#tour-git-github",
+    "href": "slides/02-meet-the-toolkit.html#tour-git-github",
+    "title": "Meet the toolkit",
+    "section": "Tour: Git + GitHub",
+    "text": "Tour: Git + GitHub\n\nIn Lab 0 next Monday!\nMake sure to create a GitHub account and fill out the Getting to know you survey!\n\n\n\n\n🔗 sta199-f22-1.github.io"
   }
 ]
