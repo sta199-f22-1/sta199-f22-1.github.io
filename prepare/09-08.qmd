@@ -1,0 +1,12 @@
+---
+title: "Prepare"
+subtitle: "Due: September 8, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   IMS: [Chp 4 - Exploring categorical data](https://openintro-ims.netlify.app/explore-categorical.html)
+    -   IMS: [Chp 5 - Exploring numerical data](https://openintro-ims.netlify.app/explore-numerical.html)
+-   ⌨️ Watch:
+    -   [Visualizing numerical data](https://youtu.be/waBabVTI8ec)
+    -   [Visualizing categorical data](https://youtu.be/21h3rEO8k2E)
