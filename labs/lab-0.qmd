@@ -136,7 +136,7 @@ Examine the rendered document.
 Now, go to the Git pane in your RStudio instance.
 This will be in the top right hand corner in a separate tab.
 
-If you have made changes to your Rmd file, you should see it listed here.
+If you have made changes to your Quarto (.qmd) file, you should see it listed here.
 Click on it to select it in this list and then click on **Diff**.
 This shows you the *diff*erence between the last committed state of the document and its current state including changes.
 You should see deletions in red and additions in green.
@@ -233,8 +233,7 @@ help(datasaurus_dozen)
 
 # Exercises
 
-1.  Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report. 
-
+1.  Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report.
 
 ::: render-commit-push
 When you're done, commit your changes with the commit message "Added answer for Ex 1",
@@ -243,7 +242,7 @@ Then, **push** these changes.
 :::
 
 Let's take a look at what these datasets are.
-To do so we can check the `distinct()` values of the `dataset` variable:
+To do so we can check th e `distinct()` values of the `dataset` variable:
 
 ```{r}
 #| eval: true
@@ -265,7 +264,7 @@ In the paper, the authors simulate a variety of datasets that the same summary s
 2.  Plot `y` vs. `x` for the `dino` dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset.
 
 Below is the code you will need to complete this exercise.
-Basically, the answer is already given, but you need to include relevant bits in your Rmd document and successfully render it and view the results.
+Basically, the answer is already given, but you need to include relevant bits in your document and successfully render it and view the results.
 
 Start with the `datasaurus_dozen` and **pipe** it into the `filter` function to filter for observations where `dataset == "dino"`.
 Store the resulting filtered data frame as a new data frame called `dino_data`.
@@ -318,7 +317,7 @@ This is a good place to pause, **render**, and **commit** changes with the commi
 Then, **push** these changes when you're done.
 :::
 
-3.  Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+3.  Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 
 ::: render-commit-push
 This is another good place to pause, **render**, and **commit** changes with the commit message "Added answer for Ex 3."
@@ -326,7 +325,7 @@ This is another good place to pause, **render**, and **commit** changes with the
 Then, **push** these changes when you're done.
 :::
 
-4.  Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+4.  Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 
 ::: render-commit-push
 You should pause again, **render**, **commit** changes with the commit message "Added answer for Ex 4".
@@ -357,7 +356,7 @@ datasaurus_dozen |>
   summarize(r = cor(x, y)) 
 ```
 
-5.  Include the faceted plot and the summary of the correlation coefficients in your lab write-up by including relevant code in R chunks (give them appropriate names). In the narrative below the code chunks, *briefly* comment on what you notice about the plots and the correlations between `x` and `y` values within each of them (one or two sentences is fine!).
+5.  Include the faceted plot and the summary of the correlation coefficients in your lab write-up by including relevant code in R chunks (and give them appropriate labels). In the narrative below the code chunks, *briefly* comment on what you notice about the plots and the correlations between `x` and `y` values within each of them (one or two sentences is fine!).
 
 You're done with the data analysis exercises, but we'd like to do one more thing to customize the look of the report.
 
