@@ -233,9 +233,14 @@ help(datasaurus_dozen)
 
 # Exercises
 
-1.  Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report. When you're done, commit your changes with the commit message "Added answer for Ex 1", and push.
+1.  Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report. 
 
-**TO DO: Something is wrong with the output width below.**
+
+::: render-commit-push
+When you're done, commit your changes with the commit message "Added answer for Ex 1",
+
+Then, **push** these changes.
+:::
 
 Let's take a look at what these datasets are.
 To do so we can check the `distinct()` values of the `dataset` variable:
