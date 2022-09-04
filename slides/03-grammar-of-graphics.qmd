@@ -1,6 +1,6 @@
 ---
 title: "Grammar of graphics"
-subtitle: "Lecture 2"
+subtitle: "Lecture 3"
 date: "September 6, 2022"
 format: revealjs
 ---
