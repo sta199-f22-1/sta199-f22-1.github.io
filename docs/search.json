@@ -490,6 +490,34 @@
     "text": "It’s the R community! 💛\n\n\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/03-grammar-of-graphics.html#examining-data-visualization",
+    "href": "slides/03-grammar-of-graphics.html#examining-data-visualization",
+    "title": "Grammar of graphics",
+    "section": "Examining data visualization",
+    "text": "Examining data visualization\n\n\nDiscuss the following for the visualization.\n\nWhat is the visualization trying to show?\nWhat is effective, i.e. what is done well?\nWhat is ineffective, i.e. what could be improved?\nWhat are you curious about after looking at the visualization?\n\n\n\n\n−+\n04:00\n\n\n\n\n\n\n\nSource: Twitter"
+  },
+  {
+    "objectID": "slides/03-grammar-of-graphics.html#questions-from-the-prepare-materials",
+    "href": "slides/03-grammar-of-graphics.html#questions-from-the-prepare-materials",
+    "title": "Grammar of graphics",
+    "section": "Questions from the prepare materials?",
+    "text": "Questions from the prepare materials?"
+  },
+  {
+    "objectID": "slides/03-grammar-of-graphics.html#ae-01-bechdel-dataviz",
+    "href": "slides/03-grammar-of-graphics.html#ae-01-bechdel-dataviz",
+    "title": "Grammar of graphics",
+    "section": "ae-01-bechdel-dataviz",
+    "text": "ae-01-bechdel-dataviz\n\n\nGo to the course GitHub org and find your ae-01-bechdel-dataviz (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/03-grammar-of-graphics.html#recap-of-ae",
+    "href": "slides/03-grammar-of-graphics.html#recap-of-ae",
+    "title": "Grammar of graphics",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nConstruct plots with ggplot().\nLayers of ggplots are separated by +s.\nThe formula is (almost) always as follows:\n\n\nggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +\n  geom_XXX()\n\n\nAesthetic attributes of a geometries (color, size, transparency, etc.) can be mapped to variables in the data or set by the user, e.g. color = binary vs. color = \"pink\".\nUse facet_wrap() when faceting (creating small multiples) by one variable and facet_grid() when faceting by two variables.\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",
     "href": "slides/02-meet-the-toolkit.html#five-tips-for-success",
     "title": "Meet the toolkit",

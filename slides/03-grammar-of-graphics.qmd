@@ -1,0 +1,71 @@
+---
+title: "Grammar of graphics"
+subtitle: "Lecture 2"
+date: "September 6, 2022"
+format: revealjs
+---
+
+# Data visualization
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## **Examining data visualization** {.smaller}
+
+::: columns
+::: {.column width="50%"}
+Discuss the following for the visualization.
+
+-   What is the visualization trying to show?
+
+-   What is effective, i.e. what is done well?
+
+-   What is ineffective, i.e. what could be improved?
+
+-   What are you curious about after looking at the visualization?
+
+```{r}
+#| echo: false
+
+countdown(minutes = 4, left = 0, color_text = "#325b74")
+```
+:::
+
+::: {.column width="50%"}
+![Source: [Twitter](https://twitter.com/reina_sabah/status/1291509085855260672)](images/03/female-heights.png){fig-align="center"}
+:::
+:::
+
+## Questions from the prepare materials?
+
+```{=html}
+<iframe src="https://app.sli.do/event/wCtRaWXjUCSQGm1untvmE5/embed/polls/8a814dd9-a20e-4a10-911c-cde825e98c35" width="900" height="600"></iframe>
+```
+# Application exercise
+
+## `ae-01-bechdel-dataviz`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-01-bechdel-dataviz` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE {.smaller}
+
+-   Construct plots with `ggplot()`.
+-   Layers of ggplots are separated by `+`s.
+-   The formula is (almost) always as follows:
+
+```{r}
+#| eval: false
+
+ggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +
+  geom_XXX()
+```
+
+-   Aesthetic attributes of a geometries (color, size, transparency, etc.) can be **map**ped to variables in the data or **set** by the user, e.g. `color = binary` vs. `color = "pink"`.
+-   Use `facet_wrap()` when faceting (creating small multiples) by one variable and `facet_grid()` when faceting by two variables.
