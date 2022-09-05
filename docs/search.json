@@ -929,5 +929,26 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots)."
+  },
+  {
+    "objectID": "labs/lab-1.html",
+    "href": "labs/lab-1.html",
+    "title": "Lab 1 - Data visualization",
+    "section": "",
+    "text": "Important\n\n\n\nThis lab is due Friday, Sep 9."
+  },
+  {
+    "objectID": "labs/lab-1.html#packages",
+    "href": "labs/lab-1.html#packages",
+    "title": "Lab 1 - Data visualization",
+    "section": "Packages",
+    "text": "Packages\nWe will use the tidyverse package to create and customize plots in R.\n\nlibrary(tidyverse)\nlibrary(viridis)"
+  },
+  {
+    "objectID": "labs/lab-1.html#data-lets-take-a-trip-to-the-midwest",
+    "href": "labs/lab-1.html#data-lets-take-a-trip-to-the-midwest",
+    "title": "Lab 1 - Data visualization",
+    "section": "Data: Let’s take a trip to the Midwest",
+    "text": "Data: Let’s take a trip to the Midwest\nThe data in this lab is in the midwest data frame. It is part of the ggplot2 R package, so the midwest data set is automatically loaded when you load the tidyverse package.\nThe data contains demographic characteristics of counties in the Midwest region of the United States.\nBecause the data set is part of the ggplot2 package, you can read documentation for the data set, including variable definitions by typing ?midwest in the console."
   }
 ]
