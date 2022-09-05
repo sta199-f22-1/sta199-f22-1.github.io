@@ -6,6 +6,8 @@ editor: visual
 
 ::: callout-important
 Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-01-bechdel-dataviz-YOUR_GITHUB_USERNAME` to get started.
+
+This AE is due Friday, Sep 9 at 11:59pm.
 :::
 
 In this mini analysis we work with the data used in the FiveThirtyEight story titled ["The Dollar-And-Cents Case Against Hollywood's Exclusion of Women"](https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/).
@@ -296,7 +298,7 @@ bechdel |>
   select(title, roi, budget_2013, gross_2013, year, clean_test)
 ```
 
-### Step 2
+### Step 2 - Demo
 
 Expand on your plot from the previous step to zoom in on movies with `roi < ___` to get a better view of how the medians across the categories compare.
 
