@@ -13,18 +13,18 @@ This lab is due Friday, Sep 9 at 11:59pm.
 
 In this lab, you will...
 
-- learn how to effectively visualize numeric and categorical data.
-- continue developing a workflow for reproducible data analysis.
+-   learn how to effectively visualize numeric and categorical data.
+-   continue developing a workflow for reproducible data analysis.
 
-# Getting started 
+# Getting started
 
 -   Go to the [**sta199-f22-1**](https://www.github.com/sta199-f22-1) organization on GitHub. Click on the repo with the prefix **lab-01**. It contains the starter documents you need to complete the lab.
 
-- Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+-   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
 
 ## Packages
 
-We will use the **tidyverse** package to create and customize plots in R. 
+We will use the **tidyverse** package to create and customize plots in R.
 
 ```{r}
 #| label: load-packages
@@ -42,23 +42,23 @@ The data contains demographic characteristics of counties in the Midwest region 
 
 Because the data set is part of the **ggplot2** package, you can read documentation for the data set, including variable definitions by typing `?midwest` in the **console**.
 
-# Exercises 
+# Exercises
 
 As we've discussed in lecture, your plots should include an informative title, axes should be labeled, and careful consideration should be given to aesthetic choices.
 
 In addition, the code should not exceed the 80 character limit, so that all the code can be read when you render to PDF. To help with this, you can add a vertical line at 80 characters by clicking "Tools" $\rightarrow$ "Global Options" $\rightarrow$ "Code" $\rightarrow$ "Display", then set "Margin Column" to 80, and click "Apply".
 
-Remember that continuing to develop a sound workflow for reproducible data analysis is important as you complete the lab and other assignments in this course. There will be periodic reminders in this assignment to remind you to **render, commit, and push** your changes to GitHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment. 
+Remember that continuing to develop a sound workflow for reproducible data analysis is important as you complete the lab and other assignments in this course. There will be periodic reminders in this assignment to remind you to **render, commit, and push** your changes to GitHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment.
 
-1. Make a histogram to visualize the population density of counties. Set the number of bins to 10 and include axes labels and a title. 
-    - Describe the shape of the distribution. 
-    - Does there appear to be are any outliers? Briefly explain.
-    
+1.  Make a histogram to visualize the population density of counties. Set the number of bins to 10 and include axes labels and a title.
+    -   Describe the shape of the distribution.
+    -   Does there appear to be are any outliers? Briefly explain.
+
 ::: callout-note
 For more details and code examples for histograms [ggplot2 reference page](https://ggplot2.tidyverse.org/reference/geom_histogram.html).
 :::
 
-2. Create a scatterplot of the percentage of people with a college degree (`percollege`) versus percentage below poverty (`percbelowpoverty`) with points colored by `state`. Label the axes and legend and give the plot a title. Use the `scale_color_viridis` function to apply the viridis color palette to your plot. 
+2.  Create a scatterplot of the percentage of people with a college degree (`percollege`) versus percentage below poverty (`percbelowpoverty`) with points colored by `state`. Label the axes and legend and give the plot a title. Use the `scale_color_viridis` function to apply the viridis color palette to your plot.
 
 ::: callout-note
 See [*Introduction to the viridis color maps*](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) to read more about the viridis R package and see code examples.
@@ -70,9 +70,9 @@ Render, commit, and push your changes to GitHub with the commit message "Added a
 Make sure to commit and push all changed files so that your Git pane is empty afterwards.
 :::
 
-3. Describe what you observe in the plot from the previous exercise. In your description, include similarities and differences in the patterns across states. 
+3.  Describe what you observe in the plot from the previous exercise. In your description, include similarities and differences in the patterns across states.
 
-4. Now, let's examine the relationship between the same two variables, using a separate plot for each state. Label the axes and give the plot a title. Use `geom_smooth` with the argument `se = FALSE` to add a smooth curve fit to the data. Which plot do you prefer - this plot or the plot in Ex 2? Briefly explain your choice.
+4.  Now, let's examine the relationship between the same two variables, using a separate plot for each state. Label the axes and give the plot a title. Use `geom_smooth` with the argument `se = FALSE` to add a smooth curve fit to the data. Which plot do you prefer - this plot or the plot in Ex 2? Briefly explain your choice.
 
 ::: callout-note
 `se = FALSE` removes the confidence bands around the line. These bands show the uncertainty around the smooth curve. We'll discuss uncertainty around estimates later in the course and bring these bands back then.
@@ -84,22 +84,21 @@ Now is another good time to render, commit, and push your changes to GitHub with
 Once again, make sure to commit and push all changed files so that your Git pane is empty afterwards.
 :::
 
-5. *Do some states have counties that tend to be geographically larger than others?* To explore this question, create side-by-side boxplots of area (`area`) of a county based on state (`state`). 
-    - Describe what you observe from the plot. 
-    - Which state has the single largest county? How do you know based on the plot?
+5.  *Do some states have counties that tend to be geographically larger than others?* To explore this question, create side-by-side boxplots of area (`area`) of a county based on state (`state`).
+    -   Describe what you observe from the plot.
+    -   Which state has the single largest county? How do you know based on the plot?
+6.  *Do some states have a higher percentage of their counties located in a metropolitan area?* Create a segmented bar chart with one bar per state and the fill determined by the distribution of `metro`, whether a county is considered in a metro area. The y axis of the segmented barplot should range from 0 to 1.
+    -   What do you notice from the plot?
 
-6. *Do some states have a higher percentage of their counties located in a metropolitan area?* Create a segmented bar chart with one bar per state and the fill determined by the distribution of `metro`, whether a county is considered in a metro area. The y axis of the segmented barplot should range from 0 to 1. 
-    - What do you notice from the plot?
-   
-::: callout-note 
-For this exercise, you should begin with the data wrangling code below. We will learn more about data wrangling next week. 
+::: callout-note
+For this exercise, you should begin with the data wrangling code below. We will learn more about data wrangling next week.
 :::
 
 ```{r}
 #| label: hint
 #| eval: false
 
-midwest <- midwest %>%
+midwest <- midwest |>
   mutate(metro = ifelse(inmetro == 1, "Yes", "No"))
 ```
 
@@ -109,14 +108,14 @@ Now is another good time to render, commit, and push your changes to GitHub with
 And once again, make sure to commit and push all changed files so that your Git pane is empty afterwards. We keep repeating this because it's important, and because we see students forget to do this. So take a moment to make sure you're following along with the instructions around Git.
 :::
 
-7. Recreate the plot below. 
+7.  Recreate the plot below.
 
-Hints: 
+Hints:
 
-- [The `ggplot2` reference for themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) will be helpful in determining the theme.
-- The `size` of the points is 2.
-- The transparency (`alhpa`) of the points is 0.5.
-- You can put line breaks in labels with `\n`.
+-   [The `ggplot2` reference for themes](https://ggplot2.tidyverse.org/reference/ggtheme.html) will be helpful in determining the theme.
+-   The `size` of the points is 2.
+-   The transparency (`alhpa`) of the points is 0.5.
+-   You can put line breaks in labels with `\n`.
 
 ![](images/lab-1/ex-7.png)
 
@@ -147,16 +146,16 @@ To submit your assignment:
 
 # Grading (50 pts)
 
-| Component | Points |
-|:----------|:-------|
-| Ex 1      | 4      |
-| Ex 2      | 6      |
-| Ex 3      | 4      |
-| Ex 4      | 8      |
-| Ex 5      | 6      |
-| Ex 6      | 6      |
-| Ex 7      | 8      |
-| Workflow & formatting   | 8      |
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  | 4      |
+| Ex 2                  | 6      |
+| Ex 3                  | 4      |
+| Ex 4                  | 8      |
+| Ex 5                  | 6      |
+| Ex 6                  | 6      |
+| Ex 7                  | 8      |
+| Workflow & formatting | 8      |
 
 ::: callout-note
 The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages, labeling the code chunks, and having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF.
