@@ -70,12 +70,15 @@ Specifically, we need to configure your git so that RStudio can communicate with
 This requires two pieces of information: your name and email address.
 
 To do so, you will use the `use_git_config()` function from the `usethis` package.
+(And we also need to install a package called `gert` just for this step.)
 
 Type the following lines of code in the **console** in RStudio filling in your name and the email address associated with your GitHub account.
 
 ```{r}
+devtools::install_github("r-lib/gert")
+
 usethis::use_git_config(
-  user.name = "GitHub username", 
+  user.name = "Your name", 
   user.email = "Email associated with your GitHub account"
   )
 ```
@@ -83,8 +86,10 @@ usethis::use_git_config(
 For example, mine would be
 
 ```{r}
+devtools::install_github("r-lib/gert")
+
 usethis::use_git_config(
-  user.name = "mine-cetinkaya-rundel", 
+  user.name = "Mine Çetinkaya-Rundel", 
   user.email = "cetinkaya.mine@gmail.com"
   )
 ```
