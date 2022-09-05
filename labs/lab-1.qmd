@@ -6,7 +6,7 @@ execute:
 ---
 
 ::: callout-important
-This lab is due Friday, Sep 9.
+This lab is due Friday, Sep 9 at 11:59pm.
 :::
 
 # Learning goals
@@ -130,7 +130,7 @@ Make sure to commit and push all changed files so that your Git pane is empty af
 
 Once you are finished with the lab, you will your final PDF document to Gradescope.
 
-::: callout-important
+::: callout-warning
 Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
 
 You must turn in a PDF file to the Gradescope page by the submission deadline to be considered "on time".
