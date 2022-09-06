@@ -45,6 +45,13 @@ d |>
       )
     }
   ) |>
+  text_transform(cells_body(columns = c(ae_key)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("key", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('key')}</a>")
+      )
+    }
+  ) |>
   text_transform(cells_body(columns = c(hw)),
     fn = function(x) {
       ifelse(is.na(x), fontawesome::fa("keyboard", fill_opacity = 0.1),

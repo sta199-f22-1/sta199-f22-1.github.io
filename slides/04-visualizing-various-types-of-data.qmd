@@ -1,0 +1,63 @@
+---
+title: "Visualizing various types of data"
+subtitle: "Lecture 4"
+date: "September 8, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## **Identifying variable types** {.smaller}
+
+::: question
+Identify the type of each of the following variables.
+
+-   Favorite food
+-   Number of classes you're taking this semester
+-   Zip code
+:::
+
+## Questions from the prepare materials?
+
+```{=html}
+<iframe src="https://app.sli.do/event/9mqwqdqbgesgLASUHGpwU8/embed/polls/52941ba5-0668-4cad-9b86-82505db6b862" width="900" height="600"></iframe>
+```
+## **The way data is displayed matters**
+
+::: question
+What do these three plots show?
+:::
+
+![Source: [#barbarplots](https://cogtales.wordpress.com/2016/06/06/congratulations-barbarplots/)](images/04/bar-plot-meme.png){fig-alt="Three representations of the same data: Bar plot of means, box plots, histograms." fig-align="center"}
+
+# Application exercise
+
+## `ae-02-bechdel-dataviz`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-01-bechdel-dataviz` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE {.smaller}
+
+-   Construct plots with `ggplot()`.
+-   Layers of ggplots are separated by `+`s.
+-   The formula is (almost) always as follows:
+
+```{r}
+#| eval: false
+
+ggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +
+  geom_XXX()
+```
+
+-   Aesthetic attributes of a geometries (color, size, transparency, etc.) can be **map**ped to variables in the data or **set** by the user, e.g. `color = binary` vs. `color = "pink"`.
+-   Use `facet_wrap()` when faceting (creating small multiples) by one variable and `facet_grid()` when faceting by two variables.
