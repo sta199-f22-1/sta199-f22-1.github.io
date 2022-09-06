@@ -10,3 +10,7 @@ categories: "prepare"
 -   ⌨️ Watch:
     -   [Visualizing numerical data](https://youtu.be/waBabVTI8ec)
     -   [Visualizing categorical data](https://youtu.be/21h3rEO8k2E)
+-   📜Optional reading -- Blog posts that might be of interest for those who want to dive deeper / go further:
+    -   [#barbarplots](https://cogtales.wordpress.com/2016/06/06/congratulations-barbarplots/)
+
+    -   [Visualizing distributions with raincloud plots](https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/)

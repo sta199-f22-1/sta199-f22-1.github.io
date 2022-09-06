@@ -200,7 +200,7 @@
     "href": "prepare/09-08.html",
     "title": "Prepare",
     "section": "",
-    "text": "📖 Read:\n\nIMS: Chp 4 - Exploring categorical data\nIMS: Chp 5 - Exploring numerical data\n\n⌨️ Watch:\n\nVisualizing numerical data\nVisualizing categorical data"
+    "text": "📖 Read:\n\nIMS: Chp 4 - Exploring categorical data\nIMS: Chp 5 - Exploring numerical data\n\n⌨️ Watch:\n\nVisualizing numerical data\nVisualizing categorical data\n\n📜Optional reading – Blog posts that might be of interest for those who want to dive deeper / go further:\n\n#barbarplots\nVisualizing distributions with raincloud plots"
   },
   {
     "objectID": "ae/ae-01-bechdel-dataviz.html",
@@ -683,7 +683,7 @@
     "href": "slides/04-visualizing-various-types-of-data.html#recap-of-ae",
     "title": "Visualizing various types of data",
     "section": "Recap of AE",
-    "text": "Recap of AE\n\nConstruct plots with ggplot().\nLayers of ggplots are separated by +s.\nThe formula is (almost) always as follows:\n\n\nggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +\n  geom_XXX()\n\n\nAesthetic attributes of a geometries (color, size, transparency, etc.) can be mapped to variables in the data or set by the user, e.g. color = binary vs. color = \"pink\".\nUse facet_wrap() when faceting (creating small multiples) by one variable and facet_grid() when faceting by two variables.\n\n\n\n\n🔗 sta199-f22-1.github.io"
+    "text": "Recap of AE\n\nPick geoms based on data types.\nSet appropriate binwidths for histograms.\nTurn off legends when they provide redundant information with show.legend = FALSE.\nCreate plots with multiple geoms, and pay attention to order.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/03-grammar-of-graphics.html#examining-data-visualization",
@@ -1090,5 +1090,12 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots)."
+  },
+  {
+    "objectID": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
+    "href": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
+    "title": "Visualizing various types of data",
+    "section": "ae-02-viz-data-types",
+    "text": "ae-02-viz-data-types\n\n\nGo to the course GitHub org and find your ae-02-viz-data-types (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   }
 ]

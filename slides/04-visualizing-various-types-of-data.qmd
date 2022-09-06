@@ -38,26 +38,17 @@ What do these three plots show?
 
 # Application exercise
 
-## `ae-02-bechdel-dataviz`
+## `ae-02-viz-data-types`
 
 ::: appex
--   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-01-bechdel-dataviz` (repo name will be suffixed with your GitHub name).
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your ae-02-viz-data-types (repo name will be suffixed with your GitHub name).
 -   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
 -   Render, commit, and push your edits by the AE deadline -- 3 days from today.
 :::
 
 ## Recap of AE {.smaller}
 
--   Construct plots with `ggplot()`.
--   Layers of ggplots are separated by `+`s.
--   The formula is (almost) always as follows:
-
-```{r}
-#| eval: false
-
-ggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +
-  geom_XXX()
-```
-
--   Aesthetic attributes of a geometries (color, size, transparency, etc.) can be **map**ped to variables in the data or **set** by the user, e.g. `color = binary` vs. `color = "pink"`.
--   Use `facet_wrap()` when faceting (creating small multiples) by one variable and `facet_grid()` when faceting by two variables.
+-   Pick geoms based on data types.
+-   Set appropriate binwidths for histograms.
+-   Turn off legends when they provide redundant information with `show.legend = FALSE`.
+-   Create plots with multiple geoms, and pay attention to order.
