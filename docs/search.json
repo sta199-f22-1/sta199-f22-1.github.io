@@ -1090,5 +1090,12 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots)."
+  },
+  {
+    "objectID": "slides/03-grammar-of-graphics.html#announcements-1",
+    "href": "slides/03-grammar-of-graphics.html#announcements-1",
+    "title": "Grammar of graphics",
+    "section": "Announcements",
+    "text": "Announcements\n\nOffice hours start this week\n“Graded” AEs also start this week – commit and push to your repo within 3 days of AE"
   }
 ]

@@ -5,7 +5,14 @@ date: "September 6, 2022"
 format: revealjs
 ---
 
-# Data visualization
+# Announcements
+
+## Announcements
+
+-   Office hours start this week
+-   "Graded" AEs also start this week -- commit and push to your repo within 3 days of AE
+
+# Warm up
 
 ```{r}
 #| echo: false
