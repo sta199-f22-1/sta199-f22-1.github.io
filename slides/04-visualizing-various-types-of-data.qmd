@@ -13,6 +13,10 @@ format: revealjs
 library(countdown)
 ```
 
+## Announcements
+
+TBA
+
 ## **Identifying variable types** {.smaller}
 
 ::: question
