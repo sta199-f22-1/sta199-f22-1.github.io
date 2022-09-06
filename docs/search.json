@@ -277,7 +277,7 @@
     "href": "ae/ae-01-bechdel-dataviz-A.html",
     "title": "AE 01: Bechdel + data visualization",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-01-bechdel-dataviz-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Friday, Sep 9 at 11:59pm.\nIn this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”.\nThis analysis is about the Bechdel test, a measure of the representation of women in fiction."
+    "text": "Important\n\n\n\nThese are suggested answers. This document should be used as reference only, it’s not designed to be an exhaustive key.\nIn this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”.\nThis analysis is about the Bechdel test, a measure of the representation of women in fiction."
   },
   {
     "objectID": "ae/ae-01-bechdel-dataviz-A.html#getting-started",
@@ -312,7 +312,7 @@
     "href": "ae/ae-02-viz-data-types-A.html",
     "title": "AE 02: Visualizing penguins",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-02-data-types-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Sunday, Sep 11 at 11:59pm.\nFor all analyses, we’ll use the tidyverse and palmerpenguins packages.\nThe dataset we will visualize is called penguins. Let’s glimpse() at it."
+    "text": "Important\n\n\n\nThese are suggested answers. This document should be used as reference only, it’s not designed to be an exhaustive key.\nFor all analyses, we’ll use the tidyverse and palmerpenguins packages.\nThe dataset we will visualize is called penguins. Let’s glimpse() at it."
   },
   {
     "objectID": "ae/ae-02-viz-data-types-A.html#single-variable",
@@ -672,11 +672,11 @@
     "text": "The way data is displayed matters\n\nWhat do these three plots show?\n\n\nSource: #barbarplots"
   },
   {
-    "objectID": "slides/04-visualizing-various-types-of-data.html#ae-02-bechdel-dataviz",
-    "href": "slides/04-visualizing-various-types-of-data.html#ae-02-bechdel-dataviz",
+    "objectID": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
+    "href": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
     "title": "Visualizing various types of data",
-    "section": "ae-02-bechdel-dataviz",
-    "text": "ae-02-bechdel-dataviz\n\n\nGo to the course GitHub org and find your ae-01-bechdel-dataviz (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+    "section": "ae-02-viz-data-types",
+    "text": "ae-02-viz-data-types\n\n\nGo to the course GitHub org and find your ae-02-viz-data-types (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
     "objectID": "slides/04-visualizing-various-types-of-data.html#recap-of-ae",
@@ -1090,12 +1090,5 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots)."
-  },
-  {
-    "objectID": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
-    "href": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
-    "title": "Visualizing various types of data",
-    "section": "ae-02-viz-data-types",
-    "text": "ae-02-viz-data-types\n\n\nGo to the course GitHub org and find your ae-02-viz-data-types (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   }
 ]

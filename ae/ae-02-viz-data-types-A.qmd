@@ -13,9 +13,8 @@ execute:
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-02-data-types-YOUR_GITHUB_USERNAME` to get started.
-
-This AE is due Sunday, Sep 11 at 11:59pm.
+These are suggested answers.
+This document should be used as reference only, it's not designed to be an exhaustive key.
 :::
 
 For all analyses, we'll use the **tidyverse** and **palmerpenguins** packages.
