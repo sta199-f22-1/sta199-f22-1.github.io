@@ -672,11 +672,11 @@
     "text": "The way data is displayed matters\n\nWhat do these three plots show?\n\n\nSource: #barbarplots"
   },
   {
-    "objectID": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
-    "href": "slides/04-visualizing-various-types-of-data.html#ae-02-viz-data-types",
+    "objectID": "slides/04-visualizing-various-types-of-data.html#ae-02",
+    "href": "slides/04-visualizing-various-types-of-data.html#ae-02",
     "title": "Visualizing various types of data",
-    "section": "ae-02-viz-data-types",
-    "text": "ae-02-viz-data-types\n\n\nGo to the course GitHub org and find your ae-02-viz-data-types (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+    "section": "ae-02",
+    "text": "ae-02\n\n\nGo to the course GitHub org and find your ae-02 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
     "objectID": "slides/04-visualizing-various-types-of-data.html#recap-of-ae",
@@ -700,11 +700,11 @@
     "text": "Questions from the prepare materials?"
   },
   {
-    "objectID": "slides/03-grammar-of-graphics.html#ae-01-bechdel-dataviz",
-    "href": "slides/03-grammar-of-graphics.html#ae-01-bechdel-dataviz",
+    "objectID": "slides/03-grammar-of-graphics.html#ae-01",
+    "href": "slides/03-grammar-of-graphics.html#ae-01",
     "title": "Grammar of graphics",
-    "section": "ae-01-bechdel-dataviz",
-    "text": "ae-01-bechdel-dataviz\n\n\nGo to the course GitHub org and find your ae-01-bechdel-dataviz (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+    "section": "ae-01",
+    "text": "ae-01\n\n\nGo to the course GitHub org and find your ae-01 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
     "objectID": "slides/03-grammar-of-graphics.html#recap-of-ae",

@@ -46,10 +46,10 @@ countdown(minutes = 4, left = 0, color_text = "#325b74")
 ```
 # Application exercise
 
-## `ae-01-bechdel-dataviz`
+## `ae-01`
 
 ::: appex
--   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-01-bechdel-dataviz` (repo name will be suffixed with your GitHub name).
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-01` (repo name will be suffixed with your GitHub name).
 -   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
 -   Render, commit, and push your edits by the AE deadline -- 3 days from today.
 :::
