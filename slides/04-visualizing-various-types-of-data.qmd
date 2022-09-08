@@ -35,6 +35,8 @@ Identify the type of each of the following variables.
 :::
 
 ```{r}
+#| echo: false
+
 countdown(minutes = 2)
 ```
 
