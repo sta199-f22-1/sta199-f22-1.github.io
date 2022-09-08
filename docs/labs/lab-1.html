@@ -352,7 +352,7 @@ Important
 <p>In addition, the code should not exceed the 80 character limit, so that all the code can be read when you render to PDF. To help with this, you can add a vertical line at 80 characters by clicking “Tools” <span class="math inline">\(\rightarrow\)</span> “Global Options” <span class="math inline">\(\rightarrow\)</span> “Code” <span class="math inline">\(\rightarrow\)</span> “Display”, then set “Margin Column” to 80, and click “Apply”.</p>
 <p>Remember that continuing to develop a sound workflow for reproducible data analysis is important as you complete the lab and other assignments in this course. There will be periodic reminders in this assignment to remind you to <strong>render, commit, and push</strong> your changes to GitHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment.</p>
 <ol type="1">
-<li>Make a histogram to visualize the population density of counties. Set the number of bins to 10 and include axes labels and a title.
+<li>Make a histogram to visualize the population density of counties. Set the binwidth to 10,000 and include axes labels and a title.
 <ul>
 <li>Describe the shape of the distribution.</li>
 <li>Does there appear to be are any outliers? Briefly explain.</li>
@@ -372,7 +372,7 @@ Note
 </div>
 </div>
 <ol start="2" type="1">
-<li>Create a scatterplot of the percentage of people with a college degree (<code>percollege</code>) versus percentage below poverty (<code>percbelowpoverty</code>) with points colored by <code>state</code>. Label the axes and legend and give the plot a title. Use the <code>scale_color_viridis</code> function to apply the viridis color palette to your plot.</li>
+<li>Create a scatterplot of the percentage of people with a college degree (<code>percollege</code>) versus percentage below poverty (<code>percbelowpoverty</code>) with points colored by <code>state</code>. Label the axes and legend and give the plot a title. Use the <code>scale_color_viridis_d()</code> function to apply the viridis color palette to your plot.</li>
 </ol>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -438,7 +438,7 @@ Note
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>midwest <span class="ot">&lt;-</span> midwest <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">metro =</span> <span class="fu">ifelse</span>(inmetro <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">metro =</span> <span class="fu">if_else</span>(inmetro <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="render-commit-push">
 <p>Now is another good time to render, commit, and push your changes to GitHub with a meaningful commit message.</p>
