@@ -15,7 +15,12 @@ library(countdown)
 
 ## Announcements
 
-TBA
+-   HW 1 posted this evening, due 11:59pm on Thursday, Sep 15
+
+## Wrap up `ae-01`
+
+-   Any questions from Part 1?
+-   Demo: Part 2
 
 ## **Identifying variable types** {.smaller}
 
@@ -25,7 +30,13 @@ Identify the type of each of the following variables.
 -   Favorite food
 -   Number of classes you're taking this semester
 -   Zip code
+-   Full name
+-   Age
 :::
+
+```{r}
+countdown(minutes = 2)
+```
 
 ## Questions from the prepare materials?
 

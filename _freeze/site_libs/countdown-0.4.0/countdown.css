@@ -30,7 +30,7 @@
   padding: 0;
 }
 .countdown-digits {
-  color: #325b74;
+  color: inherit;
 }
 .countdown.running {
   border-color: #2A9B59FF;
