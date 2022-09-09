@@ -235,7 +235,7 @@ Note that by submitting a regrade request, the entire question will be graded wh
 
 Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request.
 Videos shared with such students will be available for a week.
-To request a particular lecture's video, please fill out the form at **INSERT LINK**. Please also make sure that any official documentation, such as STINFs, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
+To request a particular lecture's video, please fill out [the form](https://forms.gle/1ckJVZU9unoxkaJ39). Please also make sure that any official documentation, such as incapacitation forms, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
 
 ### Attendance policy
 
