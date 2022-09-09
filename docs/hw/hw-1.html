@@ -517,12 +517,10 @@ Note
 <li>The gg in the name of the package ggplot2 stands for ___.</li>
 <li>If you map the same continuous variable to both <code>x</code> and <code>y</code> aesthetics in a scatterplot, you get a straight ___ line. (Choose between “vertical”, “horizontal”, or “diagonal”.)</li>
 </ul></li>
-<li>Code style: Fix up the code style by spaces and line breaks where needed. (Hint: You can refer to the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>.)</li>
+<li>Code style: Fix up the code style by spaces and line breaks where needed. Briefly describe your fixes. (Hint: You can refer to the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>.)</li>
 </ol>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="hw-1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>drv,<span class="at">fill=</span>class))<span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
 <li>Read <code>?facet_wrap</code>. What does <code>nrow</code> do? What does <code>ncol</code> do? What other options control the layout of the individual panels? Why doesn’t <code>facet_grid()</code> have <code>nrow</code> and <code>ncol</code> arguments?</li>

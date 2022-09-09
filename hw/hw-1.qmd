@@ -147,8 +147,7 @@ brfss <- read_csv("data/brfss.csv")
 -   Include the code and resulting output used to support your answer.
 
 ::: render-commit-push
-<br>
-Now is a good time to render, commit, and push.
+<br> Now is a good time to render, commit, and push.
 <br><br>
 :::
 
@@ -197,20 +196,18 @@ brfss |>
 (a) Fill in the blanks:
     -   The gg in the name of the package ggplot2 stands for \_\_\_.
     -   If you map the same continuous variable to both `x` and `y` aesthetics in a scatterplot, you get a straight \_\_\_ line. (Choose between "vertical", "horizontal", or "diagonal".)
-
-(b)   Code style: Fix up the code style by spaces and line breaks where needed. (Hint: You can refer to the [Tidyverse style guide](https://style.tidyverse.org/).)
+(b) Code style: Fix up the code style by spaces and line breaks where needed. Briefly describe your fixes. (Hint: You can refer to the [Tidyverse style guide](https://style.tidyverse.org/).)
 
 ```{r}
-#| echo: false
+#| eval: false
 
 ggplot(data=mpg,mapping=aes(x=drv,fill=class))+geom_bar() +scale_fill_viridis_d()
 ```
 
-(c)  Read `?facet_wrap`. What does `nrow` do? What does `ncol` do? What other options control the layout of the individual panels? Why doesn't `facet_grid()` have `nrow` and `ncol` arguments?
+(c) Read `?facet_wrap`. What does `nrow` do? What does `ncol` do? What other options control the layout of the individual panels? Why doesn't `facet_grid()` have `nrow` and `ncol` arguments?
 
 ::: render-commit-push
-<br>
-Render, commit, and push one last time.
+<br> Render, commit, and push one last time.
 
 Make sure that you commit and push all changed documents and your Git pane is completely empty before proceding.
 <br>
