@@ -1,0 +1,15 @@
+---
+title: "Prepare"
+subtitle: "Due: September 13, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   R4DS: [Chp 4 - Data transformation](https://r4ds.hadley.nz/data-transform.html)
+-   ⌨️ Watch:
+    -   [Grammar of data wrangling](https://youtu.be/ZCaYBES_VEk)
+    -   [Working with a single data frame](https://youtu.be/0229Uq2hkJo)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::
