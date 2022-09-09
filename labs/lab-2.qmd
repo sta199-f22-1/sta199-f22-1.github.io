@@ -1,0 +1,144 @@
+---
+title: "Lab 2 - wrangling-data"
+categories: "Lab"
+execute:
+  eval: false
+---
+
+::: callout-important
+This lab is due Monday, Sep 19 at 11:59pm.
+:::
+
+# Learning goals
+
+In this lab, you will...
+
+-     Use data wrangling to extract meaning from data
+-     continue developing a workflow for reproducible data analysis.
+
+# Getting started 
+
+-   Go to the sta199-fa22-02 organization on GitHub. Click on the repo with the prefix lab-02. It contains the starter documents you need to complete the lab.
+
+-   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-2.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+
+## Packages
+
+We will use the **tidyverse** package to create and customize plots in R.
+
+```{r}
+#| label: load-packages
+#| warning: false
+
+library(tidyverse)
+```
+
+
+## Data
+
+### The Greatest Crossover Event in the History of STA199 Labs 
+
+This data was originally collected for a [FiveThirtyEight article](https://fivethirtyeight.com/features/avengers-death-comics-age-of-ultron/). The version of the avengers data we will work with here can be uploaded from the avengers.csv file.
+
+This dataset includes information about characters across the entire Marvel Cinematic Universe (MCU), so some of the names will be familiar if you are a fan of the films or comics. Don’t worry if you aren’t a Marvel fan; no background knowledge is needed to successfully complete this lab!
+
+We will focus on the following variables in this lab:
+
+```{r}
+
+```
+
+See FiveThirtyEight’s [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/avengers) for the full codebook.
+
+# Exercises
+
+As we've discussed in lecture, your plots should include an informative title, axes should be labeled, and careful consideration should be given to aesthetic choices.
+
+In addition, the code should not exceed the 80 character limit, so that all the code can be read when you render to PDF. To help with this, you can add a vertical line at 80 characters by clicking "Tools" $\rightarrow$ "Global Options" $\rightarrow$ "Code" $\rightarrow$ "Display", then set "Margin Column" to 80, and click "Apply".
+
+Remember that continuing to develop a sound workflow for reproducible data analysis is important as you complete the lab and other assignments in this course. There will be periodic reminders in this assignment to remind you to **render, commit, and push** your changes to GitHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment.
+
+1. You are interested in creating a data frame with the most “classic” Avengers. Use filter to make a new data frame that only includes Avengers that were 1) created in 1970 or earlier and 2) were not given probationary status. Assign the new data frame as classic_avengers. Confirm that once you have filtered, you are left with a data frame with 27 observations.
+
+::: render-commit-push
+
+Now is a good time to render, commit, and push.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceding.
+
+<br>
+:::
+
+2. *Who are the newest classic Avengers?* Using a single pipeline: Create a new variable called years_served that represents the number of years served as of 2021.. (Hint: you can use either the year variable or years_since_joining variables to do this.) Then, arrange the dataset in ascending order of years_served. Lastly, select the name and years_served and display the first three rows.
+  
+    - Report the names of the three newest classic Avengers and how long they have served in your narrative. 
+
+3. *Has the percentage of female Avengers changed over time?* To explore this question, find the percentage of female Avengers in the classic_avengers dataset and compare it to the percentage of females among all Avengers. What do you conclude based on these results?
+
+::: render-commit-push
+
+Now is a good time to render, commit, and push.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
+
+<br>
+:::
+
+4. Sort the full avengers dataset in descending order of appearances and display only the columns name, appearances, death1, and return1 for the top five observations.
+
+     - What do you observe about these Avengers in terms of deaths and returns?
+  
+5. Use the full avengers dataset to examine the mean and median number of appearances for Avengers who have died at least once compared to those who have not died at least once.
+
+     - What do you learn about Marvel movies from your results?
+  
+     - What do the mean and median tell you about the distribution of apparances for these two groups? 
+  
+6. *Who’s more popular - the new or classic Avengers?* Calculate the mean number of appearances for each introduction year (year). Then create a scatterplot of the mean appearances by introduction year. Do not include observations with the introduction year 1900, as “1900” indicates the value of full_reserve is missing.
+
+
+    - What are 2 - 3 observations you have about the mean appearances based on introduction year?
+  
+
+
+::: render-commit-push
+
+Now is a good time to render, commit, and push.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
+
+<br>
+:::
+
+# Submission
+
+Once you are finished with the lab, you will your final PDF document to Gradescope.
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+You must turn in a PDF file to the Gradescope page by the submission deadline to be considered "on time".
+:::
+
+To submit your assignment:
+
+-   Go to <http://www.gradescope.com> and click *Log in* in the top right corner.
+-   Click *School Credentials* $\rightarrow$ *Duke NetID* and log in using your NetID credentials.
+-   Click on your *STA 199* course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark all the pages associated with exercise. All the pages of your lab should be associated with at least one question (i.e., should be "checked"). *If you do not do this, you will be subject to lose points on the assignment.*
+-   Select the first page of your .pdf submission to be associated with the *"Workflow & formatting"* question.
+
+# Grading (50 pts)
+
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  |       |
+| Ex 2                  |       |
+| Ex 3                  |       |
+| Ex 4                  |       |
+| Ex 5                  |       |
+| Ex 6                  |       |
+| Workflow & formatting |       |
+
+::: callout-note
+The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages, labeling the code chunks, and having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF.
+:::
+
