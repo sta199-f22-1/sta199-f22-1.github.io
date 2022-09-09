@@ -4,7 +4,7 @@
     "href": "labs/lab-1.html",
     "title": "Lab 1 - Data visualization",
     "section": "",
-    "text": "Important\n\n\n\nThis lab is due Friday, Sep 9 at 11:59pm."
+    "text": "Important\n\n\n\nThis lab is due Friday, Sep 16 at 11:59pm."
   },
   {
     "objectID": "labs/lab-1.html#packages",
@@ -105,67 +105,102 @@
     "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradescope\n🔗 on Sakai\n\n\nGradebook\n🔗 on Sakai\n\n\nOffice hours\n🔗 on Google docs\n\n\nClass recording request form\n🔗 on Google forms\n\n\nTexbooks\n🔗 R for Data Science\n🔗 Introduction to Modern Statistics\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org"
   },
   {
-    "objectID": "hw/02-hw.html",
-    "href": "hw/02-hw.html",
-    "title": "HW 01: Add name",
+    "objectID": "hw/hw-1.html",
+    "href": "hw/hw-1.html",
+    "title": "HW 1 - Data visualization",
     "section": "",
-    "text": "Add instructions for assignment."
+    "text": "Important\n\n\n\nThis homework is due Thursday, Sep 15 at 11:59pm."
   },
   {
-    "objectID": "hw/06-hw.html",
-    "href": "hw/06-hw.html",
-    "title": "HW 01: Add name",
-    "section": "",
-    "text": "The world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.\nYou may submit the statistics experience assignment anytime between now and the deadline.\nEach experience has two parts:\n1️⃣ Have a statistics experience\n2️⃣ Make a slide summarizing on your experience\nYou must complete both parts to receive credit."
+    "objectID": "hw/hw-1.html#packages",
+    "href": "hw/hw-1.html#packages",
+    "title": "HW 1 - Data visualization",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(openintro)"
   },
   {
-    "objectID": "hw/06-hw.html#part-1-experience-statistics-outside-of-the-classroom",
-    "href": "hw/06-hw.html#part-1-experience-statistics-outside-of-the-classroom",
-    "title": "HW 01: Add name",
-    "section": "Part 1: Experience statistics outside of the classroom",
-    "text": "Part 1: Experience statistics outside of the classroom\nComplete an activity in one of the categories below. Under each category are suggested activities. You do not have to do one these suggested activities. You are welcome to find other activities as long as they are related to statistics/data science and they fit in one of the six categories. If there is an activity you’d like to do but you’re not sure if it qualifies for the statistics experience, just ask!\n\nCategory 1: Attend a talk or conference\nAttend an talk, panel, or conference related to statistics or data science. If you are attending a single talk or panel, it must be at least 30 minutes to count towards the statistics experience. The event can be in-person or online.\n\n\nCategory 2: Talk with a statistician/ data scientist\nTalk with someone who uses statistics in their daily work. This could include a professor, professional in industry, graduate student, etc.\n\n\nCategory 3: Listen to a podcast / watch video\nListen to a podcast or watch a video about statistics and data science. The podcast or video must be at least 30 minutes to count towards the statistics experience. A few suggestions are below:\n\nStats + Stories Podcast\nCausal Inference Podcast\nFiveThirtyEight Model Talk\nrstudio::global 2022 talks\nrstudio::global 2021 talks\nrstudio::conf 2020 talks\n\nThis list is not exhaustive. You may listen to other podcasts or watch other statistics/data science videos not included on this list. Ask your professor if you are unsure whether a particular podcast or video will count towards the statistics experience.\n\n\nCategory 4: Participate in a data science competition or challenge\nParticipate in a statistics or data science competition. You can participate individually or with a team.\n\n\nCategory 5: Read a book on statistics/data science\nThere are a lot of books about statistics, data science, and related topics. A few suggestions are below. If you decide to read a book that isn’t on this list, ask your professor to make sure it counts toward the experience. Many of these books are available through Duke library.\n\nWeapons of Math Destruction by Cathy O’Neil\nHow Charts Lie: Getting Smarter about Visual Information by Alberto Cairo\nThe Theory that Would Not Die by Sharon Bertsch McGrayne\nThe Art of Statistics: How to learn from data by David Spiegelhalter\nThe Signal and the Noise: Why so many predictions fail - but some don’t by Nate Silver\nHow Charts Lie by Alberto Cairo\nList of books about data science ethics\n\n\n\nCategory 6: TidyTuesday\nYou may also participate in a TidyTuesday challenge. New data sets are announced on Monday afternoons.You can find more information about TidyTuesday and see the data in the TidyTuesday GitHub repo.\nA few guidelines:\n✅ Create a GitHub repo for your TidyTuesday submission. Your repo should include\n\nThe R Markdown file with all the code needed to reproduce your visualization.\nA README that includes an image of your final visualization and a short summary (~ 1 paragraph) about your visualization.\n\n✅ The visualization should include features or customization that are beyond what we’ve done in class.\n✅ Include the link to your GitHub repo in the slide summarizing your experience.\n\n\nCategory 7: Coding out loud\nWatch an episode of Coding out loud (either live or pre-recorded) and work through the project.\nA few guidelines:c\n✅ Create a GitHub repo for your Coding out loud submission. Your repo should include\n\nThe Quarto file with all the code needed to reproduce your visualization.\nA README that includes an image of your final visualization and a short summary (~ 1 paragraph) about your visualization.\n\n✅ The final product (visualuzation, table, etc.) should include features or customization that are beyond what was achieved in the Coding out loud episode.\n✅ Include the link to your GitHub repo in the slide summarizing your experience."
+    "objectID": "hw/hw-1.html#guidelines-tips",
+    "href": "hw/hw-1.html#guidelines-tips",
+    "title": "HW 1 - Data visualization",
+    "section": "Guidelines + tips",
+    "text": "Guidelines + tips\nAs we’ve discussed in lecture, your plots should include an informative title, axes should be labeled, and careful consideration should be given to aesthetic choices.\nRemember that continuing to develop a sound workflow for reproducible data analysis is important as you complete this homework and other assignments in this course. There will be periodic reminders in this assignment to remind you to knit, commit, and push your changes to GithHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment.\n\n\n\n\n\n\nNote\n\n\n\nNote: Do not let R output answer the question for you unless the question specifically asks for just a plot. For example, if the question asks for the number of columns in the data set, please type out the number of columns. You are subject to lose points if you do not."
   },
   {
-    "objectID": "hw/06-hw.html#part-2-summarize-your-experience",
-    "href": "hw/06-hw.html#part-2-summarize-your-experience",
-    "title": "HW 01: Add name",
-    "section": "Part 2: Summarize your experience",
-    "text": "Part 2: Summarize your experience\nMake one slide summarizing your experience. Submit the slide as a PDF on Gradescope.\nInclude the following on your slide:\n\nName and brief description of the event/podcast/competition/etc.\nSomething you found new, interesting, or unexpected\nHow the event/podcast/competition/etc. connects to something we’ve done in class.\nCitation or link to web page for event/competition/etc.\n\nClick here to see a template to help you get started on your slide. Your slide does not have to follow this exact format; it just needs to include the information mentioned above and be easily readable (i.e. use a reasonable font size!). Creativity is encouraged!"
+    "objectID": "hw/hw-1.html#workflow-formatting",
+    "href": "hw/hw-1.html#workflow-formatting",
+    "title": "HW 1 - Data visualization",
+    "section": "Workflow + formatting",
+    "text": "Workflow + formatting\nMake sure to\n\nUpdate author name on your document.\nLabel all code chunks informatively and concisely.\nFollow the Tidyverse code style guidelines.\nMake at least 3 commits.\nResize figures where needed, avoid tiny or huge plots.\nTurn in an organized, well formatted document."
   },
   {
-    "objectID": "hw/06-hw.html#submission",
-    "href": "hw/06-hw.html#submission",
-    "title": "HW 01: Add name",
+    "objectID": "hw/hw-1.html#data-1-duke-forest-houses",
+    "href": "hw/hw-1.html#data-1-duke-forest-houses",
+    "title": "HW 1 - Data visualization",
+    "section": "Data 1: Duke Forest houses",
+    "text": "Data 1: Duke Forest houses\n\n\n\n\n\n\nNote\n\n\n\nUse this dataset for Exercises 1 and 2.\n\n\nFor the following two exercises you will work with data on houses that were sold in the Duke Forest neighborhood of Durham, NC in November 2020. The duke_forest dataset comes from the openintro package. You can see a list of the variables on the package website or by running ?duke_forest in your console."
+  },
+  {
+    "objectID": "hw/hw-1.html#exercise-1",
+    "href": "hw/hw-1.html#exercise-1",
+    "title": "HW 1 - Data visualization",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nSuppose you’re helping some family friends who are looking to buy a house in Duke Forest. As they browse Zillow listings, they realize some houses have garages and others don’t, and they wonder: Does having a garage make a difference?\nLuckily, you can help them answer this question with data visualization!\n\nMake histograms of the prices of houses in Duke Forest based on whether they have a garage.\n\nIn order to do this, you will first need to create a new variable called garage (with levels \"Garage\" and \"No garage\").\nBelow is the code for creating this new variable. Here, we mutate() the duke_forest data frame to add a new variable called garage which takes the value \"Garage\" if the text string \"Garage\" is detected in the parking variable and takes the test string \"No garage\" if not.\n\n\n\nduke_forest |>\n  mutate(garage = if_else(str_detect(parking, \"Garage\"),   \"Garage\", \"No garage\"))\n\n\nThen, facet by garage and use different colors for the two facets.\nChoose an appropriate binwidth and decide whether a legend is needed, and turn it off if not.\nInclude informative title and axis labels.\nFinally, include a brief (2-3 sentence) narrative comparing the distributions of prices of Duke Forest houses that do and don’t have garages. Your narrative should touch on whether having a garage “makes a difference” in terms of the price of the house.\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceding."
+  },
+  {
+    "objectID": "hw/hw-1.html#exercise-2",
+    "href": "hw/hw-1.html#exercise-2",
+    "title": "HW 1 - Data visualization",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nIt’s expected that within any given marker larger houses will be priced higher. It’s also expected that the age of the house will have an effect on the price. However in some markets new houses might be more expensive while in others new construction might mean “no character” and hence be less expensive. So your family friends ask: “In Duke Forest, do houses that are bigger and more expensive tend to be newer ones than those that are smaller and cheaper?”\nOnce again, data visualization skills to the rescue!\n\nCreate a scatter plot to exploring the relationship between price and area, conditioning for year_built.\nUse geom_smooth() with the argument se = FALSE to add a smooth curve fit to the data and color the points by year_built.\nInclude informative title, axis, and legend labels.\nDiscuss each of the following claims (1-2 sentences per claim). Your discussion should touch on specific things you observe in your plot as evidence for or against the claims.\n\nClaim 1: Larger houses are priced higher.\nClaim 2: Newer houses are priced higher.\nClaim 3: Bigger and more expensive houses tend to be newer ones than smaller and cheaper ones.\n\n\n\nNow is a good time to render, commit, and push.\nMake sure that you commit and push all changed documents and your Git pane is completely empty before proceding."
+  },
+  {
+    "objectID": "hw/hw-1.html#data-2-brfss",
+    "href": "hw/hw-1.html#data-2-brfss",
+    "title": "HW 1 - Data visualization",
+    "section": "Data 2: BRFSS",
+    "text": "Data 2: BRFSS\n\n\n\n\n\n\nNote\n\n\n\nUse this dataset for Exercises 3 to 5.\n\n\n\nThe Behavioral Risk Factor Surveillance System (BRFSS) is the nation’s premier system of health-related telephone surveys that collect state data about U.S. residents regarding their health-related risk behaviors, chronic health conditions, and use of preventive services. Established in 1984 with 15 states, BRFSS now collects data in all 50 states as well as the District of Columbia and three U.S. territories. BRFSS completes more than 400,000 adult interviews each year, making it the largest continuously conducted health survey system in the world.\nSource: cdc.gov/brfss\n\nIn the following exercises we will work with data from the 2020 BRFSS survey. The originally come from here, though we will work with a random sample of responses and a small number of variables from the data provided. These have already been sampled for you and the dataset you’ll use can be found in the data folder of your repo. It’s called brfss.csv.\n\nbrfss <- read_csv(\"data/brfss.csv\")"
+  },
+  {
+    "objectID": "hw/hw-1.html#exercise-3",
+    "href": "hw/hw-1.html#exercise-3",
+    "title": "HW 1 - Data visualization",
+    "section": "Exercise 3",
+    "text": "Exercise 3\n\nHow many rows are in the brfss dataset? What does each row represent?\nHow many columns are in the brfss dataset? Indicate the type of each variable.\nInclude the code and resulting output used to support your answer.\n\n\n Now is a good time to render, commit, and push."
+  },
+  {
+    "objectID": "hw/hw-1.html#exercise-4",
+    "href": "hw/hw-1.html#exercise-4",
+    "title": "HW 1 - Data visualization",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nDo people who smoke more tend to have worse health conditions?\n\nUse a segmented bar chart to visualize the relationship between smoking (smoke_freq) and general health (general_health). Decide on which variable to represent with bars and which variable to fill the color of the bars by.\nPay attention to the order of the bars and, if need be, use the fct_relevel function to reorder the levels of the variables.\n\nBelow is sample code for releveling general_health. Here we first convert general_health to a factor (how R stores categorical data) and then order the levels from Excellent to Poor.\n\n\n\nbrfss |>\n  mutate(\n    general_health = as.factor(general_health),\n    general_health = fct_relevel(general_health, \"Excellent\", \"Very good\", \"Good\", \"Fair\", \"Poor\")\n  )\n\n\nInclude informative title, axis, and legend labels.\nComment on the motivating question based on evidence from the visualization: Do people who smoke more tend to have worse health conditions?\n\n\n Now is a good time to render, commit, and push."
+  },
+  {
+    "objectID": "hw/hw-1.html#exercise-5",
+    "href": "hw/hw-1.html#exercise-5",
+    "title": "HW 1 - Data visualization",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nHow are sleep and general health associated?\n\nCreate a visualization displaying the relationship between sleep and general_health.\nInclude informative title and axis labels.\nModify your plot to use a different theme than the default.\nComment on the motivating question based on evidence from the visualization: How are sleep and general health associated?\n\n\n Now is a good time to render, commit, and push."
+  },
+  {
+    "objectID": "hw/hw-1.html#exercise-6",
+    "href": "hw/hw-1.html#exercise-6",
+    "title": "HW 1 - Data visualization",
+    "section": "Exercise 6",
+    "text": "Exercise 6\n\nFill in the blanks:\n\nThe gg in the name of the package ggplot2 stands for ___.\nIf you map the same continuous variable to both x and y aesthetics in a scatterplot, you get a straight ___ line. (Choose between “vertical”, “horizontal”, or “diagonal”.)\n\nCode style: Fix up the code style by spaces and line breaks where needed. (Hint: You can refer to the Tidyverse style guide.)\n\n\n\n\n\n\n\nRead ?facet_wrap. What does nrow do? What does ncol do? What other options control the layout of the individual panels? Why doesn’t facet_grid() have nrow and ncol arguments?\n\n\n Render, commit, and push one last time.\nMake sure that you commit and push all changed documents and your Git pane is completely empty before proceding."
+  },
+  {
+    "objectID": "hw/hw-1.html#submission",
+    "href": "hw/hw-1.html#submission",
+    "title": "HW 1 - Data visualization",
     "section": "Submission",
-    "text": "Submission\nSubmit the reflection as a PDF under the HW 6 - Statistics Experience assignment on Gradescope by Fri, Dec 9 at 11:59 pm ET. It must be submitted by the deadline on Gradescope to be considered for grading."
+    "text": "Submission\n\nGo to http://www.gradescope.com and click Log in in the top right corner.\nClick School Credentials Duke Net ID and log in using your Net ID credentials.\nClick on your STA 199 course.\nClick on the assignment, and you’ll be prompted to submit it.\nMark all the pages associated with exercise. All the pages of your homework should be associated with at least one question (i.e., should be “checked”). If you do not do this, you will be subject to lose points on the assignment.\nSelect the first page of your PDF submission to be associated with the “Workflow & formatting” question."
   },
   {
-    "objectID": "hw/04-hw.html",
-    "href": "hw/04-hw.html",
-    "title": "HW 01: Add name",
-    "section": "",
-    "text": "Add instructions for assignment."
-  },
-  {
-    "objectID": "hw/01-hw.html",
-    "href": "hw/01-hw.html",
-    "title": "HW 01 - Add title",
-    "section": "",
-    "text": "Add instructions for assignment."
-  },
-  {
-    "objectID": "hw/03-hw.html",
-    "href": "hw/03-hw.html",
-    "title": "HW 01: Add name",
-    "section": "",
-    "text": "Add instructions for assignment."
-  },
-  {
-    "objectID": "hw/05-hw.html",
-    "href": "hw/05-hw.html",
-    "title": "HW 01: Add name",
-    "section": "",
-    "text": "Add instructions for assignment."
+    "objectID": "hw/hw-1.html#grading",
+    "href": "hw/hw-1.html#grading",
+    "title": "HW 1 - Data visualization",
+    "section": "Grading",
+    "text": "Grading\n\nExercise 1: 7 points\nExercise 2: 9 points\nExercise 3: 5 points\nExercise 4: 9 points\nExercise 5: 7 points\nExercise 6: 8 points\nWorkflow + formatting: 5 points\nTotal: 50 points"
   },
   {
     "objectID": "prepare/09-05.html",

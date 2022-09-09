@@ -2,130 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sta199-f22-1.github.io/labs/lab-1.html</loc>
-    <lastmod>2022-09-09T01:17:51.711Z</lastmod>
+    <lastmod>2022-09-09T07:10:08.615Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/labs/lab-0.html</loc>
-    <lastmod>2022-09-09T01:17:52.925Z</lastmod>
+    <lastmod>2022-09-09T07:10:09.918Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-links.html</loc>
-    <lastmod>2022-09-09T01:17:53.404Z</lastmod>
+    <lastmod>2022-09-09T07:10:10.440Z</lastmod>
   </url>
   <url>
-    <loc>https://sta199-f22-1.github.io/hw/02-hw.html</loc>
-    <lastmod>2022-09-09T01:17:53.891Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta199-f22-1.github.io/hw/06-hw.html</loc>
-    <lastmod>2022-09-09T01:17:54.548Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta199-f22-1.github.io/hw/04-hw.html</loc>
-    <lastmod>2022-09-09T01:17:55.053Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta199-f22-1.github.io/hw/01-hw.html</loc>
-    <lastmod>2022-09-09T01:17:56.192Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta199-f22-1.github.io/hw/03-hw.html</loc>
-    <lastmod>2022-09-09T01:17:56.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta199-f22-1.github.io/hw/05-hw.html</loc>
-    <lastmod>2022-09-09T01:17:57.385Z</lastmod>
+    <loc>https://sta199-f22-1.github.io/hw/hw-1.html</loc>
+    <lastmod>2022-09-09T07:10:16.473Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/prepare/09-05.html</loc>
-    <lastmod>2022-09-09T01:17:58.034Z</lastmod>
+    <lastmod>2022-09-09T07:10:16.968Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/prepare/09-06.html</loc>
-    <lastmod>2022-09-09T01:17:58.585Z</lastmod>
+    <lastmod>2022-09-09T07:10:17.453Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/prepare/09-01.html</loc>
-    <lastmod>2022-09-09T01:17:59.211Z</lastmod>
+    <lastmod>2022-09-09T07:10:17.997Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/prepare/08-30.html</loc>
-    <lastmod>2022-09-09T01:17:59.702Z</lastmod>
+    <lastmod>2022-09-09T07:10:18.467Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/prepare/09-08.html</loc>
-    <lastmod>2022-09-09T01:18:00.292Z</lastmod>
+    <lastmod>2022-09-09T07:10:19.007Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-01-bechdel-dataviz.html</loc>
-    <lastmod>2022-09-09T01:18:01.728Z</lastmod>
+    <lastmod>2022-09-09T07:10:20.225Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-02-viz-data-types.html</loc>
-    <lastmod>2022-09-09T01:18:02.907Z</lastmod>
+    <lastmod>2022-09-09T07:10:21.213Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-01-bechdel-dataviz-A.html</loc>
-    <lastmod>2022-09-09T01:18:04.098Z</lastmod>
+    <lastmod>2022-09-09T07:10:22.390Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-02-viz-data-types-A.html</loc>
-    <lastmod>2022-09-09T01:18:05.006Z</lastmod>
+    <lastmod>2022-09-09T07:10:23.285Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/project-tips-resources.html</loc>
-    <lastmod>2022-09-09T01:18:05.515Z</lastmod>
+    <lastmod>2022-09-09T07:10:23.779Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/computing-access.html</loc>
-    <lastmod>2022-09-09T01:18:06.099Z</lastmod>
+    <lastmod>2022-09-09T07:10:24.231Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-overview.html</loc>
-    <lastmod>2022-09-09T01:18:06.621Z</lastmod>
+    <lastmod>2022-09-09T07:10:24.703Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/index.html</loc>
-    <lastmod>2022-09-09T01:18:12.728Z</lastmod>
+    <lastmod>2022-09-09T07:10:30.215Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-team.html</loc>
-    <lastmod>2022-09-09T01:18:13.203Z</lastmod>
+    <lastmod>2022-09-09T07:10:30.723Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/01-welcome-199.html</loc>
-    <lastmod>2022-09-09T01:18:27.066Z</lastmod>
+    <lastmod>2022-09-09T07:10:44.965Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/04-visualizing-various-types-of-data.html</loc>
-    <lastmod>2022-09-09T01:18:41.838Z</lastmod>
+    <lastmod>2022-09-09T07:10:57.976Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/03-grammar-of-graphics.html</loc>
-    <lastmod>2022-09-09T01:18:57.291Z</lastmod>
+    <lastmod>2022-09-09T07:11:12.493Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/02-meet-the-toolkit.html</loc>
-    <lastmod>2022-09-09T01:19:11.250Z</lastmod>
+    <lastmod>2022-09-09T07:11:28.331Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-faq.html</loc>
-    <lastmod>2022-09-09T01:19:11.864Z</lastmod>
+    <lastmod>2022-09-09T07:11:28.961Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-support.html</loc>
-    <lastmod>2022-09-09T01:19:12.409Z</lastmod>
+    <lastmod>2022-09-09T07:11:29.587Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/project-description.html</loc>
-    <lastmod>2022-09-09T01:19:12.965Z</lastmod>
+    <lastmod>2022-09-09T07:11:30.165Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-syllabus.html</loc>
-    <lastmod>2022-09-09T01:19:13.828Z</lastmod>
+    <lastmod>2022-09-09T07:11:30.980Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/computing-troubleshooting.html</loc>
-    <lastmod>2022-09-09T01:19:14.310Z</lastmod>
+    <lastmod>2022-09-09T07:11:31.476Z</lastmod>
   </url>
 </urlset>

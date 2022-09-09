@@ -1,7 +1,0 @@
----
-title: "HW 01 - Add title"
-date: "Due: Add due date"
-categories: "Homework"
----
-
-Add instructions for assignment.
