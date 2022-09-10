@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "labs/lab-2.html",
+    "href": "labs/lab-2.html",
+    "title": "Lab 2 - wrangling-data",
+    "section": "",
+    "text": "Important\n\n\n\nThis lab is due Monday, Sep 19 at 11:59pm."
+  },
+  {
+    "objectID": "labs/lab-2.html#packages",
+    "href": "labs/lab-2.html#packages",
+    "title": "Lab 2 - wrangling-data",
+    "section": "Packages",
+    "text": "Packages\nWe will use the tidyverse package to create and customize plots in R.\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "labs/lab-2.html#data",
+    "href": "labs/lab-2.html#data",
+    "title": "Lab 2 - wrangling-data",
+    "section": "Data",
+    "text": "Data\n\nThe Greatest Crossover Event in the History of STA199 Labs\nThis data was originally collected for a FiveThirtyEight article. The version of the avengers data we will work with here can be uploaded from the avengers.csv file.\nThis dataset includes information about characters across the entire Marvel Cinematic Universe (MCU), so some of the names will be familiar if you are a fan of the films or comics. Don’t worry if you aren’t a Marvel fan; no background knowledge is needed to successfully complete this lab!\nWe will focus on the following variables in this lab:\n\n\n\nSee FiveThirtyEight’s GitHub repo for the full codebook."
+  },
+  {
     "objectID": "labs/lab-1.html",
     "href": "labs/lab-1.html",
     "title": "Lab 1 - Data visualization",
