@@ -6,7 +6,7 @@ execute:
 ---
 
 ::: callout-important
-This lab is due Monday, Sep 19 at 11:59pm.
+This lab is due Friday, Sep 23 at 11:59pm.
 :::
 
 # Learning goals
