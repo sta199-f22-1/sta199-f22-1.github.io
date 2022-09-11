@@ -1,0 +1,20 @@
+{
+  "hash": "2ed0811b50809cb81a10310e32c784a5",
+  "result": {
+    "markdown": "---\ntitle: \"Grammar of data wrangling\"\nsubtitle: \"Lecture 5\"\ndate: \"September 13, 2022\"\nformat: revealjs\n---\n\n\n# Warm up\n\n\n::: {.cell}\n\n:::\n\n\n## While you wait for class to begin...\n\n-   Any questions from prepare materials?\n\n\n```{=html}\n<iframe src=\"https://app.sli.do/event/9mqwqdqbgesgLASUHGpwU8/embed/polls/52941ba5-0668-4cad-9b86-82505db6b862\" width=\"900\" height=\"600\"></iframe>\n```\n\n-   Clone your `ae-03` repo.\n\n## Announcements\n\n-   To be posted...\n\n# Application exercise\n\n## `ae-03`\n\n::: appex\n-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-02` (repo name will be suffixed with your GitHub name).\n-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\n-   Render, commit, and push your edits by the AE deadline -- 3 days from today.\n:::\n\n## Recap of AE {.smaller}\n\n-   Something about pipe...\n-   Something about building pipelines\n-   ...\n",
+    "supporting": [
+      "05-grammar-of-data-wrangling_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    function fireSlideChanged(previousSlide, currentSlide) {\n\n      // dispatch for htmlwidgets\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for reveal\n    if (window.Reveal) {\n      window.Reveal.addEventListener(\"slidechanged\", function(event) {\n        fireSlideChanged(event.previousSlide, event.currentSlide);\n      });\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

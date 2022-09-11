@@ -11,7 +11,7 @@ execute:
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-02-data-types-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-02-YOUR_GITHUB_USERNAME` to get started.
 
 This AE is due Sunday, Sep 11 at 11:59pm.
 :::

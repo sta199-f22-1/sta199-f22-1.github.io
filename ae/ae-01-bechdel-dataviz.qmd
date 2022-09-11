@@ -6,7 +6,7 @@ editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-01-bechdel-dataviz-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-01-YOUR_GITHUB_USERNAME` to get started.
 
 This AE is due Friday, Sep 9 at 11:59pm.
 :::

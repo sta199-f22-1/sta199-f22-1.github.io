@@ -1,0 +1,344 @@
+---
+title: "AE 03: Wrangling flights"
+categories: 
+  - Application exercise
+editor: visual
+---
+
+::: callout-important
+Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-03-YOUR_GITHUB_USERNAME` to get started.
+
+This AE is due Friday, Sep 16 at 11:59pm.
+:::
+
+To demonstrate data wrangling we will use `flights`, a tibble in the **nycflights13** R package.
+It includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(nycflights13)
+```
+
+The data frame has over 336,000 observations (rows), `r nrow(flights)` observations to be exact, so we will **not** view the entire data frame.
+Instead we'll use the commands below to help us explore the data.
+
+```{r}
+#| label: glimpse-data
+
+glimpse(flights)
+```
+
+```{r}
+#| label: column-names
+
+names(flights)
+```
+
+```{r}
+#| label: explore-data
+
+head(flights)
+```
+
+The `head()` function returns "A tibble: 6 x 19" and then the first six rows of the `flights` data.
+
+# Tibble vs. data frame
+
+A **tibble** is an opinionated version of the `R` data frame.
+In other words, all tibbles are data frames, but not all data frames are tibbles!
+
+There are two main differences between a tibble and a data frame:
+
+1.  When you print a tibble, the first ten rows and all of the columns that fit on the screen will display, along with the type of each column.
+
+Let's look at the differences in the output when we type `flights` (tibble) in the console versus typing `cars` (data frame) in the console.
+
+2.  Second, tibbles are somewhat more strict than data frames when it comes to subsetting data. You will get an error message if you try to access a variable that doesn't exist in a tibble. You will get `NULL` if you try to access a variable that doesn't exist in a data frame.
+
+```{r}
+#| label: tibble-v-data-frame
+
+flights$apple
+cars$apple
+```
+
+# Data wrangling with `dplyr`
+
+**dplyr** is the primary package in the tidyverse for data wrangling.
+[Click here](https://dplyr.tidyverse.org/) for the dplyr reference page.
+[Click here](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) for the dplyr cheatsheet.
+
+Quick summary of key dplyr functions[^1]:
+
+[^1]: From [dplyr vignette](https://dplyr.tidyverse.org/articles/dplyr.html)
+
+**Rows:**
+
+-   `filter()`:chooses rows based on column values.
+-   `slice()`: chooses rows based on location.
+-   `arrange()`: changes the order of the rows
+-   `sample_n()`: take a random subset of the rows
+
+**Columns:**
+
+-   `select()`: changes whether or not a column is included.
+-   `rename()`: changes the name of columns.
+-   `mutate()`: changes the values of columns and creates new columns.
+
+**Groups of rows:**
+
+-   `summarise()`: collapses a group into a single row.
+-   `count()`: count unique values of one or more variables.
+-   `group_by()`: perform calculations separately for each value of a variable
+
+## `select()`
+
+-   Demo: Make a data frame that only contains the variables `dep_delay` and `arr_delay`.
+
+```{r}
+#| label: select-vars
+
+# add code here
+```
+
+-   Demo: Make a data frame that keeps every variable except `dep_delay`.
+
+```{r}
+#| label: exclude-vars
+
+# add code here
+```
+
+-   Demo: Make a data frame that includes all variables between `year` through `dep_delay` (inclusive). These are all variables that provide information about the departure of each flight.
+
+```{r}
+#| label: include-range
+
+# add code here
+```
+
+-   Demo: Use the `select` helper `contains()` to make a data frame that includes the variables associated with the arrival, i.e., contains the string `"arr\_"` in the name.
+
+```{r}
+#| label: arr-vars
+
+# add code here
+```
+
+## The pipe
+
+Before working with more data wrangling functions, let's formally introduce the pipe.
+The **pipe**, `|>`, is an operator (a tool) for passing information from one process to another.
+We will use `|>` mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.
+
+When reading code "in English", say "and then" whenever you see a pipe.
+
+-   **Your turn (4 minutes):** Run the following chunk and observe its output. Then, come up with a different way of obtaining the same output.
+
+```{r}
+#| label: pipe-demo
+
+# add code here
+```
+
+## `slice()`
+
+-   Demo: Display the first five rows of the `flights` data frame.
+
+```{r}
+#| label: slice
+
+# add code here
+```
+
+-   Demo: Display the last two rows of the `flights` data frame.
+
+```{r}
+#| label: last-two
+
+# add code here
+```
+
+## `arrange()`
+
+-   Demo: Let's arrange the data by departure delay, so the flights with the shortest departure delays will be at the top of the data frame.
+
+**Question: What does it mean for the `dep_delay` to have a negative value?**
+
+```{r}
+#| label: arrange-delays
+
+# add code here
+```
+
+-   Demo: Now let's arrange the data by descending departure delay, so the flights with the longest departure delays will be at the top.
+
+```{r}
+#| label: arrange-delays-desc
+
+# add code here
+```
+
+-   **Your turn (5 minutes):** Create a data frame that only includes the plane tail number (`tailnum`), carrier (`carrier`), and departure delay for the flight with the longest departure delay. What is the plane tail number (`tailnum`) for this flight? *Share your response on Slack on the relevant thread on #general **using code formatting**.*
+
+```{r}
+#| label: longest-delay
+
+# add code here
+```
+
+## `filter()`
+
+-   Demo: Filter the data frame by selecting the rows where the destination airport is RDU.
+
+```{r}
+#| label: rdu
+
+# add code here
+```
+
+-   Demo: We can also filter using more than one condition. Here we select all rows where the destination airport is RDU and the arrival delay is less than 0.
+
+```{r}
+#| label: rdu-ontime
+
+# add code here
+```
+
+We can do more complex tasks using logical operators:
+
+| operator      | definition                   |
+|:--------------|:-----------------------------|
+| `<`           | is less than?                |
+| `<=`          | is less than or equal to?    |
+| `>`           | is greater than?             |
+| `>=`          | is greater than or equal to? |
+| `==`          | is exactly equal to?         |
+| `!=`          | is not equal to?             |
+| `x & y`       | is x AND y?                  |
+| `x \| y`      | is x OR y?                   |
+| `is.na(x)`    | is x NA?                     |
+| `!is.na(x)`   | is x not NA?                 |
+| `x %in% y`    | is x in y?                   |
+| `!(x %in% y)` | is x not in y?               |
+| `!x`          | is not x?                    |
+
+The final operator only makes sense if `x` is logical (TRUE / FALSE).
+
+-   **Your turn (4 minutes):** Describe what the code is doing in words. *Share your response on Slack on the relevant thread on #general.*
+
+```{r}
+#| label: nc-early
+
+# add code here
+```
+
+## `count()`
+
+-   Demo: Create a frequency table of the destination locations for flights from New York.
+
+```{r}
+#| label: count-dest
+
+# add code here
+```
+
+-   Demo: In which month was there the fewest number of flights? How many flights were there in that month?
+
+```{r}
+#| label: count-month
+
+# add code here
+```
+
+-   **Your turn (5 minutes):** On which date (month + day) was there the largest number of flights? How many flights were there on that day? *Share your response on Slack on the relevant thread on #general using code formatting.*
+
+```{r}
+#| label: count-date
+
+# add code here
+```
+
+## `mutate()`
+
+Use `mutate()` to create a new variable.
+
+-   Demo: In the code chunk below, `air_time` (minutes in the air) is converted to hours, and then new variable `mph` is created, corresponding to the miles per hour of the flight.
+
+```{r}
+#| label: calculate-mph
+
+# add code here
+```
+
+-   **Your turn (4 minutes):** Create a new variable to calculate the percentage of flights in each month. What percentage of flights take place in July?
+
+```{r}
+#| label: months-perc
+
+# add code here
+```
+
+## `summarize()`
+
+`summarize()` collapses the rows into summary statistics and removes columns irrelevant to the calculation.
+
+Be sure to name your columns!
+
+```{r}
+#| label: find-mean-delay
+
+# add code here
+```
+
+**Question: Why did this code return `NA`?**
+
+Let's fix it!
+
+```{r}
+#| label: find-mean-delay-no-na
+
+# add code here
+```
+
+## `group_by()`
+
+`group_by()` is used for grouped operations.
+It's very powerful when paired with `summarise()` to calculate summary statistics by group.
+
+Here we find the mean and standard deviation of departure delay for each month.
+
+```{r}
+#| label: delays-by-month
+
+# add code here
+```
+
+-   **Your turn (4 minutes):** What is the median departure delay for each airports around NYC (`origin`)? Which airport has the shortest median departure delay? *Share your response on Slack on the relevant thread.*
+
+```{r}
+#| label: dep-origin
+
+# add code here
+```
+
+# Additional Practice
+
+1.  Create a new dataset that only contains flights that do not have a missing departure time. Include the columns `year`, `month`, `day`, `dep_time`, `dep_delay`, and `dep_delay_hours` (the departure delay in hours). *Hint: Note you may need to use `mutate()` to make one or more of these variables.*
+
+```{r}
+#| label: add-practice-1
+
+# add code here
+```
+
+2.  For each airplane (uniquely identified by `tailnum`), use a `group_by()` paired with `summarize()` to find the sample size, mean, and standard deviation of flight distances. Then include only the top 5 and bottom 5 airplanes in terms of mean distance traveled per flight in the final data frame.
+
+```{r}
+#| label: add-practice-2
+
+# add code here
+```

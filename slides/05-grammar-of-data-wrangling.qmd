@@ -1,0 +1,43 @@
+---
+title: "Grammar of data wrangling"
+subtitle: "Lecture 5"
+date: "September 13, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Any questions from prepare materials?
+
+```{=html}
+<iframe src="https://app.sli.do/event/9mqwqdqbgesgLASUHGpwU8/embed/polls/52941ba5-0668-4cad-9b86-82505db6b862" width="900" height="600"></iframe>
+```
+-   Clone your `ae-03` repo.
+
+## Announcements
+
+-   To be posted...
+
+# Application exercise
+
+## `ae-03`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-02` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE {.smaller}
+
+-   Something about pipe...
+-   Something about building pipelines
+-   ...

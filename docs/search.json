@@ -280,11 +280,81 @@
     "text": "📖 Read:\n\nIMS: Chp 4 - Exploring categorical data\nIMS: Chp 5 - Exploring numerical data\n\n⌨️ Watch:\n\nVisualizing numerical data\nVisualizing categorical data\n\n📜Optional reading – Blog posts that might be of interest for those who want to dive deeper / go further:\n\n#barbarplots\nVisualizing distributions with raincloud plots"
   },
   {
+    "objectID": "ae/ae-03-wrangling-flights.html",
+    "href": "ae/ae-03-wrangling-flights.html",
+    "title": "AE 03: Wrangling flights",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-03-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Friday, Sep 16 at 11:59pm.\nTo demonstrate data wrangling we will use flights, a tibble in the nycflights13 R package. It includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.\nThe data frame has over 336,000 observations (rows), 336776 observations to be exact, so we will not view the entire data frame. Instead we’ll use the commands below to help us explore the data.\nThe head() function returns “A tibble: 6 x 19” and then the first six rows of the flights data."
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#select",
+    "href": "ae/ae-03-wrangling-flights.html#select",
+    "title": "AE 03: Wrangling flights",
+    "section": "select()",
+    "text": "select()\n\nDemo: Make a data frame that only contains the variables dep_delay and arr_delay.\n\n\n# add code here\n\n\nDemo: Make a data frame that keeps every variable except dep_delay.\n\n\n# add code here\n\n\nDemo: Make a data frame that includes all variables between year through dep_delay (inclusive). These are all variables that provide information about the departure of each flight.\n\n\n# add code here\n\n\nDemo: Use the select helper contains() to make a data frame that includes the variables associated with the arrival, i.e., contains the string \"arr\\_\" in the name.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#the-pipe",
+    "href": "ae/ae-03-wrangling-flights.html#the-pipe",
+    "title": "AE 03: Wrangling flights",
+    "section": "The pipe",
+    "text": "The pipe\nBefore working with more data wrangling functions, let’s formally introduce the pipe. The pipe, |>, is an operator (a tool) for passing information from one process to another. We will use |> mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe.\n\nYour turn (4 minutes): Run the following chunk and observe its output. Then, come up with a different way of obtaining the same output.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#slice",
+    "href": "ae/ae-03-wrangling-flights.html#slice",
+    "title": "AE 03: Wrangling flights",
+    "section": "slice()",
+    "text": "slice()\n\nDemo: Display the first five rows of the flights data frame.\n\n\n# add code here\n\n\nDemo: Display the last two rows of the flights data frame.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#arrange",
+    "href": "ae/ae-03-wrangling-flights.html#arrange",
+    "title": "AE 03: Wrangling flights",
+    "section": "arrange()",
+    "text": "arrange()\n\nDemo: Let’s arrange the data by departure delay, so the flights with the shortest departure delays will be at the top of the data frame.\n\nQuestion: What does it mean for the dep_delay to have a negative value?\n\n# add code here\n\n\nDemo: Now let’s arrange the data by descending departure delay, so the flights with the longest departure delays will be at the top.\n\n\n# add code here\n\n\nYour turn (5 minutes): Create a data frame that only includes the plane tail number (tailnum), carrier (carrier), and departure delay for the flight with the longest departure delay. What is the plane tail number (tailnum) for this flight? Share your response on Slack on the relevant thread on #general using code formatting.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#filter",
+    "href": "ae/ae-03-wrangling-flights.html#filter",
+    "title": "AE 03: Wrangling flights",
+    "section": "filter()",
+    "text": "filter()\n\nDemo: Filter the data frame by selecting the rows where the destination airport is RDU.\n\n\n# add code here\n\n\nDemo: We can also filter using more than one condition. Here we select all rows where the destination airport is RDU and the arrival delay is less than 0.\n\n\n# add code here\n\nWe can do more complex tasks using logical operators:\n\n\n\noperator\ndefinition\n\n\n\n\n<\nis less than?\n\n\n<=\nis less than or equal to?\n\n\n>\nis greater than?\n\n\n>=\nis greater than or equal to?\n\n\n==\nis exactly equal to?\n\n\n!=\nis not equal to?\n\n\nx & y\nis x AND y?\n\n\nx \\| y\nis x OR y?\n\n\nis.na(x)\nis x NA?\n\n\n!is.na(x)\nis x not NA?\n\n\nx %in% y\nis x in y?\n\n\n!(x %in% y)\nis x not in y?\n\n\n!x\nis not x?\n\n\n\nThe final operator only makes sense if x is logical (TRUE / FALSE).\n\nYour turn (4 minutes): Describe what the code is doing in words. Share your response on Slack on the relevant thread on #general.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#count",
+    "href": "ae/ae-03-wrangling-flights.html#count",
+    "title": "AE 03: Wrangling flights",
+    "section": "count()",
+    "text": "count()\n\nDemo: Create a frequency table of the destination locations for flights from New York.\n\n\n# add code here\n\n\nDemo: In which month was there the fewest number of flights? How many flights were there in that month?\n\n\n# add code here\n\n\nYour turn (5 minutes): On which date (month + day) was there the largest number of flights? How many flights were there on that day? Share your response on Slack on the relevant thread on #general using code formatting.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#mutate",
+    "href": "ae/ae-03-wrangling-flights.html#mutate",
+    "title": "AE 03: Wrangling flights",
+    "section": "mutate()",
+    "text": "mutate()\nUse mutate() to create a new variable.\n\nDemo: In the code chunk below, air_time (minutes in the air) is converted to hours, and then new variable mph is created, corresponding to the miles per hour of the flight.\n\n\n# add code here\n\n\nYour turn (4 minutes): Create a new variable to calculate the percentage of flights in each month. What percentage of flights take place in July?\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#summarize",
+    "href": "ae/ae-03-wrangling-flights.html#summarize",
+    "title": "AE 03: Wrangling flights",
+    "section": "summarize()",
+    "text": "summarize()\nsummarize() collapses the rows into summary statistics and removes columns irrelevant to the calculation.\nBe sure to name your columns!\n\n# add code here\n\nQuestion: Why did this code return NA?\nLet’s fix it!\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights.html#group_by",
+    "href": "ae/ae-03-wrangling-flights.html#group_by",
+    "title": "AE 03: Wrangling flights",
+    "section": "group_by()",
+    "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\n# add code here\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\n# add code here"
+  },
+  {
     "objectID": "ae/ae-01-bechdel-dataviz.html",
     "href": "ae/ae-01-bechdel-dataviz.html",
     "title": "AE 01: Bechdel + data visualization",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-01-bechdel-dataviz-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Friday, Sep 9 at 11:59pm.\nIn this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”.\nThis analysis is about the Bechdel test, a measure of the representation of women in fiction."
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-01-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Friday, Sep 9 at 11:59pm.\nIn this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”.\nThis analysis is about the Bechdel test, a measure of the representation of women in fiction."
   },
   {
     "objectID": "ae/ae-01-bechdel-dataviz.html#getting-started",
@@ -319,7 +389,7 @@
     "href": "ae/ae-02-viz-data-types.html",
     "title": "AE 02: Visualizing penguins",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-02-data-types-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Sunday, Sep 11 at 11:59pm.\nFor all analyses, we’ll use the tidyverse and palmerpenguins packages.\nThe dataset we will visualize is called penguins. Let’s glimpse() at it."
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-02-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Sunday, Sep 11 at 11:59pm.\nFor all analyses, we’ll use the tidyverse and palmerpenguins packages.\nThe dataset we will visualize is called penguins. Let’s glimpse() at it."
   },
   {
     "objectID": "ae/ae-02-viz-data-types.html#single-variable",
@@ -418,6 +488,76 @@
     "title": "AE 02: Visualizing penguins",
     "section": "Visualizing other variables - Your turn!",
     "text": "Visualizing other variables - Your turn!\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n\n\nInterpretation goes here…\n\nMake another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don’t forget to label your code chunk.\n\n\n# add code here\n\nInterpretation goes here…"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html",
+    "href": "ae/ae-03-wrangling-flights-A.html",
+    "title": "AE 03: Wrangling flights",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-03-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Friday, Sep 16 at 11:59pm.\nTo demonstrate data wrangling we will use flights, a tibble in the nycflights13 R package. It includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.\nThe data frame has over 336,000 observations (rows), 336776 observations to be exact, so we will not view the entire data frame. Instead we’ll use the commands below to help us explore the data.\nThe head() function returns “A tibble: 6 x 19” and then the first six rows of the flights data."
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#select",
+    "href": "ae/ae-03-wrangling-flights-A.html#select",
+    "title": "AE 03: Wrangling flights",
+    "section": "select()",
+    "text": "select()\n\nDemo: Make a data frame that only contains the variables dep_delay and arr_delay.\n\n\nflights |>\n  select(dep_delay, arr_delay)\n\n# A tibble: 336,776 × 2\n   dep_delay arr_delay\n       <dbl>     <dbl>\n 1         2        11\n 2         4        20\n 3         2        33\n 4        -1       -18\n 5        -6       -25\n 6        -4        12\n 7        -5        19\n 8        -3       -14\n 9        -3        -8\n10        -2         8\n# … with 336,766 more rows\n\n\n\nDemo: Make a data frame that keeps every variable except dep_delay.\n\n\nflights |>\n  select(-dep_delay)\n\n# A tibble: 336,776 × 18\n    year month   day dep_time sched_dep…¹ arr_t…² sched…³ arr_d…⁴ carrier flight\n   <int> <int> <int>    <int>       <int>   <int>   <int>   <dbl> <chr>    <int>\n 1  2013     1     1      517         515     830     819      11 UA        1545\n 2  2013     1     1      533         529     850     830      20 UA        1714\n 3  2013     1     1      542         540     923     850      33 AA        1141\n 4  2013     1     1      544         545    1004    1022     -18 B6         725\n 5  2013     1     1      554         600     812     837     -25 DL         461\n 6  2013     1     1      554         558     740     728      12 UA        1696\n 7  2013     1     1      555         600     913     854      19 B6         507\n 8  2013     1     1      557         600     709     723     -14 EV        5708\n 9  2013     1     1      557         600     838     846      -8 B6          79\n10  2013     1     1      558         600     753     745       8 AA         301\n# … with 336,766 more rows, 8 more variables: tailnum <chr>, origin <chr>,\n#   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,\n#   time_hour <dttm>, and abbreviated variable names ¹​sched_dep_time,\n#   ²​arr_time, ³​sched_arr_time, ⁴​arr_delay\n\n\n\nDemo: Make a data frame that includes all variables between year through dep_delay (inclusive). These are all variables that provide information about the departure of each flight.\n\n\nflights |>\n  select(year:dep_delay)\n\n# A tibble: 336,776 × 6\n    year month   day dep_time sched_dep_time dep_delay\n   <int> <int> <int>    <int>          <int>     <dbl>\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# … with 336,766 more rows\n\n\n\nDemo: Use the select helper contains() to make a data frame that includes the variables associated with the arrival, i.e., contains the string \"arr\\_\" in the name.\n\n\nflights |>\n  select(contains(\"arr_\"))\n\n# A tibble: 336,776 × 3\n   arr_time sched_arr_time arr_delay\n      <int>          <int>     <dbl>\n 1      830            819        11\n 2      850            830        20\n 3      923            850        33\n 4     1004           1022       -18\n 5      812            837       -25\n 6      740            728        12\n 7      913            854        19\n 8      709            723       -14\n 9      838            846        -8\n10      753            745         8\n# … with 336,766 more rows"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#the-pipe",
+    "href": "ae/ae-03-wrangling-flights-A.html#the-pipe",
+    "title": "AE 03: Wrangling flights",
+    "section": "The pipe",
+    "text": "The pipe\nBefore working with more data wrangling functions, let’s formally introduce the pipe. The pipe, |>, is an operator (a tool) for passing information from one process to another. We will use |> mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe.\n\nYour turn (4 minutes): Run the following chunk and observe its output. Then, come up with a different way of obtaining the same output.\n\n\nflights |>\n  select(dep_delay, arr_delay) |>\n  head()\n\n# A tibble: 6 × 2\n  dep_delay arr_delay\n      <dbl>     <dbl>\n1         2        11\n2         4        20\n3         2        33\n4        -1       -18\n5        -6       -25\n6        -4        12"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#slice",
+    "href": "ae/ae-03-wrangling-flights-A.html#slice",
+    "title": "AE 03: Wrangling flights",
+    "section": "slice()",
+    "text": "slice()\n\nDemo: Display the first five rows of the flights data frame.\n\n\nflights |>\n  slice(1:5)\n\n# A tibble: 5 × 19\n   year month   day dep_time sched_dep…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n  <int> <int> <int>    <int>       <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n1  2013     1     1      517         515       2     830     819      11 UA     \n2  2013     1     1      533         529       4     850     830      20 UA     \n3  2013     1     1      542         540       2     923     850      33 AA     \n4  2013     1     1      544         545      -1    1004    1022     -18 B6     \n5  2013     1     1      554         600      -6     812     837     -25 DL     \n# … with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,\n#   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,\n#   time_hour <dttm>, and abbreviated variable names ¹​sched_dep_time,\n#   ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay\n\n\n\nDemo: Display the last two rows of the flights data frame.\n\n\nflights |>\n  slice((n()-1):n())\n\n# A tibble: 2 × 19\n   year month   day dep_time sched_dep…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n  <int> <int> <int>    <int>       <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n1  2013     9    30       NA        1159      NA      NA    1344      NA MQ     \n2  2013     9    30       NA         840      NA      NA    1020      NA MQ     \n# … with 9 more variables: flight <int>, tailnum <chr>, origin <chr>,\n#   dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>, minute <dbl>,\n#   time_hour <dttm>, and abbreviated variable names ¹​sched_dep_time,\n#   ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#arrange",
+    "href": "ae/ae-03-wrangling-flights-A.html#arrange",
+    "title": "AE 03: Wrangling flights",
+    "section": "arrange()",
+    "text": "arrange()\n\nDemo: Let’s arrange the data by departure delay, so the flights with the shortest departure delays will be at the top of the data frame.\n\nQuestion: What does it mean for the dep_delay to have a negative value?\n\nflights |>\n  arrange(dep_delay)\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n   <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n 1  2013    12     7     2040       2123     -43      40    2352      48 B6     \n 2  2013     2     3     2022       2055     -33    2240    2338     -58 DL     \n 3  2013    11    10     1408       1440     -32    1549    1559     -10 EV     \n 4  2013     1    11     1900       1930     -30    2233    2243     -10 DL     \n 5  2013     1    29     1703       1730     -27    1947    1957     -10 F9     \n 6  2013     8     9      729        755     -26    1002     955       7 MQ     \n 7  2013    10    23     1907       1932     -25    2143    2143       0 EV     \n 8  2013     3    30     2030       2055     -25    2213    2250     -37 MQ     \n 9  2013     3     2     1431       1455     -24    1601    1631     -30 9E     \n10  2013     5     5      934        958     -24    1225    1309     -44 B6     \n# … with 336,766 more rows, 9 more variables: flight <int>, tailnum <chr>,\n#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,\n#   minute <dbl>, time_hour <dttm>, and abbreviated variable names\n#   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay\n\n\n\nDemo: Now let’s arrange the data by descending departure delay, so the flights with the longest departure delays will be at the top.\n\n\nflights |>\n  arrange(desc(dep_delay))\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n   <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n 1  2013     1     9      641        900    1301    1242    1530    1272 HA     \n 2  2013     6    15     1432       1935    1137    1607    2120    1127 MQ     \n 3  2013     1    10     1121       1635    1126    1239    1810    1109 MQ     \n 4  2013     9    20     1139       1845    1014    1457    2210    1007 AA     \n 5  2013     7    22      845       1600    1005    1044    1815     989 MQ     \n 6  2013     4    10     1100       1900     960    1342    2211     931 DL     \n 7  2013     3    17     2321        810     911     135    1020     915 DL     \n 8  2013     6    27      959       1900     899    1236    2226     850 DL     \n 9  2013     7    22     2257        759     898     121    1026     895 DL     \n10  2013    12     5      756       1700     896    1058    2020     878 AA     \n# … with 336,766 more rows, 9 more variables: flight <int>, tailnum <chr>,\n#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,\n#   minute <dbl>, time_hour <dttm>, and abbreviated variable names\n#   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay\n\n\n\nYour turn (5 minutes): Create a data frame that only includes the plane tail number (tailnum), carrier (carrier), and departure delay for the flight with the longest departure delay. What is the plane tail number (tailnum) for this flight? Share your response on Slack on the relevant thread on #general using code formatting.\n\n\nflights |>\n  select(tailnum, carrier, dep_delay) %>%\n  arrange(dep_delay) |>\n  slice(1)\n\n# A tibble: 1 × 3\n  tailnum carrier dep_delay\n  <chr>   <chr>       <dbl>\n1 N592JB  B6            -43"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#filter",
+    "href": "ae/ae-03-wrangling-flights-A.html#filter",
+    "title": "AE 03: Wrangling flights",
+    "section": "filter()",
+    "text": "filter()\n\nDemo: Filter the data frame by selecting the rows where the destination airport is RDU.\n\n\nflights |>\n  filter(dest == \"RDU\")\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n   <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n 1  2013     1     1      800        810     -10     949     955      -6 MQ     \n 2  2013     1     1      832        840      -8    1006    1030     -24 MQ     \n 3  2013     1     1      851        851       0    1032    1036      -4 EV     \n 4  2013     1     1      917        920      -3    1052    1108     -16 B6     \n 5  2013     1     1     1024       1030      -6    1204    1215     -11 MQ     \n 6  2013     1     1     1127       1129      -2    1303    1309      -6 EV     \n 7  2013     1     1     1157       1205      -8    1342    1345      -3 MQ     \n 8  2013     1     1     1240       1235       5    1415    1415       0 MQ     \n 9  2013     1     1     1317       1325      -8    1454    1505     -11 MQ     \n10  2013     1     1     1449       1450      -1    1651    1640      11 MQ     \n# … with 8,153 more rows, 9 more variables: flight <int>, tailnum <chr>,\n#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,\n#   minute <dbl>, time_hour <dttm>, and abbreviated variable names\n#   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay\n\n\n\nDemo: We can also filter using more than one condition. Here we select all rows where the destination airport is RDU and the arrival delay is less than 0.\n\n\nflights |>\n  filter(dest == \"RDU\", arr_delay < 0)\n\n# A tibble: 4,232 × 19\n    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n   <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n 1  2013     1     1      800        810     -10     949     955      -6 MQ     \n 2  2013     1     1      832        840      -8    1006    1030     -24 MQ     \n 3  2013     1     1      851        851       0    1032    1036      -4 EV     \n 4  2013     1     1      917        920      -3    1052    1108     -16 B6     \n 5  2013     1     1     1024       1030      -6    1204    1215     -11 MQ     \n 6  2013     1     1     1127       1129      -2    1303    1309      -6 EV     \n 7  2013     1     1     1157       1205      -8    1342    1345      -3 MQ     \n 8  2013     1     1     1317       1325      -8    1454    1505     -11 MQ     \n 9  2013     1     1     1505       1510      -5    1654    1655      -1 MQ     \n10  2013     1     1     1800       1800       0    1945    1951      -6 B6     \n# … with 4,222 more rows, 9 more variables: flight <int>, tailnum <chr>,\n#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,\n#   minute <dbl>, time_hour <dttm>, and abbreviated variable names\n#   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay\n\n\nWe can do more complex tasks using logical operators:\n\n\n\noperator\ndefinition\n\n\n\n\n<\nis less than?\n\n\n<=\nis less than or equal to?\n\n\n>\nis greater than?\n\n\n>=\nis greater than or equal to?\n\n\n==\nis exactly equal to?\n\n\n!=\nis not equal to?\n\n\nx & y\nis x AND y?\n\n\nx \\| y\nis x OR y?\n\n\nis.na(x)\nis x NA?\n\n\n!is.na(x)\nis x not NA?\n\n\nx %in% y\nis x in y?\n\n\n!(x %in% y)\nis x not in y?\n\n\n!x\nis not x?\n\n\n\nThe final operator only makes sense if x is logical (TRUE / FALSE).\n\nYour turn (4 minutes): Describe what the code is doing in words. Share your response on Slack on the relevant thread on #general.\n\n\nflights |>\n  filter(\n    dest %in% c(\"RDU\", \"GSO\"),\n    arr_delay < 0 | dep_delay < 0\n    )\n\n# A tibble: 6,203 × 19\n    year month   day dep_time sched_de…¹ dep_d…² arr_t…³ sched…⁴ arr_d…⁵ carrier\n   <int> <int> <int>    <int>      <int>   <dbl>   <int>   <int>   <dbl> <chr>  \n 1  2013     1     1      800        810     -10     949     955      -6 MQ     \n 2  2013     1     1      832        840      -8    1006    1030     -24 MQ     \n 3  2013     1     1      851        851       0    1032    1036      -4 EV     \n 4  2013     1     1      917        920      -3    1052    1108     -16 B6     \n 5  2013     1     1     1024       1030      -6    1204    1215     -11 MQ     \n 6  2013     1     1     1127       1129      -2    1303    1309      -6 EV     \n 7  2013     1     1     1157       1205      -8    1342    1345      -3 MQ     \n 8  2013     1     1     1317       1325      -8    1454    1505     -11 MQ     \n 9  2013     1     1     1449       1450      -1    1651    1640      11 MQ     \n10  2013     1     1     1505       1510      -5    1654    1655      -1 MQ     \n# … with 6,193 more rows, 9 more variables: flight <int>, tailnum <chr>,\n#   origin <chr>, dest <chr>, air_time <dbl>, distance <dbl>, hour <dbl>,\n#   minute <dbl>, time_hour <dttm>, and abbreviated variable names\n#   ¹​sched_dep_time, ²​dep_delay, ³​arr_time, ⁴​sched_arr_time, ⁵​arr_delay"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#count",
+    "href": "ae/ae-03-wrangling-flights-A.html#count",
+    "title": "AE 03: Wrangling flights",
+    "section": "count()",
+    "text": "count()\n\nDemo: Create a frequency table of the destination locations for flights from New York.\n\n\nflights |>\n  count(dest)\n\n# A tibble: 105 × 2\n   dest      n\n   <chr> <int>\n 1 ABQ     254\n 2 ACK     265\n 3 ALB     439\n 4 ANC       8\n 5 ATL   17215\n 6 AUS    2439\n 7 AVL     275\n 8 BDL     443\n 9 BGR     375\n10 BHM     297\n# … with 95 more rows\n\n\n\nDemo: In which month was there the fewest number of flights? How many flights were there in that month?\n\n\nflights |>\n  count(month) |>\n  filter(n == min(n))\n\n# A tibble: 1 × 2\n  month     n\n  <int> <int>\n1     2 24951\n\n\n\nYour turn (5 minutes): On which date (month + day) was there the largest number of flights? How many flights were there on that day? Share your response on Slack on the relevant thread on #general using code formatting.\n\n\nflights |>\n  count(month, day) |>\n  filter(n == min(n))\n\n# A tibble: 1 × 3\n  month   day     n\n  <int> <int> <int>\n1    11    28   634"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#mutate",
+    "href": "ae/ae-03-wrangling-flights-A.html#mutate",
+    "title": "AE 03: Wrangling flights",
+    "section": "mutate()",
+    "text": "mutate()\nUse mutate() to create a new variable.\n\nDemo: In the code chunk below, air_time (minutes in the air) is converted to hours, and then new variable mph is created, corresponding to the miles per hour of the flight.\n\n\nflights |>\n  mutate(\n    hours = air_time / 60,\n    mph = distance / hours\n    ) |>\n  select(air_time, distance, hours, mph)\n\n# A tibble: 336,776 × 4\n   air_time distance hours   mph\n      <dbl>    <dbl> <dbl> <dbl>\n 1      227     1400 3.78   370.\n 2      227     1416 3.78   374.\n 3      160     1089 2.67   408.\n 4      183     1576 3.05   517.\n 5      116      762 1.93   394.\n 6      150      719 2.5    288.\n 7      158     1065 2.63   404.\n 8       53      229 0.883  259.\n 9      140      944 2.33   405.\n10      138      733 2.3    319.\n# … with 336,766 more rows\n\n\n\nYour turn (4 minutes): Create a new variable to calculate the percentage of flights in each month. What percentage of flights take place in July?\n\n\nflights |>\n  count(month) |>\n  mutate(perc = n / sum(n) * 100)\n\n# A tibble: 12 × 3\n   month     n  perc\n   <int> <int> <dbl>\n 1     1 27004  8.02\n 2     2 24951  7.41\n 3     3 28834  8.56\n 4     4 28330  8.41\n 5     5 28796  8.55\n 6     6 28243  8.39\n 7     7 29425  8.74\n 8     8 29327  8.71\n 9     9 27574  8.19\n10    10 28889  8.58\n11    11 27268  8.10\n12    12 28135  8.35"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#summarize",
+    "href": "ae/ae-03-wrangling-flights-A.html#summarize",
+    "title": "AE 03: Wrangling flights",
+    "section": "summarize()",
+    "text": "summarize()\nsummarize() collapses the rows into summary statistics and removes columns irrelevant to the calculation.\nBe sure to name your columns!\n\nflights |>\n  summarize(mean_dep_delay = mean(dep_delay))\n\n# A tibble: 1 × 1\n  mean_dep_delay\n           <dbl>\n1             NA\n\n\nQuestion: Why did this code return NA?\nLet’s fix it!\n\nflights |>\n  summarize(mean_dep_delay = mean(dep_delay, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  mean_dep_delay\n           <dbl>\n1           12.6"
+  },
+  {
+    "objectID": "ae/ae-03-wrangling-flights-A.html#group_by",
+    "href": "ae/ae-03-wrangling-flights-A.html#group_by",
+    "title": "AE 03: Wrangling flights",
+    "section": "group_by()",
+    "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\nflights |>\n  group_by(month) |>\n  summarize(\n    mean_dep_delay = mean(dep_delay, na.rm = TRUE), \n    sd_dep_delay = sd(dep_delay, na.rm = TRUE)\n    )\n\n# A tibble: 12 × 3\n   month mean_dep_delay sd_dep_delay\n   <int>          <dbl>        <dbl>\n 1     1          10.0          36.4\n 2     2          10.8          36.3\n 3     3          13.2          40.1\n 4     4          13.9          43.0\n 5     5          13.0          39.4\n 6     6          20.8          51.5\n 7     7          21.7          51.6\n 8     8          12.6          37.7\n 9     9           6.72         35.6\n10    10           6.24         29.7\n11    11           5.44         27.6\n12    12          16.6          41.9\n\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\nflights |>\n  group_by(origin) |>\n  summarize(\n    med_dep_delay = median(dep_delay, na.rm = TRUE)\n    )\n\n# A tibble: 3 × 2\n  origin med_dep_delay\n  <chr>          <dbl>\n1 EWR               -1\n2 JFK               -1\n3 LGA               -3"
   },
   {
     "objectID": "project-tips-resources.html",
@@ -810,6 +950,34 @@
     "title": "Grammar of graphics",
     "section": "Recap of AE",
     "text": "Recap of AE\n\nConstruct plots with ggplot().\nLayers of ggplots are separated by +s.\nThe formula is (almost) always as follows:\n\n\nggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +\n  geom_XXX()\n\n\nAesthetic attributes of a geometries (color, size, transparency, etc.) can be mapped to variables in the data or set by the user, e.g. color = binary vs. color = \"pink\".\nUse facet_wrap() when faceting (creating small multiples) by one variable and facet_grid() when faceting by two variables.\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/05-grammar-of-data-wrangling.html#while-you-wait-for-class-to-begin",
+    "href": "slides/05-grammar-of-data-wrangling.html#while-you-wait-for-class-to-begin",
+    "title": "Grammar of data wrangling",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\nAny questions from prepare materials?\n\n\n\nClone your ae-03 repo."
+  },
+  {
+    "objectID": "slides/05-grammar-of-data-wrangling.html#announcements",
+    "href": "slides/05-grammar-of-data-wrangling.html#announcements",
+    "title": "Grammar of data wrangling",
+    "section": "Announcements",
+    "text": "Announcements\n\nTo be posted…"
+  },
+  {
+    "objectID": "slides/05-grammar-of-data-wrangling.html#ae-03",
+    "href": "slides/05-grammar-of-data-wrangling.html#ae-03",
+    "title": "Grammar of data wrangling",
+    "section": "ae-03",
+    "text": "ae-03\n\n\nGo to the course GitHub org and find your ae-02 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/05-grammar-of-data-wrangling.html#recap-of-ae",
+    "href": "slides/05-grammar-of-data-wrangling.html#recap-of-ae",
+    "title": "Grammar of data wrangling",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nSomething about pipe…\nSomething about building pipelines\n…\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",
