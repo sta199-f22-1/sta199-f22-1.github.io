@@ -13,66 +13,151 @@ This lab is due Monday, Sep 19 at 11:59pm.
 
 In this lab, you will...
 
--     Use data wrangling to extract meaning from data
--     continue developing a workflow for reproducible data analysis.
+-   use data wrangling to extract meaning from data
+-   continue developing a workflow for reproducible data analysis
+-   continue working with data visualization tools
 
 # Getting started 
 
--   Go to the sta199-fa22-02 organization on GitHub. Click on the repo with the prefix lab-02. It contains the starter documents you need to complete the lab.
+-   Go to the sta199-fa22-01 organization on GitHub. Click on the repo with the prefix lab-02. It contains the starter documents you need to complete the lab.
 
--   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-2.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+-   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+
+# Getting started
+
+-   Go to the course GitHub organization and locate your lab repo, which should be named `lab-03-nobel-laureates-YOUR_GITHUB_USERNAME`.
+-   Grab the URL of the repo, and clone it in RStudio.
+-   First, open the Quarto document `lab-03.qmd` and Render it.
+-   Make sure it compiles without errors.
+
+## Warm up
+
+Before we introduce the data, let's warm up with some simple exercises.
+
+-   Update the YAML, changing the author name to your name, and **render** the document.
+-   Commit your changes with a meaningful commit message.
+-   Push your changes to GitHub.
+-   Go to your repo on GitHub and confirm that your changes are visible in your Qmd **and** pdf files. If anything is missing, commit and push again.
 
 ## Packages
 
-We will use the **tidyverse** package to create and customize plots in R.
+We'll use the **tidyverse** package for much of the data wrangling.
+This package is already installed for you.
+You can load them by running the following in your Console:
 
-```{r}
-#| label: load-packages
-#| warning: false
-
+```{r load-packages, message = FALSE}
 library(tidyverse)
 ```
 
-
 ## Data
 
-### The Greatest Crossover Event in the History of STA199 Labs 
+The dataset for this assignment can be found as a CSv (comma separated values) file in the `data` folder of your repository.
+You can read it in using the following.
 
-This data was originally collected for a [FiveThirtyEight article](https://fivethirtyeight.com/features/avengers-death-comics-age-of-ultron/). The version of the avengers data we will work with here can be uploaded from the avengers.csv file.
-
-This dataset includes information about characters across the entire Marvel Cinematic Universe (MCU), so some of the names will be familiar if you are a fan of the films or comics. Don’t worry if you aren’t a Marvel fan; no background knowledge is needed to successfully complete this lab!
-
-We will focus on the following variables in this lab:
-
-```{r}
-
+```{r load-data, message = FALSE}
+nobel <- read_csv("labs/data/nobel.csv")
 ```
 
-See FiveThirtyEight’s [GitHub repo](https://github.com/fivethirtyeight/data/tree/master/avengers) for the full codebook.
+The variable descriptions are as follows:
 
-# Exercises
+-   `id`: ID number
+-   `firstname`: First name of laureate
+-   `surname`: Surname
+-   `year`: Year prize won
+-   `category`: Category of prize
+-   `affiliation`: Affiliation of laureate
+-   `city`: City of laureate in prize year
+-   `country`: Country of laureate in prize year
+-   `born_date`: Birth date of laureate
+-   `died_date`: Death date of laureate
+-   `gender`: Gender of laureate
+-   `born_city`: City where laureate was born
+-   `born_country`: Country where laureate was born
+-   `born_country_code`: Code of country where laureate was born
+-   `died_city`: City where laureate died
+-   `died_country`: Country where laureate died
+-   `died_country_code`: Code of country where laureate died
+-   `overall_motivation`: Overall motivation for recognition
+-   `share`: Number of other winners award is shared with
+-   `motivation`: Motivation for recognition
 
-As we've discussed in lecture, your plots should include an informative title, axes should be labeled, and careful consideration should be given to aesthetic choices.
 
-In addition, the code should not exceed the 80 character limit, so that all the code can be read when you render to PDF. To help with this, you can add a vertical line at 80 characters by clicking "Tools" $\rightarrow$ "Global Options" $\rightarrow$ "Code" $\rightarrow$ "Display", then set "Margin Column" to 80, and click "Apply".
+In a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia).
+In these cases the variables below reflect a different name than their counterparts without the suffix \`\_original\`.
 
-Remember that continuing to develop a sound workflow for reproducible data analysis is important as you complete the lab and other assignments in this course. There will be periodic reminders in this assignment to remind you to **render, commit, and push** your changes to GitHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment.
+-   `born_country_original`: Original country where laureate was born
+-   `born_city_original`: Original city where laureate was born
+-   `died_country_original`: Original country where laureate died
+-   `died_city_original`: Original city where laureate died
+-   `city_original`: Original city where laureate lived at the time of winning the award
+-   `country_original`: Original country where laureate lived at the time of winning the award
 
-1. You are interested in creating a data frame with the most “classic” Avengers. Use filter to make a new data frame that only includes Avengers that were 1) created in 1970 or earlier and 2) were not given probationary status. Assign the new data frame as classic_avengers. Confirm that once you have filtered, you are left with a data frame with 27 observations.
+## Get to know your data
 
-::: render-commit-push
+1.  How many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?
 
-Now is a good time to render, commit, and push.
-Make sure that you commit and push all changed documents and your Git pane is completely empty before proceding.
+There are some observations in this dataset that we will exclude from our analysis to match the Buzzfeed results.
 
-<br>
-:::
+2.  Create a new data frame called `nobel_living` that filters for
 
-2. *Who are the newest classic Avengers?* Using a single pipeline: Create a new variable called years_served that represents the number of years served as of 2021.. (Hint: you can use either the year variable or years_since_joining variables to do this.) Then, arrange the dataset in ascending order of years_served. Lastly, select the name and years_served and display the first three rows.
-  
-    - Report the names of the three newest classic Avengers and how long they have served in your narrative. 
+-   laureates for whom `country` is available
+-   laureates who are people as opposed to organizations (organizations are denoted with `"org"` as their `gender`)
+-   laureates who are still alive (their `died_date` is `NA`)
 
-3. *Has the percentage of female Avengers changed over time?* To explore this question, find the percentage of female Avengers in the classic_avengers dataset and compare it to the percentage of females among all Avengers. What do you conclude based on these results?
+```{r}
+#| echo: false
+nobel_living <- nobel %>%
+  filter(
+    !is.na(country),
+    gender != "org",
+    is.na(died_date)
+  )
+```
+
+Confirm that once you have filtered for these characteristics you are left with a data frame with *r nrow(nobel_living)*` observations, once again using inline code.
+
+## Most living Nobel laureates were based in the US when they won their prizes
+
+... says the Buzzfeed article.
+Let's see if that's true.
+
+First, we'll create a new variable to identify whether the laureate was in the US when they won their prize.
+We'll use the `mutate()` function for this.
+The following pipeline mutates the `nobel_living` data frame by adding a new variable called `country_us`.
+We use an if statement to create this variable.
+The first argument in the `if_else()` function we're using to write this if statement is the condition we're testing for.
+If `country` is equal to `"USA"`, we set `country_us` to `"USA"`.
+If not, we set the `country_us` to `"Other"`.
+
+```{marginfigure}
+Note that we can achieve the same result using the `fct_other()` function we have seen before (i.e. with `country_us = fct_other(country, "USA")`). We decided to use the `if_else()` here to show you one example of an if statement in R.
+```
+
+```{r}
+#| echo: false
+nobel_living <- nobel_living %>%
+  mutate(
+    country_us = if_else(country == "USA", "USA", "Other")
+  )
+```
+
+Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.
+
+```{r}
+#| echo: false
+nobel_living_science <- nobel_living %>%
+  filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+```
+
+For the next exercise work with the `nobel_living_science` data frame you created above.
+This means you'll need to define this data frame in your R Markdown document, even though the next exercise doesn't explicitly ask you to do so.
+
+3.  Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
+    Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
+
+    -   Your visualization should be faceted by category.
+    -   For each facet you should have two bars, one for winners in the US and one for Other.
+    -   Flip the coordinates so the bars are horizontal, not vertical.
 
 ::: render-commit-push
 
@@ -82,22 +167,32 @@ Make sure that you commit and push all changed documents and your Git pane is co
 <br>
 :::
 
-4. Sort the full avengers dataset in descending order of appearances and display only the columns name, appearances, death1, and return1 for the top five observations.
+## But of those US-based Nobel laureates, many were born in other countries
 
-     - What do you observe about these Avengers in terms of deaths and returns?
-  
-5. Use the full avengers dataset to examine the mean and median number of appearances for Avengers who have died at least once compared to those who have not died at least once.
+```{marginfigure}
+**Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
+```
 
-     - What do you learn about Marvel movies from your results?
-  
-     - What do the mean and median tell you about the distribution of apparances for these two groups? 
-  
-6. *Who’s more popular - the new or classic Avengers?* Calculate the mean number of appearances for each introduction year (year). Then create a scatterplot of the mean appearances by introduction year. Do not include observations with the introduction year 1900, as “1900” indicates the value of full_reserve is missing.
+4.  Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
+    How many of the winners are born in the US?
 
+5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
+    Based on your visualization, do the data appear to support Buzzfeed's claim?
+    Explain your reasoning in 1-2 sentences.
 
-    - What are 2 - 3 observations you have about the mean appearances based on introduction year?
-  
+    -   Your final visualization should contain a facet for each category.
+    -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
+    -   Each bar should have segments for whether the laureate was born in the US or not.
+    
+::: render-commit-push
 
+Now is a good time to render, commit, and push.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
+
+<br>
+:::
+
+6.  In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()` function) for their birth country (`born_country`) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?
 
 ::: render-commit-push
 
@@ -130,13 +225,13 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex 1                  |       |
-| Ex 2                  |       |
-| Ex 3                  |       |
-| Ex 4                  |       |
-| Ex 5                  |       |
-| Ex 6                  |       |
-| Workflow & formatting |       |
+| Ex 1                  |   6    |
+| Ex 2                  |   6    |
+| Ex 3                  |   8    |
+| Ex 4                  |   6    |
+| Ex 5                  |   8    |
+| Ex 6                  |   8    |
+| Workflow & formatting |   8    |
 
 ::: callout-note
 The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages, labeling the code chunks, and having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF.
