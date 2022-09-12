@@ -4,21 +4,49 @@
     "href": "labs/lab-2.html",
     "title": "Lab 2 - wrangling-data",
     "section": "",
-    "text": "Important\n\n\n\nThis lab is due Monday, Sep 19 at 11:59pm."
+    "text": "Important\n\n\n\nThis lab is due Friday, Sep 23 at 11:59pm."
+  },
+  {
+    "objectID": "labs/lab-2.html#warm-up",
+    "href": "labs/lab-2.html#warm-up",
+    "title": "Lab 2 - wrangling-data",
+    "section": "Warm up",
+    "text": "Warm up\nBefore we introduce the data, let’s warm up with some simple exercises.\n\nUpdate the YAML, changing the author name to your name, and render the document.\nCommit your changes with a meaningful commit message.\nPush your changes to GitHub.\nGo to your repo on GitHub and confirm that your changes are visible in your Qmd and pdf files. If anything is missing, commit and push again."
   },
   {
     "objectID": "labs/lab-2.html#packages",
     "href": "labs/lab-2.html#packages",
     "title": "Lab 2 - wrangling-data",
     "section": "Packages",
-    "text": "Packages\nWe will use the tidyverse package to create and customize plots in R.\n\nlibrary(tidyverse)"
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling. This package is already installed for you. You can load them by running the following in your Console:\n\nlibrary(tidyverse)"
   },
   {
     "objectID": "labs/lab-2.html#data",
     "href": "labs/lab-2.html#data",
     "title": "Lab 2 - wrangling-data",
     "section": "Data",
-    "text": "Data\n\nThe Greatest Crossover Event in the History of STA199 Labs\nThis data was originally collected for a FiveThirtyEight article. The version of the avengers data we will work with here can be uploaded from the avengers.csv file.\nThis dataset includes information about characters across the entire Marvel Cinematic Universe (MCU), so some of the names will be familiar if you are a fan of the films or comics. Don’t worry if you aren’t a Marvel fan; no background knowledge is needed to successfully complete this lab!\nWe will focus on the following variables in this lab:\n\n\n\nSee FiveThirtyEight’s GitHub repo for the full codebook."
+    "text": "Data\nThe dataset for this assignment can be found as a CSv (comma separated values) file in the data folder of your repository. You can read it in using the following.\n\nnobel <- read_csv(\"labs/data/nobel.csv\")\n\nThe variable descriptions are as follows:\n\nid: ID number\nfirstname: First name of laureate\nsurname: Surname\nyear: Year prize won\ncategory: Category of prize\naffiliation: Affiliation of laureate\ncity: City of laureate in prize year\ncountry: Country of laureate in prize year\nborn_date: Birth date of laureate\ndied_date: Death date of laureate\ngender: Gender of laureate\nborn_city: City where laureate was born\nborn_country: Country where laureate was born\nborn_country_code: Code of country where laureate was born\ndied_city: City where laureate died\ndied_country: Country where laureate died\ndied_country_code: Code of country where laureate died\noverall_motivation: Overall motivation for recognition\nshare: Number of other winners award is shared with\nmotivation: Motivation for recognition\n\nIn a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia). In these cases the variables below reflect a different name than their counterparts without the suffix `_original`.\n\nborn_country_original: Original country where laureate was born\nborn_city_original: Original city where laureate was born\ndied_country_original: Original country where laureate died\ndied_city_original: Original city where laureate died\ncity_original: Original city where laureate lived at the time of winning the award\ncountry_original: Original country where laureate lived at the time of winning the award"
+  },
+  {
+    "objectID": "labs/lab-2.html#get-to-know-your-data",
+    "href": "labs/lab-2.html#get-to-know-your-data",
+    "title": "Lab 2 - wrangling-data",
+    "section": "Get to know your data",
+    "text": "Get to know your data\n\nHow many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?\n\nThere are some observations in this dataset that we will exclude from our analysis to match the Buzzfeed results.\n\nCreate a new data frame called nobel_living that filters for\n\n\nlaureates for whom country is available\nlaureates who are people as opposed to organizations (organizations are denoted with \"org\" as their gender)\nlaureates who are still alive (their died_date is NA)\n\n\n\n\nConfirm that once you have filtered for these characteristics you are left with a data frame with r nrow(nobel_living)` observations, once again using inline code."
+  },
+  {
+    "objectID": "labs/lab-2.html#most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes",
+    "href": "labs/lab-2.html#most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes",
+    "title": "Lab 2 - wrangling-data",
+    "section": "Most living Nobel laureates were based in the US when they won their prizes",
+    "text": "Most living Nobel laureates were based in the US when they won their prizes\n… says the Buzzfeed article. Let’s see if that’s true.\nFirst, we’ll create a new variable to identify whether the laureate was in the US when they won their prize. We’ll use the mutate() function for this. The following pipeline mutates the nobel_living data frame by adding a new variable called country_us. We use an if statement to create this variable. The first argument in the if_else() function we’re using to write this if statement is the condition we’re testing for. If country is equal to \"USA\", we set country_us to \"USA\". If not, we set the country_us to \"Other\".\n\nNote that we can achieve the same result using the `fct_other()` function we have seen before (i.e. with `country_us = fct_other(country, \"USA\")`). We decided to use the `if_else()` here to show you one example of an if statement in R.\n\n\n\n\nNext, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.\n\n\n\nFor the next exercise work with the nobel_living_science data frame you created above. This means you’ll need to define this data frame in your R Markdown document, even though the next exercise doesn’t explicitly ask you to do so.\n\nCreate a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.\n\nYour visualization should be faceted by category.\nFor each facet you should have two bars, one for winners in the US and one for Other.\nFlip the coordinates so the bars are horizontal, not vertical.\n\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
+  },
+  {
+    "objectID": "labs/lab-2.html#but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries",
+    "href": "labs/lab-2.html#but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries",
+    "title": "Lab 2 - wrangling-data",
+    "section": "But of those US-based Nobel laureates, many were born in other countries",
+    "text": "But of those US-based Nobel laureates, many were born in other countries\n\n**Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.\n\n\nCreate a new variable called born_country_us that has the value \"USA\" if the laureate is born in the US, and \"Other\" otherwise. How many of the winners are born in the US?\nAdd a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Based on your visualization, do the data appear to support Buzzfeed’s claim? Explain your reasoning in 1-2 sentences.\n\nYour final visualization should contain a facet for each category.\nWithin each facet, there should be a bar for whether the laureate won the award in the US or not.\nEach bar should have segments for whether the laureate was born in the US or not.\n\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.\n\n\n\nIn a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the count() function) for their birth country (born_country) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
   },
   {
     "objectID": "labs/lab-1.html",
@@ -490,6 +518,27 @@
     "text": "Visualizing other variables - Your turn!\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n\n\nInterpretation goes here…\n\nMake another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don’t forget to label your code chunk.\n\n\n# add code here\n\nInterpretation goes here…"
   },
   {
+    "objectID": "ae/ae-04-joining-fisheries.html",
+    "href": "ae/ae-04-joining-fisheries.html",
+    "title": "AE 04: Joining fisheries",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-04-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Sunday, Sep 18 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-04-joining-fisheries.html#working-with-multiple-data-frames",
+    "href": "ae/ae-04-joining-fisheries.html#working-with-multiple-data-frames",
+    "title": "AE 04: Joining fisheries",
+    "section": "Working with multiple data frames",
+    "text": "Working with multiple data frames\nOften instead of being provided the data you need for your analysis in a single data frame, you will need to bring information from multiple datasets together into a data frame yourself. These datasets will be linked to each other via a column (usually an identifier, something that links the two datasets together) that you can use to join them together.\nThere are many possible types of joins. All have the format something_join(x, y).\n\nx <- tibble(\n  value = c(1, 2, 3),\n  xcol = c(\"x1\", \"x2\", \"x3\")\n  )\n\ny <- tibble(\n  value = c(1, 2, 4),\n  ycol = c(\"y1\", \"y2\", \"y4\")\n  )\n\nx\n\n# A tibble: 3 × 2\n  value xcol \n  <dbl> <chr>\n1     1 x1   \n2     2 x2   \n3     3 x3   \n\ny\n\n# A tibble: 3 × 2\n  value ycol \n  <dbl> <chr>\n1     1 y1   \n2     2 y2   \n3     4 y4   \n\n\nWe will demonstrate each of the joins on these small, toy datasets.\n\ninner_join(): join all rows from x where there are matching values in y\n\ninner_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 2 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n\n\n\n\nleft_join(): include all rows from x\n\nleft_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 3 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n3     3 x3    <NA> \n\n\n\n\nright_join(): include all rows from y\n\nright_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 3 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n3     4 <NA>  y4   \n\n\n\n\nfull_join(): include all rows in x or y (use this one sparingly!!)\n\nfull_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 4 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n3     3 x3    <NA> \n4     4 <NA>  y4   \n\n\n\n\nsemi_join(): return all rows from x with match in y\n\nsemi_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 2 × 2\n  value xcol \n  <dbl> <chr>\n1     1 x1   \n2     2 x2   \n\n\n\n\nanti_join(): return all rows from x without a match in y\n\nanti_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 1 × 2\n  value xcol \n  <dbl> <chr>\n1     3 x3   \n\n\nQuestion: How do the join functions above know to join x and y by value? Hint: Examine the column names to find out.\n\nnames(x)\n\n[1] \"value\" \"xcol\" \n\nnames(y)\n\n[1] \"value\" \"ycol\""
+  },
+  {
+    "objectID": "ae/ae-04-joining-fisheries.html#global-aquaculture-production",
+    "href": "ae/ae-04-joining-fisheries.html#global-aquaculture-production",
+    "title": "AE 04: Joining fisheries",
+    "section": "Global aquaculture production",
+    "text": "Global aquaculture production\nThe Fisheries and Aquaculture Department of the Food and Agriculture Organization of the United Nations collects data on fisheries production of countries.\nOur goal is to create a visualization of the mean share of aquaculture by continent.\nLet’s start by looking at the fisheries data frame.\n\nglimpse(fisheries)\n\nRows: 82\nColumns: 4\n$ country     <chr> \"Angola\", \"Argentina\", \"Australia\", \"Bangladesh\", \"Brazil\"…\n$ capture     <dbl> 486490, 755226, 174629, 1674770, 705000, 629950, 233190, 8…\n$ aquaculture <dbl> 655, 3673, 96847, 2203554, 581230, 172500, 2315, 200765, 9…\n$ total       <dbl> 487145, 758899, 271476, 3878324, 1286230, 802450, 235505, …\n\n\nWe have the countries, but our goal is to make a visualization by continent. Let’s take a look at the continents data frame.\n\nglimpse(continents)\n\nRows: 245\nColumns: 2\n$ country   <chr> \"Afghanistan\", \"Åland Islands\", \"Albania\", \"Algeria\", \"Ameri…\n$ continent <chr> \"Asia\", \"Europe\", \"Europe\", \"Africa\", \"Oceania\", \"Europe\", \"…\n\n\n\nYour turn (2 minutes):\n\nWhich variable(s) will we use to join the fisheries and continents data frames?\nWe want to keep all rows and columns from fisheries and add a column for corresponding continents. Which join function should we use?\n\nDemo: Join the two data frames and name assign the joined data frame back to fisheries.\n\n\n# add code here\n\n\nDemo: Take a look at the updated fisheries data frame. There are some countries that were not in continents. First, identify which countries these are (they will have NA values for continent). Then, manually update the continent information for these countries using the case_when function. Finally, check that these updates have been made as intended and no countries are left without continent information.\n\n\n# add code here\n\n\nDemo: Add a new column to the fisheries data frame called aq_prop. We will calculate it as aquaculture / total. Save the resulting frame as fisheries.\n\n\n# add code here\n\n\nDemo: Calculate the mean aquaculture proportion (we’ll call it mean_aq_prop) for continents in the fisheries data using the summarize() function in dplyr. Note that the function for calculating the mean is mean() in R.\n\n\n# add code here\n\n\nYour turn (5 minutes): Now expand your calculations to also calculate the minimum and maximum aquaculture proportion for continents in the fisheries data. Note that the functions for calculating minimum and maximum in R are min() and max() respectively.\n\n\n# add code here \n\n\nDemo: Create a new data frame called fisheries_summary that calculates minimum, mean, and maximum aquaculture proportion for each continent in the fisheries data. Then, determine which continent has the largest value of max_ap?\n\n\n# add code here\n\n\nDemo: Take the fisheries_summary data frame and order the results in descending order of mean aquaculture proportion.\n\n\n# add code here\n\n\nDemo: Recreate the following plot using the data frame you have developed so far.\n\n\n\n\n\n\n\n# add code here\n\n\nYour turn (time permitting): Change the theme of the plot and make any other changes you would like to improve it.\n\n\n# add your code here"
+  },
+  {
     "objectID": "ae/ae-03-wrangling-flights-A.html",
     "href": "ae/ae-03-wrangling-flights-A.html",
     "title": "AE 03: Wrangling flights",
@@ -558,6 +607,27 @@
     "title": "AE 03: Wrangling flights",
     "section": "group_by()",
     "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\nflights |>\n  group_by(month) |>\n  summarize(\n    mean_dep_delay = mean(dep_delay, na.rm = TRUE), \n    sd_dep_delay = sd(dep_delay, na.rm = TRUE)\n    )\n\n# A tibble: 12 × 3\n   month mean_dep_delay sd_dep_delay\n   <int>          <dbl>        <dbl>\n 1     1          10.0          36.4\n 2     2          10.8          36.3\n 3     3          13.2          40.1\n 4     4          13.9          43.0\n 5     5          13.0          39.4\n 6     6          20.8          51.5\n 7     7          21.7          51.6\n 8     8          12.6          37.7\n 9     9           6.72         35.6\n10    10           6.24         29.7\n11    11           5.44         27.6\n12    12          16.6          41.9\n\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\nflights |>\n  group_by(origin) |>\n  summarize(\n    med_dep_delay = median(dep_delay, na.rm = TRUE)\n    )\n\n# A tibble: 3 × 2\n  origin med_dep_delay\n  <chr>          <dbl>\n1 EWR               -1\n2 JFK               -1\n3 LGA               -3"
+  },
+  {
+    "objectID": "ae/ae-04-joining-fisheries-A.html",
+    "href": "ae/ae-04-joining-fisheries-A.html",
+    "title": "AE 04: Joining fisheries",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(scales)\n\nfisheries <- read_csv(\"data/fisheries.csv\")\ncontinents <- read_csv(\"data/continents.csv\")"
+  },
+  {
+    "objectID": "ae/ae-04-joining-fisheries-A.html#working-with-multiple-data-frames",
+    "href": "ae/ae-04-joining-fisheries-A.html#working-with-multiple-data-frames",
+    "title": "AE 04: Joining fisheries",
+    "section": "Working with multiple data frames",
+    "text": "Working with multiple data frames\nOften instead of being provided the data you need for your analysis in a single data frame, you will need to bring information from multiple datasets together into a data frame yourself. These datasets will be linked to each other via a column (usually an identifier, something that links the two datasets together) that you can use to join them together.\nThere are many possible types of joins. All have the format something_join(x, y).\n\nx <- tibble(\n  value = c(1, 2, 3),\n  xcol = c(\"x1\", \"x2\", \"x3\")\n  )\n\ny <- tibble(\n  value = c(1, 2, 4),\n  ycol = c(\"y1\", \"y2\", \"y4\")\n  )\n\nx\n\n# A tibble: 3 × 2\n  value xcol \n  <dbl> <chr>\n1     1 x1   \n2     2 x2   \n3     3 x3   \n\ny\n\n# A tibble: 3 × 2\n  value ycol \n  <dbl> <chr>\n1     1 y1   \n2     2 y2   \n3     4 y4   \n\n\nWe will demonstrate each of the joins on these small, toy datasets.\n\ninner_join(): join all rows from x where there are matching values in y\n\ninner_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 2 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n\n\n\n\nleft_join(): include all rows from x\n\nleft_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 3 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n3     3 x3    <NA> \n\n\n\n\nright_join(): include all rows from y\n\nright_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 3 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n3     4 <NA>  y4   \n\n\n\n\nfull_join(): include all rows in x or y (use this one sparingly!!)\n\nfull_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 4 × 3\n  value xcol  ycol \n  <dbl> <chr> <chr>\n1     1 x1    y1   \n2     2 x2    y2   \n3     3 x3    <NA> \n4     4 <NA>  y4   \n\n\n\n\nsemi_join(): return all rows from x with match in y\n\nsemi_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 2 × 2\n  value xcol \n  <dbl> <chr>\n1     1 x1   \n2     2 x2   \n\n\n\n\nanti_join(): return all rows from x without a match in y\n\nanti_join(x, y)\n\nJoining, by = \"value\"\n\n\n# A tibble: 1 × 2\n  value xcol \n  <dbl> <chr>\n1     3 x3   \n\n\nQuestion: How do the join functions above know to join x and y by value? Hint: Examine the column names to find out.\n\nnames(x)\n\n[1] \"value\" \"xcol\" \n\nnames(y)\n\n[1] \"value\" \"ycol\""
+  },
+  {
+    "objectID": "ae/ae-04-joining-fisheries-A.html#global-aquaculture-production",
+    "href": "ae/ae-04-joining-fisheries-A.html#global-aquaculture-production",
+    "title": "AE 04: Joining fisheries",
+    "section": "Global aquaculture production",
+    "text": "Global aquaculture production\nThe Fisheries and Aquaculture Department of the Food and Agriculture Organization of the United Nations collects data on fisheries production of countries.\nOur goal is to create a visualization of the mean share of aquaculture by continent.\nLet’s start by looking at the fisheries data frame.\n\nglimpse(fisheries)\n\nRows: 82\nColumns: 4\n$ country     <chr> \"Angola\", \"Argentina\", \"Australia\", \"Bangladesh\", \"Brazil\"…\n$ capture     <dbl> 486490, 755226, 174629, 1674770, 705000, 629950, 233190, 8…\n$ aquaculture <dbl> 655, 3673, 96847, 2203554, 581230, 172500, 2315, 200765, 9…\n$ total       <dbl> 487145, 758899, 271476, 3878324, 1286230, 802450, 235505, …\n\n\nWe have the countries, but our goal is to make a visualization by continent. Let’s take a look at the continents data frame.\n\nglimpse(continents)\n\nRows: 245\nColumns: 2\n$ country   <chr> \"Afghanistan\", \"Åland Islands\", \"Albania\", \"Algeria\", \"Ameri…\n$ continent <chr> \"Asia\", \"Europe\", \"Europe\", \"Africa\", \"Oceania\", \"Europe\", \"…\n\n\n\nYour turn (2 minutes):\n\nWhich variable(s) will we use to join the fisheries and continents data frames?\nWe want to keep all rows and columns from fisheries and add a column for corresponding continents. Which join function should we use?\n\nDemo: Join the two data frames and name assign the joined data frame back to fisheries.\n\n\nfisheries <- fisheries |>\n  left_join(continents)\n\nJoining, by = \"country\"\n\n\n\nDemo: Take a look at the updated fisheries data frame. There are some countries that were not in continents. First, identify which countries these are (they will have NA values for continent). Then, manually update the continent information for these countries using the case_when function. Finally, check that these updates have been made as intended and no countries are left without continent information.\n\n\nfisheries |>\n  filter(is.na(continent))\n\n# A tibble: 3 × 5\n  country                          capture aquaculture   total continent\n  <chr>                              <dbl>       <dbl>   <dbl> <chr>    \n1 Democratic Republic of the Congo  237372        3161  240533 <NA>     \n2 Hong Kong                         142775        4258  147033 <NA>     \n3 Myanmar                          2072390     1017644 3090034 <NA>     \n\nfisheries <- fisheries %>%\n  mutate(\n    continent = case_when(\n      country == \"Democratic Republic of the Congo\" ~ \"Africa\",\n      country == \"Hong Kong\" ~ \"Asia\",\n      country == \"Myanmar\" ~ \"Asia\",\n      TRUE ~ continent\n    )\n  )\n\nfisheries |>\n  filter(is.na(continent))\n\n# A tibble: 0 × 5\n# … with 5 variables: country <chr>, capture <dbl>, aquaculture <dbl>,\n#   total <dbl>, continent <chr>\n\n\n\nDemo: Add a new column to the fisheries data frame called aq_prop. We will calculate it as aquaculture / total. Save the resulting frame as fisheries.\n\n\nfisheries <- fisheries |>\n  mutate(aq_prop = aquaculture / total)\n\n\nDemo: Calculate the mean aquaculture proportion (we’ll call it mean_aq_prop) for continents in the fisheries data using the summarize() function in dplyr. Note that the function for calculating the mean is mean() in R.\n\n\nfisheries |>                              # start with fisheries data frame\n  group_by(continent) |>                  # group by continent\n  summarize(mean_aq_prop = mean(aq_prop)) # calculate mean aquaculture\n\n# A tibble: 5 × 2\n  continent mean_aq_prop\n  <chr>            <dbl>\n1 Africa          0.0943\n2 Americas        0.192 \n3 Asia            0.367 \n4 Europe          0.165 \n5 Oceania         0.150 \n\n\n\nYour turn (5 minutes): Now expand your calculations to also calculate the minimum and maximum aquaculture proportion for continents in the fisheries data. Note that the functions for calculating minimum and maximum in R are min() and max() respectively.\n\n\nfisheries |>                              # start with fisheries data frame\n  group_by(continent) |>                  # group by continent\n  summarize(                              # calculate summary stats  \n    min_aq_prop  = min(aq_prop),\n    mean_aq_prop = mean(aq_prop),\n    max_aq_prop  = max(aq_prop)\n    )    \n\n# A tibble: 5 × 4\n  continent min_aq_prop mean_aq_prop max_aq_prop\n  <chr>           <dbl>        <dbl>       <dbl>\n1 Africa        0             0.0943       0.803\n2 Americas      0             0.192        0.529\n3 Asia          0             0.367        0.782\n4 Europe        0.00682       0.165        0.618\n5 Oceania       0.0197        0.150        0.357\n\n\n\nDemo: Create a new data frame called fisheries_summary that calculates minimum, mean, and maximum aquaculture proportion for each continent in the fisheries data. Then, determine which continent has the largest value of max_ap?\n\n\nfisheries_summary <- fisheries |>         # start with fisheries data frame\n  group_by(continent) |>                  # group by continent\n  summarize(                              # calculate summary stats  \n    min_aq_prop  = min(aq_prop),\n    mean_aq_prop = mean(aq_prop),\n    max_aq_prop  = max(aq_prop)\n    )\n\n\nDemo: Take the fisheries_summary data frame and order the results in descending order of mean aquaculture proportion.\n\n\nfisheries_summary |>            # start with fisheries_summary data frame\n  arrange(desc(mean_aq_prop))   # order in descending order of mean_aq_prop\n\n# A tibble: 5 × 4\n  continent min_aq_prop mean_aq_prop max_aq_prop\n  <chr>           <dbl>        <dbl>       <dbl>\n1 Asia          0             0.367        0.782\n2 Americas      0             0.192        0.529\n3 Europe        0.00682       0.165        0.618\n4 Oceania       0.0197        0.150        0.357\n5 Africa        0             0.0943       0.803\n\n\n\nDemo: Recreate the following plot using the data frame you have developed so far.\n\n\n\n\n\n\n\nggplot(fisheries_summary, \n       aes(y = fct_reorder(continent, mean_aq_prop), x = mean_aq_prop)) +\n  geom_col() +\n  scale_x_continuous(labels = label_percent(accuracy = 1)) +\n  labs(\n    x = NULL,\n    y = NULL,\n    title = \"Average share of aquaculture by continent\",\n    subtitle = \"out of total fisheries harvest, 2016\",\n    caption = \"Source: bit.ly/2VrawTt\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nYour turn (time permitting): Change the theme of the plot and make any other changes you would like to improve it.\n\n\n# add your code here"
   },
   {
     "objectID": "project-tips-resources.html",
@@ -963,14 +1033,21 @@
     "href": "slides/05-grammar-of-data-wrangling.html#announcements",
     "title": "Grammar of data wrangling",
     "section": "Announcements",
-    "text": "Announcements\n\nTo be posted…"
+    "text": "Announcements\n\nRequesting videos for missed classes"
+  },
+  {
+    "objectID": "slides/05-grammar-of-data-wrangling.html#coding-style-workflow",
+    "href": "slides/05-grammar-of-data-wrangling.html#coding-style-workflow",
+    "title": "Grammar of data wrangling",
+    "section": "Coding style + workflow",
+    "text": "Coding style + workflow\n\n\nAvoid long lines of code.\n\nWe should be able to see all of your code in the PDF document you submit.\n\nLabel code chunks.\n\nDo not put spaces in the code-chunk labels.\n\nRender, commit, and push regularly.\n\nThink about it like clicking to save regularly as you type a report."
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#ae-03",
     "href": "slides/05-grammar-of-data-wrangling.html#ae-03",
     "title": "Grammar of data wrangling",
     "section": "ae-03",
-    "text": "ae-03\n\n\nGo to the course GitHub org and find your ae-02 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+    "text": "ae-03\n\n\nGo to the course GitHub org and find your ae-03 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#recap-of-ae",
@@ -1195,6 +1272,48 @@
     "title": "Meet the toolkit",
     "section": "Tour: Git + GitHub",
     "text": "Tour: Git + GitHub\n\nIn Lab 0 next Monday!\nMake sure to create a GitHub account and fill out the Getting to know you survey!\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#while-you-wait-for-class-to-begin",
+    "href": "slides/06-working-with-multiple-data-frames.html#while-you-wait-for-class-to-begin",
+    "title": "Working with multiple data frames",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\nAny questions from prepare materials?\n\n\n\nClone your ae-04 repo."
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#announcements",
+    "href": "slides/06-working-with-multiple-data-frames.html#announcements",
+    "title": "Working with multiple data frames",
+    "section": "Announcements",
+    "text": "Announcements\n\nRequesting videos for missed classes"
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#joining-datasets",
+    "href": "slides/06-working-with-multiple-data-frames.html#joining-datasets",
+    "title": "Working with multiple data frames",
+    "section": "Joining datasets",
+    "text": "Joining datasets\n\nDescribe a scenario where two datasets that contain information about students from this class may need to be joined. What might the analysis be about? What column (information) could be used to join the datasets?\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#goal",
+    "href": "slides/06-working-with-multiple-data-frames.html#goal",
+    "title": "Working with multiple data frames",
+    "section": "Goal",
+    "text": "Goal\nJoin data from multiple data frames, summarize it, and create this plot."
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#ae-04",
+    "href": "slides/06-working-with-multiple-data-frames.html#ae-04",
+    "title": "Working with multiple data frames",
+    "section": "ae-04",
+    "text": "ae-04\n\n\nGo to the course GitHub org and find your ae-04 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#recap-of-ae",
+    "href": "slides/06-working-with-multiple-data-frames.html#recap-of-ae",
+    "title": "Working with multiple data frames",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nTBD…\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "course-faq.html",

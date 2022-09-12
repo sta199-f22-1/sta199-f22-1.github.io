@@ -24,14 +24,30 @@ library(countdown)
 
 ## Announcements
 
--   To be posted...
+-   Requesting videos for missed classes
+
+## Coding style + workflow
+
+::: incremental
+-   Avoid long lines of code.
+
+    -   We should be able to see [all]{.underline} of your code in the PDF document you submit.
+
+-   Label code chunks.
+
+    -   Do **not** put spaces in the code-chunk `label`s.
+
+-   Render, commit, and push regularly.
+
+    -   Think about it like clicking to save regularly as you type a report.
+:::
 
 # Application exercise
 
 ## `ae-03`
 
 ::: appex
--   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-02` (repo name will be suffixed with your GitHub name).
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-03` (repo name will be suffixed with your GitHub name).
 -   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
 -   Render, commit, and push your edits by the AE deadline -- 3 days from today.
 :::

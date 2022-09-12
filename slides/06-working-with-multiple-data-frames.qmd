@@ -1,0 +1,61 @@
+---
+title: "Working with multiple data frames"
+subtitle: "Lecture 5"
+date: "September 15, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Any questions from prepare materials?
+
+```{=html}
+<iframe src="https://app.sli.do/event/9mqwqdqbgesgLASUHGpwU8/embed/polls/52941ba5-0668-4cad-9b86-82505db6b862" width="900" height="600"></iframe>
+```
+-   Clone your `ae-04` repo.
+
+## Announcements
+
+-   Requesting videos for missed classes
+
+## Joining datasets
+
+::: question
+Describe a scenario where two datasets that contain information about students from this class may need to be joined.
+What might the analysis be about?
+What column (information) could be used to join the datasets?
+:::
+
+```{r}
+#| echo: false
+
+countdown(minutes = 3)
+```
+
+# Application exercise
+
+## Goal
+
+Join data from multiple data frames, summarize it, and create this plot.
+
+![](images/06/aquaculture-production-by-continent.png){fig-align="center"}
+
+## `ae-04`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-04` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE {.smaller}
+
+-   TBD...

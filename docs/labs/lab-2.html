@@ -271,15 +271,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#getting-started-1" id="toc-getting-started-1" class="nav-link" data-scroll-target="#getting-started-1">Getting started</a>
   <ul class="collapse">
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm up</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
-  <ul class="collapse">
-  <li><a href="#the-greatest-crossover-event-in-the-history-of-sta199-labs" id="toc-the-greatest-crossover-event-in-the-history-of-sta199-labs" class="nav-link" data-scroll-target="#the-greatest-crossover-event-in-the-history-of-sta199-labs">The Greatest Crossover Event in the History of STA199 Labs</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#get-to-know-your-data" id="toc-get-to-know-your-data" class="nav-link" data-scroll-target="#get-to-know-your-data">Get to know your data</a></li>
+  <li><a href="#most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes" id="toc-most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes" class="nav-link" data-scroll-target="#most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes">Most living Nobel laureates were based in the US when they won their prizes</a></li>
+  <li><a href="#but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries" id="toc-but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries" class="nav-link" data-scroll-target="#but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries">But of those US-based Nobel laureates, many were born in other countries</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
   </ul>
@@ -317,86 +318,162 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This lab is due Monday, Sep 19 at 11:59pm.</p>
+<p>This lab is due Friday, Sep 23 at 11:59pm.</p>
 </div>
 </div>
 <section id="learning-goals" class="level1">
 <h1>Learning goals</h1>
 <p>In this lab, you will…</p>
 <ul>
-<li><pre><code>Use data wrangling to extract meaning from data</code></pre></li>
-<li><pre><code>continue developing a workflow for reproducible data analysis.</code></pre></li>
+<li>use data wrangling to extract meaning from data</li>
+<li>continue developing a workflow for reproducible data analysis</li>
+<li>continue working with data visualization tools</li>
 </ul>
 </section>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ul>
-<li><p>Go to the sta199-fa22-02 organization on GitHub. Click on the repo with the prefix lab-02. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://sta199-f22-2.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project">Lab 0 instructions</a> for details on cloning a repo and starting a new R project.</p></li>
+<li><p>Go to the sta199-fa22-01 organization on GitHub. Click on the repo with the prefix lab-02. It contains the starter documents you need to complete the lab.</p></li>
+<li><p>Clone the repo and start a new project in RStudio. See the <a href="https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project">Lab 0 instructions</a> for details on cloning a repo and starting a new R project.</p></li>
 </ul>
+</section>
+<section id="getting-started-1" class="level1">
+<h1>Getting started</h1>
+<ul>
+<li>Go to the course GitHub organization and locate your lab repo, which should be named <code>lab-03-nobel-laureates-YOUR_GITHUB_USERNAME</code>.</li>
+<li>Grab the URL of the repo, and clone it in RStudio.</li>
+<li>First, open the Quarto document <code>lab-03.qmd</code> and Render it.</li>
+<li>Make sure it compiles without errors.</li>
+</ul>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm up</h2>
+<p>Before we introduce the data, let’s warm up with some simple exercises.</p>
+<ul>
+<li>Update the YAML, changing the author name to your name, and <strong>render</strong> the document.</li>
+<li>Commit your changes with a meaningful commit message.</li>
+<li>Push your changes to GitHub.</li>
+<li>Go to your repo on GitHub and confirm that your changes are visible in your Qmd <strong>and</strong> pdf files. If anything is missing, commit and push again.</li>
+</ul>
+</section>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>We will use the <strong>tidyverse</strong> package to create and customize plots in R.</p>
+<p>We’ll use the <strong>tidyverse</strong> package for much of the data wrangling. This package is already installed for you. You can load them by running the following in your Console:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<section id="the-greatest-crossover-event-in-the-history-of-sta199-labs" class="level3">
-<h3 class="anchored" data-anchor-id="the-greatest-crossover-event-in-the-history-of-sta199-labs">The Greatest Crossover Event in the History of STA199 Labs</h3>
-<p>This data was originally collected for a <a href="https://fivethirtyeight.com/features/avengers-death-comics-age-of-ultron/">FiveThirtyEight article</a>. The version of the avengers data we will work with here can be uploaded from the avengers.csv file.</p>
-<p>This dataset includes information about characters across the entire Marvel Cinematic Universe (MCU), so some of the names will be familiar if you are a fan of the films or comics. Don’t worry if you aren’t a Marvel fan; no background knowledge is needed to successfully complete this lab!</p>
-<p>We will focus on the following variables in this lab:</p>
+<p>The dataset for this assignment can be found as a CSv (comma separated values) file in the <code>data</code> folder of your repository. You can read it in using the following.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nobel <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"labs/data/nobel.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The variable descriptions are as follows:</p>
+<ul>
+<li><code>id</code>: ID number</li>
+<li><code>firstname</code>: First name of laureate</li>
+<li><code>surname</code>: Surname</li>
+<li><code>year</code>: Year prize won</li>
+<li><code>category</code>: Category of prize</li>
+<li><code>affiliation</code>: Affiliation of laureate</li>
+<li><code>city</code>: City of laureate in prize year</li>
+<li><code>country</code>: Country of laureate in prize year</li>
+<li><code>born_date</code>: Birth date of laureate</li>
+<li><code>died_date</code>: Death date of laureate</li>
+<li><code>gender</code>: Gender of laureate</li>
+<li><code>born_city</code>: City where laureate was born</li>
+<li><code>born_country</code>: Country where laureate was born</li>
+<li><code>born_country_code</code>: Code of country where laureate was born</li>
+<li><code>died_city</code>: City where laureate died</li>
+<li><code>died_country</code>: Country where laureate died</li>
+<li><code>died_country_code</code>: Code of country where laureate died</li>
+<li><code>overall_motivation</code>: Overall motivation for recognition</li>
+<li><code>share</code>: Number of other winners award is shared with</li>
+<li><code>motivation</code>: Motivation for recognition</li>
+</ul>
+<p>In a few cases the name of the city/country changed after laureate was given (e.g.&nbsp;in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia). In these cases the variables below reflect a different name than their counterparts without the suffix `_original`.</p>
+<ul>
+<li><code>born_country_original</code>: Original country where laureate was born</li>
+<li><code>born_city_original</code>: Original city where laureate was born</li>
+<li><code>died_country_original</code>: Original country where laureate died</li>
+<li><code>died_city_original</code>: Original city where laureate died</li>
+<li><code>city_original</code>: Original city where laureate lived at the time of winning the award</li>
+<li><code>country_original</code>: Original country where laureate lived at the time of winning the award</li>
+</ul>
+</section>
+<section id="get-to-know-your-data" class="level2">
+<h2 class="anchored" data-anchor-id="get-to-know-your-data">Get to know your data</h2>
+<ol type="1">
+<li>How many observations and how many variables are in the dataset? Use inline code to answer this question. What does each row represent?</li>
+</ol>
+<p>There are some observations in this dataset that we will exclude from our analysis to match the Buzzfeed results.</p>
+<ol start="2" type="1">
+<li>Create a new data frame called <code>nobel_living</code> that filters for</li>
+</ol>
+<ul>
+<li>laureates for whom <code>country</code> is available</li>
+<li>laureates who are people as opposed to organizations (organizations are denoted with <code>"org"</code> as their <code>gender</code>)</li>
+<li>laureates who are still alive (their <code>died_date</code> is <code>NA</code>)</li>
+</ul>
 <div class="cell">
 
 </div>
-<p>See FiveThirtyEight’s <a href="https://github.com/fivethirtyeight/data/tree/master/avengers">GitHub repo</a> for the full codebook.</p>
+<p>Confirm that once you have filtered for these characteristics you are left with a data frame with <em>r nrow(nobel_living)</em>` observations, once again using inline code.</p>
 </section>
-</section>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p>As we’ve discussed in lecture, your plots should include an informative title, axes should be labeled, and careful consideration should be given to aesthetic choices.</p>
-<p>In addition, the code should not exceed the 80 character limit, so that all the code can be read when you render to PDF. To help with this, you can add a vertical line at 80 characters by clicking “Tools” <span class="math inline">\(\rightarrow\)</span> “Global Options” <span class="math inline">\(\rightarrow\)</span> “Code” <span class="math inline">\(\rightarrow\)</span> “Display”, then set “Margin Column” to 80, and click “Apply”.</p>
-<p>Remember that continuing to develop a sound workflow for reproducible data analysis is important as you complete the lab and other assignments in this course. There will be periodic reminders in this assignment to remind you to <strong>render, commit, and push</strong> your changes to GitHub. You should have at least 3 commits with meaningful commit messages by the end of the assignment.</p>
-<ol type="1">
-<li>You are interested in creating a data frame with the most “classic” Avengers. Use filter to make a new data frame that only includes Avengers that were 1) created in 1970 or earlier and 2) were not given probationary status. Assign the new data frame as classic_avengers. Confirm that once you have filtered, you are left with a data frame with 27 observations.</li>
-</ol>
-<div class="render-commit-push">
-<p>Now is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceding.</p>
-<p><br></p>
+<section id="most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes" class="level2">
+<h2 class="anchored" data-anchor-id="most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes">Most living Nobel laureates were based in the US when they won their prizes</h2>
+<p>… says the Buzzfeed article. Let’s see if that’s true.</p>
+<p>First, we’ll create a new variable to identify whether the laureate was in the US when they won their prize. We’ll use the <code>mutate()</code> function for this. The following pipeline mutates the <code>nobel_living</code> data frame by adding a new variable called <code>country_us</code>. We use an if statement to create this variable. The first argument in the <code>if_else()</code> function we’re using to write this if statement is the condition we’re testing for. If <code>country</code> is equal to <code>"USA"</code>, we set <code>country_us</code> to <code>"USA"</code>. If not, we set the <code>country_us</code> to <code>"Other"</code>.</p>
+<div class="cell">
+<pre class="marginfigure cell-code"><code>Note that we can achieve the same result using the `fct_other()` function we have seen before (i.e. with `country_us = fct_other(country, "USA")`). We decided to use the `if_else()` here to show you one example of an if statement in R.</code></pre>
 </div>
-<ol start="2" type="1">
-<li><p><em>Who are the newest classic Avengers?</em> Using a single pipeline: Create a new variable called years_served that represents the number of years served as of 2021.. (Hint: you can use either the year variable or years_since_joining variables to do this.) Then, arrange the dataset in ascending order of years_served. Lastly, select the name and years_served and display the first three rows.</p>
+<div class="cell">
+
+</div>
+<p>Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.</p>
+<div class="cell">
+
+</div>
+<p>For the next exercise work with the <code>nobel_living_science</code> data frame you created above. This means you’ll need to define this data frame in your R Markdown document, even though the next exercise doesn’t explicitly ask you to do so.</p>
+<ol start="3" type="1">
+<li><p>Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.</p>
 <ul>
-<li>Report the names of the three newest classic Avengers and how long they have served in your narrative.</li>
+<li>Your visualization should be faceted by category.</li>
+<li>For each facet you should have two bars, one for winners in the US and one for Other.</li>
+<li>Flip the coordinates so the bars are horizontal, not vertical.</li>
 </ul></li>
-<li><p><em>Has the percentage of female Avengers changed over time?</em> To explore this question, find the percentage of female Avengers in the classic_avengers dataset and compare it to the percentage of females among all Avengers. What do you conclude based on these results?</p></li>
 </ol>
 <div class="render-commit-push">
 <p>Now is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.</p>
 <p><br></p>
+</div>
+</section>
+<section id="but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries" class="level2">
+<h2 class="anchored" data-anchor-id="but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries">But of those US-based Nobel laureates, many were born in other countries</h2>
+<div class="cell">
+<pre class="marginfigure cell-code"><code>**Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.</code></pre>
 </div>
 <ol start="4" type="1">
-<li><p>Sort the full avengers dataset in descending order of appearances and display only the columns name, appearances, death1, and return1 for the top five observations.</p>
+<li><p>Create a new variable called <code>born_country_us</code> that has the value <code>"USA"</code> if the laureate is born in the US, and <code>"Other"</code> otherwise. How many of the winners are born in the US?</p></li>
+<li><p>Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Based on your visualization, do the data appear to support Buzzfeed’s claim? Explain your reasoning in 1-2 sentences.</p>
 <ul>
-<li>What do you observe about these Avengers in terms of deaths and returns?</li>
-</ul></li>
-<li><p>Use the full avengers dataset to examine the mean and median number of appearances for Avengers who have died at least once compared to those who have not died at least once.</p>
-<ul>
-<li><p>What do you learn about Marvel movies from your results?</p></li>
-<li><p>What do the mean and median tell you about the distribution of apparances for these two groups?</p></li>
-</ul></li>
-<li><p><em>Who’s more popular - the new or classic Avengers?</em> Calculate the mean number of appearances for each introduction year (year). Then create a scatterplot of the mean appearances by introduction year. Do not include observations with the introduction year 1900, as “1900” indicates the value of full_reserve is missing.</p>
-<ul>
-<li>What are 2 - 3 observations you have about the mean appearances based on introduction year?</li>
+<li>Your final visualization should contain a facet for each category.</li>
+<li>Within each facet, there should be a bar for whether the laureate won the award in the US or not.</li>
+<li>Each bar should have segments for whether the laureate was born in the US or not.</li>
 </ul></li>
 </ol>
 <div class="render-commit-push">
 <p>Now is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.</p>
 <p><br></p>
 </div>
+<ol start="6" type="1">
+<li>In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the <code>count()</code> function) for their birth country (<code>born_country</code>) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?</li>
+</ol>
+<div class="render-commit-push">
+<p>Now is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.</p>
+<p><br></p>
+</div>
+</section>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
@@ -437,31 +514,31 @@ Warning
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">6</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">8</td>
 </tr>
 </tbody>
 </table>
