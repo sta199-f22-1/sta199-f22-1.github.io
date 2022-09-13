@@ -1,8 +1,8 @@
 ---
-title: "Lab 2 - wrangling-data"
+title: "Lab 2 - Data wrangling"
 categories: "Lab"
 execute:
-  eval: false
+  eval: true
 ---
 
 ::: callout-important
@@ -19,17 +19,8 @@ In this lab, you will...
 
 # Getting started
 
--   Go to the sta199-fa22-01 organization on GitHub.
-    Click on the repo with the prefix lab-02.
-    It contains the starter documents you need to complete the lab.
-
--   Clone the repo and start a new project in RStudio.
-    See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
-
-# Getting started
-
--   Go to the course GitHub organization and locate your lab repo, which should be named `lab-03-nobel-laureates-YOUR_GITHUB_USERNAME`.
--   Grab the URL of the repo, and clone it in RStudio.
+-   Go to the [sta199-fa22-01](github.com/sta199-f22-1) organization on GitHub. Click on the repo with the prefix `lab-02`. It contains the starter documents you need to complete the lab.
+-   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
 -   First, open the Quarto document `lab-03.qmd` and Render it.
 -   Make sure it compiles without errors.
 
@@ -40,59 +31,65 @@ Before we introduce the data, let's warm up with some simple exercises.
 -   Update the YAML, changing the author name to your name, and **render** the document.
 -   Commit your changes with a meaningful commit message.
 -   Push your changes to GitHub.
--   Go to your repo on GitHub and confirm that your changes are visible in your Qmd **and** pdf files. If anything is missing, commit and push again.
+-   Go to your repo on GitHub and confirm that your changes are visible in your \``.qmd` **and** .`pdf` files. If anything is missing, render, commit, and push again.
 
 ## Packages
 
 We'll use the **tidyverse** package for much of the data wrangling.
 This package is already installed for you.
-You can load them by running the following in your Console:
+You can load it by running the following in your Console:
 
-```{r load-packages, message = FALSE}
+```{r}
+#| label: load-packages
+#| message: false
+
 library(tidyverse)
 ```
 
 ## Data
 
-The dataset for this assignment can be found as a CSv (comma separated values) file in the `data` folder of your repository.
+The dataset for this assignment can be found as a CSV (comma separated values) file in the `data` folder of your repository.
 You can read it in using the following.
 
-```{r load-data, message = FALSE}
-nobel <- read_csv("labs/data/nobel.csv")
+```{r}
+#| label: load-data
+#| message: false
+
+nobel <- read_csv("data/nobel.csv")
 ```
 
-The variable descriptions are as follows:
+The descriptions of the variables are as follows:
 
--   `id`: ID number
--   `firstname`: First name of laureate
--   `surname`: Surname
--   `year`: Year prize won
--   `category`: Category of prize
--   `affiliation`: Affiliation of laureate
--   `city`: City of laureate in prize year
--   `country`: Country of laureate in prize year
--   `born_date`: Birth date of laureate
--   `died_date`: Death date of laureate
--   `gender`: Gender of laureate
--   `born_city`: City where laureate was born
--   `born_country`: Country where laureate was born
--   `born_country_code`: Code of country where laureate was born
--   `died_city`: City where laureate died
--   `died_country`: Country where laureate died
--   `died_country_code`: Code of country where laureate died
--   `overall_motivation`: Overall motivation for recognition
--   `share`: Number of other winners award is shared with
--   `motivation`: Motivation for recognition
+1.  `id`: ID number
+2.  `firstname`: First name of laureate
+3.  `surname`: Surname
+4.  `year`: Year prize won
+5.  `category`: Category of prize
+6.  `affiliation`: Affiliation of laureate
+7.  `city`: City of laureate in prize year
+8.  `country`: Country of laureate in prize year
+9.  `born_date`: Birth date of laureate
+10. `died_date`: Death date of laureate
+11. `gender`: Gender of laureate
+12. `born_city`: City where laureate was born
+13. `born_country`: Country where laureate was born
+14. `born_country_code`: Code of country where laureate was born
+15. `died_city`: City where laureate died
+16. `died_country`: Country where laureate died
+17. `died_country_code`: Code of country where laureate died
+18. `overall_motivation`: Overall motivation for recognition
+19. `share`: Number of other winners award is shared with
+20. `motivation`: Motivation for recognition
 
 In a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia).
-In these cases the variables below reflect a different name than their counterparts without the suffix \`\_original\`.
+In these cases the variables below reflect a different name than their counterparts without the suffix `_original`.
 
--   `born_country_original`: Original country where laureate was born
--   `born_city_original`: Original city where laureate was born
--   `died_country_original`: Original country where laureate died
--   `died_city_original`: Original city where laureate died
--   `city_original`: Original city where laureate lived at the time of winning the award
--   `country_original`: Original country where laureate lived at the time of winning the award
+21. `born_country_original`: Original country where laureate was born
+22. `born_city_original`: Original city where laureate was born
+23. `died_country_original`: Original country where laureate died
+24. `died_city_original`: Original city where laureate died
+25. `city_original`: Original city where laureate lived at the time of winning the award
+26. `country_original`: Original country where laureate lived at the time of winning the award
 
 ## Get to know your data
 
@@ -108,7 +105,8 @@ There are some observations in this dataset that we will exclude from our analys
 
 ```{r}
 #| echo: false
-nobel_living <- nobel %>%
+
+nobel_living <- nobel |>
   filter(
     !is.na(country),
     gender != "org",
@@ -116,7 +114,7 @@ nobel_living <- nobel %>%
   )
 ```
 
-Confirm that once you have filtered for these characteristics you are left with a data frame with *r nrow(nobel_living)*\` observations, once again using inline code.
+Confirm that once you have filtered for these characteristics you are left with a data frame with `r nrow(nobel_living)` observations, once again using inline code.
 
 ## Most living Nobel laureates were based in the US when they won their prizes
 
@@ -131,22 +129,21 @@ The first argument in the `if_else()` function we're using to write this if stat
 If `country` is equal to `"USA"`, we set `country_us` to `"USA"`.
 If not, we set the `country_us` to `"Other"`.
 
-```{marginfigure}
-Note that we can achieve the same result using the `fct_other()` function we have seen before (i.e. with `country_us = fct_other(country, "USA")`). We decided to use the `if_else()` here to show you one example of an if statement in R.
-```
-
 ```{r}
-#| echo: false
-nobel_living <- nobel_living %>%
+nobel_living <- nobel_living |>
   mutate(
     country_us = if_else(country == "USA", "USA", "Other")
   )
 ```
 
+::: callout-note
+Note that we can achieve the same result using the `fct_other()` function (i.e. with `country_us = fct_other(country, "USA")`).
+We decided to use the `if_else()` here to show you one example of an if statement in R.
+:::
+
 Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.
 
 ```{r}
-#| echo: false
 nobel_living_science <- nobel_living %>%
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
@@ -170,12 +167,12 @@ Make sure that you commit and push all changed documents and your Git pane is co
 
 ## But of those US-based Nobel laureates, many were born in other countries
 
-```{marginfigure}
-**Hint:** You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
-```
-
 4.  Create a new variable called `born_country_us` that has the value `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
     How many of the winners are born in the US?
+
+::: callout-note
+You should be able to ~~cheat~~ borrow from code you used earlier to create the `country_us` variable.
+:::
 
 5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
     Based on your visualization, do the data appear to support Buzzfeed's claim?
@@ -221,7 +218,7 @@ To submit your assignment:
 -   Mark all the pages associated with exercise. All the pages of your lab should be associated with at least one question (i.e., should be "checked"). *If you do not do this, you will be subject to lose points on the assignment.*
 -   Select the first page of your .pdf submission to be associated with the *"Workflow & formatting"* question.
 
-# Grading (50 pts)
+# Grading
 
 | Component             | Points |
 |:----------------------|:-------|
@@ -232,8 +229,9 @@ To submit your assignment:
 | Ex 5                  | 8      |
 | Ex 6                  | 8      |
 | Workflow & formatting | 8      |
+| **Total**             | **50** |
 
 ::: callout-note
-The "Workflow & formatting" grade is to assess the reproducible workflow.
+The "Workflow & formatting" component assesses the reproducible workflow.
 This includes having at least 3 informative commit messages, labeling the code chunks, and having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF.
 :::
