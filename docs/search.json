@@ -1026,14 +1026,14 @@
     "href": "slides/05-grammar-of-data-wrangling.html#while-you-wait-for-class-to-begin",
     "title": "Grammar of data wrangling",
     "section": "While you wait for class to begin…",
-    "text": "While you wait for class to begin…\n\nAny questions from prepare materials?\n\n\n\nClone your ae-03 repo."
+    "text": "While you wait for class to begin…\n\n\nClone your ae-03 repo.\nAny questions from prepare materials? You can also upvote others’ questions."
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#announcements",
     "href": "slides/05-grammar-of-data-wrangling.html#announcements",
     "title": "Grammar of data wrangling",
     "section": "Announcements",
-    "text": "Announcements\n\nRequesting videos for missed classes"
+    "text": "Announcements\n\nRequest videos for missed classes via the video request form\nAsk course questions on Slack\n\nUsing code formatting and proper indentation\nTaking screenshots\nChecking for previous questions"
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#coding-style-workflow",
@@ -1047,14 +1047,14 @@
     "href": "slides/05-grammar-of-data-wrangling.html#ae-03",
     "title": "Grammar of data wrangling",
     "section": "ae-03",
-    "text": "ae-03\n\n\nGo to the course GitHub org and find your ae-03 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+    "text": "ae-03\n\n\nGo to the course GitHub org and find your ae-03 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline (3 days from today)."
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#recap-of-ae",
     "href": "slides/05-grammar-of-data-wrangling.html#recap-of-ae",
     "title": "Grammar of data wrangling",
     "section": "Recap of AE",
-    "text": "Recap of AE\n\nSomething about pipe…\nSomething about building pipelines\n…\n\n\n\n\n🔗 sta199-f22-1.github.io"
+    "text": "Recap of AE\n\nThe pipe operator, |>, can be read as “and then”.\nThe pipe operator passes what comes before it into the function that comes after it as the first argument in that function.\n\n\nsum(1, 2)\n\n[1] 3\n\n1 |> \n  sum(2)\n\n[1] 3\n\n\n\nAlways use a line break after the pipe, and indent the next line of code.\n\nJust like always use a line break between layers of ggplots, after +, and indent the next line.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",
