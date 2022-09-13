@@ -285,7 +285,7 @@ flights |>
 
 flights |>
   count(month, day) |>
-  filter(n == min(n))
+  filter(n == max(n))
 ```
 
 ## `mutate()`

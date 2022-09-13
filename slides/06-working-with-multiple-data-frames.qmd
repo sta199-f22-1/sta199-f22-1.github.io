@@ -1,6 +1,6 @@
 ---
 title: "Working with multiple data frames"
-subtitle: "Lecture 5"
+subtitle: "Lecture 6"
 date: "September 15, 2022"
 format: revealjs
 ---
