@@ -17,11 +17,14 @@ In this lab, you will...
 -   continue developing a workflow for reproducible data analysis
 -   continue working with data visualization tools
 
-# Getting started 
+# Getting started
 
--   Go to the sta199-fa22-01 organization on GitHub. Click on the repo with the prefix lab-02. It contains the starter documents you need to complete the lab.
+-   Go to the sta199-fa22-01 organization on GitHub.
+    Click on the repo with the prefix lab-02.
+    It contains the starter documents you need to complete the lab.
 
--   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+-   Clone the repo and start a new project in RStudio.
+    See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
 
 # Getting started
 
@@ -81,7 +84,6 @@ The variable descriptions are as follows:
 -   `share`: Number of other winners award is shared with
 -   `motivation`: Motivation for recognition
 
-
 In a few cases the name of the city/country changed after laureate was given (e.g. in 1975 Bosnia and Herzegovina was called the Socialist Federative Republic of Yugoslavia).
 In these cases the variables below reflect a different name than their counterparts without the suffix \`\_original\`.
 
@@ -114,7 +116,7 @@ nobel_living <- nobel %>%
   )
 ```
 
-Confirm that once you have filtered for these characteristics you are left with a data frame with *r nrow(nobel_living)*` observations, once again using inline code.
+Confirm that once you have filtered for these characteristics you are left with a data frame with *r nrow(nobel_living)*\` observations, once again using inline code.
 
 ## Most living Nobel laureates were based in the US when they won their prizes
 
@@ -160,7 +162,6 @@ This means you'll need to define this data frame in your R Markdown document, ev
     -   Flip the coordinates so the bars are horizontal, not vertical.
 
 ::: render-commit-push
-
 Now is a good time to render, commit, and push.
 Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
 
@@ -183,9 +184,8 @@ Make sure that you commit and push all changed documents and your Git pane is co
     -   Your final visualization should contain a facet for each category.
     -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born in the US or not.
-    
-::: render-commit-push
 
+::: render-commit-push
 Now is a good time to render, commit, and push.
 Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
 
@@ -195,7 +195,6 @@ Make sure that you commit and push all changed documents and your Git pane is co
 6.  In a single pipeline, filter for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the `count()` function) for their birth country (`born_country`) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?
 
 ::: render-commit-push
-
 Now is a good time to render, commit, and push.
 Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
 
@@ -207,7 +206,8 @@ Make sure that you commit and push all changed documents and your Git pane is co
 Once you are finished with the lab, you will your final PDF document to Gradescope.
 
 ::: callout-warning
-Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.
+We will be checking these to make sure you have been practicing how to commit and push changes.
 
 You must turn in a PDF file to the Gradescope page by the submission deadline to be considered "on time".
 :::
@@ -225,15 +225,15 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex 1                  |   6    |
-| Ex 2                  |   6    |
-| Ex 3                  |   8    |
-| Ex 4                  |   6    |
-| Ex 5                  |   8    |
-| Ex 6                  |   8    |
-| Workflow & formatting |   8    |
+| Ex 1                  | 6      |
+| Ex 2                  | 6      |
+| Ex 3                  | 8      |
+| Ex 4                  | 6      |
+| Ex 5                  | 8      |
+| Ex 6                  | 8      |
+| Workflow & formatting | 8      |
 
 ::: callout-note
-The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages, labeling the code chunks, and having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF.
+The "Workflow & formatting" grade is to assess the reproducible workflow.
+This includes having at least 3 informative commit messages, labeling the code chunks, and having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF.
 :::
-
