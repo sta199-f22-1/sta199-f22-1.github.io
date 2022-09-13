@@ -17,12 +17,9 @@ library(countdown)
 
 ::: nonincremental
 -   Clone your `ae-03` repo.
--   Any questions from prepare materials? You can also upvote others' questions.
+-   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
 :::
 
-```{=html}
-<iframe src="https://app.sli.do/event/7mtcYfUfiJavFcqsPg2jWN" height="900" width="600" frameBorder="0" style="min-height: 560px;" title="Slido"></iframe>
-```
 ## Announcements
 
 -   Request videos for missed classes via the **video request form**
