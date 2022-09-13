@@ -1036,6 +1036,13 @@
     "text": "Announcements\n\nRequest videos for missed classes via the video request form\nAsk course questions on Slack\n\nUsing code formatting and proper indentation\nTaking screenshots\nChecking for previous questions"
   },
   {
+    "objectID": "slides/05-grammar-of-data-wrangling.html#questions-from-last-time",
+    "href": "slides/05-grammar-of-data-wrangling.html#questions-from-last-time",
+    "title": "Grammar of data wrangling",
+    "section": "Questions from last time",
+    "text": "Questions from last time\n\nHow come I had to load my packages each session before basic functions like ggplot() become available?\nWill we spend time learning more of the actual fundamental statistics needed to understand how the different graphs work and which ones are most useful for different data sets?"
+  },
+  {
     "objectID": "slides/05-grammar-of-data-wrangling.html#coding-style-workflow",
     "href": "slides/05-grammar-of-data-wrangling.html#coding-style-workflow",
     "title": "Grammar of data wrangling",

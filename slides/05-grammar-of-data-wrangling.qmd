@@ -30,6 +30,11 @@ library(countdown)
 
     -   Checking for previous questions
 
+## Questions from last time
+
+-   How come I had to **load** my packages each session before basic functions like `ggplot()` become available?
+-   Will we spend time learning more of the actual fundamental statistics needed to understand how the different graphs work and which ones are most useful for different data sets?
+
 ## Coding style + workflow
 
 ::: incremental
