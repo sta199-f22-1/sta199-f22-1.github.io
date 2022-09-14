@@ -5,7 +5,7 @@ editor: visual
 ---
 
 ::: callout-important
-This homework is due Thursday, Sep 15 at 11:59pm.
+This homework is due Thursday, Sep 15 at 11:59pm ET.
 :::
 
 # Getting Started

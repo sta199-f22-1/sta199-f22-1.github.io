@@ -16,7 +16,7 @@ You are welcomed to attend the office hours for **any** STA 199 TA, regardless o
 All books are **freely available online**.
 
 |                                                                         |                          |                                   |                                                                                                                                  |
-|---------------|--------------|--------------|------------------------------|
+|---------------|---------------|---------------|--------------------------|
 | [R for Data Science, 2e](https://r4ds.hadley.nz/)                       | Grolemund, Wickham       | O'Reilly, 2nd edition, 2022       | Hard copy only available of 1st edition                                                                                          |
 | [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel, Hardin | OpenIntro Inc., 1st Edition, 2021 | Hard copy available [on Amazon](https://www.amazon.com/Introduction-Modern-Statistics-Mine-%C3%87etinkaya-Rundel/dp/1943450145/) |
 
@@ -128,6 +128,8 @@ You are expected to use the team's Git repository on the course's GitHub page as
 Commits to this repository will be used as a metric of each team member's relative contribution for each lab, and there will be periodic peer evaluation on the team collaboration.
 Lab assignments will be completed using Quarto, correspond to an appropriate GitHub repository, and submitted for grading in Gradescope.
 
+Labs are due 11:59p ET on the indicated due date.
+
 *The lowest lab grade will be dropped at the end of the semester.*
 
 ### Homework (Perform)
@@ -135,6 +137,8 @@ Lab assignments will be completed using Quarto, correspond to an appropriate Git
 In homework, you will apply what you've learned during lecture and lab to complete data analysis tasks.
 You may discuss homework assignments with other students; however, homework should be completed and submitted individually.
 Similar to lab assignments, homework must be typed up using Quarto and GitHub and submitted as a PDF in Gradescope.
+
+Homework assignments are due 11:59p ET on the indicated due date.
 
 One homework assignment will be dedicated to a *statistics experience*.
 The statistics experience is an opportunity to engage with statistics and data science outside of the classroom through podcasts, books, seminars, data analysis competitions, and other activities.
@@ -235,7 +239,8 @@ Note that by submitting a regrade request, the entire question will be graded wh
 
 Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request.
 Videos shared with such students will be available for a week.
-To request a particular lecture's video, please fill out [the form](https://forms.gle/1ckJVZU9unoxkaJ39). Please also make sure that any official documentation, such as incapacitation forms, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
+To request a particular lecture's video, please fill out [the form](https://forms.gle/1ckJVZU9unoxkaJ39).
+Please also make sure that any official documentation, such as incapacitation forms, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
 
 ### Attendance policy
 

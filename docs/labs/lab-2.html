@@ -427,7 +427,7 @@ Important
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nobel_living_science <span class="ot">&lt;-</span> nobel_living <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Physics"</span>, <span class="st">"Medicine"</span>, <span class="st">"Chemistry"</span>, <span class="st">"Economics"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For the next exercise work with the <code>nobel_living_science</code> data frame you created above. This means you’ll need to define this data frame in your R Markdown document, even though the next exercise doesn’t explicitly ask you to do so.</p>
+<p>For the following exercises, work with the <code>nobel_living_science</code> data frame you created above. This means you’ll need to define this data frame in your Quarto document, even though the next exercise doesn’t explicitly ask you to do so.</p>
 <ol start="3" type="1">
 <li><p>Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.</p>
 <ul>
@@ -460,12 +460,18 @@ Note
 </div>
 </div>
 <ol start="5" type="1">
-<li><p>Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Based on your visualization, do the data appear to support Buzzfeed’s claim? Explain your reasoning in 1-2 sentences.</p>
+<li><p>Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Create two visualizations with this new variable added:</p>
+<ul>
+<li><p>Plot 1: Segmented frequency bar plot</p></li>
+<li><p>Plot 2: Segmented relative frequency bar plot (<em>Hint:</em> Add <code>position("fill")</code> to <code>geom_bar()</code>.)</p></li>
+</ul>
+<p>Here are some instructions that apply to both of these visualizations:</p>
 <ul>
 <li>Your final visualization should contain a facet for each category.</li>
-<li>Within each facet, there should be a bar for whether the laureate won the award in the US or not.</li>
+<li>Within each facet, there should be two bars for whether the laureate won the award in the US or not.</li>
 <li>Each bar should have segments for whether the laureate was born in the US or not.</li>
-</ul></li>
+</ul>
+<p>Which of these visualizations is a better fit for answering the following question: “Do the data appear to support Buzzfeed’s claim that of those US-based Nobel laureates, many were born in other countries?” First, state which plot you’re using to answer the question. Then, answer the question, explaining your reasoning in 1-2 sentences.</p></li>
 </ol>
 <div class="render-commit-push">
 <p>Now is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.</p>
@@ -519,31 +525,31 @@ Warning
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Ex 1</td>
-<td style="text-align: left;">6</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 2</td>
-<td style="text-align: left;">6</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 3</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 4</td>
-<td style="text-align: left;">6</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Ex 5</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ex 6</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">8</td>
+<td style="text-align: left;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>Total</strong></td>

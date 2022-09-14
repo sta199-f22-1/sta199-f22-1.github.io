@@ -143,8 +143,8 @@ nobel_living_science <- nobel_living |>
   filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
 ```
 
-For the next exercise work with the `nobel_living_science` data frame you created above.
-This means you'll need to define this data frame in your R Markdown document, even though the next exercise doesn't explicitly ask you to do so.
+For the following exercises, work with the `nobel_living_science` data frame you created above.
+This means you'll need to define this data frame in your Quarto document, even though the next exercise doesn't explicitly ask you to do so.
 
 3.  Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize.
     Interpret your visualization, and say a few words about whether the Buzzfeed headline is supported by the data.
@@ -169,12 +169,20 @@ You should be able to ~~cheat~~ borrow from code you used earlier to create the 
 :::
 
 5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
-    Based on your visualization, do the data appear to support Buzzfeed's claim?
-    Explain your reasoning in 1-2 sentences.
+    Create two visualizations with this new variable added:
+
+    -   Plot 1: Segmented frequency bar plot
+
+    -   Plot 2: Segmented relative frequency bar plot (*Hint:* Add `position("fill")` to `geom_bar()`.)
+
+    Here are some instructions that apply to both of these visualizations:
 
     -   Your final visualization should contain a facet for each category.
-    -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
+    -   Within each facet, there should be two bars for whether the laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born in the US or not.
+
+    Which of these visualizations is a better fit for answering the following question: "Do the data appear to support Buzzfeed's claim that of those US-based Nobel laureates, many were born in other countries?" First, state which plot you're using to answer the question.
+    Then, answer the question, explaining your reasoning in 1-2 sentences.
 
 ::: render-commit-push
 Now is a good time to render, commit, and push.
@@ -216,13 +224,13 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex 1                  | 6      |
-| Ex 2                  | 6      |
-| Ex 3                  | 8      |
-| Ex 4                  | 6      |
-| Ex 5                  | 8      |
-| Ex 6                  | 8      |
-| Workflow & formatting | 8      |
+| Ex 1                  | 5      |
+| Ex 2                  | 5      |
+| Ex 3                  | 10     |
+| Ex 4                  | 5      |
+| Ex 5                  | 10     |
+| Ex 6                  | 10     |
+| Workflow & formatting | 5      |
 | **Total**             | **50** |
 
 ::: callout-note
