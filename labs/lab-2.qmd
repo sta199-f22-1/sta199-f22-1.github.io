@@ -224,13 +224,13 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex 1                  | 5      |
-| Ex 2                  | 5      |
-| Ex 3                  | 10     |
-| Ex 4                  | 5      |
-| Ex 5                  | 10     |
-| Ex 6                  | 10     |
-| Workflow & formatting | 5      |
+| Ex 1                  | 6      |
+| Ex 2                  | 6      |
+| Ex 3                  | 8      |
+| Ex 4                  | 6      |
+| Ex 5                  | 8      |
+| Ex 6                  | 8      |
+| Workflow & formatting | 8      |
 | **Total**             | **50** |
 
 ::: callout-note
