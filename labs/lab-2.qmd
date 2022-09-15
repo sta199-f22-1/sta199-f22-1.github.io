@@ -173,7 +173,7 @@ You should be able to ~~cheat~~ borrow from code you used earlier to create the 
 
     -   Plot 1: Segmented frequency bar plot
 
-    -   Plot 2: Segmented relative frequency bar plot (*Hint:* Add `position("fill")` to `geom_bar()`.)
+    -   Plot 2: Segmented relative frequency bar plot (*Hint:* Add `position = "fill"` to `geom_bar()`.)
 
     Here are some instructions that apply to both of these visualizations:
 
