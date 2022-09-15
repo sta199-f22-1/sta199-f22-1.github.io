@@ -1285,14 +1285,21 @@
     "href": "slides/06-working-with-multiple-data-frames.html#while-you-wait-for-class-to-begin",
     "title": "Working with multiple data frames",
     "section": "While you wait for class to begin…",
-    "text": "While you wait for class to begin…\n\nAny questions from prepare materials?\n\n\n\nClone your ae-04 repo."
+    "text": "While you wait for class to begin…\n\nOpen your ae-03 project in RStudio (that you already started on Tuesday), render your document, and commit and push.\nAny questions from prepare materials? Go to slido.com / #sta199. You can also upvote others’ questions."
   },
   {
     "objectID": "slides/06-working-with-multiple-data-frames.html#announcements",
     "href": "slides/06-working-with-multiple-data-frames.html#announcements",
     "title": "Working with multiple data frames",
     "section": "Announcements",
-    "text": "Announcements\n\nRequesting videos for missed classes"
+    "text": "Announcements\n\nRecap: Asking code related questions on Slack\n\nIdeally: Code formatted text, not screenshots\nIf need be: Screenshots, not photos of screens\nAlways include code along with the error\n\nTroubleshooting 101: Read your error messages in full, out loud if need be\nCode formatting 101:\n\nAlways line breaks after + and |>\nAdd line breaks as needed after , to help fit code on rendered PDF\nThink poetry (short lines), not novellas (long sentences)"
+  },
+  {
+    "objectID": "slides/06-working-with-multiple-data-frames.html#ae-03",
+    "href": "slides/06-working-with-multiple-data-frames.html#ae-03",
+    "title": "Working with multiple data frames",
+    "section": "ae-03",
+    "text": "ae-03\nContinue work from Tuesday…"
   },
   {
     "objectID": "slides/06-working-with-multiple-data-frames.html#joining-datasets",
