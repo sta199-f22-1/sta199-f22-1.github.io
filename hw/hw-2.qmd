@@ -101,7 +101,7 @@ Let's think about some questions we might want to answer with these data:
 -   Which major has the lowest unemployment rate?
 -   Which major has the highest percentage of women?
 -   How do the distributions of median income compare across major categories?
--   How much are college graduates making?
+-   How much are college graduates (those who finished undergrad) making?
 -   How do incomes of those with a graduate degree compare to those with an undergraduate degree?
 
 In the following exercises we aim to answer these questions.
@@ -131,7 +131,7 @@ Make sure that you commit and push all changed documents and your Git pane is co
 
 ## Exercise 3
 
-**How much are college graduates making?** For this exercise, focus on undergraduates (`major_income_undergrad`).
+**How much are college graduates (those who finished undergrad) making?** For this exercise, focus on undergraduates (`major_income_undergrad`).
 
 a.  Plot the distribution of all median incomes using a histogram with an appropriate binwidth.
 
