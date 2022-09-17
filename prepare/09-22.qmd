@@ -1,0 +1,16 @@
+---
+title: "Prepare"
+subtitle: "Due: September 22, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   R4DS: [Chp 7 - Workflow: Code style](https://r4ds.hadley.nz/workflow-style.html)
+    -   R4DS: [Chp 17 - Factors](https://r4ds.hadley.nz/factors.html)
+-   ⌨️ Watch:
+    -   [Data types](https://youtu.be/WsxLbtWbEfc)
+    -   [Data classes](https://youtu.be/dozvSVQcqqg)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

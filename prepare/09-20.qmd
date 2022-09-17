@@ -1,13 +1,13 @@
 ---
 title: "Prepare"
-subtitle: "Due: September 15, 2022"
+subtitle: "Due: September 20, 2022"
 categories: "prepare"
 ---
 
 -   📖 Read:
-    -   R4DS: [Chp 20 - Joins - Sections 20.1 - 20.4](https://r4ds.hadley.nz/joins.html)
+    -   R4DS: [Chp 6 - Data tidying (Sections 6.3 and 6.4)](https://r4ds.hadley.nz/data-tidy.html#pivoting)
 -   ⌨️ Watch:
-    -   [Working with multiple data frames](https://youtu.be/VdV5ABsaf5Y)
+    -   [Tidying data](https://youtu.be/x3KM5uxaFdI)
 
 ::: callout-note
 Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.

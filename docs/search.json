@@ -46,7 +46,7 @@
     "href": "labs/lab-2.html#but-of-those-us-based-nobel-laureates-many-were-born-in-other-countries",
     "title": "Lab 2 - Data wrangling",
     "section": "But of those US-based Nobel laureates, many were born in other countries",
-    "text": "But of those US-based Nobel laureates, many were born in other countries\n\nCreate a new variable called born_country_us in nobel_living_science that has the value \"USA\" if the laureate is born in the US, and \"Other\" otherwise. How many of the winners are born in the US?\n\n\n\n\n\n\n\nNote\n\n\n\nYou should be able to cheat borrow from code you used earlier to create the country_us variable.\n\n\n\nAdd a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Create two visualizations with this new variable added:\n\nPlot 1: Segmented frequency bar plot\nPlot 2: Segmented relative frequency bar plot (Hint: Add position(\"fill\") to geom_bar().)\n\nHere are some instructions that apply to both of these visualizations:\n\nYour final visualization should contain a facet for each category.\nWithin each facet, there should be two bars for whether the laureate won the award in the US or not.\nEach bar should have segments for whether the laureate was born in the US or not.\n\nWhich of these visualizations is a better fit for answering the following question: “Do the data appear to support Buzzfeed’s claim that of those US-based Nobel laureates, many were born in other countries?” First, state which plot you’re using to answer the question. Then, answer the question, explaining your reasoning in 1-2 sentences.\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.\n\n\n\nIn a single pipeline, filter the nobel_living_science data frame for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the count() function) for their birth country (born_country) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
+    "text": "But of those US-based Nobel laureates, many were born in other countries\n\nCreate a new variable called born_country_us in nobel_living_science that has the value \"USA\" if the laureate is born in the US, and \"Other\" otherwise. How many of the winners are born in the US?\n\n\n\n\n\n\n\nNote\n\n\n\nYou should be able to cheat borrow from code you used earlier to create the country_us variable.\n\n\n\nAdd a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Create two visualizations with this new variable added:\n\nPlot 1: Segmented frequency bar plot\nPlot 2: Segmented relative frequency bar plot (Hint: Add position = \"fill\" to geom_bar().)\n\nHere are some instructions that apply to both of these visualizations:\n\nYour final visualization should contain a facet for each category.\nWithin each facet, there should be two bars for whether the laureate won the award in the US or not.\nEach bar should have segments for whether the laureate was born in the US or not.\n\nWhich of these visualizations is a better fit for answering the following question: “Do the data appear to support Buzzfeed’s claim that of those US-based Nobel laureates, many were born in other countries?” First, state which plot you’re using to answer the question. Then, answer the question, explaining your reasoning in 1-2 sentences.\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.\n\n\n\nIn a single pipeline, filter the nobel_living_science data frame for laureates who won their prize in the US, but were born outside of the US, and then create a frequency table (with the count() function) for their birth country (born_country) and arrange the resulting data frame in descending order of number of observations for each country. Which country is the most common?\n\n\nNow is a good time to render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
   },
   {
     "objectID": "labs/lab-1.html",
@@ -383,6 +383,27 @@
     "title": "Prepare",
     "section": "",
     "text": "Join the course Slack using the invitation link in your email.\nReserve a STA 198-199 container at https://cmgr.oit.duke.edu/containers."
+  },
+  {
+    "objectID": "prepare/09-19.html",
+    "href": "prepare/09-19.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "📖 Read:\n\nR4DS: Chp 6 - Data tidying (Sections 6.1 and 6.2)\nTidy Data by Hadley Wickham"
+  },
+  {
+    "objectID": "prepare/09-22.html",
+    "href": "prepare/09-22.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "Note\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
+  },
+  {
+    "objectID": "prepare/09-20.html",
+    "href": "prepare/09-20.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "Note\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
   },
   {
     "objectID": "prepare/09-08.html",

@@ -1,0 +1,9 @@
+---
+title: "Prepare"
+subtitle: "Due: September 19, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   R4DS: [Chp 6 - Data tidying (Sections 6.1 and 6.2)](https://r4ds.hadley.nz/data-tidy.html)
+    -   [Tidy Data](https://www.jstatsoft.org/article/view/v059i10) by Hadley Wickham
