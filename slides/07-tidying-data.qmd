@@ -1,0 +1,53 @@
+---
+title: "Tidying data"
+subtitle: "Lecture 7"
+date: "September 20, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Open your `ae-05` project in RStudio (that you already started on Tuesday), render your document, and commit and push.
+-   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
+
+## Announcements {.smaller}
+
+-   My office hours this week 2-3 pm on Tuesday or by appointment
+-   Questions from last time:
+    -   TBA
+
+## Tidying datasets
+
+::: question
+What makes a dataset "tidy"?
+:::
+
+```{r}
+#| echo: false
+
+countdown(minutes = 3)
+```
+
+# Application exercise
+
+## `ae-05`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-05` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE {.smaller}
+
+-   Data sets can't be labeled as *wide* or *long* but they can be made *wider* or *longer* for a certain analysis that requires a certain format
+-   When pivoting longer, variable names that turn into values are characters by default. If you need them to be in another format, you need to explicitly make that transformation, which you can do so within the `pivot_longer()` function.
+-   You can tweak a plot forever, but at some point the tweaks are likely not very productive. However, you should always be critical of defaults (however pretty they might be) and see if you can improve the plot to better portray your data / results / what you want to communicate.
