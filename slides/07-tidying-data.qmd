@@ -21,6 +21,8 @@ library(countdown)
 ## Announcements {.smaller}
 
 -   My office hours this week 2-3 pm on Tuesday or by appointment
+-   [HW 2 typo fix](https://github.com/sta199-f22-1/sta199-f22-1.github.io/commit/478ef40c9074398ca335f1ae58d105b8edbc6bcc)
+-   Comment on masking in class starting Thursday
 -   SSMU Welcome Back event: Wed, Sep 21, 7:30 - 8:30 pm at Old Chem 201 (with food & refreshments at the Old Chem porch)
 
 ![](images/07/ssmu.png){fig-alt="SSMU Fall get together flyer" fig-align="center" width="800"}
