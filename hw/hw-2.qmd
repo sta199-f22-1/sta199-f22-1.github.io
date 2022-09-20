@@ -197,7 +197,7 @@ a.  First, let's create a new vector called `stem_categories` that lists the maj
 
     Then, fill in the partial code to create a new variable in our data frame indicating whether a major is STEM or not.
     Note that you need to figure out the logical operator that goes into `___`.
-    Double check that you have successfully created this variable by selecting the variables `major_type` and `stem_categories`.
+    Double check that you have successfully created this variable by selecting the variables `major_type` and `major_category`.
 
     ```{r}
     #| label: new-var-template
