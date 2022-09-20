@@ -15,14 +15,51 @@ library(countdown)
 
 ## While you wait for class to begin...
 
--   Open your `ae-05` project in RStudio (that you already started on Tuesday), render your document, and commit and push.
+-   Open your `ae-05` project in RStudio, render your document, and commit and push.
 -   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
 
 ## Announcements {.smaller}
 
 -   My office hours this week 2-3 pm on Tuesday or by appointment
--   Questions from last time:
-    -   TBA
+-   SSMU Welcome Back event: Wed, Sep 21, 7:30 - 8:30 pm at Old Chem 201 (with food & refreshments at the Old Chem porch)
+
+![](images/07/ssmu.png){fig-alt="SSMU Fall get together flyer" fig-align="center" width="800"}
+
+## Questions from last time 1 {.smaller}
+
+-   **Can you explain the difference between primary and foreign keys?**
+
+A **primary key** is a variable that uniquely identifies an observation.
+A **foreign key** is the corresponding variable in another table.
+These keys might have the same name, but they don't have to, e.g. `by = c("student_email" = "student_id")`.
+
+. . .
+
+-   **Will we be able to log into containers while not on duke WiFi?**
+
+Yes, you don't have to be on Duke WiFi to connect to the containers.
+
+. . .
+
+-   **How do you code "and/or"?**
+
+and is `&` and or is `|`.
+
+## Questions from last time 2 {.smaller}
+
+-   **What is the difference between rendering and saving a document?**
+
+When you edit your Quarto file and you save it, your changes are saved but they're not reflected in your output HTML or PDF file.
+When you render the document, the output is also updated to reflect those changes.
+When you hit render, RStudio automatically first saves your Quarto file, and then renders it.
+So I recommend you render early and often, both to save your changes, and also to make sure your changes did not introduce any errors into the document.
+
+. . .
+
+-   **What does it mean to commit and push something?**
+
+We "commit" to take a snapshot of the files in our local repository, i.e. the files that are saved on the university servers you're using.
+We "push" to get those changes to the remote repository, i.e. your repository on GitHub.
 
 ## Tidying datasets
 
