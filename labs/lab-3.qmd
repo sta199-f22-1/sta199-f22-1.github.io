@@ -99,7 +99,7 @@ country_inflation <- read_csv("data/country-inflation.csv")
 
         ggplot(...) +
           ... +
-          scale_y_continuous(label = label_percent())
+          scale_y_continuous(label = label_percent(scale = 1))
         ```
 
 ::: render-commit-push
