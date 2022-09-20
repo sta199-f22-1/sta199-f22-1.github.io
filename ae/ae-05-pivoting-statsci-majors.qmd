@@ -47,73 +47,49 @@ The first column (variable) is the `degree`, and there are 4 possible degrees: B
 The remaining columns show the number of students graduating with that major in a given academic year from 2011 to 2021.
 
 -   **Your turn (4 minutes):** Take a look at the plot we aim to make and sketch the data frame we need to make the plot. Determine what each row and each column of the data frame should be. *Hint:* We need data to be in columns to map to `aes`thetic elements of the plot.
-    -   Columns: `year`, `n` , `degree_type`
 
-    -   Rows: Combination of year and degree type
+*Add your response here.*
 
 ## Pivoting
 
 -   **Demo:** Pivot the `statsci` data frame *longer* such that each row represents a degree type / year combination and `year` and `n`umber of graduates for that year are columns in the data frame.
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    values_to = "n"
-  )
+#| label: pivot
+
+# add your code here
 ```
 
 -   **Question:** What is the type of the `year` variable? Why? What should it be?
 
-It's a character (`chr`) variable since the information came from the columns of the original data frame and R cannot know that these character strings represent years.
-The variable type should be numeric.
+*Add your response here.*
 
--   Demo: Start over with pivoting, and this time also make sure `year` is a numerical variable in the resulting data frame.
+-   **Demo:** Start over with pivoting, and this time also make sure `year` is a numerical variable in the resulting data frame.
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  )
+#| label: pivot-with-transform
+
+# add your code here
 ```
 
 -   **Question:** What does an `NA` mean in this context? *Hint:* The data come from the university registrar, and they have records on every single graduates, there shouldn't be anything "unknown" to them about who graduated when.
 
-`NA`s should actually be 0s.
+*Add your response here.*
 
 -   **Demo:** Add on to your pipeline that you started with pivoting and convert `NA`s in `n` to `0`s.
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n))
+#| label: convert-na
+
+# add your code here
 ```
 
 -   **Demo:** In our plot the degree types are BS, BS2, AB, and AB2. This information is in our dataset, in the `degree` column, but this column also has additional characters we don't need. Create a new column called `degree_type` with levels BS, BS2, AB, and AB2 (in this order) based on `degree`. Do this by adding on to your pipeline from earlier.
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n)) |>
-  separate(degree, sep = " \\(", into = c("major", "degree_type")) |>
-  mutate(
-    degree_type = str_remove(degree_type, "\\)"),
-    degree_type = fct_relevel(degree_type, "BS", "BS2", "AB", "AB2")
-    )
+#| label: degree-type
+
+# add your code here
 ```
 
 -   **Your turn (5 minutes):** Now we start making our plot, but let's not get too fancy right away. Create the following plot, which will serve as the "first draft" on the way to our [Goal]. Do this by adding on to your pipeline from earlier.
@@ -121,54 +97,21 @@ statsci |>
 ![](images/statsci-plot-draft.png){fig-alt="Line plot of numbers of Statistical Science majors over the years (2011 - 2021). Degree types represented are BS, BS2, AB, AB2. There is an increasing trend in BS degrees and somewhat steady trend in AB degrees." fig-align="center"}
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n)) |>
-  separate(degree, sep = " \\(", into = c("major", "degree_type")) |>
-  mutate(
-    degree_type = str_remove(degree_type, "\\)"),
-    degree_type = fct_relevel(degree_type, "BS", "BS2", "AB", "AB2")
-    ) |>
-  ggplot(aes(x = year, y = n, color = degree_type)) +
-  geom_point() +
-  geom_line()
+#| label: plot-draft
+
+# add your code here
 ```
 
 -   **Your turn (4 minutes):** What aspects of the plot need to be updated to go from the draft you created above to the [Goal] plot at the beginning of this application exercise.
-    -   x-axis scale: need to go from 2011 to 2021 in increments of 2 years
 
-    -   line colors
+*Add your response here.*
 
-    -   axis labels: title, subtitle, x, y, caption
-
-    -   theme
-
-    -   legend position and border
--   Demo: Update x-axis scale such that the years displayed go from 2011 to 2021 in increments of 2 years. Do this by adding on to your pipeline from earlier.
+-   **Demo:** Update x-axis scale such that the years displayed go from 2011 to 2021 in increments of 2 years. Do this by adding on to your pipeline from earlier.
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n)) |>
-  separate(degree, sep = " \\(", into = c("major", "degree_type")) |>
-  mutate(
-    degree_type = str_remove(degree_type, "\\)"),
-    degree_type = fct_relevel(degree_type, "BS", "BS2", "AB", "AB2")
-    ) |>
-  ggplot(aes(x = year, y = n, color = degree_type)) +
-  geom_point() +
-  geom_line() +
-  scale_x_continuous(breaks = seq(2011, 2021, 2))
+#| label: plot-improve-1
+
+# add your code here
 ```
 
 -   **Demo:** Update line colors using the following level / color assignments. Once again, do this by adding on to your pipeline from earlier.
@@ -181,105 +124,23 @@ statsci |>
     -   "AB2" = "lightgoldenrod3"
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n)) |>
-  separate(degree, sep = " \\(", into = c("major", "degree_type")) |>
-  mutate(
-    degree_type = str_remove(degree_type, "\\)"),
-    degree_type = fct_relevel(degree_type, "BS", "BS2", "AB", "AB2")
-    ) |>
-  ggplot(aes(x = year, y = n, color = degree_type)) +
-  geom_point() +
-  geom_line() +
-  scale_x_continuous(breaks = seq(2011, 2021, 2)) +
-  scale_color_manual(
-    values = c("BS" = "cadetblue4", 
-               "BS2" = "cadetblue3", 
-               "AB" = "lightgoldenrod4", 
-               "AB2" = "lightgoldenrod3"))
+#| label: plot-improve-2
+
+# add your code here
 ```
 
 -   **Your turn (4 minutes):** Update the plot labels (`title`, `subtitle`, `x`, `y`, and `caption`) and use `theme_minimal()`. Once again, do this by adding on to your pipeline from earlier.
 
 ```{r}
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n)) |>
-  separate(degree, sep = " \\(", into = c("major", "degree_type")) |>
-  mutate(
-    degree_type = str_remove(degree_type, "\\)"),
-    degree_type = fct_relevel(degree_type, "BS", "BS2", "AB", "AB2")
-    ) |>
-  ggplot(aes(x = year, y = n, color = degree_type)) +
-  geom_point() +
-  geom_line() +
-  scale_x_continuous(breaks = seq(2011, 2021, 2)) +
-  scale_color_manual(
-    values = c("BS" = "cadetblue4",
-               "BS2" = "cadetblue3",
-               "AB" = "lightgoldenrod4",
-               "AB2" = "lightgoldenrod3")) +
-  labs(
-    x = "Graduation year",
-    y = "Number of majors graduating",
-    color = "Degree type",
-    title = "Statistical Science majors over the years",
-    subtitle = "Academic years 2011 - 2021",
-    caption = "Source: Office of the University Registrar\nhttps://registrar.duke.edu/registration/enrollment-statistics"
-  ) +
-  theme_minimal()
+#| label: plot-improve-3
+
+# add your code here
 ```
 
 -   **Demo:** Finally, adding to your pipeline you've developed so far, move the legend into the plot, make its background white, and its border gray. Set `fig-width: 7` and `fig-height: 5` for your plot in the chunk options.
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 5
+#| label: plot-improve-4
 
-statsci |>
-  pivot_longer(
-    cols = -degree,
-    names_to = "year",
-    names_transform = as.numeric,
-    values_to = "n"
-  ) |>
-  mutate(n = if_else(is.na(n), 0, n)) |>
-  separate(degree, sep = " \\(", into = c("major", "degree_type")) |>
-  mutate(
-    degree_type = str_remove(degree_type, "\\)"),
-    degree_type = fct_relevel(degree_type, "BS", "BS2", "AB", "AB2")
-    ) |>
-  ggplot(aes(x = year, y = n, color = degree_type)) +
-  geom_point() +
-  geom_line() +
-  scale_x_continuous(breaks = seq(2011, 2021, 2)) +
-  scale_color_manual(
-    values = c("BS" = "cadetblue4",
-               "BS2" = "cadetblue3",
-               "AB" = "lightgoldenrod4",
-               "AB2" = "lightgoldenrod3")) +
-  labs(
-    x = "Graduation year",
-    y = "Number of majors graduating",
-    color = "Degree type",
-    title = "Statistical Science majors over the years",
-    subtitle = "Academic years 2011 - 2021",
-    caption = "Source: Office of the University Registrar\nhttps://registrar.duke.edu/registration/enrollment-statistics"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = c(0.2, 0.8),
-    legend.background = element_rect(fill = "white", color = "gray")
-    )
+# add your code here
 ```

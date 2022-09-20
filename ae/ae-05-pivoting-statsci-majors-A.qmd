@@ -65,7 +65,7 @@ statsci |>
 It's a character (`chr`) variable since the information came from the columns of the original data frame and R cannot know that these character strings represent years.
 The variable type should be numeric.
 
--   Demo: Start over with pivoting, and this time also make sure `year` is a numerical variable in the resulting data frame.
+-   **Demo:** Start over with pivoting, and this time also make sure `year` is a numerical variable in the resulting data frame.
 
 ```{r}
 statsci |>
@@ -145,7 +145,7 @@ statsci |>
     -   theme
 
     -   legend position and border
--   Demo: Update x-axis scale such that the years displayed go from 2011 to 2021 in increments of 2 years. Do this by adding on to your pipeline from earlier.
+-   **Demo:** Update x-axis scale such that the years displayed go from 2011 to 2021 in increments of 2 years. Do this by adding on to your pipeline from earlier.
 
 ```{r}
 statsci |>
