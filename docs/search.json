@@ -242,7 +242,7 @@
     "href": "hw/hw-2.html#exercise-5",
     "title": "HW 2 - Data wrangling",
     "section": "Exercise 5",
-    "text": "Exercise 5\nOne of the sections of the FiveThirtyEight story is “All STEM fields aren’t the same”. Let’s see if this is true. Once again, focus on undergraduates (major_income_undergrad) for this exercise.\n\nFirst, let’s create a new vector called stem_categories that lists the major categories that are considered STEM fields.\n\nstem_categories <- c(\n  \"Biology & Life Science\",\n  \"Computers & Mathematics\",\n  \"Engineering\",\n  \"Physical Sciences\"\n  )\n\nThen, fill in the partial code to create a new variable in our data frame indicating whether a major is STEM or not. Note that you need to figure out the logical operator that goes into ___. Double check that you have successfully created this variable by selecting the variables major_type and stem_categories.\n\nmajor_income_undergrad <- major_income_undergrad |>\n  mutate(major_type = if_else(major_category ___ stem_categories, \"STEM\", \"Not STEM\"))\n\nIn a single pipeline, determine which STEM majors’ median earnings are less than $55,000. Your answer should be a tibble with the columns major, major_type, and undergrad_median, arranged in order of descending undergrad_median.\n\n\n\nOnce again, render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
+    "text": "Exercise 5\nOne of the sections of the FiveThirtyEight story is “All STEM fields aren’t the same”. Let’s see if this is true. Once again, focus on undergraduates (major_income_undergrad) for this exercise.\n\nFirst, let’s create a new vector called stem_categories that lists the major categories that are considered STEM fields.\n\nstem_categories <- c(\n  \"Biology & Life Science\",\n  \"Computers & Mathematics\",\n  \"Engineering\",\n  \"Physical Sciences\"\n  )\n\nThen, fill in the partial code to create a new variable in our data frame indicating whether a major is STEM or not. Note that you need to figure out the logical operator that goes into ___. Double check that you have successfully created this variable by selecting the variables major_type and major_category.\n\nmajor_income_undergrad <- major_income_undergrad |>\n  mutate(major_type = if_else(major_category ___ stem_categories, \"STEM\", \"Not STEM\"))\n\nIn a single pipeline, determine which STEM majors’ median earnings are less than $55,000. Your answer should be a tibble with the columns major, major_type, and undergrad_median, arranged in order of descending undergrad_median.\n\n\n\nOnce again, render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
   },
   {
     "objectID": "hw/hw-2.html#exercise-6",
@@ -509,6 +509,27 @@
     "title": "AE 03: Wrangling flights",
     "section": "group_by()",
     "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\n# add code here\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-06-hotels-types-classes-A.html",
+    "href": "ae/ae-06-hotels-types-classes-A.html",
+    "title": "AE 06: Hotel bookings",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-05-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Sunday, Sep 26 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-06-hotels-types-classes-A.html#type-coercion",
+    "href": "ae/ae-06-hotels-types-classes-A.html#type-coercion",
+    "title": "AE 06: Hotel bookings",
+    "section": "Type coercion",
+    "text": "Type coercion\n\nc(1, 1L, \"C\")\n\n\nc(1, 1L, \"C\")\n\n[1] \"1\" \"1\" \"C\"\n\n\n\n1\n\n[1] 1\n\n1L\n\n[1] 1\n\n\"C\"\n\n[1] \"C\"\n\n\n\n#typeof(c(1, 1L, \"C\"))\n\n\nc(1L / 0, \"A\")\n\n\nc(1L / 0, \"A\")\n\n[1] \"Inf\" \"A\"  \n\n\n\ntypeof(1L)\n\n[1] \"integer\"\n\ntypeof(0)\n\n[1] \"double\"\n\ntypeof(1L/0)\n\n[1] \"double\"\n\ntypeof(\"A\")\n\n[1] \"character\"\n\n\n\n#typeof(c(1L / 0, \"A\"))\n\n\nc(1:3, 5)\n\n\nc(1:3, 5)\n\n[1] 1 2 3 5\n\n\n\ntypeof(1:3)\n\n[1] \"integer\"\n\ntypeof(5)\n\n[1] \"double\"\n\n\n\n#typeof(c(1:3, 5))\n\n\nc(3, \"3+\")\n\n\nc(3, \"3+\")\n\n[1] \"3\"  \"3+\"\n\n\n\ntypeof(3)\n\n[1] \"double\"\n\ntypeof(\"3+\")\n\n[1] \"character\"\n\n\n\n#typeof(c(3, \"3+\"))\n\n\nc(NA, TRUE)\n\n\nc(NA, TRUE)\n\n[1]   NA TRUE\n\n\n\ntypeof(NA)\n\n[1] \"logical\"\n\ntypeof(TRUE)\n\n[1] \"logical\"\n\n\n\n#typeof(c(NA, TRUE))"
+  },
+  {
+    "objectID": "ae/ae-06-hotels-types-classes-A.html#hotel-bookings",
+    "href": "ae/ae-06-hotels-types-classes-A.html#hotel-bookings",
+    "title": "AE 06: Hotel bookings",
+    "section": "Hotel bookings",
+    "text": "Hotel bookings\n\nlibrary(tidyverse)\nlibrary(skimr)\n\n\n# From TidyTuesday: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md\n\nhotels <- read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv\")\n\nTake a look at the the following visualization. How are the months ordered? What would be a better order? Then, reorder the months on the x-axis (levels of arrival_date_month) in a way that makes more sense. You will want to use a function from the forcats package, see https://forcats.tidyverse.org/reference/index.html for inspiration and help.\n\n\n\n\n\n\nhotels %>%\n  group_by(hotel, arrival_date_month) %>%   # group by hotel type and arrival month\n  summarise(mean_adr = mean(adr)) %>%       # calculate mean adr for each group\n  ggplot(aes(\n    x = arrival_date_month,                 # x-axis = arrival_date_month\n    y = mean_adr,                           # y-axis = mean_adr calculated above\n    group = hotel,                          # group lines by hotel type\n    color = hotel)                          # and color by hotel type\n  ) +\n  geom_line() +                             # use lines to represent data\n  theme_minimal() +                         # use a minimal theme\n  labs(\n    x = \"Arrival month\",                 # customize labels\n    y = \"Mean ADR (average daily rate)\",\n    title = \"Comparison of resort and city hotel prices across months\",\n    subtitle = \"Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year\",\n    color = \"Hotel type\"\n  )\n\n`summarise()` has grouped output by 'hotel'. You can override using the\n`.groups` argument.\n\n\n\n\n\nStretch goal: If you finish the above task before time is up, change the y-axis label so the values are shown with dollar signs, e.g. $80 instead of 80. You will want to use a function from the scales package, see https://scales.r-lib.org/reference/index.html for inspiration and help.\n\n# add code here"
   },
   {
     "objectID": "ae/ae-01-bechdel-dataviz.html",
