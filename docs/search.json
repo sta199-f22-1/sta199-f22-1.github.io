@@ -214,7 +214,7 @@
     "href": "hw/hw-2.html#exercise-1",
     "title": "HW 2 - Data wrangling",
     "section": "Exercise 1",
-    "text": "Exercise 1\nWhich majors have the lowest unemployment rate? Answer the question using a single data wrangling pipeline and focusing on undergraduates (major_income_undergrad). The output should be a tibble with the columns major, and unemployment_rate, with the major with the lowest unemployment rate on top, and displaying the majors with the lowest 5 unemployment rates. Include a sentence listing the majors and the unemployment rates (as percentages)."
+    "text": "Exercise 1\nWhich majors have the lowest unemployment rate? Answer the question using a single data wrangling pipeline and focusing on undergraduates (major_income_undergrad). The output should be a tibble with the columns major, and undergrad_unemployment_rate, with the major with the lowest unemployment rate on top, and displaying the majors with the lowest 5 unemployment rates. Include a sentence listing the majors and the unemployment rates (as percentages)."
   },
   {
     "objectID": "hw/hw-2.html#exercise-2",

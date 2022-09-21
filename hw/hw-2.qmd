@@ -111,7 +111,7 @@ In the following exercises we aim to answer these questions.
 ## Exercise 1
 
 **Which majors have the lowest unemployment rate?** Answer the question using a single data wrangling pipeline and focusing on undergraduates (`major_income_undergrad`).
-The output should be a tibble with the columns `major`, and `unemployment_rate`, with the major with the lowest unemployment rate on top, and displaying the majors with the lowest 5 unemployment rates.
+The output should be a tibble with the columns `major`, and `undergrad_unemployment_rate`, with the major with the lowest unemployment rate on top, and displaying the majors with the lowest 5 unemployment rates.
 Include a sentence listing the majors and the unemployment rates (as percentages).
 
 ## Exercise 2
