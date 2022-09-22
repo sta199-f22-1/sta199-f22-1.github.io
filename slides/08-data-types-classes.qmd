@@ -58,6 +58,24 @@ library(countdown)
 :::
 :::
 
+## Question from last time
+
+-   What is the difference between `is.na()` and `na.rm`?
+
+`is.na()` checks for `NA`s and returns `TRUE` or `FALSE` -- it's a function.
+
+```{r}
+x <- c(1, 2, NA)
+is.na(x)
+```
+
+`na.rm` **r**e**m**oves `NA`s before applying a function -- it's an argument in a function.
+
+```{r}
+mean(x)
+mean(x, na.rm = TRUE)
+```
+
 # From last time
 
 ## Continue from last time: `ae-05`

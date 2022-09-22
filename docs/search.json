@@ -931,6 +931,13 @@
     "text": "Review: Logical operators\n\n\n\n\n\n\n\n\n\nx < y\ntest if x less than y\n\n\nx <= y\ntest if x less than or equal to y\n\n\nx > y\ntest if x greater than y\n\n\nx >= y\ntest if x greater than or equal to y\n\n\nx == y\ntest if x is equal to y\n\n\nx != y\ntest if x is not equal to y\n\n\n\n\n\n\n\n\n\n\n\n\n\nis.na(x)\ntest if x is NA\n\n\n!is.na(x)\ntest if x is not NA\n\n\nx %in% y\ntest if x is in y\n\n\n!(x %in% y)\ntest if x is not in y\n\n\n!x\ntest for not x\n\n\nx & y\ntest for x and y\n\n\nx | y\ntest for x or y"
   },
   {
+    "objectID": "slides/08-data-types-classes.html#question-from-last-time",
+    "href": "slides/08-data-types-classes.html#question-from-last-time",
+    "title": "Data types and classes",
+    "section": "Question from last time",
+    "text": "Question from last time\n\nWhat is the difference between is.na() and na.rm?\n\nis.na() checks for NAs and returns TRUE or FALSE – it’s a function.\n\nx <- c(1, 2, NA)\nis.na(x)\n\n[1] FALSE FALSE  TRUE\n\n\nna.rm removes NAs before applying a function – it’s an argument in a function.\n\nmean(x)\n\n[1] NA\n\nmean(x, na.rm = TRUE)\n\n[1] 1.5"
+  },
+  {
     "objectID": "slides/08-data-types-classes.html#continue-from-last-time-ae-05",
     "href": "slides/08-data-types-classes.html#continue-from-last-time-ae-05",
     "title": "Data types and classes",
@@ -977,7 +984,7 @@
     "href": "slides/08-data-types-classes.html#other-classes",
     "title": "Data types and classes",
     "section": "Other classes",
-    "text": "Other classes\nJust a couple of examples…\n\n\nDate:\n\ntoday <- Sys.Date()\ntoday\n\n[1] \"2022-09-21\"\n\ntypeof(today)\n\n[1] \"double\"\n\nattributes(today)\n\n$class\n[1] \"Date\"\n\n\n\nDate-time:\n\nnow <- as.POSIXct(\"2022-09-22 10:15\", tz = \"EST\")\nnow\n\n[1] \"2022-09-22 10:15:00 EST\"\n\ntypeof(now)\n\n[1] \"double\"\n\nattributes(now)\n\n$class\n[1] \"POSIXct\" \"POSIXt\" \n\n$tzone\n[1] \"EST\""
+    "text": "Other classes\nJust a couple of examples…\n\n\nDate:\n\ntoday <- Sys.Date()\ntoday\n\n[1] \"2022-09-22\"\n\ntypeof(today)\n\n[1] \"double\"\n\nattributes(today)\n\n$class\n[1] \"Date\"\n\n\n\nDate-time:\n\nnow <- as.POSIXct(\"2022-09-22 10:15\", tz = \"EST\")\nnow\n\n[1] \"2022-09-22 10:15:00 EST\"\n\ntypeof(now)\n\n[1] \"double\"\n\nattributes(now)\n\n$class\n[1] \"POSIXct\" \"POSIXt\" \n\n$tzone\n[1] \"EST\""
   },
   {
     "objectID": "slides/01-welcome-199.html#meet-the-prof",
