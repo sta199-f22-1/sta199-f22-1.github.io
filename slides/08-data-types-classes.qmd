@@ -1,0 +1,183 @@
+---
+title: "Data types and classes"
+subtitle: "Lecture 8"
+date: "September 22, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Open your `ae-05` project (from last time) in RStudio, render your document, and commit and push. Make sure you have your "first draft" plot ready to go.
+-   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
+
+## Announcements {.smaller}
+
+-   HW 2 due tonight (11:59 pm)
+
+-   Lab 2 due tomorrow night (11:59 pm)
+
+## Review: Logical operators {.smaller}
+
+::: columns
+::: {.column width="45%"}
+|          |                                          |
+|----------|------------------------------------------|
+| `x < y`  | test if `x` less than `y`                |
+| `x <= y` | test if `x` less than or equal to `y`    |
+| `x > y`  | test if `x` greater than `y`             |
+| `x >= y` | test if `x` greater than or equal to `y` |
+| `x == y` | test if `x` is equal to `y`              |
+| `x != y` | test if `x` is not equal to `y`          |
+
+: {tbl-colwidths="\[30, 70\]"}
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+|               |                           |
+|---------------|---------------------------|
+| `is.na(x)`    | test if `x` is `NA`       |
+| `!is.na(x)`   | test if `x` is not `NA`   |
+| `x %in% y`    | test if `x` is in `y`     |
+| `!(x %in% y)` | test if `x` is not in `y` |
+| `!x`          | test for not `x`          |
+| `x & y`       | test for `x` and y        |
+| `x | y`       | test for `x` or y         |
+
+: {tbl-colwidths="\[30, 70\]"}
+:::
+:::
+
+# From last time
+
+## Continue from last time: `ae-05`
+
+::: appex
+-   Go to your container and open your `ae-05` project.
+-   Render, commit, and push before getting started again.
+:::
+
+## Recap of AE {.smaller}
+
+-   Data sets can't be labeled as *wide* or *long* but they can be made *wider* or *longer* for a certain analysis that requires a certain format
+-   When pivoting longer, variable names that turn into values are characters by default. If you need them to be in another format, you need to explicitly make that transformation, which you can do so within the `pivot_longer()` function.
+-   You can tweak a plot forever, but at some point the tweaks are likely not very productive. However, you should always be critical of defaults (however pretty they might be) and see if you can improve the plot to better portray your data / results / what you want to communicate.
+
+# Types and classes
+
+## Types and classes
+
+-   Type is how an object is stored in memory, e.g.,
+
+    -   `double`: a real number stored in double-precision floatint point format.
+    -   `integer`: an integer (positive or negative)
+
+-- Class is metadata about the object that can determine how common functions operate on that object, e.g.,
+
+-   `factor`
+
+## Types of vectors
+
+::: columns
+::: {.column width="50%"}
+You'll commonly encounter:
+
+-   `logical`
+-   `integer`
+-   `double`
+-   `character`
+:::
+
+::: {.column width="50%"}
+You'll less commonly encounter:
+
+-   `list`
+-   `NULL`
+-   `complex`
+-   `raw`
+:::
+:::
+
+## Types of functions
+
+Yes, functions have types too, but you don't need to worry about the differences in the context of doing data science.
+
+```{r}
+typeof(mean) # regular function
+
+typeof(`$`) # internal function
+
+typeof(sum) # primitive function
+```
+
+## Factors
+
+A `factor` is a vector that can contain only predefined values.
+It is used to store categorical data.
+
+::: columns
+::: {.column width="50%"}
+```{r}
+x <- factor(c("a", "b", "b", "a"))
+x
+
+typeof(x)
+
+attributes(x)
+```
+:::
+
+::: {.column width="50%"}
+![](images/08/factor.png){fig-align="center" width="400"}
+:::
+:::
+
+## Other classes
+
+Just a couple of examples...
+
+::: columns
+::: {.column width="50%"}
+Date:
+
+```{r}
+today <- Sys.Date()
+today
+
+typeof(today)
+
+attributes(today)
+```
+:::
+
+::: {.column width="50%"}
+Date-time:
+
+```{r}
+now <- as.POSIXct("2022-09-22 10:15", tz = "EST")
+now
+
+typeof(now)
+
+attributes(now)
+```
+:::
+:::
+
+# Application exercise
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-06` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
