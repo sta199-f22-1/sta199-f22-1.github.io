@@ -94,15 +94,25 @@ d |>
       )
     }
   ) |>
-  fmt_date(date, date_style = 9) |>
+  fmt_date(date, date_style = 30) |>
   sub_missing(columns = c(date, what, topic, notes), missing_text = "") |>
   cols_align(
     align = "center", 
-    columns = c(week, dow, prepare, slides, ae, hw, lab, exam, project)
+    columns = c(week, dow, prepare, slides, ae, ae_sa, hw, hw_sa, lab, lab_sa, exam, project)
     ) |>
   cols_align(
     align = "left", 
     columns = c(date, what, topic, notes)
-    )  
+    ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "right",
+      color = "#D3D3D3",
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = c(date, topic, prepare, ae_sa, hw_sa, lab_sa, exam, project)
+    )
+  )
 ```
 :::
