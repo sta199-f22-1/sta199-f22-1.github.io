@@ -1,0 +1,9 @@
+---
+title: "Prepare"
+subtitle: "Due: September 26, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   R4DS: [Chp 14 - Numbers (Sections 14.1, 14.2, and 14.4)](https://r4ds.hadley.nz/numbers.html)
+    -   R4DS: [Chp 15 - Strings (Sections 15.1 - 15.3)](https://r4ds.hadley.nz/strings.html)
