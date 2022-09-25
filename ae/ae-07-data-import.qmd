@@ -1,0 +1,93 @@
+---
+title: "AE 07: Data import"
+subtitle: "Suggested answers"
+categories: 
+  - Application exercise
+  - Answers
+editor: visual
+---
+
+## Packages
+
+We will use the following two packages in this application exercise.
+
+-   **tidyverse**: For data import, wrangling, and visualization.
+-   **readxl:** For importing data from Excel.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(readxl)
+```
+
+## Nobel winners
+
+-   **Demo:** Load the data from the `data` folder and assign it to `nobel`.
+    Confirm that this new object appears in your Environment tab.
+
+    ```{r}
+    #| label: add-label-here-1
+     
+    # add code here
+    ```
+
+-   **Your turn (4 minutes):** Split the data into two -- nobel laureates in STEM fields (`category` should be Physics, Medicine, Chemistry, or Economics) and nobel laureates in non-STEM fields.
+    Name these two new objects appropriately.
+    *Remember:* Use concise and evocative names.
+    Confirm that these new objects appear in your Environment tab and that the sum of the number of observations in the two new data frames add to the number of observations in the original data frame.
+
+    ```{r}
+    #| label: add-label-here-2
+
+    # define stem fields
+
+    # add code here
+
+    # stem laureates
+
+    # add code here
+
+    # non-steam laureates
+
+    # add code here
+    ```
+
+-   **Demo:** Write out the two new datasets you created into the `data` folder:
+
+    ```{r}
+    #| label: add-label-here-3
+
+    # add code here
+    ```
+
+## Sales
+
+Sales data are stored in an Excel file that looks like the following:
+
+![](images/salex-excel.png){fig-align="center" width="801"}
+
+-   **Demo:** Read in the Excel file called `sales.xlsx` from the `data-raw/` folder such that it looks like the following.
+
+    ![](images/sales-1.png){width="300"}
+
+    ```{r}
+    #| label: add-label-here-4
+
+    # add code here
+    ```
+
+-   **Demo - Stretch goal:** Manipulate the sales data such such that it looks like the following.
+
+    ![](images/sales-2.png){width="300"}
+
+    ```{r}
+    #| label: add-label-here-5
+
+    # add code here
+    ```
+
+-   **Question:** Why should we bother with writing code for reading the data in by skipping columns and assigning variable names as well as cleaning it up in multiple steps instead of opening the Excel file and editing the data in there to prepare it for a clean import?
+
+    *Add your response here.*

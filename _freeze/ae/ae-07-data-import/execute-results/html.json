@@ -1,0 +1,14 @@
+{
+  "hash": "3a7df2121206eaefac2c7525d812ab51",
+  "result": {
+    "markdown": "---\ntitle: \"AE 07: Data import\"\nsubtitle: \"Suggested answers\"\ncategories: \n  - Application exercise\n  - Answers\neditor: visual\n---\n\n\n## Packages\n\nWe will use the following two packages in this application exercise.\n\n-   **tidyverse**: For data import, wrangling, and visualization.\n-   **readxl:** For importing data from Excel.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(readxl)\n```\n:::\n\n\n## Nobel winners\n\n-   **Demo:** Load the data from the `data` folder and assign it to `nobel`.\n    Confirm that this new object appears in your Environment tab.\n\n\n    ::: {.cell}\n    \n    ```{.r .cell-code}\n    # add code here\n    ```\n    :::\n\n\n-   **Your turn (4 minutes):** Split the data into two -- nobel laureates in STEM fields (`category` should be Physics, Medicine, Chemistry, or Economics) and nobel laureates in non-STEM fields.\n    Name these two new objects appropriately.\n    *Remember:* Use concise and evocative names.\n    Confirm that these new objects appear in your Environment tab and that the sum of the number of observations in the two new data frames add to the number of observations in the original data frame.\n\n\n    ::: {.cell}\n    \n    ```{.r .cell-code}\n    # define stem fields\n    \n    # add code here\n    \n    # stem laureates\n    \n    # add code here\n    \n    # non-steam laureates\n    \n    # add code here\n    ```\n    :::\n\n\n-   **Demo:** Write out the two new datasets you created into the `data` folder:\n\n\n    ::: {.cell}\n    \n    ```{.r .cell-code}\n    # add code here\n    ```\n    :::\n\n\n## Sales\n\nSales data are stored in an Excel file that looks like the following:\n\n![](images/salex-excel.png){fig-align=\"center\" width=\"801\"}\n\n-   **Demo:** Read in the Excel file called `sales.xlsx` from the `data-raw/` folder such that it looks like the following.\n\n    ![](images/sales-1.png){width=\"300\"}\n\n\n    ::: {.cell}\n    \n    ```{.r .cell-code}\n    # add code here\n    ```\n    :::\n\n\n-   **Demo - Stretch goal:** Manipulate the sales data such such that it looks like the following.\n\n    ![](images/sales-2.png){width=\"300\"}\n\n\n    ::: {.cell}\n    \n    ```{.r .cell-code}\n    # add code here\n    ```\n    :::\n\n\n-   **Question:** Why should we bother with writing code for reading the data in by skipping columns and assigning variable names as well as cleaning it up in multiple steps instead of opening the Excel file and editing the data in there to prepare it for a clean import?\n\n    *Add your response here.*\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

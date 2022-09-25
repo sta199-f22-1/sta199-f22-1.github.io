@@ -1,0 +1,106 @@
+---
+title: "AE 07: Data import"
+subtitle: "Suggested answers"
+categories: 
+  - Application exercise
+  - Answers
+editor: visual
+---
+
+## Packages
+
+We will use the following two packages in this application exercise.
+
+-   **tidyverse**: For data import, wrangling, and visualization.
+-   **readxl:** For importing data from Excel.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(readxl)
+```
+
+## Nobel winners
+
+-   **Demo:** Load the data from the `data` folder and assign it to `nobel`. Confirm that this new object appears in your Environment tab.
+
+    ```{r}
+    #| label: nobel-import
+     
+    nobel <- read_csv("data/nobel.csv")
+    ```
+
+```{=html}
+<!-- -->
+```
+-   **Your turn (4 minutes):** Split the data into two -- nobel laureates in STEM fields (`category` should be Physics, Medicine, Chemistry, or Economics) and nobel laureates in non-STEM fields. Name these two new objects appropriately. *Remember:* Use concise and evocative names. Confirm that these new objects appear in your Environment tab and that the sum of the number of observations in the two new data frames add to the number of observations in the original data frame.
+
+    ```{r}
+    #| label: nobel-split
+
+    # define stem fields
+    stem_fields <- c("Physics", "Medicine", "Chemistry", "Economics")
+
+    # stem laureates
+    nobel_stem <- nobel %>%
+      filter(category %in% stem_fields)
+
+    # non-steam laureates
+    nobel_nonstem <- nobel %>%
+      filter(!(category %in% stem_fields))
+    ```
+
+-   **Demo:** Write out the two new datasets you created into the `data` folder:
+
+    ```{r}
+    #| label: nobel-export
+
+    write_csv(nobel_stem, file = "nobel-stem.csv")
+    write_csv(nobel_nonstem, file = "nobel-nonstem.csv")
+    ```
+
+## Sales
+
+Sales data are stored in an Excel file that looks like the following:
+
+![](images/salex-excel.png){fig-align="center" width="801"}
+
+-   **Demo:** Read in the Excel file called `sales.xlsx` from the `data-raw/` folder such that it looks like the following.
+
+    ![](images/sales-1.png){width="300"}
+
+    ```{r}
+    #| label: sales-import
+
+    sales <- read_excel(
+      "data/sales.xlsx", 
+      skip = 3,
+      col_names = c("id", "n")
+      )
+    ```
+
+-   **Demo - Stretch goal:** Manipulate the sales data such such that it looks like the following.
+
+    ![](images/sales-2.png){width="300"}
+
+    ```{r}
+    #| label: sales-cleanup
+
+    sales |>
+      mutate(
+        is_brand_name = str_detect(id, "Brand"),
+        brand = if_else(is_brand_name, id, NULL)
+      ) |>
+      fill(brand) |>
+      filter(!is_brand_name) |>
+      select(brand, id, n)
+    ```
+
+```{=html}
+<!-- -->
+```
+-   **Question:** Why should we bother with writing code for reading the data in by skipping columns and assigning variable names as well as cleaning it up in multiple steps instead of opening the Excel file and editing the data in there to prepare it for a clean import?
+
+    Because the code allows us to struggle once and re-use for future datasets and leaves a transparent trail of our modifications while manipulating the data in Excel directly is neither reproducible nor reusable.
