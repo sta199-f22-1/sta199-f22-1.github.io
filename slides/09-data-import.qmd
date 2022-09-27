@@ -1,0 +1,80 @@
+---
+title: "Data types and classes"
+subtitle: "Lecture 8"
+date: "September 27, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Open your `ae-06` project (from last time) in RStudio, render your document, and commit and push. Make sure you have completed the first part on type coercion and reviewed the task for the second part on hotel bookings.
+-   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
+
+## Announcements {.smaller}
+
+-   Lab 3 due Friday night (11:59 pm) -- but I strongly recommend you finish and submit it before the exam begins.
+
+-   Exam 1 is released on Thursday at noon and is due at 2pm on Monday.
+
+    -   No TA OH during the exam.
+
+    -   I will have OH 4-5pm on Friday.
+
+    -   Any clarification questions must be **emailed** to me only.
+
+    -   No Slack use during the exam (even about non-exam related questions).
+
+## Exam study tips
+
+-   Take notes that you can reference
+-   Review feedback given to you on graded work
+-   Revisit AEs
+-   Review suggested solutions
+-   Ask questions
+    -   For Thursday's review: **slido.com / #sta199exam1**
+
+# From last time
+
+## Continue from last time: `ae-06`
+
+::: appex
+-   Go to your container and open your `ae-06` project.
+-   Render, commit, and push before getting started again.
+:::
+
+## Recap of AE {.smaller}
+
+-   A vector can only have one type of elements in it. Placing elements with different types into a vector cases type coercion.
+-   Factor is a class that R uses for categorical data and factors allow us to customize order and behaviour of levels.
+
+# Reading data into R
+
+## Reading rectangular data
+
+-   Using \[**readr**\]:
+    -   Most commonly: `read_csv()`
+    -   Maybe also: `read_tsv()`, `read_delim()`, etc.
+-   Using \[**readxl**\]: `read_excel()`
+
+# Application exercise
+
+## `ae-07`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-07` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE
+
+-   Why should we bother with writing code to edit data rather than just editing the Excel file?
+-   What is the difference between `read.csv()` and `read_csv()`?

@@ -1909,5 +1909,47 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\n\nAnother approach is to request a restart of your container. To do so, select your container as you usually do and then, instead of Login, click on Request Restart. Read the warning in the next page, and then click once more to restart your container."
+  },
+  {
+    "objectID": "slides/09-data-import.html#while-you-wait-for-class-to-begin",
+    "href": "slides/09-data-import.html#while-you-wait-for-class-to-begin",
+    "title": "Data types and classes",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\nOpen your ae-06 project (from last time) in RStudio, render your document, and commit and push. Make sure you have completed the first part on type coercion and reviewed the task for the second part on hotel bookings.\nAny questions from prepare materials? Go to slido.com / #sta199. You can also upvote others’ questions."
+  },
+  {
+    "objectID": "slides/09-data-import.html#announcements",
+    "href": "slides/09-data-import.html#announcements",
+    "title": "Data types and classes",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 3 due Friday night (11:59 pm) – but I strongly recommend you finish and submit it before the exam begins.\nExam 1 is released on Thursday at noon and is due at 2pm on Monday.\n\nNo TA OH during the exam.\nI will have OH 4-5pm on Friday.\nAny clarification questions must be emailed to me only.\nNo Slack use during the exam (even about non-exam related questions)."
+  },
+  {
+    "objectID": "slides/09-data-import.html#exam-study-tips",
+    "href": "slides/09-data-import.html#exam-study-tips",
+    "title": "Data types and classes",
+    "section": "Exam study tips",
+    "text": "Exam study tips\n\nTake notes that you can reference\nReview feedback given to you on graded work\nRevisit AEs\nReview suggested solutions\nAsk questions\n\nFor Thursday’s review: slido.com / #sta199exam1"
+  },
+  {
+    "objectID": "slides/09-data-import.html#continue-from-last-time-ae-06",
+    "href": "slides/09-data-import.html#continue-from-last-time-ae-06",
+    "title": "Data types and classes",
+    "section": "Continue from last time: ae-06",
+    "text": "Continue from last time: ae-06\n\n\nGo to your container and open your ae-06 project.\nRender, commit, and push before getting started again."
+  },
+  {
+    "objectID": "slides/09-data-import.html#recap-of-ae",
+    "href": "slides/09-data-import.html#recap-of-ae",
+    "title": "Data types and classes",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nA vector can only have one type of elements in it. Placing elements with different types into a vector cases type coercion.\nFactor is a class that R uses for categorical data and factors allow us to customize order and behaviour of levels."
+  },
+  {
+    "objectID": "slides/09-data-import.html#reading-rectangular-data",
+    "href": "slides/09-data-import.html#reading-rectangular-data",
+    "title": "Data types and classes",
+    "section": "Reading rectangular data",
+    "text": "Reading rectangular data\n\nUsing [readr]:\n\nMost commonly: read_csv()\nMaybe also: read_tsv(), read_delim(), etc.\n\nUsing [readxl]: read_excel()"
   }
 ]
