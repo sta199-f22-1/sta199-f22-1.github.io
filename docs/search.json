@@ -1951,5 +1951,19 @@
     "title": "Data types and classes",
     "section": "Reading rectangular data",
     "text": "Reading rectangular data\n\nUsing [readr]:\n\nMost commonly: read_csv()\nMaybe also: read_tsv(), read_delim(), etc.\n\nUsing [readxl]: read_excel()"
+  },
+  {
+    "objectID": "slides/09-data-import.html#ae-07",
+    "href": "slides/09-data-import.html#ae-07",
+    "title": "Data types and classes",
+    "section": "ae-07",
+    "text": "ae-07\n\n\nGo to the course GitHub org and find your ae-07 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/09-data-import.html#recap-of-ae-1",
+    "href": "slides/09-data-import.html#recap-of-ae-1",
+    "title": "Data types and classes",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nWhy should we bother with writing code to edit data rather than just editing the Excel file?\nWhat is the difference between read.csv() and read_csv()?\n\n\n\n\n🔗 sta199-f22-1.github.io"
   }
 ]
