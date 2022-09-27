@@ -179,7 +179,7 @@
     "href": "course-links.html",
     "title": "Useful links",
     "section": "",
-    "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradescope\n🔗 on Sakai\n\n\nGradebook\n🔗 on Sakai\n\n\nOffice hours\n🔗 on Google docs\n\n\nClass recording request form\n🔗 on Google forms\n\n\nTexbooks\n🔗 R for Data Science\n🔗 Introduction to Modern Statistics\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org"
+    "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradescope\n🔗 on Sakai\n\n\nGradebook\n🔗 on Sakai\n\n\nOffice hours\n🔗 on Google docs\n\n\nClass recording request form\n🔗 on Google forms\n\n\nTexbooks\n🔗 R for Data Science\n🔗 Introduction to Modern Statistics\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org\n🔗 tidyr: tidyr.tidyverse.org\n🔗 forcats: forcats.tidyverse.org\n🔗 stringr: stringr.tidyverse.org\n🔗 lubridate: lubridate.tidyverse.org\n🔗 readr: readr.tidyverse.org\n🔗 readxl: readxl.tidyverse.org"
   },
   {
     "objectID": "hw/hw-2.html",
@@ -1484,6 +1484,62 @@
     "text": "Recap of AE\n\nThe pipe operator, |>, can be read as “and then”.\nThe pipe operator passes what comes before it into the function that comes after it as the first argument in that function.\n\n\nsum(1, 2)\n\n[1] 3\n\n1 |> \n  sum(2)\n\n[1] 3\n\n\n\nAlways use a line break after the pipe, and indent the next line of code.\n\nJust like always use a line break between layers of ggplots, after +, and indent the next line.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/09-data-import.html#while-you-wait-for-class-to-begin",
+    "href": "slides/09-data-import.html#while-you-wait-for-class-to-begin",
+    "title": "Data import",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\n\n\n\n\n\nImportant\n\n\nCome up with at least one question you’d like to see answered in the Exam 1 review on Thursday.\nGo to slido.com and submit your question with the code #sta199exam1.\nYou can also upvote others’ questions."
+  },
+  {
+    "objectID": "slides/09-data-import.html#announcements",
+    "href": "slides/09-data-import.html#announcements",
+    "title": "Data import",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 3 due Friday night (11:59 pm) – but I strongly recommend you finish and submit it before the exam begins!\nExam 1 is released on Thursday at noon and is due at 2pm on Monday.\n\nNo TA OH during the exam.\nI will have OH 4-5pm on Friday (on Zoom).\nAny clarification questions must be emailed to me only.\nNo Slack use during the exam, even about non-exam related questions."
+  },
+  {
+    "objectID": "slides/09-data-import.html#exam-study-tips",
+    "href": "slides/09-data-import.html#exam-study-tips",
+    "title": "Data import",
+    "section": "Exam study tips",
+    "text": "Exam study tips\n\nTake notes that you can reference\nReview feedback given to you on graded work\nRevisit AEs\nReview suggested solutions\nAsk questions"
+  },
+  {
+    "objectID": "slides/09-data-import.html#new-resources",
+    "href": "slides/09-data-import.html#new-resources",
+    "title": "Data import",
+    "section": "New resources",
+    "text": "New resources\nOn the course website:\n\nMore links to package documentation on the useful links page: https://sta199-f22-1.github.io/course-links.html\nNew page with links to cheatsheets: https://sta199-f22-1.github.io/computing-cheatsheets.html"
+  },
+  {
+    "objectID": "slides/09-data-import.html#continue-from-last-time-ae-06",
+    "href": "slides/09-data-import.html#continue-from-last-time-ae-06",
+    "title": "Data import",
+    "section": "Continue from last time: ae-06",
+    "text": "Continue from last time: ae-06\n\n\nGo to your container and open your ae-06 project.\nRender, commit, and push.\n\n\n\n\n\n\n\nImportant\n\n\nYou will see an error. Read it and do as it says!\n\n\n\n\nPull.\nOnce again, render, commit, and push."
+  },
+  {
+    "objectID": "slides/09-data-import.html#recap-of-ae",
+    "href": "slides/09-data-import.html#recap-of-ae",
+    "title": "Data import",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nA vector can only have one type of elements in it. Placing elements with different types into a vector cases type coercion.\nFactor is a class that R uses for categorical data and factors allow us to customize order and behaviour of levels."
+  },
+  {
+    "objectID": "slides/09-data-import.html#reading-rectangular-data",
+    "href": "slides/09-data-import.html#reading-rectangular-data",
+    "title": "Data import",
+    "section": "Reading rectangular data",
+    "text": "Reading rectangular data\n\nUsing readr:\n\nMost commonly: read_csv()\nMaybe also: read_tsv(), read_delim(), etc.\n\nUsing readxl: read_excel()\nUsing googlesheets4: read_sheet() – We haven’t covered this in the videos, but might be useful for your projects"
+  },
+  {
+    "objectID": "slides/09-data-import.html#ae-07",
+    "href": "slides/09-data-import.html#ae-07",
+    "title": "Data import",
+    "section": "ae-07",
+    "text": "ae-07\n\n\nGo to the course GitHub org and find your ae-07 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",
     "href": "slides/02-meet-the-toolkit.html#five-tips-for-success",
     "title": "Meet the toolkit",
@@ -1771,6 +1827,13 @@
     "text": "Can I use a local install of R and RStudio instead of using the RStudio containers?\nThe short answer is, I’d rather you didn’t, to save yourself some headache. But, the long answer is, sure! But you will need to install a specific versions of R and RStudio for everything to work as expected. You will also need to install the R packages we’re using as well as have Git installed on your computer. These are not extremely challenging things to get right, but they are not trivial either, particularly on certain operating systems. Myself and the TAs are always happy to provide help with any computational questions when you’re working in the containers we have provided for you. If you’re working on your local setup, we can’t guarantee being able to resolve your issues, though we’re happy to try.\nIf you want to take this path, here is what you need to do:\n\nDownload and install R 4.2.1: https://cran.r-project.org/\nDownload and install the preview build of RStudio: https://www.rstudio.com/products/rstudio/download/preview/\nInstall Git: https://happygitwithr.com/install-git.html\nInstall any necessary packages with install.packages(\"___\")\n\nAnd I’d like to reiterate again that successful installation of these software is not a learning goal of this course. So if any of this seems tedious or intimidating in any way, just use the computing environment we have set up for you. More on that here."
   },
   {
+    "objectID": "computing-cheatsheets.html",
+    "href": "computing-cheatsheets.html",
+    "title": "R cheatsheets",
+    "section": "",
+    "text": "The following cheatsheets come from https://www.rstudio.com/resources/cheatsheets. We haven’t covered every function and functionality listed on them, but you might still find them useful as references."
+  },
+  {
     "objectID": "course-support.html",
     "href": "course-support.html",
     "title": "Course support",
@@ -1909,61 +1972,5 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\n\nAnother approach is to request a restart of your container. To do so, select your container as you usually do and then, instead of Login, click on Request Restart. Read the warning in the next page, and then click once more to restart your container."
-  },
-  {
-    "objectID": "slides/09-data-import.html#while-you-wait-for-class-to-begin",
-    "href": "slides/09-data-import.html#while-you-wait-for-class-to-begin",
-    "title": "Data types and classes",
-    "section": "While you wait for class to begin…",
-    "text": "While you wait for class to begin…\n\nOpen your ae-06 project (from last time) in RStudio, render your document, and commit and push. Make sure you have completed the first part on type coercion and reviewed the task for the second part on hotel bookings.\nAny questions from prepare materials? Go to slido.com / #sta199. You can also upvote others’ questions."
-  },
-  {
-    "objectID": "slides/09-data-import.html#announcements",
-    "href": "slides/09-data-import.html#announcements",
-    "title": "Data types and classes",
-    "section": "Announcements",
-    "text": "Announcements\n\nLab 3 due Friday night (11:59 pm) – but I strongly recommend you finish and submit it before the exam begins.\nExam 1 is released on Thursday at noon and is due at 2pm on Monday.\n\nNo TA OH during the exam.\nI will have OH 4-5pm on Friday.\nAny clarification questions must be emailed to me only.\nNo Slack use during the exam (even about non-exam related questions)."
-  },
-  {
-    "objectID": "slides/09-data-import.html#exam-study-tips",
-    "href": "slides/09-data-import.html#exam-study-tips",
-    "title": "Data types and classes",
-    "section": "Exam study tips",
-    "text": "Exam study tips\n\nTake notes that you can reference\nReview feedback given to you on graded work\nRevisit AEs\nReview suggested solutions\nAsk questions\n\nFor Thursday’s review: slido.com / #sta199exam1"
-  },
-  {
-    "objectID": "slides/09-data-import.html#continue-from-last-time-ae-06",
-    "href": "slides/09-data-import.html#continue-from-last-time-ae-06",
-    "title": "Data types and classes",
-    "section": "Continue from last time: ae-06",
-    "text": "Continue from last time: ae-06\n\n\nGo to your container and open your ae-06 project.\nRender, commit, and push before getting started again."
-  },
-  {
-    "objectID": "slides/09-data-import.html#recap-of-ae",
-    "href": "slides/09-data-import.html#recap-of-ae",
-    "title": "Data types and classes",
-    "section": "Recap of AE",
-    "text": "Recap of AE\n\nA vector can only have one type of elements in it. Placing elements with different types into a vector cases type coercion.\nFactor is a class that R uses for categorical data and factors allow us to customize order and behaviour of levels."
-  },
-  {
-    "objectID": "slides/09-data-import.html#reading-rectangular-data",
-    "href": "slides/09-data-import.html#reading-rectangular-data",
-    "title": "Data types and classes",
-    "section": "Reading rectangular data",
-    "text": "Reading rectangular data\n\nUsing [readr]:\n\nMost commonly: read_csv()\nMaybe also: read_tsv(), read_delim(), etc.\n\nUsing [readxl]: read_excel()"
-  },
-  {
-    "objectID": "slides/09-data-import.html#ae-07",
-    "href": "slides/09-data-import.html#ae-07",
-    "title": "Data types and classes",
-    "section": "ae-07",
-    "text": "ae-07\n\n\nGo to the course GitHub org and find your ae-07 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
-  },
-  {
-    "objectID": "slides/09-data-import.html#recap-of-ae-1",
-    "href": "slides/09-data-import.html#recap-of-ae-1",
-    "title": "Data types and classes",
-    "section": "Recap of AE",
-    "text": "Recap of AE\n\nWhy should we bother with writing code to edit data rather than just editing the Excel file?\nWhat is the difference between read.csv() and read_csv()?\n\n\n\n\n🔗 sta199-f22-1.github.io"
   }
 ]

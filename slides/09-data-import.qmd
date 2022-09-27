@@ -1,6 +1,6 @@
 ---
-title: "Data types and classes"
-subtitle: "Lecture 8"
+title: "Data import"
+subtitle: "Lecture 9"
 date: "September 27, 2022"
 format: revealjs
 ---
@@ -15,22 +15,27 @@ library(countdown)
 
 ## While you wait for class to begin...
 
--   Open your `ae-06` project (from last time) in RStudio, render your document, and commit and push. Make sure you have completed the first part on type coercion and reviewed the task for the second part on hotel bookings.
--   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
+::: callout-important
+Come up with at least one question you'd like to see answered in the Exam 1 review on Thursday.
+
+Go to [slido.com](https://www.slido.com/) and submit your question with the code **#sta199exam1**.
+
+You can also upvote others' questions.
+:::
 
 ## Announcements {.smaller}
 
--   Lab 3 due Friday night (11:59 pm) -- but I strongly recommend you finish and submit it before the exam begins.
+-   Lab 3 due Friday night (11:59 pm) -- but I strongly recommend you finish and submit it before the exam begins!
 
 -   Exam 1 is released on Thursday at noon and is due at 2pm on Monday.
 
     -   No TA OH during the exam.
 
-    -   I will have OH 4-5pm on Friday.
+    -   I will have OH 4-5pm on Friday (on Zoom).
 
-    -   Any clarification questions must be **emailed** to me only.
+    -   Any clarification questions must be **emailed to me** only.
 
-    -   No Slack use during the exam (even about non-exam related questions).
+    -   No Slack use during the exam, even about non-exam related questions.
 
 ## Exam study tips
 
@@ -39,7 +44,13 @@ library(countdown)
 -   Revisit AEs
 -   Review suggested solutions
 -   Ask questions
-    -   For Thursday's review: **slido.com / #sta199exam1**
+
+## New resources
+
+On the course website:
+
+-   More links to package documentation on the useful links page: <https://sta199-f22-1.github.io/course-links.html>
+-   New page with links to cheatsheets: <https://sta199-f22-1.github.io/computing-cheatsheets.html>
 
 # From last time
 
@@ -47,7 +58,16 @@ library(countdown)
 
 ::: appex
 -   Go to your container and open your `ae-06` project.
--   Render, commit, and push before getting started again.
+-   Render, commit, and push.
+
+::: callout-important
+You will see an error.
+Read it and do as it says!
+:::
+
+- Pull.
+
+- Once again, render, commit, and push.
 :::
 
 ## Recap of AE {.smaller}
@@ -59,10 +79,11 @@ library(countdown)
 
 ## Reading rectangular data
 
--   Using \[**readr**\]:
+-   Using [**readr**](https://readr.tidyverse.org/):
     -   Most commonly: `read_csv()`
     -   Maybe also: `read_tsv()`, `read_delim()`, etc.
--   Using \[**readxl**\]: `read_excel()`
+-   Using [**readxl**](https://readxl.tidyverse.org/): `read_excel()`
+-   Using [**googlesheets4**](https://googlesheets4.tidyverse.org/): `read_sheet()` -- We haven't covered this in the videos, but might be useful for your projects
 
 # Application exercise
 
@@ -73,8 +94,3 @@ library(countdown)
 -   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
 -   Render, commit, and push your edits by the AE deadline -- 3 days from today.
 :::
-
-## Recap of AE
-
--   Why should we bother with writing code to edit data rather than just editing the Excel file?
--   What is the difference between `read.csv()` and `read_csv()`?
