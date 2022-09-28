@@ -64,6 +64,8 @@ website:
             text: Access
           - href: computing-troubleshooting.qmd
             text: Troubleshooting
+          - href: computing-cheatsheets.qmd
+            text: Cheatsheets
       - section: "Project"
         contents:
           - href: project-description.qmd
