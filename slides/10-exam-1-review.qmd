@@ -157,7 +157,7 @@ df |>
   filter(x %in% c(2, 3))
 ```
 
-## Operators in R: `|>` vs. `%>%` 
+## Operators in R: `|>` vs. `%>%`
 
 -   `|>`: pipe operator (newer -- what we've been using in class)
 -   `%>%`: pipe operator (older -- what you see in the videos)
@@ -251,7 +251,6 @@ mpg |>
 :::
 
 ::: {.column width="50%"}
-
 ```{r}
 mpg |>
   distinct(cty, hwy)
