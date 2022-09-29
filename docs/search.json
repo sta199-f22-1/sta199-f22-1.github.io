@@ -1505,6 +1505,34 @@
     "text": "distinct()\n\n\n\nmpg |>\n  select(cty, hwy)\n\n# A tibble: 234 × 2\n     cty   hwy\n   <int> <int>\n 1    18    29\n 2    21    29\n 3    20    31\n 4    21    30\n 5    16    26\n 6    18    26\n 7    18    27\n 8    18    26\n 9    16    25\n10    20    28\n# … with 224 more rows\n\n\n\n\nmpg |>\n  distinct(cty, hwy)\n\n# A tibble: 78 × 2\n     cty   hwy\n   <int> <int>\n 1    18    29\n 2    21    29\n 3    20    31\n 4    21    30\n 5    16    26\n 6    18    26\n 7    18    27\n 8    16    25\n 9    20    28\n10    19    27\n# … with 68 more rows"
   },
   {
+    "objectID": "slides/10-exam-1-review.html#working-with-categorical-data",
+    "href": "slides/10-exam-1-review.html#working-with-categorical-data",
+    "title": "Exam 1 Review",
+    "section": "Working with categorical data",
+    "text": "Working with categorical data\n\ntshirts <- tibble(\n  size = c(\"Large\", \"Medium\", \"Large\", \"Small\", \"Small\", \"Medium\", \"Small\", \"X-Large\", \"X-Small\"),\n  price = c(10, 15, 12, 18, 22, 13, 67, 12, 10)\n)\n\nggplot(tshirts, aes(x = size)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/10-exam-1-review.html#fct_relevel",
+    "href": "slides/10-exam-1-review.html#fct_relevel",
+    "title": "Exam 1 Review",
+    "section": "fct_relevel()",
+    "text": "fct_relevel()\nReorder levels based on an order you provide\n\ntshirts |>\n  mutate(size = fct_relevel(size, \"X-Small\", \"Small\", \"Medium\", \"Large\", \"X-Large\")) |>\n  ggplot(aes(x = size)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/10-exam-1-review.html#fct_reorder",
+    "href": "slides/10-exam-1-review.html#fct_reorder",
+    "title": "Exam 1 Review",
+    "section": "fct_reorder()",
+    "text": "fct_reorder()\nReorder levels based on another variable\n\ntshirts |>\n  mutate(size = fct_reorder(size, price, mean)) |>\n  ggplot(aes(x = size)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/10-exam-1-review.html#fct_other",
+    "href": "slides/10-exam-1-review.html#fct_other",
+    "title": "Exam 1 Review",
+    "section": "fct_other()",
+    "text": "fct_other()\nLump some levels to “Other”\n\ntshirts |>\n  mutate(size = fct_other(size, keep = c(\"Small\", \"Medium\", \"Large\"))) |>\n  ggplot(aes(x = size)) +\n  geom_bar()"
+  },
+  {
     "objectID": "slides/10-exam-1-review.html#pivoting-and-joining",
     "href": "slides/10-exam-1-review.html#pivoting-and-joining",
     "title": "Exam 1 Review",

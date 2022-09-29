@@ -259,6 +259,51 @@ mpg |>
 :::
 :::
 
+## Working with categorical data
+
+```{r}
+tshirts <- tibble(
+  size = c("Large", "Medium", "Large", "Small", "Small", "Medium", "Small", "X-Large", "X-Small"),
+  price = c(10, 15, 12, 18, 22, 13, 67, 12, 10)
+)
+
+ggplot(tshirts, aes(x = size)) +
+  geom_bar()
+```
+
+## `fct_relevel()`
+
+Reorder levels based on an order you provide
+
+```{r}
+tshirts |>
+  mutate(size = fct_relevel(size, "X-Small", "Small", "Medium", "Large", "X-Large")) |>
+  ggplot(aes(x = size)) +
+  geom_bar()
+```
+
+## `fct_reorder()`
+
+Reorder levels based on another variable
+
+```{r}
+tshirts |>
+  mutate(size = fct_reorder(size, price, mean)) |>
+  ggplot(aes(x = size)) +
+  geom_bar()
+```
+
+## `fct_other()`
+
+Lump some levels to "Other"
+
+```{r}
+tshirts |>
+  mutate(size = fct_other(size, keep = c("Small", "Medium", "Large"))) |>
+  ggplot(aes(x = size)) +
+  geom_bar()
+```
+
 ## Pivoting and joining
 
 Let's visit [https://www.garrickadenbuie.com/project/tidyexplain](https://www.garrickadenbuie.com/project/tidyexplain/)!
