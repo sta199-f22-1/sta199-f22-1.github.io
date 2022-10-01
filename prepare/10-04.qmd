@@ -1,0 +1,17 @@
+---
+title: "Prepare"
+subtitle: "Due: October 4, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   R4DS: [Chp 8 - Data import](https://r4ds.hadley.nz/data-import.html)
+    -   R4DS: [Chp 18 - Dates and times (Sections 18.1 - 18.3)](https://r4ds.hadley.nz/datetimes.html)
+-   ⌨️ Watch:
+    -   [Importing data](https://youtu.be/tIMaRYiuEFA)
+
+    -   [Recoding data](https://youtu.be/O8qxV3N4D5Q)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::
