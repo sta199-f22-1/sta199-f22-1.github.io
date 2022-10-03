@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 199 - AE 07: Data import</title>
+<title>STA 199 - AE 08: Data science ethics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 
 
-<meta name="twitter:title" content="STA 199 - AE 07: Data import">
+<meta name="twitter:title" content="STA 199 - AE 08: Data science ethics">
 <meta name="twitter:description" content="Suggested answers">
 <meta name="twitter:image" content="https://sta199-f22-1.github.io/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
@@ -134,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">AE 07: Data import</h1>
+      <h1 class="quarto-secondary-nav-title">AE 08: Data science ethics</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -274,18 +274,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#nobel-winners" id="toc-nobel-winners" class="nav-link" data-scroll-target="#nobel-winners">Nobel winners</a></li>
-  <li><a href="#sales" id="toc-sales" class="nav-link" data-scroll-target="#sales">Sales</a></li>
+  <li><a href="#part-1---predicting-ethnicity" id="toc-part-1---predicting-ethnicity" class="nav-link active" data-scroll-target="#part-1---predicting-ethnicity">Part 1 - Predicting ethnicity</a></li>
+  <li><a href="#part-2---stochastic-parrots" id="toc-part-2---stochastic-parrots" class="nav-link" data-scroll-target="#part-2---stochastic-parrots">Part 2 - Stochastic parrots</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-07-data-import-A.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-08-data-science-ethics-A.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">AE 07: Data import</h1>
+<h1 class="title d-none d-lg-block">AE 08: Data science ethics</h1>
 <p class="subtitle lead">Suggested answers</p>
   <div class="quarto-categories">
     <div class="quarto-category">Application exercise</div>
@@ -304,106 +303,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>We will use the following two packages in this application exercise.</p>
+<section id="part-1---predicting-ethnicity" class="level1">
+<h1>Part 1 - Predicting ethnicity</h1>
+<p><strong>Your turn (12 minutes):</strong> Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.</p>
 <ul>
-<li><strong>tidyverse</strong>: For data import, wrangling, and visualization.</li>
-<li><strong>readxl:</strong> For importing data from Excel.</li>
+<li>The following is the title and the abstract of the paper. Take a minute to read them.</li>
+</ul>
+<blockquote class="blockquote">
+<p><a href="https://imai.fas.harvard.edu/research/race.html">Improving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record</a> (Imran and Khan, 2016)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>In both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition. Over the past several decades, many statistical methods have been proposed to address this ecological inference problem. We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records. Building on the existing methodological literature, we use Bayes’s rule to combine the Census Bureau’s Surname List with various information from geocoded voter registration records. We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available. We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%. Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates. We provide open-source software to implement the proposed methodology. The open-source software is available for implementing the proposed methodology.</p>
+</blockquote>
+<p>The said “source software” is the <strong>wru</strong> package: <a href="https://github.com/kosukeimai/wru" class="uri">https://github.com/kosukeimai/wru</a>.</p>
+<ul>
+<li>Then, if you feel comfortable, install the <strong>wru</strong> package and try it out using the sample data provided in the package. And if you don’t feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="nobel-winners" class="level2">
-<h2 class="anchored" data-anchor-id="nobel-winners">Nobel winners</h2>
-<ul>
-<li><p><strong>Demo:</strong> Load the data from the <code>data</code> folder and assign it to <code>nobel</code>. Confirm that this new object appears in your Environment tab.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nobel <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/nobel.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 935 Columns: 26
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (21): firstname, surname, category, affiliation, city, country, gender,...
-dbl   (3): id, year, share
-date  (2): born_date, died_date
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div></li>
-</ul>
-<!-- -->
-<ul>
-<li><p><strong>Your turn (4 minutes):</strong> Split the data into two – nobel laureates in STEM fields (<code>category</code> should be Physics, Medicine, Chemistry, or Economics) and nobel laureates in non-STEM fields. Name these two new objects appropriately. <em>Remember:</em> Use concise and evocative names. Confirm that these new objects appear in your Environment tab and that the sum of the number of observations in the two new data frames add to the number of observations in the original data frame.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define stem fields</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>stem_fields <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Physics"</span>, <span class="st">"Medicine"</span>, <span class="st">"Chemistry"</span>, <span class="st">"Economics"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># stem laureates</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>nobel_stem <span class="ot">&lt;-</span> nobel <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">%in%</span> stem_fields)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># non-steam laureates</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>nobel_nonstem <span class="ot">&lt;-</span> nobel <span class="sc">%&gt;%</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(category <span class="sc">%in%</span> stem_fields))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-<li><p><strong>Demo:</strong> Write out the two new datasets you created into the <code>data</code> folder:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(nobel_stem, <span class="at">file =</span> <span class="st">"data/nobel-stem.csv"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(nobel_nonstem, <span class="at">file =</span> <span class="st">"data/nobel-nonstem.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-</ul>
-</section>
-<section id="sales" class="level2">
-<h2 class="anchored" data-anchor-id="sales">Sales</h2>
-<p>Sales data are stored in an Excel file that looks like the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/salex-excel.png" class="img-fluid figure-img" width="801"></p>
-</figure>
-</div>
-<ul>
-<li><p><strong>Demo:</strong> Read in the Excel file called <code>sales.xlsx</code> from the <code>data-raw/</code> folder such that it looks like the following.</p>
-<p><img src="images/sales-1.png" class="img-fluid" width="300"></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/sales.xlsx"</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">skip =</span> <span class="dv">3</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"n"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></li>
-<li><p><strong>Demo - Stretch goal:</strong> Manipulate the sales data such such that it looks like the following.</p>
-<p><img src="images/sales-2.png" class="img-fluid" width="300"></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">is_brand_name =</span> <span class="fu">str_detect</span>(id, <span class="st">"Brand"</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">brand =</span> <span class="fu">if_else</span>(is_brand_name, id, <span class="cn">NULL</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(brand) <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>is_brand_name) <span class="sc">|&gt;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(brand, id, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("wru")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wru)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">predict_race</span>(<span class="at">voter.file =</span> voters, <span class="at">surname.only =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7 × 3
-  brand   id    n    
-  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;
-1 Brand 1 1234  8    
-2 Brand 1 8721  2    
-3 Brand 1 1822  3    
-4 Brand 2 3333  1    
-5 Brand 2 2156  3    
-6 Brand 2 3987  6    
-7 Brand 2 3216  5    </code></pre>
+<pre><code>      surname     pred.whi     pred.bla     pred.his   pred.asi   pred.oth
+1      Khanna 0.0049265455 0.0016079483 0.0023108109 0.88994257 0.10121213
+2        Imai 0.0059040605 0.0007184811 0.0193291824 0.76407641 0.20997186
+3      Rivera 0.0133185684 0.0121164643 0.8680470387 0.07086170 0.03565623
+4     Fifield 0.5122939613 0.0052487193 0.0596200858 0.06003480 0.36280243
+5        Zhou 0.0006977652 0.0006618759 0.0001766502 0.98773098 0.01073272
+6    Ratkovic 0.3845625798 0.0176011903 0.0131533900 0.04793387 0.53674897
+7     Johnson 0.1700395443 0.5164452995 0.0263012602 0.02193102 0.26528287
+8       Lopez 0.0122148735 0.0074083470 0.9026491278 0.03610843 0.04161922
+10 Wantchekon 0.1016771922 0.2873197891 0.3838356390 0.06225610 0.16491128
+9       Morse 0.4688011703 0.1153905281 0.0411994830 0.05237443 0.32223438</code></pre>
 </div>
-</div></li>
-</ul>
-<!-- -->
+</div>
 <ul>
-<li><p><strong>Question:</strong> Why should we bother with writing code for reading the data in by skipping columns and assigning variable names as well as cleaning it up in multiple steps instead of opening the Excel file and editing the data in there to prepare it for a clean import?</p>
-<p>Because the code allows us to struggle once and re-use for future datasets and leaves a transparent trail of our modifications while manipulating the data in Excel directly is neither reproducible nor reusable.</p></li>
+<li>If you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>me <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">surname =</span> <span class="st">"Rundel"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict_race</span>(<span class="at">voter.file =</span> me, <span class="at">surname.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `state`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Proceeding with last name predictions...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ All local files already up-to-date!
+ℹ All local files already up-to-date!</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  surname  pred.whi pred.bla pred.his pred.asi   pred.oth
+1  Rundel 0.9177967        0        0        0 0.08220329</code></pre>
+</div>
+</div>
+</section>
+<section id="part-2---stochastic-parrots" class="level1">
+<h1>Part 2 - Stochastic parrots</h1>
+<p><strong>Your turn (10 minutes):</strong></p>
+<ul>
+<li>Read the following title and abstract.</li>
+</ul>
+<blockquote class="blockquote">
+<p><a href="https://s10251.pcdn.co/pdf/2021-bender-parrots.pdf">On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜</a> (Bender et. al., 2021)</p>
+<p>The past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English. BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.</p>
+</blockquote>
+<ul>
+<li>Have you used a natural language model before? Describe your use.</li>
+<li>What is meant by “stochastic parrots” in the paper title?</li>
 </ul>
 
 

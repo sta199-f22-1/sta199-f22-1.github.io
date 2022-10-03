@@ -24,7 +24,8 @@ library(readxl)
 
 ## Nobel winners
 
--   **Demo:** Load the data from the `data` folder and assign it to `nobel`. Confirm that this new object appears in your Environment tab.
+-   **Demo:** Load the data from the `data` folder and assign it to `nobel`.
+    Confirm that this new object appears in your Environment tab.
 
     ```{r}
     #| label: nobel-import
@@ -32,10 +33,12 @@ library(readxl)
     nobel <- read_csv("data/nobel.csv")
     ```
 
-```{=html}
 <!-- -->
-```
--   **Your turn (4 minutes):** Split the data into two -- nobel laureates in STEM fields (`category` should be Physics, Medicine, Chemistry, or Economics) and nobel laureates in non-STEM fields. Name these two new objects appropriately. *Remember:* Use concise and evocative names. Confirm that these new objects appear in your Environment tab and that the sum of the number of observations in the two new data frames add to the number of observations in the original data frame.
+
+-   **Your turn (4 minutes):** Split the data into two -- nobel laureates in STEM fields (`category` should be Physics, Medicine, Chemistry, or Economics) and nobel laureates in non-STEM fields.
+    Name these two new objects appropriately.
+    *Remember:* Use concise and evocative names.
+    Confirm that these new objects appear in your Environment tab and that the sum of the number of observations in the two new data frames add to the number of observations in the original data frame.
 
     ```{r}
     #| label: nobel-split
@@ -57,8 +60,8 @@ library(readxl)
     ```{r}
     #| label: nobel-export
 
-    write_csv(nobel_stem, file = "nobel-stem.csv")
-    write_csv(nobel_nonstem, file = "nobel-nonstem.csv")
+    write_csv(nobel_stem, file = "data/nobel-stem.csv")
+    write_csv(nobel_nonstem, file = "data/nobel-nonstem.csv")
     ```
 
 ## Sales
@@ -98,9 +101,8 @@ Sales data are stored in an Excel file that looks like the following:
       select(brand, id, n)
     ```
 
-```{=html}
 <!-- -->
-```
+
 -   **Question:** Why should we bother with writing code for reading the data in by skipping columns and assigning variable names as well as cleaning it up in multiple steps instead of opening the Excel file and editing the data in there to prepare it for a clean import?
 
     Because the code allows us to struggle once and re-use for future datasets and leaves a transparent trail of our modifications while manipulating the data in Excel directly is neither reproducible nor reusable.

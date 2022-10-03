@@ -1,0 +1,69 @@
+---
+title: "AE 08: Data science ethics"
+subtitle: "Suggested answers"
+categories: 
+  - Application exercise
+  - Answers
+editor: visual
+---
+
+# Part 1 - Predicting ethnicity
+
+**Your turn (12 minutes):** Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S.
+Census Bureau's name list.
+
+-   The following is the title and the abstract of the paper. Take a minute to read them.
+
+> [Improving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record](https://imai.fas.harvard.edu/research/race.html) (Imran and Khan, 2016)
+
+> In both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition.
+> Over the past several decades, many statistical methods have been proposed to address this ecological inference problem.
+> We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records.
+> Building on the existing methodological literature, we use Bayes's rule to combine the Census Bureau's Surname List with various information from geocoded voter registration records.
+> We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available.
+> We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%.
+> Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates.
+> We provide open-source software to implement the proposed methodology.
+> The open-source software is available for implementing the proposed methodology.
+
+The said "source software" is the **wru** package: <https://github.com/kosukeimai/wru>.
+
+-   Then, if you feel comfortable, install the **wru** package and try it out using the sample data provided in the package. And if you don't feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?
+
+```{r}
+#| message: false
+
+# install.packages("wru")
+
+library(tidyverse)
+library(wru)
+
+predict_race(voter.file = voters, surname.only = TRUE) %>% 
+  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)
+```
+
+-   If you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?
+
+```{r}
+me <- tibble(surname = "Rundel")
+
+predict_race(voter.file = me, surname.only = TRUE)
+```
+
+# Part 2 - Stochastic parrots
+
+**Your turn (10 minutes):**
+
+-   Read the following title and abstract.
+
+> [On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜](https://s10251.pcdn.co/pdf/2021-bender-parrots.pdf) (Bender et. al., 2021)
+>
+> The past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English.
+> BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size.
+> Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English.
+> In this paper, we take a step back and ask: How big is too big?
+> What are the possible risks associated with this technology and what paths are available for mitigating those risks?
+> We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.
+
+-   Have you used a natural language model before? Describe your use.
+-   What is meant by "stochastic parrots" in the paper title?
