@@ -1,0 +1,16 @@
+---
+title: "Prepare"
+subtitle: "Due: October 13, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Watch:
+    -   [Web scraping](https://youtu.be/99Hkmfb2i80)
+
+    -   [Scraping top 250 movies on IMDB](https://youtu.be/YmKULNLsDsU)
+
+    -   [Web scraping considerations](https://youtu.be/LONRJHMvSyU)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

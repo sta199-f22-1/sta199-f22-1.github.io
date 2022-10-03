@@ -9,22 +9,10 @@ categories: "prepare"
 -   ⌨️ Watch:
     -   [Misrepresentation](https://youtu.be/C_-rTKfswUI)
 
-    -   [Data privacy](https://youtu.be/c4fvdoNbcSw)
-
-    -   [Algorithmic bias](https://youtu.be/E2eD72pwtps)
-
     -   Optional (but highly recommended) videos:
 
         -   [Alberto Cairo - How charts lie](https://youtu.be/Low28hx4wyk)
 
-        -   [The Guardian - Cambridge Analytica whistleblower](https://youtu.be/FXdYSQ6nu-M)
-
-        -   [Joy Buolamwini - How I\'m fighting bias in algorithms](https://youtu.be/UG_X_7g63rY)
-
-        -   [Cathy O\'Neil - Weapons of Math Destruction](https://youtu.be/TQHs8SA1qpk)
-
-        -   [Safiya Umoja Noble - Imagining a Future Free from the Algorithms of Oppression](https://youtu.be/tNi_U1Bb1S0)
-
-        -   [Kristian Lum - What\'s An Algorithm Got To Do With It](https://youtu.be/5zxDwA99soA)
-
-            \
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::
