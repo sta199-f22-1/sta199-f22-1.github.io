@@ -23,11 +23,31 @@ Open your `ae-09` project in RStudio, render your document, and commit and push.
 
 # Algorithmic bias
 
-## Two examples
+## Garbage in, garbage out
 
--   Criminal justice: [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) (ProPublica, 2016)
+-   In statistical modeling and inference we talk about "garbage in, garbage out" -- if you don't have good (random, representative) data, results of your analysis will not be reliable or generalizable.
+-   Corollary: Bias in, bias out.
 
--   Language models: [Stochastic Parrots](https://s10251.pcdn.co/pdf/2021-bender-parrots.pdf) (Bender et. al., 2021)
+## Google translate
+
+::: question
+What might be the reason for Google's gendered translation? How do ethics play into this situation?
+:::
+
+![](images/12/google-translate.png){fig-align="center"}
+
+::: aside
+Source: [Engadget - Google is working to remove gender bias in its translations](https://www.engadget.com/2018-12-07-google-remove-gender-bias-translations.html)
+:::
+
+## `ae-09`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-09` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Work on **Part 1 - Stochastic Parrots**
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
 
 ## Machine Bias {.smaller}
 
@@ -64,11 +84,11 @@ What is common among the defendants who were assigned a high/low risk score for 
 :::
 
 ::: {.column width="30%"}
-![](images/11/machine-bias-petty-theft-1.png){fig-align="center" width="300" height="250"} ![](images/11/machine-bias-petty-theft-2.png){fig-align="center" width="300" height="180"}
+![](images/12/machine-bias-petty-theft-1.png){fig-align="center" width="300" height="250"} ![](images/12/machine-bias-petty-theft-2.png){fig-align="center" width="300" height="180"}
 :::
 
 ::: {.column width="30%"}
-![](images/11/machine-bias-drug-posession-1.png){fig-align="center" width="300" height="250"} ![](images/11/machine-bias-drug-posession-2.png){fig-align="center" width="300" height="180"}
+![](images/12/machine-bias-drug-posession-1.png){fig-align="center" width="300" height="250"} ![](images/12/machine-bias-drug-posession-2.png){fig-align="center" width="300" height="180"}
 :::
 :::
 
@@ -85,16 +105,40 @@ How can an algorithm that doesn't use race as input data be racist?
 :::
 
 ::: {.column width="60%"}
-![](images/11/machine-bias-risk-scores.png){fig-align="center" width="480"}
+![](images/12/machine-bias-risk-scores.png){fig-align="center" width="480"}
 :::
 :::
 
-## Goggle translate
+## `ae-09`
 
-![](images/11/google-translate.png){fig-align="center"}
-
-::: aside
-Source: [Engadget - Google is working to remove gender bias in its translations](https://www.engadget.com/2018-12-07-google-remove-gender-bias-translations.html)
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-09` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Work on **Part 2 - Predicting ethnicity**
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
 :::
 
-## 
+# Data privacy
+
+## What does Google think/know about you?
+
+::: question
+Have you ever thought about why you're seeing an ad on Google? Google it! Try to figure out if you have ad personalization on and how your ads are personalized.
+:::
+
+```{r}
+countdown(minutes = 5)
+```
+
+## Privacy of your data
+
+::: question
+What pieces of data have you left on the internet today? Think through everything you've logged into, clicked on, checked in, either actively or automatically, that might be tracking you. Do you know where that data is stored? Who it can be accessed by? Whether it's shared with others?
+:::
+
+## More...
+
+- Mention webscraping
+- Mention data science ethics oath
+- Reproducibility? Good that they're already learning... so much more to it than what we cover in class...
+

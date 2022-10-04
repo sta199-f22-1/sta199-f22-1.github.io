@@ -487,7 +487,7 @@
     "href": "ae/ae-09-dse-bias-privacy.html",
     "title": "AE 08: Data science ethics",
     "section": "",
-    "text": "Part 2 - Stochastic parrots\nYour turn (10 minutes):\n\nRead the following title and abstract.\n\n\nOn the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜 (Bender et. al., 2021)\nThe past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English. BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.\n\n\nHave you used a natural language model before? Describe your use.\nWhat is meant by “stochastic parrots” in the paper title?"
+    "text": "Part 2 - Predicting ethnicity\nYour turn (12 minutes): Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.\n\nThe following is the title and the abstract of the paper. Take a minute to read them.\n\n\nImproving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record (Imran and Khan, 2016)\n\n\nIn both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition. Over the past several decades, many statistical methods have been proposed to address this ecological inference problem. We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records. Building on the existing methodological literature, we use Bayes’s rule to combine the Census Bureau’s Surname List with various information from geocoded voter registration records. We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available. We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%. Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates. We provide open-source software to implement the proposed methodology. The open-source software is available for implementing the proposed methodology.\n\nThe said “source software” is the wru package: https://github.com/kosukeimai/wru.\n\nThen, if you feel comfortable, install the wru package and try it out using the sample data provided in the package. And if you don’t feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\n# install.packages(\"wru\")\n\nlibrary(tidyverse)\nlibrary(wru)\n\npredict_race(voter.file = voters, surname.only = TRUE) %>% \n  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)\n\n      surname     pred.whi     pred.bla     pred.his   pred.asi   pred.oth\n1      Khanna 0.0049265455 0.0016079483 0.0023108109 0.88994257 0.10121213\n2        Imai 0.0059040605 0.0007184811 0.0193291824 0.76407641 0.20997186\n3      Rivera 0.0133185684 0.0121164643 0.8680470387 0.07086170 0.03565623\n4     Fifield 0.5122939613 0.0052487193 0.0596200858 0.06003480 0.36280243\n5        Zhou 0.0006977652 0.0006618759 0.0001766502 0.98773098 0.01073272\n6    Ratkovic 0.3845625798 0.0176011903 0.0131533900 0.04793387 0.53674897\n7     Johnson 0.1700395443 0.5164452995 0.0263012602 0.02193102 0.26528287\n8       Lopez 0.0122148735 0.0074083470 0.9026491278 0.03610843 0.04161922\n10 Wantchekon 0.1016771922 0.2873197891 0.3838356390 0.06225610 0.16491128\n9       Morse 0.4688011703 0.1153905281 0.0411994830 0.05237443 0.32223438\n\n\n\nIf you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nme <- tibble(surname = \"Rundel\")\n\npredict_race(voter.file = me, surname.only = TRUE)\n\nWarning: Unknown or uninitialised column: `state`.\n\n\nProceeding with last name predictions...\n\n\nℹ All local files already up-to-date!\nℹ All local files already up-to-date!\n\n\n  surname  pred.whi pred.bla pred.his pred.asi   pred.oth\n1  Rundel 0.9177967        0        0        0 0.08220329"
   },
   {
     "objectID": "ae/ae-03-wrangling-flights.html",
@@ -1414,11 +1414,25 @@
     "text": "Announcements\n\n…"
   },
   {
-    "objectID": "slides/12-dse-bias-privacy.html#two-examples",
-    "href": "slides/12-dse-bias-privacy.html#two-examples",
+    "objectID": "slides/12-dse-bias-privacy.html#garbage-in-garbage-out",
+    "href": "slides/12-dse-bias-privacy.html#garbage-in-garbage-out",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "Two examples",
-    "text": "Two examples\n\nCriminal justice: Machine Bias (ProPublica, 2016)\nLanguage models: Stochastic Parrots (Bender et. al., 2021)"
+    "section": "Garbage in, garbage out",
+    "text": "Garbage in, garbage out\n\nIn statistical modeling and inference we talk about “garbage in, garbage out” – if you don’t have good (random, representative) data, results of your analysis will not be reliable or generalizable.\nCorollary: Bias in, bias out."
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#google-translate",
+    "href": "slides/12-dse-bias-privacy.html#google-translate",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Google translate",
+    "text": "Google translate\n\nWhat might be the reason for Google’s gendered translation? How do ethics play into this situation?\n\n\n\n\n\n\n\n\nSource: Engadget - Google is working to remove gender bias in its translations"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#ae-09",
+    "href": "slides/12-dse-bias-privacy.html#ae-09",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "ae-09",
+    "text": "ae-09\n\n\nGo to the course GitHub org and find your ae-09 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nWork on Part 1 - Stochastic Parrots\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
     "objectID": "slides/12-dse-bias-privacy.html#machine-bias",
@@ -1442,18 +1456,32 @@
     "text": "Risk scores\n\n\n\nHow can an algorithm that doesn’t use race as input data be racist?"
   },
   {
-    "objectID": "slides/12-dse-bias-privacy.html#goggle-translate",
-    "href": "slides/12-dse-bias-privacy.html#goggle-translate",
+    "objectID": "slides/12-dse-bias-privacy.html#ae-09-1",
+    "href": "slides/12-dse-bias-privacy.html#ae-09-1",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "Goggle translate",
-    "text": "Goggle translate\n\n\n\n\n\n\n\nSource: Engadget - Google is working to remove gender bias in its translations"
+    "section": "ae-09",
+    "text": "ae-09\n\n\nGo to the course GitHub org and find your ae-09 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nWork on Part 2 - Predicting ethnicity\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
-    "objectID": "slides/12-dse-bias-privacy.html#section",
-    "href": "slides/12-dse-bias-privacy.html#section",
+    "objectID": "slides/12-dse-bias-privacy.html#what-does-google-thinkknow-about-you",
+    "href": "slides/12-dse-bias-privacy.html#what-does-google-thinkknow-about-you",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "",
-    "text": "🔗 sta199-f22-1.github.io"
+    "section": "What does Google think/know about you?",
+    "text": "What does Google think/know about you?\n\nHave you ever thought about why you’re seeing an ad on Google? Google it! Try to figure out if you have ad personalization on and how your ads are personalized.\n\n\ncountdown(minutes = 5)\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#privacy-of-your-data",
+    "href": "slides/12-dse-bias-privacy.html#privacy-of-your-data",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Privacy of your data",
+    "text": "Privacy of your data\n\nWhat pieces of data have you left on the internet today? Think through everything you’ve logged into, clicked on, checked in, either actively or automatically, that might be tracking you. Do you know where that data is stored? Who it can be accessed by? Whether it’s shared with others?"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#more",
+    "href": "slides/12-dse-bias-privacy.html#more",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "More…",
+    "text": "More…\n\nMention webscraping\nMention data science ethics oath\nReproducibility? Good that they’re already learning… so much more to it than what we cover in class…\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/04-visualizing-various-types-of-data.html#announcements",
