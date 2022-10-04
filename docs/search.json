@@ -483,6 +483,13 @@
     "text": "📖 Read:\n\nIMS: Chp 4 - Exploring categorical data\nIMS: Chp 5 - Exploring numerical data\n\n⌨️ Watch:\n\nVisualizing numerical data\nVisualizing categorical data\n\n📜Optional reading – Blog posts that might be of interest for those who want to dive deeper / go further:\n\n#barbarplots\nVisualizing distributions with raincloud plots"
   },
   {
+    "objectID": "ae/ae-09-dse-bias-privacy.html",
+    "href": "ae/ae-09-dse-bias-privacy.html",
+    "title": "AE 08: Data science ethics",
+    "section": "",
+    "text": "Part 2 - Stochastic parrots\nYour turn (10 minutes):\n\nRead the following title and abstract.\n\n\nOn the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜 (Bender et. al., 2021)\nThe past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English. BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.\n\n\nHave you used a natural language model before? Describe your use.\nWhat is meant by “stochastic parrots” in the paper title?"
+  },
+  {
     "objectID": "ae/ae-03-wrangling-flights.html",
     "href": "ae/ae-03-wrangling-flights.html",
     "title": "AE 03: Wrangling flights",
@@ -551,13 +558,6 @@
     "title": "AE 03: Wrangling flights",
     "section": "group_by()",
     "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\n# add code here\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\n# add code here"
-  },
-  {
-    "objectID": "ae/ae-08-data-science-ethics-A.html",
-    "href": "ae/ae-08-data-science-ethics-A.html",
-    "title": "AE 08: Data science ethics",
-    "section": "",
-    "text": "Part 2 - Stochastic parrots\nYour turn (10 minutes):\n\nRead the following title and abstract.\n\n\nOn the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜 (Bender et. al., 2021)\nThe past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English. BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.\n\n\nHave you used a natural language model before? Describe your use.\nWhat is meant by “stochastic parrots” in the paper title?"
   },
   {
     "objectID": "ae/ae-06-data-types-classes-A.html",
@@ -684,6 +684,13 @@
     "title": "AE 01: Bechdel + data visualization",
     "section": "Return-on-investment",
     "text": "Return-on-investment\nFinally, let’s take a look at return-on-investment (ROI).\n\nStep 1 - Your turn\nCreate side-by-side box plots of roi by clean_test where the boxes are colored by binary.\n\nggplot(bechdel, \n       aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    x = \"Detailed Bechdel result\",\n    y = \"Return-on-investment (gross / budget)\",\n    color = \"Bechdel\\nresult\"\n    )\n\nWarning: Removed 15 rows containing non-finite values (stat_boxplot).\n\n\n\n\n\nWhat are those movies with very high returns on investment?\n\nbechdel |>\n  filter(roi > 400) |>\n  select(title, roi, budget_2013, gross_2013, year, clean_test)\n\n# A tibble: 3 × 6\n  title                     roi budget_2013 gross_2013  year clean_test\n  <chr>                   <dbl>       <dbl>      <dbl> <dbl> <chr>     \n1 Paranormal Activity      671.      505595  339424558  2007 dubious   \n2 The Blair Witch Project  648.      839077  543776715  1999 ok        \n3 El Mariachi              583.       11622    6778946  1992 nowomen   \n\n\n\n\nStep 2 - Demo\nExpand on your plot from the previous step to zoom in on movies with roi < ___ to get a better view of how the medians across the categories compare.\n\nggplot(bechdel, \n       aes(x = clean_test, y = roi, color = binary)) +\n  geom_boxplot() +\n  labs(\n    title = \"Return on investment vs. Bechdel test result\",\n    x = \"Detailed Bechdel result\",\n    y = \"Return-on-investment (gross / budget)\",\n    color = \"Bechdel\\nresult\"\n    ) +\n  coord_cartesian(ylim = c(0, 18))\n\nWarning: Removed 15 rows containing non-finite values (stat_boxplot).\n\n\n\n\n\nWhat does this plot say about return-on-investment on movies that pass the Bechdel test?"
+  },
+  {
+    "objectID": "ae/ae-08-dse-misrepresentation-A.html",
+    "href": "ae/ae-08-dse-misrepresentation-A.html",
+    "title": "AE 08: Data science ethics - Misrepresentation",
+    "section": "",
+    "text": "Part 1 - People’s Poll\nGB News tweeted the following on Aug 26, 2022.\n\n\n\n\n\n\nQuestion: What is wrong with the visualization above?\n\nThe bars are not drawn to scale, hence are misleading\n\nYour turn (5 minutes): The data from this poll are at data/gbpoll.csv. First, load the data and confirm the number of responses match those mentioned in the tweet.\n\ngbpoll <- read_csv(\"data/gbpoll.csv\")\n\nRows: 1235 Columns: 1\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): party\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nnrow(gbpoll)\n\n[1] 1235\n\n\nThen, confirm that the proportions of intended votes match those mentioned in the tweet.\n\ngbpoll |>\n  count(party) |>\n  mutate(prop = n / sum(n))\n\n# A tibble: 5 × 3\n  party                 n   prop\n  <chr>             <int>  <dbl>\n1 Conservative        321 0.260 \n2 Labour              494 0.4   \n3 Liberal Democrats   136 0.110 \n4 Other               210 0.170 \n5 SNP                  74 0.0599\n\n\nDemo: Recreate the visualization from the tweet. You do not need to worry about matching the colors precisely and your bars should be correctly scaled.\n\ngbpoll |>\n  count(party) |>\n  mutate(\n    prop = round(n / sum(n), 2),\n    prop_char = paste0(prop*100, \"%\")\n    ) |>\n  filter(party != \"Other\") |>\n  mutate(party = fct_reorder(party, prop)) |>\n  ggplot(\n    aes(\n      y = party, \n      x = prop, \n      fill = party\n    )\n  ) +\n  geom_col(show.legend = FALSE) +\n  scale_y_discrete(drop = TRUE) +\n  theme_void() +\n  geom_text(\n    aes(label = str_wrap(party, 10)),\n    x = 0.005,\n    hjust = 0,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  geom_text(\n    aes(label = prop_char),\n    nudge_x = -0.005,\n    hjust = 1,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  scale_fill_manual(values = c(\"#D0C123\", \"#F99C1A\",\"#00AEEF\", \"#E4013B\")) +\n  labs(\n    title = str_to_upper(\"If there were to be a general election tomorrow,\\nwhich party would you vote for?\")\n  )\n\n\n\n\n\n\n\nYour turn (10 minutes): Improve the visualization. State the improvements you made and why you made them. Discuss how these improvements help make the plot less misleading.\n\ngbpoll |>\n  count(party) |>\n  mutate(\n    prop = round(n / sum(n), 2),\n    prop_char = paste0(prop*100, \"%\")\n    ) |>\n  mutate(party = fct_reorder(party, prop)) |>\n  ggplot(\n    aes(\n      y = party, \n      x = prop, \n      fill = party\n    )\n  ) +\n  geom_col(show.legend = FALSE) +\n  scale_y_discrete(drop = TRUE) +\n  theme_void() +\n  geom_text(\n    aes(label = str_wrap(party, 10)),\n    x = 0.005,\n    hjust = 0,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  geom_text(\n    aes(label = prop_char),\n    nudge_x = -0.005,\n    hjust = 1,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  scale_fill_viridis_d(option = \"E\", end = 0.8) +\n  labs(\n    title = \"If there were to be a general election tomorrow,\\nwhich party would you vote for?\",\n    caption = \"Source: GBNews Poll, Aug 26, 2022\"\n  )\n\n\n\n\n\n\n\nPart 2 - Private sector\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\nQuestion: What is misleading about this graph?\n\nThe segments are not to scale.\n\nYour turn (6 minutes): If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.\n\nTotal sample size is 1858 – from the caption. Each respondent was asked about each service, so the services might be organized in columns in the data, but to make this plot we’ll ultimately want one column for service and one column for sector.\n\nDemo: Load the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?\n\n\nsurvation <- read_csv(\"data/survation.csv\")\n\nRows: 1858 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): Royal Mail, Energy, Water, Rail\ndbl (1): ID\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nsurvation_longer <- survation |>\n  pivot_longer(\n    cols = -ID,\n    names_to = \"service\",\n    values_to = \"sector\"\n  )\n\nsurvation_longer |>\n  count(service, sector) |>\n  group_by(service) |>\n  mutate(prop = n / sum(n))\n\n# A tibble: 12 × 4\n# Groups:   service [4]\n   service    sector             n   prop\n   <chr>      <chr>          <int>  <dbl>\n 1 Energy     Don't know       130 0.0700\n 2 Energy     Private sector   112 0.0603\n 3 Energy     Public sector   1616 0.870 \n 4 Rail       Don't know        56 0.0301\n 5 Rail       Private sector    56 0.0301\n 6 Rail       Public sector   1746 0.940 \n 7 Royal Mail Don't know       149 0.0802\n 8 Royal Mail Private sector   130 0.0700\n 9 Royal Mail Public sector   1579 0.850 \n10 Water      Don't know        56 0.0301\n11 Water      Private sector    56 0.0301\n12 Water      Public sector   1746 0.940 \n\nsurvation_longer |>\n  mutate(\n    service = fct_relevel(service, \"Royal Mail\", \"Energy\", \"Water\", \"Rail\"),\n    sector = fct_rev(fct_relevel(sector, \"Public sector\", \"Private sector\", \"Don't know\"))\n    ) |>\n  ggplot(\n    aes(y = service, fill = sector)\n  ) +\n  geom_bar() +\n  scale_fill_manual(\n    values = c(\"gray\", \"#FF3205\", \"#006697\"),\n  ) +\n  guides(\n    fill = guide_legend(reverse = TRUE)\n  ) +\n  theme_minimal() +\n  theme(legend.position = \"bottom\") +\n  labs(\n    x = NULL,\n    y = NULL,\n    fill = NULL,\n    title = \"Do you think the following services should be\\nrun in the private sector or the public sector?\",\n    caption = \"Base: All respondents unweighted. Total n = 1858.\"\n  )"
   },
   {
     "objectID": "ae/ae-05-pivoting-statsci-majors-A.html",
@@ -908,6 +915,13 @@
     "title": "AE 03: Wrangling flights",
     "section": "group_by()",
     "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\nflights |>\n  group_by(month) |>\n  summarize(\n    mean_dep_delay = mean(dep_delay, na.rm = TRUE), \n    sd_dep_delay = sd(dep_delay, na.rm = TRUE)\n    )\n\n# A tibble: 12 × 3\n   month mean_dep_delay sd_dep_delay\n   <int>          <dbl>        <dbl>\n 1     1          10.0          36.4\n 2     2          10.8          36.3\n 3     3          13.2          40.1\n 4     4          13.9          43.0\n 5     5          13.0          39.4\n 6     6          20.8          51.5\n 7     7          21.7          51.6\n 8     8          12.6          37.7\n 9     9           6.72         35.6\n10    10           6.24         29.7\n11    11           5.44         27.6\n12    12          16.6          41.9\n\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\nflights |>\n  group_by(origin) |>\n  summarize(\n    med_dep_delay = median(dep_delay, na.rm = TRUE)\n    )\n\n# A tibble: 3 × 2\n  origin med_dep_delay\n  <chr>          <dbl>\n1 EWR               -1\n2 JFK               -1\n3 LGA               -3"
+  },
+  {
+    "objectID": "ae/ae-08-dse-misrepresentation.html",
+    "href": "ae/ae-08-dse-misrepresentation.html",
+    "title": "AE 08: Data science ethics - Misrepresentation",
+    "section": "",
+    "text": "Packages\n\nlibrary(tidyverse)\n\n\n\nPart 1 - People’s Poll\nGB News tweeted the following on Aug 26, 2022.\n\n\n\n\n\n\nQuestion: What is wrong with the visualization above?\n\nAdd your response here.\n\nYour turn (5 minutes): The data from this poll are at data/gbpoll.csv. First, load the data and confirm the number of responses match those mentioned in the tweet.\n\n# add code here\n\nThen, confirm that the proportions of intended votes match those mentioned in the tweet.\n\n# add code here\n\nDemo: Recreate the visualization from the tweet. You do not need to worry about matching the colors precisely and your bars should be correctly scaled.\n\n# add code here\n\nYour turn (10 minutes): Improve the visualization. State the improvements you made and why you made them. Discuss how these improvements help make the plot less misleading.\n\n# add code here\n\n\n\n\nPart 2 - Private sector\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\nQuestion: What is misleading about this graph?\n\nAdd your response here.\n\nYour turn (6 minutes): If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.\n\nAdd your response here.\n\nDemo: Load the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?\n\n\n# add code here"
   },
   {
     "objectID": "ae/ae-07-data-import.html",
@@ -1386,6 +1400,62 @@
     "text": "Recap of AE\n\nData sets can’t be labeled as wide or long but they can be made wider or longer for a certain analysis that requires a certain format\nWhen pivoting longer, variable names that turn into values are characters by default. If you need them to be in another format, you need to explicitly make that transformation, which you can do so within the pivot_longer() function.\nYou can tweak a plot forever, but at some point the tweaks are likely not very productive. However, you should always be critical of defaults (however pretty they might be) and see if you can improve the plot to better portray your data / results / what you want to communicate.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/12-dse-bias-privacy.html#while-you-wait-for-class-to-begin",
+    "href": "slides/12-dse-bias-privacy.html#while-you-wait-for-class-to-begin",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\nOpen your ae-09 project in RStudio, render your document, and commit and push."
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#announcements",
+    "href": "slides/12-dse-bias-privacy.html#announcements",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Announcements",
+    "text": "Announcements\n\n…"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#two-examples",
+    "href": "slides/12-dse-bias-privacy.html#two-examples",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Two examples",
+    "text": "Two examples\n\nCriminal justice: Machine Bias (ProPublica, 2016)\nLanguage models: Stochastic Parrots (Bender et. al., 2021)"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#machine-bias",
+    "href": "slides/12-dse-bias-privacy.html#machine-bias",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Machine Bias",
+    "text": "Machine Bias\n2016 ProPublica article on algorithm used for rating a defendant’s risk of future crime:\n\n\n\nIn forecasting who would re-offend, the algorithm made mistakes with black and white defendants at roughly the same rate but in very different ways.\n\nThe formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants.\nWhite defendants were mislabeled as low risk more often than black defendants.\n\n\n\n\n\n\n\n\n\n\n\n\nSource: ProPublica"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#risk-score-errors",
+    "href": "slides/12-dse-bias-privacy.html#risk-score-errors",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Risk score errors",
+    "text": "Risk score errors\n\n\n\nWhat is common among the defendants who were assigned a high/low risk score for reoffending?"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#risk-scores",
+    "href": "slides/12-dse-bias-privacy.html#risk-scores",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Risk scores",
+    "text": "Risk scores\n\n\n\nHow can an algorithm that doesn’t use race as input data be racist?"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#goggle-translate",
+    "href": "slides/12-dse-bias-privacy.html#goggle-translate",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Goggle translate",
+    "text": "Goggle translate\n\n\n\n\n\n\n\nSource: Engadget - Google is working to remove gender bias in its translations"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#section",
+    "href": "slides/12-dse-bias-privacy.html#section",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "",
+    "text": "🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/04-visualizing-various-types-of-data.html#announcements",
     "href": "slides/04-visualizing-various-types-of-data.html#announcements",
     "title": "Visualizing various types of data",
@@ -1433,139 +1503,6 @@
     "title": "Visualizing various types of data",
     "section": "Recap of AE",
     "text": "Recap of AE\n\nPick geoms based on data types.\nSet appropriate binwidths for histograms.\nTurn off legends when they provide redundant information with show.legend = FALSE.\nCreate plots with multiple geoms, and pay attention to order.\n\n\n\n\n🔗 sta199-f22-1.github.io"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#while-you-wait-for-class-to-begin",
-    "href": "slides/12-webscraping.html#while-you-wait-for-class-to-begin",
-    "title": "Exam 1 Review",
-    "section": "While you wait for class to begin…",
-    "text": "While you wait for class to begin…\nOpen your ae-07 project in RStudio, render your document, and commit and push."
-  },
-  {
-    "objectID": "slides/12-webscraping.html#announcements",
-    "href": "slides/12-webscraping.html#announcements",
-    "title": "Exam 1 Review",
-    "section": "Announcements",
-    "text": "Announcements\n\nExam 1 is released on today at noon and is due at 2pm on Monday.\n\nNo TA OH during the exam.\nI will have OH 4-5pm on Friday on Zoom: bit.ly/minezoom\nAny clarification questions must be emailed to me only.\nNo Slack use during the exam, even about non-exam related questions."
-  },
-  {
-    "objectID": "slides/12-webscraping.html#continue-from-last-time-ae-07",
-    "href": "slides/12-webscraping.html#continue-from-last-time-ae-07",
-    "title": "Exam 1 Review",
-    "section": "Continue from last time: ae-07",
-    "text": "Continue from last time: ae-07\n\n\nGo to your container and open your ae-07 project.\nRender, commit, and push.\n\n\n\n\n\n\n\nImportant\n\n\nYou might see an error. Read it and do as it says!\n\n\n\n\nPull.\nOnce again, render, commit, and push."
-  },
-  {
-    "objectID": "slides/12-webscraping.html#logistics-questions",
-    "href": "slides/12-webscraping.html#logistics-questions",
-    "title": "Exam 1 Review",
-    "section": "Logistics questions",
-    "text": "Logistics questions\n\nCan we use outside sources for our code on the exam as long as we cite where it’s from.\n\nYes! However, you should be striving the solve the questions in the style that we learned. For example, ggplot2 is not the only plotting package in R. But we expect you to use ggplot2 when making plots, not another system.\n\n\nWill content on lab 3 be on the exam? If so, will we be able to access an answer key at some point during the exam period?\n\nYes, will be posted Friday at midnight.\n\n\n\nWhen asked to replicate a graph, should we also adjust fig height/width?\n\nYes, though you shouldn’t worry about matching it exactly. More that it should be legible and if the plot you’re replicating is wider than taller, the plot you’re submitting should be as well."
-  },
-  {
-    "objectID": "slides/12-webscraping.html#packages",
-    "href": "slides/12-webscraping.html#packages",
-    "title": "Exam 1 Review",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#operators-in-r---vs.",
-    "href": "slides/12-webscraping.html#operators-in-r---vs.",
-    "title": "Exam 1 Review",
-    "section": "Operators in R: <- vs. =",
-    "text": "Operators in R: <- vs. =\n\n<-: assignment\n=: equals\n\n\n# good\nx <- 2\n\n# works, but bad\nx = 2\n\n# doesn't work\ndf <- df |>\n  mutate(x <- 2)\n\n# good\ndf <- df |>\n  mutate(x = 2)"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#operators-in-r-vs.-vs.-in",
-    "href": "slides/12-webscraping.html#operators-in-r-vs.-vs.-in",
-    "title": "Exam 1 Review",
-    "section": "Operators in R: = vs. == vs. %in%",
-    "text": "Operators in R: = vs. == vs. %in%\n\n==: is equal to\n%in%: in\n\n\nx = c(1, 2, 3)\ny = c(3, 4, 5)\n\n# do elements in x equal those in y?\n# check if each element in x is equal to the \n# corresponding element in y\nx == y\n\n[1] FALSE FALSE FALSE\n\n\n\n\n# are any elements in x also in y?\n# check if any element in x is equal to any element in y\nx %in% y\n\n[1] FALSE FALSE  TRUE\n\n\n\n\n\n# set x equal to y\nx = y\nx\n\n[1] 3 4 5"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#in-vs",
-    "href": "slides/12-webscraping.html#in-vs",
-    "title": "Exam 1 Review",
-    "section": "%in% vs ==",
-    "text": "%in% vs ==\n\ndf <- tibble(\n  x = c(1, 2, 3, 4),\n  y = c(\"a\", \"b\", \"c\", \"d\")\n  )\ndf\n\n# A tibble: 4 × 2\n      x y    \n  <dbl> <chr>\n1     1 a    \n2     2 b    \n3     3 c    \n4     4 d    \n\n# Filter for x is 2\ndf |>\n  filter(x == 2)\n\n# A tibble: 1 × 2\n      x y    \n  <dbl> <chr>\n1     2 b"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#in-vs-1",
-    "href": "slides/12-webscraping.html#in-vs-1",
-    "title": "Exam 1 Review",
-    "section": "%in% vs ==",
-    "text": "%in% vs ==\n\n# Filter for x is 2 or 3\ndf |>\n  filter(x == c(2, 3))\n\n# A tibble: 0 × 2\n# … with 2 variables: x <dbl>, y <chr>\n\n# Filter for x is 2 or 3\ndf |>\n  filter(x %in% c(2, 3))\n\n# A tibble: 2 × 2\n      x y    \n  <dbl> <chr>\n1     2 b    \n2     3 c"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#operators-in-r-vs.",
-    "href": "slides/12-webscraping.html#operators-in-r-vs.",
-    "title": "Exam 1 Review",
-    "section": "Operators in R: |> vs. %>%",
-    "text": "Operators in R: |> vs. %>%\n\n|>: pipe operator (newer – what we’ve been using in class)\n%>%: pipe operator (older – what you see in the videos)\nThey effectively do the same thing"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#interpreting-data-visualizations-i",
-    "href": "slides/12-webscraping.html#interpreting-data-visualizations-i",
-    "title": "Exam 1 Review",
-    "section": "Interpreting data visualizations I",
-    "text": "Interpreting data visualizations I\n\nProvide a 1-2 sentence interpretation of the relationship between city and highway mileage of cars.\n\n\n\nggplot(\n  mpg,\n  aes(x = cty, y = hwy)\n) +\n  geom_jitter(alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(\n    x = \"City MPG\", \n    y = \"Highway MPG\"\n  )"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#interpreting-data-visualizations-ii",
-    "href": "slides/12-webscraping.html#interpreting-data-visualizations-ii",
-    "title": "Exam 1 Review",
-    "section": "Interpreting data visualizations II",
-    "text": "Interpreting data visualizations II\n\nProvide a 1-2 sentence interpretation of the relationship between city and highway mileage of cars, taking into consideration whether they’re 4 wheel drive, front wheel drive, or rear wheel drive.\n\n\n\nggplot(\n  mpg,\n  aes(x = cty, y = hwy, color = drv)\n) +\n  geom_jitter(alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(\n    x = \"City MPG\", \n    y = \"Highway MPG\"\n  )"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#geom_jitter-vs.-geom_point",
-    "href": "slides/12-webscraping.html#geom_jitter-vs.-geom_point",
-    "title": "Exam 1 Review",
-    "section": "geom_jitter() vs. geom_point()",
-    "text": "geom_jitter() vs. geom_point()\n\nThe same dataset is plotted with geom_jitter() and geom_point() below. Why do the two plots look different?"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#distinct",
-    "href": "slides/12-webscraping.html#distinct",
-    "title": "Exam 1 Review",
-    "section": "distinct()",
-    "text": "distinct()\n\n\n\nmpg |>\n  select(cty, hwy)\n\n# A tibble: 234 × 2\n     cty   hwy\n   <int> <int>\n 1    18    29\n 2    21    29\n 3    20    31\n 4    21    30\n 5    16    26\n 6    18    26\n 7    18    27\n 8    18    26\n 9    16    25\n10    20    28\n# … with 224 more rows\n\n\n\n\nmpg |>\n  distinct(cty, hwy)\n\n# A tibble: 78 × 2\n     cty   hwy\n   <int> <int>\n 1    18    29\n 2    21    29\n 3    20    31\n 4    21    30\n 5    16    26\n 6    18    26\n 7    18    27\n 8    16    25\n 9    20    28\n10    19    27\n# … with 68 more rows"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#working-with-categorical-data",
-    "href": "slides/12-webscraping.html#working-with-categorical-data",
-    "title": "Exam 1 Review",
-    "section": "Working with categorical data",
-    "text": "Working with categorical data\n\ntshirts <- tibble(\n  size = c(\"Large\", \"Medium\", \"Large\", \"Small\", \"Small\", \"Medium\", \"Small\", \"X-Large\", \"X-Small\"),\n  price = c(10, 15, 12, 18, 22, 13, 67, 12, 10)\n)\n\nggplot(tshirts, aes(x = size)) +\n  geom_bar()"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#fct_relevel",
-    "href": "slides/12-webscraping.html#fct_relevel",
-    "title": "Exam 1 Review",
-    "section": "fct_relevel()",
-    "text": "fct_relevel()\nReorder levels based on an order you provide\n\ntshirts |>\n  mutate(size = fct_relevel(size, \"X-Small\", \"Small\", \"Medium\", \"Large\", \"X-Large\")) |>\n  ggplot(aes(x = size)) +\n  geom_bar()"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#fct_reorder",
-    "href": "slides/12-webscraping.html#fct_reorder",
-    "title": "Exam 1 Review",
-    "section": "fct_reorder()",
-    "text": "fct_reorder()\nReorder levels based on another variable\n\ntshirts |>\n  mutate(size = fct_reorder(size, price, mean)) |>\n  ggplot(aes(x = size)) +\n  geom_bar()"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#fct_other",
-    "href": "slides/12-webscraping.html#fct_other",
-    "title": "Exam 1 Review",
-    "section": "fct_other()",
-    "text": "fct_other()\nLump some levels to “Other”\n\ntshirts |>\n  mutate(size = fct_other(size, keep = c(\"Small\", \"Medium\", \"Large\"))) |>\n  ggplot(aes(x = size)) +\n  geom_bar()"
-  },
-  {
-    "objectID": "slides/12-webscraping.html#pivoting-and-joining",
-    "href": "slides/12-webscraping.html#pivoting-and-joining",
-    "title": "Exam 1 Review",
-    "section": "Pivoting and joining",
-    "text": "Pivoting and joining\nLet’s visit https://www.garrickadenbuie.com/project/tidyexplain!\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/10-exam-1-review.html#while-you-wait-for-class-to-begin",
@@ -1701,83 +1638,6 @@
     "text": "Pivoting and joining\nLet’s visit https://www.garrickadenbuie.com/project/tidyexplain!\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
-    "objectID": "slides/11-data-science-ethics.html#while-you-wait-for-class-to-begin",
-    "href": "slides/11-data-science-ethics.html#while-you-wait-for-class-to-begin",
-    "title": "Data science ethics",
-    "section": "While you wait for class to begin…",
-    "text": "While you wait for class to begin…\nOpen your ae-08 project in RStudio, render your document, and commit and push."
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#announcements",
-    "href": "slides/11-data-science-ethics.html#announcements",
-    "title": "Data science ethics",
-    "section": "Announcements",
-    "text": "Announcements\n\n…"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#stand-your-ground",
-    "href": "slides/11-data-science-ethics.html#stand-your-ground",
-    "title": "Data science ethics",
-    "section": "Stand your ground",
-    "text": "Stand your ground\n\nIn 2005, the Florida legislature passed the controversial “Stand Your Ground” law that broadened the situations in which citizens can use lethal force to protect themselves against perceived threats. Advocates believed that the new law would ultimately reduce crime; opponents feared an increase in the use of lethal force.\n\n\n\n\nWhat does the following visualization, published by the news service Reuters on February 16, 2014, say about the number of firearm murders in Florida over the years?\n\n\n\n\n\n\n\n\n\n\n\nSource: MDSR, Chp 8."
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#covid-cases",
-    "href": "slides/11-data-science-ethics.html#covid-cases",
-    "title": "Data science ethics",
-    "section": "COVID cases",
-    "text": "COVID cases\n\nIn May 2020, the state of Georgia published the following visualization. What does this plot say about the number of COVID cases in the most impacted counties?"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#ae-08",
-    "href": "slides/11-data-science-ethics.html#ae-08",
-    "title": "Data science ethics",
-    "section": "ae-08",
-    "text": "ae-08\n…"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#two-examples",
-    "href": "slides/11-data-science-ethics.html#two-examples",
-    "title": "Data science ethics",
-    "section": "Two examples",
-    "text": "Two examples\n\nCriminal justice: Machine Bias (ProPublica, 2016)\nLanguage models: Stochastic Parrots (Bender et. al., 2021)"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#machine-bias",
-    "href": "slides/11-data-science-ethics.html#machine-bias",
-    "title": "Data science ethics",
-    "section": "Machine Bias",
-    "text": "Machine Bias\n2016 ProPublica article on algorithm used for rating a defendant’s risk of future crime:\n\n\n\nIn forecasting who would re-offend, the algorithm made mistakes with black and white defendants at roughly the same rate but in very different ways.\n\nThe formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants.\nWhite defendants were mislabeled as low risk more often than black defendants.\n\n\n\n\n\n\n\n\n\n\n\n\nSource: ProPublica"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#risk-score-errors",
-    "href": "slides/11-data-science-ethics.html#risk-score-errors",
-    "title": "Data science ethics",
-    "section": "Risk score errors",
-    "text": "Risk score errors\n\n\n\nWhat is common among the defendants who were assigned a high/low risk score for reoffending?"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#risk-scores",
-    "href": "slides/11-data-science-ethics.html#risk-scores",
-    "title": "Data science ethics",
-    "section": "Risk scores",
-    "text": "Risk scores\n\n\n\nHow can an algorithm that doesn’t use race as input data be racist?"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#goggle-translate",
-    "href": "slides/11-data-science-ethics.html#goggle-translate",
-    "title": "Data science ethics",
-    "section": "Goggle translate",
-    "text": "Goggle translate\n\n\n\n\n\n\n\nSource: Engadget - Google is working to remove gender bias in its translations"
-  },
-  {
-    "objectID": "slides/11-data-science-ethics.html#section",
-    "href": "slides/11-data-science-ethics.html#section",
-    "title": "Data science ethics",
-    "section": "",
-    "text": "🔗 sta199-f22-1.github.io"
-  },
-  {
     "objectID": "slides/03-grammar-of-graphics.html#announcements",
     "href": "slides/03-grammar-of-graphics.html#announcements",
     "title": "Grammar of graphics",
@@ -1909,6 +1769,62 @@
     "title": "Data import",
     "section": "ae-07",
     "text": "ae-07\n\n\nGo to the course GitHub org and find your ae-07 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#while-you-wait-for-class-to-begin",
+    "href": "slides/11-dse-misrepresentation.html#while-you-wait-for-class-to-begin",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\nClone your ae-08 repo.\nAny questions from prepare materials? Go to slido.com / #sta199. You can also upvote others’ questions."
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#announcements",
+    "href": "slides/11-dse-misrepresentation.html#announcements",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "Announcements",
+    "text": "Announcements\n\nSlight change of plans for this week – dedicating entire week to data science ethics\nMake sure to catch up with reading and (required) videos by Thursday\nHighly recommend watching thew optional videos as well – if not by Thursday, over the break"
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#stand-your-ground",
+    "href": "slides/11-dse-misrepresentation.html#stand-your-ground",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "Stand your ground",
+    "text": "Stand your ground\n\nIn 2005, the Florida legislature passed the controversial “Stand Your Ground” law that broadened the situations in which citizens can use lethal force to protect themselves against perceived threats. Advocates believed that the new law would ultimately reduce crime; opponents feared an increase in the use of lethal force.\n\n\n\n\nWhat does the visualization, published by Reuters on February 16, 2014, say about the number of firearm murders in Florida over the years?\n\n\n\n−+\n03:00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource: MDSR, Chp 8."
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#covid-cases",
+    "href": "slides/11-dse-misrepresentation.html#covid-cases",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "COVID cases",
+    "text": "COVID cases\n\nIn May 2020, the state of Georgia published the following visualization. What does this plot say about the number of COVID cases in the most impacted counties?\n\n\n\n\nWhat changes need to be made to this graph to fix it and make it less misleading?\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#another-one-on-covid-cases",
+    "href": "slides/11-dse-misrepresentation.html#another-one-on-covid-cases",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "Another one on COVID cases",
+    "text": "Another one on COVID cases\n\nWhat is misleading about the following two visualizations (from here) that are presented together to show the trajectory of COVID?\n\n\n\nHow it started (Jan 3, 2022)\n\n\n\n\n\n\nHow it’s going (Feb 10, 2022)"
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#redistributive-taxes",
+    "href": "slides/11-dse-misrepresentation.html#redistributive-taxes",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "Redistributive taxes",
+    "text": "Redistributive taxes\n\nWhat is misleading about the following visualization (shared here) about Americans’ views on redistributive taxes?"
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#ae-08",
+    "href": "slides/11-dse-misrepresentation.html#ae-08",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "ae-08",
+    "text": "ae-08\n\n\nGo to the course GitHub org and find your ae-08 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/11-dse-misrepresentation.html#recap-of-ae",
+    "href": "slides/11-dse-misrepresentation.html#recap-of-ae",
+    "title": "Data science ethics: Misrepresentation",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nNot all visualizations are equally informative. But, perhaps more importantly, some might be misleading.\nAlways be cautious of a visualization, particularly one with an agenda, at the first glance. Look closely to check if it might be put together to mislead, instead of clarify.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",

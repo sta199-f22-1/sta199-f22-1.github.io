@@ -1,0 +1,124 @@
+---
+title: "Data science ethics: Misrepresentation"
+subtitle: "Lecture 11"
+date: "October 4, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Clone your `ae-08` repo.
+-   Any questions from prepare materials? Go to [slido.com](https://www.slido.com/) / #sta199. You can also upvote others' questions.
+
+## Announcements {.smaller}
+
+-   Slight change of plans for this week -- dedicating entire week to data science ethics
+-   Make sure to catch up with reading and (required) videos by Thursday
+-   Highly recommend watching thew optional videos as well -- if not by Thursday, over the break
+
+# Misrepresentation
+
+## Stand your ground {.smaller}
+
+::: question
+In 2005, the [*Florida legislature*](https://en.wikipedia.org/w/index.php?search=Florida%20legislature) passed the controversial ["Stand Your Ground" law](https://en.wikipedia.org/wiki/Stand-your-ground_law) that broadened the situations in which citizens can use lethal force to protect themselves against perceived threats.
+Advocates believed that the new law would ultimately reduce crime; opponents feared an increase in the use of lethal force.
+:::
+
+::: columns
+::: {.column width="40%"}
+::: question
+What does the visualization, published by [Reuters](http://static5.businessinsider.com/image/53038b556da8110e5ce82be7-604-756/florida%20gun%20deaths.jpg) on February 16, 2014, say about the number of firearm murders in Florida over the years?
+
+```{r}
+#| echo: false
+
+countdown(minutes = 3, left = 0, bottom = 0.1)
+```
+:::
+:::
+
+::: {.column width="60%"}
+![](images/11/stand-your-ground.png){fig-align="center"}
+:::
+:::
+
+::: aside
+Source: [MDSR, Chp 8](https://mdsr-book.github.io/mdsr2e/ch-ethics.html).
+:::
+
+## COVID cases {.smaller}
+
+::: question
+In May 2020, the state of Georgia published the following visualization.
+What does this plot say about the number of COVID cases in the most impacted counties?
+:::
+
+::: columns
+::: {.column width="30%"}
+::: question
+What changes need to be made to this graph to fix it and make it less misleading?
+:::
+
+```{r}
+#| echo: false
+
+countdown(minutes = 3, left = 0)
+```
+:::
+
+::: {.column width="70%"}
+![](images/11/georgia-covid-deaths.png){fig-align="right" width="700"}
+:::
+:::
+
+## Another one on COVID cases {.smaller}
+
+::: question
+What is misleading about the following two visualizations ([from here](https://twitter.com/carlquintanilla/status/1491824980648247296)) that are presented together to show the trajectory of COVID?
+:::
+
+::: columns
+::: {.column width="50%"}
+How it started (Jan 3, 2022)
+
+![](images/11/us-covid-1.jpg){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+How it's going (Feb 10, 2022)
+
+![](images/11/us-covid-2.jpg){fig-align="center"}
+:::
+:::
+
+## Redistributive taxes
+
+::: question
+What is misleading about the following visualization ([shared here](https://twitter.com/aedwardslevy/status/1558171043591766016)) about Americans' views on redistributive taxes?
+:::
+
+![](images/11/redistribute-taxes.png){fig-align="center"}
+
+# Application exercise
+
+## `ae-08`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-08` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+
+## Recap of AE {.smaller}
+
+-   Not all visualizations are equally informative. But, perhaps more importantly, some might be misleading.
+-   Always be cautious of a visualization, particularly one with an agenda, at the first glance. Look closely to check if it might be put together to mislead, instead of clarify.

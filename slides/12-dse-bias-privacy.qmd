@@ -1,0 +1,100 @@
+---
+title: "Data science ethics: Algorithmic bias + Data privacy"
+subtitle: "Lecture 12"
+date: "October 6, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+Open your `ae-09` project in RStudio, render your document, and commit and push.
+
+## Announcements {.smaller}
+
+-   ...
+
+# Algorithmic bias
+
+## Two examples
+
+-   Criminal justice: [Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) (ProPublica, 2016)
+
+-   Language models: [Stochastic Parrots](https://s10251.pcdn.co/pdf/2021-bender-parrots.pdf) (Bender et. al., 2021)
+
+## Machine Bias {.smaller}
+
+2016 ProPublica article on algorithm used for rating a defendant's risk of future crime:
+
+::: columns
+::: {.column width="70%"}
+> In forecasting who would re-offend, the algorithm made mistakes with black and white defendants at roughly the same rate but in very different ways.
+>
+> -   The formula was particularly likely to falsely flag black defendants as future criminals, wrongly labeling them this way at almost twice the rate as white defendants.
+>
+> -   White defendants were mislabeled as low risk more often than black defendants.
+:::
+
+::: {.column width="30%"}
+![](images/11/machine-bias.png){fig-align="center" width="800"}
+:::
+:::
+
+::: aside
+Source: [ProPublica](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)
+:::
+
+## Risk score errors
+
+::: columns
+::: {.column width="35%"}
+::: question
+What is common among the defendants who were assigned a high/low risk score for reoffending?
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+![](images/11/machine-bias-petty-theft-1.png){fig-align="center" width="300" height="250"} ![](images/11/machine-bias-petty-theft-2.png){fig-align="center" width="300" height="180"}
+:::
+
+::: {.column width="30%"}
+![](images/11/machine-bias-drug-posession-1.png){fig-align="center" width="300" height="250"} ![](images/11/machine-bias-drug-posession-2.png){fig-align="center" width="300" height="180"}
+:::
+:::
+
+## Risk scores
+
+::: columns
+::: {.column width="35%"}
+::: question
+How can an algorithm that doesn't use race as input data be racist?
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="60%"}
+![](images/11/machine-bias-risk-scores.png){fig-align="center" width="480"}
+:::
+:::
+
+## Goggle translate
+
+![](images/11/google-translate.png){fig-align="center"}
+
+::: aside
+Source: [Engadget - Google is working to remove gender bias in its translations](https://www.engadget.com/2018-12-07-google-remove-gender-bias-translations.html)
+:::
+
+## 

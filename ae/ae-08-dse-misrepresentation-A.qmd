@@ -1,0 +1,199 @@
+---
+title: "AE 08: Data science ethics - Misrepresentation"
+subtitle: "Suggested answers"
+categories: 
+  - Application exercise
+  - Answers
+editor: visual
+---
+
+# Packages
+
+```{r}
+#| label: load-pkg
+#| message: false
+
+library(tidyverse)
+```
+
+# Part 1 - People's Poll
+
+GB News [tweeted](https://twitter.com/gbnews/status/1563033528534958081) the following on Aug 26, 2022.
+
+[![](images/gbnews-tweet.png){fig-align="center" width="800"}](https://twitter.com/gbnews/status/1563033528534958081)
+
+-   **Question:** What is wrong with the visualization above?
+
+The bars are not drawn to scale, hence are misleading
+
+-   **Your turn (5 minutes):** The data from this poll are at `data/gbpoll.csv`.
+    First, load the data and confirm the number of responses match those mentioned in the tweet.
+
+    ```{r}
+    #| label: gbpoll-data
+
+    gbpoll <- read_csv("data/gbpoll.csv")
+    nrow(gbpoll)
+    ```
+
+    Then, confirm that the proportions of intended votes match those mentioned in the tweet.
+
+    ```{r}
+    #| label: gbpoll-props
+
+    gbpoll |>
+      count(party) |>
+      mutate(prop = n / sum(n))
+    ```
+
+-   **Demo:** Recreate the visualization from the tweet.
+    You do not need to worry about matching the colors precisely and your bars should be correctly scaled.
+
+    ```{r}
+    #| label: gbnews-plot-recreate
+
+    gbpoll |>
+      count(party) |>
+      mutate(
+        prop = round(n / sum(n), 2),
+        prop_char = paste0(prop*100, "%")
+        ) |>
+      filter(party != "Other") |>
+      mutate(party = fct_reorder(party, prop)) |>
+      ggplot(
+        aes(
+          y = party, 
+          x = prop, 
+          fill = party
+        )
+      ) +
+      geom_col(show.legend = FALSE) +
+      scale_y_discrete(drop = TRUE) +
+      theme_void() +
+      geom_text(
+        aes(label = str_wrap(party, 10)),
+        x = 0.005,
+        hjust = 0,
+        color = "white",
+        fontface = "bold"
+        ) +
+      geom_text(
+        aes(label = prop_char),
+        nudge_x = -0.005,
+        hjust = 1,
+        color = "white",
+        fontface = "bold"
+        ) +
+      scale_fill_manual(values = c("#D0C123", "#F99C1A","#00AEEF", "#E4013B")) +
+      labs(
+        title = str_to_upper("If there were to be a general election tomorrow,\nwhich party would you vote for?")
+      )
+    ```
+
+```{=html}
+<!-- -->
+```
+-   **Your turn (10 minutes):** Improve the visualization.
+    State the improvements you made and why you made them.
+    Discuss how these improvements help make the plot less misleading.
+
+    ```{r}
+    #| label: gbnews-plot-imorove
+
+    gbpoll |>
+      count(party) |>
+      mutate(
+        prop = round(n / sum(n), 2),
+        prop_char = paste0(prop*100, "%")
+        ) |>
+      mutate(party = fct_reorder(party, prop)) |>
+      ggplot(
+        aes(
+          y = party, 
+          x = prop, 
+          fill = party
+        )
+      ) +
+      geom_col(show.legend = FALSE) +
+      scale_y_discrete(drop = TRUE) +
+      theme_void() +
+      geom_text(
+        aes(label = str_wrap(party, 10)),
+        x = 0.005,
+        hjust = 0,
+        color = "white",
+        fontface = "bold"
+        ) +
+      geom_text(
+        aes(label = prop_char),
+        nudge_x = -0.005,
+        hjust = 1,
+        color = "white",
+        fontface = "bold"
+        ) +
+      scale_fill_viridis_d(option = "E", end = 0.8) +
+      labs(
+        title = "If there were to be a general election tomorrow,\nwhich party would you vote for?",
+        caption = "Source: GBNews Poll, Aug 26, 2022"
+      )
+    ```
+
+# Part 2 - Private sector
+
+The following chart was [shared](https://twitter.com/GraphCrimes/status/1566264004288331776) by \@GraphCrimes on Twitter on September 3, 2022.
+
+![](images/private-sector.jpg){fig-align="center"}
+
+-   **Question:** What is misleading about this graph?
+
+The segments are not to scale.
+
+-   **Your turn (6 minutes):** If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.
+
+Total sample size is 1858 -- from the caption.
+Each respondent was asked about each service, so the services might be organized in columns in the data, but to make this plot we'll ultimately want one column for service and one column for sector.
+
+-   **Demo:** Load the data for this survey from `data/survation.csv`. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?
+
+```{r}
+#| label: private-sector
+
+survation <- read_csv("data/survation.csv")
+
+survation_longer <- survation |>
+  pivot_longer(
+    cols = -ID,
+    names_to = "service",
+    values_to = "sector"
+  )
+
+survation_longer |>
+  count(service, sector) |>
+  group_by(service) |>
+  mutate(prop = n / sum(n))
+
+survation_longer |>
+  mutate(
+    service = fct_relevel(service, "Royal Mail", "Energy", "Water", "Rail"),
+    sector = fct_rev(fct_relevel(sector, "Public sector", "Private sector", "Don't know"))
+    ) |>
+  ggplot(
+    aes(y = service, fill = sector)
+  ) +
+  geom_bar() +
+  scale_fill_manual(
+    values = c("gray", "#FF3205", "#006697"),
+  ) +
+  guides(
+    fill = guide_legend(reverse = TRUE)
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  labs(
+    x = NULL,
+    y = NULL,
+    fill = NULL,
+    title = "Do you think the following services should be\nrun in the private sector or the public sector?",
+    caption = "Base: All respondents unweighted. Total n = 1858."
+  )
+```
