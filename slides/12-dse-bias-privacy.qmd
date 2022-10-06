@@ -15,13 +15,182 @@ library(countdown)
 
 ## While you wait for class to begin...
 
-Open your `ae-09` project in RStudio, render your document, and commit and push.
+::: callout-important
+**Study participation + exam extra credit opportunity:**
+
+::: columns
+::: {.column width="80%"}
+-   Optional! But the researchers would appreciate your participation!
+-   Go to [bit.ly/sta199-learning-study-1](https://bit.ly/sta199-learning-study-1) to fill out the survey.
+-   I won't see your responses, answer freely and honestly.
+-   I will get a list of who filled out the survey from Duke Learning Innovations and use that to award +4 points extra credit for Exam 1.
+-   IRB Protocol #2022-0545.
+:::
+
+::: {.column width="20%"}
+![](images/12/bit.ly_sta199-learning-study-1.png){fig-align="right" width="150"}
+:::
+:::
+:::
 
 ## Announcements {.smaller}
 
--   ...
+-   HW 3 posted later today, due one week from now
+-   No OH over Fall break (weekend, Mon, Tue)
+
+## From last time: `ae-08`
+
+Let's tidy up our plot a bit more!
+
+# Data privacy
+
+## "Your" data
+
+-   Every time we use apps, websites, and devices, our data is being collected and used or sold to others.
+
+-   More importantly, decisions are made by law enforcement, financial institutions, and governments based on data that directly affect the lives of people.
+
+## Privacy of your data
+
+::: question
+What pieces of data have you left on the internet today?
+Think through everything you've logged into, clicked on, checked in, either actively or automatically, that might be tracking you.
+Do you know where that data is stored?
+Who it can be accessed by?
+Whether it's shared with others?
+:::
+
+## Sharing your data {.smaller}
+
+::: question
+What are you OK with sharing?
+:::
+
+::: incremental
+-   Name
+-   Age
+-   Email
+-   Phone Number
+-   List of every video you watch
+-   List of every video you comment on
+-   How you type: speed, accuracy
+-   How long you spend on different content
+-   List of all your private messages (date, time, person sent to)
+-   Info about your photos (how it was taken, where it was taken (GPS), when it was taken)
+:::
+
+## What does Google think/know about you?
+
+::: question
+Have you ever thought about why you're seeing an ad on Google?
+Google it!
+Try to figure out if you have ad personalization on and how your ads are personalized.
+:::
+
+```{r}
+#| echo: false
+
+countdown(minutes = 5)
+```
+
+## Your browing history
+
+::: question
+Which of the following are you OK with your browsing history to be used towards?
+:::
+
+::: incremental
+-   For serving you targeted ads
+-   To score you as a candidate for a job
+-   To predict your race/ethnicity for voting purposes
+:::
+
+## Who else gets to use your data?
+
+::: question
+Suppose you create a profile on a social media site and share your personal information on your profile.
+Who else gets to use that data?
+:::
+
+::: incremental
+-   Companies the social media company has a connection to?
+-   Companies the social media company sells your data to?
+-   Researchers?
+:::
+
+## OK Cupid data breach {.smaller}
+
+-   In 2016, researchers published data of 70,000 OkCupid users---including usernames, political leanings, drug usage, and intimate sexual details
+-   Researchers didn't release the real names and pictures of OKCupid users, but their identities could easily be uncovered from the details provided, e.g. usernames
+
+. . .
+
+::: columns
+::: {.column width="60%"}
+> Some may object to the ethics of gathering and releasing this data.
+> However, all the data found in the dataset are or were already publicly available, so releasing this dataset merely presents it in a more useful form.
+>
+> Researchers Emil Kirkegaard and Julius Daugbjerg Bjerrekær
+:::
+
+::: {.column width="40%"}
+![](images/12/okcupid-tweet.png){fig-align="center" width="500"}
+:::
+:::
 
 # Algorithmic bias
+
+## Gettysburg address {.smaller}
+
+::: columns
+::: {.column width="25%"}
+::: question
+Randomly select 10 words from the Gettysburg Address and calculate the mean number of letters in these 10 words.
+Submit your answer at [bit.ly/gburg199](https://bit.ly/gburg199).
+
+![](images/12/bit.ly_gburg199.png){fig-align="center" width="150"}
+:::
+:::
+
+::: {.column width="75%"}
+![](images/12/getty.jpg){fig-align="center"}
+:::
+:::
+
+## Your responses
+
+```{r}
+#| echo: false
+
+library(googlesheets4)
+library(tidyverse)
+gs4_deauth()
+gburg <- read_sheet("https://docs.google.com/spreadsheets/d/1BG-sXvRdo_yhL3R1_7NtcbzYyfJ_w1rvPADuf4t-eNI/edit?usp=sharing")
+names(gburg) <- c("timestamp", "avg")
+ggplot(gburg,
+       aes(x = avg)) +
+  geom_histogram() +
+  labs(
+    x = "Submitted averages", 
+    y = "Count"
+    )
+```
+
+## Comparison to "truth"
+
+```{r}
+#| echo: false
+
+ggplot(gburg,
+       aes(x = avg)) +
+  geom_histogram() +
+  geom_vline(xintercept = 4.22, color = "#FF3E41" , size = 2) +
+  geom_vline(xintercept = mean(gburg$avg) , color = "#325b74" , size = 2) +
+  labs(
+    x = "Submitted averages", 
+    y = "Count"
+    )
+```
 
 ## Garbage in, garbage out
 
@@ -31,7 +200,8 @@ Open your `ae-09` project in RStudio, render your document, and commit and push.
 ## Google translate
 
 ::: question
-What might be the reason for Google's gendered translation? How do ethics play into this situation?
+What might be the reason for Google's gendered translation?
+How do ethics play into this situation?
 :::
 
 ![](images/12/google-translate.png){fig-align="center"}
@@ -40,7 +210,7 @@ What might be the reason for Google's gendered translation? How do ethics play i
 Source: [Engadget - Google is working to remove gender bias in its translations](https://www.engadget.com/2018-12-07-google-remove-gender-bias-translations.html)
 :::
 
-## `ae-09`
+## `ae-09` - Part 1
 
 ::: appex
 -   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-09` (repo name will be suffixed with your GitHub name).
@@ -63,7 +233,7 @@ Source: [Engadget - Google is working to remove gender bias in its translations]
 :::
 
 ::: {.column width="30%"}
-![](images/11/machine-bias.png){fig-align="center" width="800"}
+![](images/12/machine-bias.png){fig-align="center" width="800"}
 :::
 :::
 
@@ -109,7 +279,7 @@ How can an algorithm that doesn't use race as input data be racist?
 :::
 :::
 
-## `ae-09`
+## `ae-09` - Part 2
 
 ::: appex
 -   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-09` (repo name will be suffixed with your GitHub name).
@@ -117,28 +287,3 @@ How can an algorithm that doesn't use race as input data be racist?
 -   Work on **Part 2 - Predicting ethnicity**
 -   Render, commit, and push your edits by the AE deadline -- 3 days from today.
 :::
-
-# Data privacy
-
-## What does Google think/know about you?
-
-::: question
-Have you ever thought about why you're seeing an ad on Google? Google it! Try to figure out if you have ad personalization on and how your ads are personalized.
-:::
-
-```{r}
-countdown(minutes = 5)
-```
-
-## Privacy of your data
-
-::: question
-What pieces of data have you left on the internet today? Think through everything you've logged into, clicked on, checked in, either actively or automatically, that might be tracking you. Do you know where that data is stored? Who it can be accessed by? Whether it's shared with others?
-:::
-
-## More...
-
-- Mention webscraping
-- Mention data science ethics oath
-- Reproducibility? Good that they're already learning... so much more to it than what we cover in class...
-

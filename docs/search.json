@@ -483,13 +483,6 @@
     "text": "📖 Read:\n\nIMS: Chp 4 - Exploring categorical data\nIMS: Chp 5 - Exploring numerical data\n\n⌨️ Watch:\n\nVisualizing numerical data\nVisualizing categorical data\n\n📜Optional reading – Blog posts that might be of interest for those who want to dive deeper / go further:\n\n#barbarplots\nVisualizing distributions with raincloud plots"
   },
   {
-    "objectID": "ae/ae-09-dse-bias-privacy.html",
-    "href": "ae/ae-09-dse-bias-privacy.html",
-    "title": "AE 08: Data science ethics",
-    "section": "",
-    "text": "Part 2 - Predicting ethnicity\nYour turn (12 minutes): Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.\n\nThe following is the title and the abstract of the paper. Take a minute to read them.\n\n\nImproving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record (Imran and Khan, 2016)\n\n\nIn both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition. Over the past several decades, many statistical methods have been proposed to address this ecological inference problem. We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records. Building on the existing methodological literature, we use Bayes’s rule to combine the Census Bureau’s Surname List with various information from geocoded voter registration records. We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available. We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%. Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates. We provide open-source software to implement the proposed methodology. The open-source software is available for implementing the proposed methodology.\n\nThe said “source software” is the wru package: https://github.com/kosukeimai/wru.\n\nThen, if you feel comfortable, install the wru package and try it out using the sample data provided in the package. And if you don’t feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\n# install.packages(\"wru\")\n\nlibrary(tidyverse)\nlibrary(wru)\n\npredict_race(voter.file = voters, surname.only = TRUE) %>% \n  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)\n\n      surname     pred.whi     pred.bla     pred.his   pred.asi   pred.oth\n1      Khanna 0.0049265455 0.0016079483 0.0023108109 0.88994257 0.10121213\n2        Imai 0.0059040605 0.0007184811 0.0193291824 0.76407641 0.20997186\n3      Rivera 0.0133185684 0.0121164643 0.8680470387 0.07086170 0.03565623\n4     Fifield 0.5122939613 0.0052487193 0.0596200858 0.06003480 0.36280243\n5        Zhou 0.0006977652 0.0006618759 0.0001766502 0.98773098 0.01073272\n6    Ratkovic 0.3845625798 0.0176011903 0.0131533900 0.04793387 0.53674897\n7     Johnson 0.1700395443 0.5164452995 0.0263012602 0.02193102 0.26528287\n8       Lopez 0.0122148735 0.0074083470 0.9026491278 0.03610843 0.04161922\n10 Wantchekon 0.1016771922 0.2873197891 0.3838356390 0.06225610 0.16491128\n9       Morse 0.4688011703 0.1153905281 0.0411994830 0.05237443 0.32223438\n\n\n\nIf you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nme <- tibble(surname = \"Rundel\")\n\npredict_race(voter.file = me, surname.only = TRUE)\n\nWarning: Unknown or uninitialised column: `state`.\n\n\nProceeding with last name predictions...\n\n\nℹ All local files already up-to-date!\nℹ All local files already up-to-date!\n\n\n  surname  pred.whi pred.bla pred.his pred.asi   pred.oth\n1  Rundel 0.9177967        0        0        0 0.08220329"
-  },
-  {
     "objectID": "ae/ae-03-wrangling-flights.html",
     "href": "ae/ae-03-wrangling-flights.html",
     "title": "AE 03: Wrangling flights",
@@ -558,6 +551,13 @@
     "title": "AE 03: Wrangling flights",
     "section": "group_by()",
     "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\n# add code here\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-09-dse-bias-A.html",
+    "href": "ae/ae-09-dse-bias-A.html",
+    "title": "AE 09: Data science ethics - Algorithmic bias",
+    "section": "",
+    "text": "Part 2 - Predicting ethnicity\nYour turn (12 minutes): Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.\n\nThe following is the title and the abstract of the paper. Take a minute to read them.\n\n\nImproving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record (Imran and Khan, 2016)\n\n\nIn both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition. Over the past several decades, many statistical methods have been proposed to address this ecological inference problem. We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records. Building on the existing methodological literature, we use Bayes’s rule to combine the Census Bureau’s Surname List with various information from geocoded voter registration records. We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available. We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%. Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates. We provide open-source software to implement the proposed methodology. The open-source software is available for implementing the proposed methodology.\n\nThe said “source software” is the wru package: https://github.com/kosukeimai/wru.\n\nThen, if you feel comfortable, load the wru package and try it out using the sample data provided in the package. And if you don’t feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nlibrary(tidyverse)\nlibrary(wru)\n\npredict_race(voter.file = voters, surname.only = TRUE) %>% \n  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)\n\n      surname     pred.whi     pred.bla     pred.his   pred.asi   pred.oth\n1      Khanna 0.0049265455 0.0016079483 0.0023108109 0.88994257 0.10121213\n2        Imai 0.0059040605 0.0007184811 0.0193291824 0.76407641 0.20997186\n3      Rivera 0.0133185684 0.0121164643 0.8680470387 0.07086170 0.03565623\n4     Fifield 0.5122939613 0.0052487193 0.0596200858 0.06003480 0.36280243\n5        Zhou 0.0006977652 0.0006618759 0.0001766502 0.98773098 0.01073272\n6    Ratkovic 0.3845625798 0.0176011903 0.0131533900 0.04793387 0.53674897\n7     Johnson 0.1700395443 0.5164452995 0.0263012602 0.02193102 0.26528287\n8       Lopez 0.0122148735 0.0074083470 0.9026491278 0.03610843 0.04161922\n10 Wantchekon 0.1016771922 0.2873197891 0.3838356390 0.06225610 0.16491128\n9       Morse 0.4688011703 0.1153905281 0.0411994830 0.05237443 0.32223438\n\n\n[Answers may vary.]\n\nIf you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nme <- tibble(surname = \"Rundel\")\n\npredict_race(voter.file = me, surname.only = TRUE)\n\nWarning: Unknown or uninitialised column: `state`.\n\n\nProceeding with last name predictions...\n\n\nℹ All local files already up-to-date!\nℹ All local files already up-to-date!\n\n\n  surname  pred.whi pred.bla pred.his pred.asi   pred.oth\n1  Rundel 0.9177967        0        0        0 0.08220329\n\n\n[Answers may vary.]"
   },
   {
     "objectID": "ae/ae-06-data-types-classes-A.html",
@@ -712,6 +712,13 @@
     "title": "AE 05: Pivoting StatSci Majors",
     "section": "Pivoting",
     "text": "Pivoting\n\nDemo: Pivot the statsci data frame longer such that each row represents a degree type / year combination and year and number of graduates for that year are columns in the data frame.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    values_to = \"n\"\n  )\n\n# A tibble: 44 × 3\n   degree                    year      n\n   <chr>                     <chr> <dbl>\n 1 Statistical Science (AB2) 2011     NA\n 2 Statistical Science (AB2) 2012      1\n 3 Statistical Science (AB2) 2013     NA\n 4 Statistical Science (AB2) 2014     NA\n 5 Statistical Science (AB2) 2015      4\n 6 Statistical Science (AB2) 2016      4\n 7 Statistical Science (AB2) 2017      1\n 8 Statistical Science (AB2) 2018     NA\n 9 Statistical Science (AB2) 2019     NA\n10 Statistical Science (AB2) 2020      1\n# … with 34 more rows\n\n\n\nQuestion: What is the type of the year variable? Why? What should it be?\n\nIt’s a character (chr) variable since the information came from the columns of the original data frame and R cannot know that these character strings represent years. The variable type should be numeric.\n\nDemo: Start over with pivoting, and this time also make sure year is a numerical variable in the resulting data frame.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  )\n\n# A tibble: 44 × 3\n   degree                     year     n\n   <chr>                     <dbl> <dbl>\n 1 Statistical Science (AB2)  2011    NA\n 2 Statistical Science (AB2)  2012     1\n 3 Statistical Science (AB2)  2013    NA\n 4 Statistical Science (AB2)  2014    NA\n 5 Statistical Science (AB2)  2015     4\n 6 Statistical Science (AB2)  2016     4\n 7 Statistical Science (AB2)  2017     1\n 8 Statistical Science (AB2)  2018    NA\n 9 Statistical Science (AB2)  2019    NA\n10 Statistical Science (AB2)  2020     1\n# … with 34 more rows\n\n\n\nQuestion: What does an NA mean in this context? Hint: The data come from the university registrar, and they have records on every single graduates, there shouldn’t be anything “unknown” to them about who graduated when.\n\nNAs should actually be 0s.\n\nDemo: Add on to your pipeline that you started with pivoting and convert NAs in n to 0s.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n))\n\n# A tibble: 44 × 3\n   degree                     year     n\n   <chr>                     <dbl> <dbl>\n 1 Statistical Science (AB2)  2011     0\n 2 Statistical Science (AB2)  2012     1\n 3 Statistical Science (AB2)  2013     0\n 4 Statistical Science (AB2)  2014     0\n 5 Statistical Science (AB2)  2015     4\n 6 Statistical Science (AB2)  2016     4\n 7 Statistical Science (AB2)  2017     1\n 8 Statistical Science (AB2)  2018     0\n 9 Statistical Science (AB2)  2019     0\n10 Statistical Science (AB2)  2020     1\n# … with 34 more rows\n\n\n\nDemo: In our plot the degree types are BS, BS2, AB, and AB2. This information is in our dataset, in the degree column, but this column also has additional characters we don’t need. Create a new column called degree_type with levels BS, BS2, AB, and AB2 (in this order) based on degree. Do this by adding on to your pipeline from earlier.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n)) |>\n  separate(degree, sep = \" \\\\(\", into = c(\"major\", \"degree_type\")) |>\n  mutate(\n    degree_type = str_remove(degree_type, \"\\\\)\"),\n    degree_type = fct_relevel(degree_type, \"BS\", \"BS2\", \"AB\", \"AB2\")\n    )\n\n# A tibble: 44 × 4\n   major               degree_type  year     n\n   <chr>               <fct>       <dbl> <dbl>\n 1 Statistical Science AB2          2011     0\n 2 Statistical Science AB2          2012     1\n 3 Statistical Science AB2          2013     0\n 4 Statistical Science AB2          2014     0\n 5 Statistical Science AB2          2015     4\n 6 Statistical Science AB2          2016     4\n 7 Statistical Science AB2          2017     1\n 8 Statistical Science AB2          2018     0\n 9 Statistical Science AB2          2019     0\n10 Statistical Science AB2          2020     1\n# … with 34 more rows\n\n\n\nYour turn (5 minutes): Now we start making our plot, but let’s not get too fancy right away. Create the following plot, which will serve as the “first draft” on the way to our Goal. Do this by adding on to your pipeline from earlier.\n\n\n\n\n\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n)) |>\n  separate(degree, sep = \" \\\\(\", into = c(\"major\", \"degree_type\")) |>\n  mutate(\n    degree_type = str_remove(degree_type, \"\\\\)\"),\n    degree_type = fct_relevel(degree_type, \"BS\", \"BS2\", \"AB\", \"AB2\")\n    ) |>\n  ggplot(aes(x = year, y = n, color = degree_type)) +\n  geom_point() +\n  geom_line()\n\n\n\n\n\nYour turn (4 minutes): What aspects of the plot need to be updated to go from the draft you created above to the Goal plot at the beginning of this application exercise.\n\nx-axis scale: need to go from 2011 to 2021 in increments of 2 years\nline colors\naxis labels: title, subtitle, x, y, caption\ntheme\nlegend position and border\n\nDemo: Update x-axis scale such that the years displayed go from 2011 to 2021 in increments of 2 years. Do this by adding on to your pipeline from earlier.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n)) |>\n  separate(degree, sep = \" \\\\(\", into = c(\"major\", \"degree_type\")) |>\n  mutate(\n    degree_type = str_remove(degree_type, \"\\\\)\"),\n    degree_type = fct_relevel(degree_type, \"BS\", \"BS2\", \"AB\", \"AB2\")\n    ) |>\n  ggplot(aes(x = year, y = n, color = degree_type)) +\n  geom_point() +\n  geom_line() +\n  scale_x_continuous(breaks = seq(2011, 2021, 2))\n\n\n\n\n\nDemo: Update line colors using the following level / color assignments. Once again, do this by adding on to your pipeline from earlier.\n\n“BS” = “cadetblue4”\n“BS2” = “cadetblue3”\n“AB” = “lightgoldenrod4”\n“AB2” = “lightgoldenrod3”\n\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n)) |>\n  separate(degree, sep = \" \\\\(\", into = c(\"major\", \"degree_type\")) |>\n  mutate(\n    degree_type = str_remove(degree_type, \"\\\\)\"),\n    degree_type = fct_relevel(degree_type, \"BS\", \"BS2\", \"AB\", \"AB2\")\n    ) |>\n  ggplot(aes(x = year, y = n, color = degree_type)) +\n  geom_point() +\n  geom_line() +\n  scale_x_continuous(breaks = seq(2011, 2021, 2)) +\n  scale_color_manual(\n    values = c(\"BS\" = \"cadetblue4\", \n               \"BS2\" = \"cadetblue3\", \n               \"AB\" = \"lightgoldenrod4\", \n               \"AB2\" = \"lightgoldenrod3\"))\n\n\n\n\n\nYour turn (4 minutes): Update the plot labels (title, subtitle, x, y, and caption) and use theme_minimal(). Once again, do this by adding on to your pipeline from earlier.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n)) |>\n  separate(degree, sep = \" \\\\(\", into = c(\"major\", \"degree_type\")) |>\n  mutate(\n    degree_type = str_remove(degree_type, \"\\\\)\"),\n    degree_type = fct_relevel(degree_type, \"BS\", \"BS2\", \"AB\", \"AB2\")\n    ) |>\n  ggplot(aes(x = year, y = n, color = degree_type)) +\n  geom_point() +\n  geom_line() +\n  scale_x_continuous(breaks = seq(2011, 2021, 2)) +\n  scale_color_manual(\n    values = c(\"BS\" = \"cadetblue4\",\n               \"BS2\" = \"cadetblue3\",\n               \"AB\" = \"lightgoldenrod4\",\n               \"AB2\" = \"lightgoldenrod3\")) +\n  labs(\n    x = \"Graduation year\",\n    y = \"Number of majors graduating\",\n    color = \"Degree type\",\n    title = \"Statistical Science majors over the years\",\n    subtitle = \"Academic years 2011 - 2021\",\n    caption = \"Source: Office of the University Registrar\\nhttps://registrar.duke.edu/registration/enrollment-statistics\"\n  ) +\n  theme_minimal()\n\n\n\n\n\nDemo: Finally, adding to your pipeline you’ve developed so far, move the legend into the plot, make its background white, and its border gray. Set fig-width: 7 and fig-height: 5 for your plot in the chunk options.\n\n\nstatsci |>\n  pivot_longer(\n    cols = -degree,\n    names_to = \"year\",\n    names_transform = as.numeric,\n    values_to = \"n\"\n  ) |>\n  mutate(n = if_else(is.na(n), 0, n)) |>\n  separate(degree, sep = \" \\\\(\", into = c(\"major\", \"degree_type\")) |>\n  mutate(\n    degree_type = str_remove(degree_type, \"\\\\)\"),\n    degree_type = fct_relevel(degree_type, \"BS\", \"BS2\", \"AB\", \"AB2\")\n    ) |>\n  ggplot(aes(x = year, y = n, color = degree_type)) +\n  geom_point() +\n  geom_line() +\n  scale_x_continuous(breaks = seq(2011, 2021, 2)) +\n  scale_color_manual(\n    values = c(\"BS\" = \"cadetblue4\",\n               \"BS2\" = \"cadetblue3\",\n               \"AB\" = \"lightgoldenrod4\",\n               \"AB2\" = \"lightgoldenrod3\")) +\n  labs(\n    x = \"Graduation year\",\n    y = \"Number of majors graduating\",\n    color = \"Degree type\",\n    title = \"Statistical Science majors over the years\",\n    subtitle = \"Academic years 2011 - 2021\",\n    caption = \"Source: Office of the University Registrar\\nhttps://registrar.duke.edu/registration/enrollment-statistics\"\n  ) +\n  theme_minimal() +\n  theme(\n    legend.position = c(0.2, 0.8),\n    legend.background = element_rect(fill = \"white\", color = \"gray\")\n    )"
+  },
+  {
+    "objectID": "ae/ae-09-dse-bias.html",
+    "href": "ae/ae-09-dse-bias.html",
+    "title": "AE 09: Data science ethics - Algorithmic bias",
+    "section": "",
+    "text": "Part 1 - Stochastic parrots\nYour turn (10 minutes):\n\nRead the following title and abstract.\n\n\nOn the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜 (Bender et. al., 2021)\nThe past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English. BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.\n\n\nHave you used a natural language model before? Describe your use.\n\nAdd your response here.\n\nWhat is meant by “stochastic parrots” in the paper title?\n\nAdd your response here.\n\n\nPart 2 - Predicting ethnicity\nYour turn (12 minutes): Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.\n\nThe following is the title and the abstract of the paper. Take a minute to read them.\n\n\nImproving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record (Imran and Khan, 2016)\n\n\nIn both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition. Over the past several decades, many statistical methods have been proposed to address this ecological inference problem. We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records. Building on the existing methodological literature, we use Bayes’s rule to combine the Census Bureau’s Surname List with various information from geocoded voter registration records. We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available. We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%. Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates. We provide open-source software to implement the proposed methodology. The open-source software is available for implementing the proposed methodology.\n\nThe said “source software” is the wru package: https://github.com/kosukeimai/wru.\n\nThen, if you feel comfortable, load the wru package and try it out using the sample data provided in the package. And if you don’t feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nlibrary(tidyverse)\nlibrary(wru)\n\npredict_race(voter.file = voters, surname.only = TRUE) %>% \n  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)\n\n      surname     pred.whi     pred.bla     pred.his   pred.asi   pred.oth\n1      Khanna 0.0049265455 0.0016079483 0.0023108109 0.88994257 0.10121213\n2        Imai 0.0059040605 0.0007184811 0.0193291824 0.76407641 0.20997186\n3      Rivera 0.0133185684 0.0121164643 0.8680470387 0.07086170 0.03565623\n4     Fifield 0.5122939613 0.0052487193 0.0596200858 0.06003480 0.36280243\n5        Zhou 0.0006977652 0.0006618759 0.0001766502 0.98773098 0.01073272\n6    Ratkovic 0.3845625798 0.0176011903 0.0131533900 0.04793387 0.53674897\n7     Johnson 0.1700395443 0.5164452995 0.0263012602 0.02193102 0.26528287\n8       Lopez 0.0122148735 0.0074083470 0.9026491278 0.03610843 0.04161922\n10 Wantchekon 0.1016771922 0.2873197891 0.3838356390 0.06225610 0.16491128\n9       Morse 0.4688011703 0.1153905281 0.0411994830 0.05237443 0.32223438\n\n\nAdd your response here.\n\nIf you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nme <- tibble(surname = \"Rundel\")\n\npredict_race(voter.file = me, surname.only = TRUE)\n\nWarning: Unknown or uninitialised column: `state`.\n\n\nProceeding with last name predictions...\n\n\nℹ All local files already up-to-date!\nℹ All local files already up-to-date!\n\n\n  surname  pred.whi pred.bla pred.his pred.asi   pred.oth\n1  Rundel 0.9177967        0        0        0 0.08220329\n\n\nAdd your response here."
   },
   {
     "objectID": "ae/ae-06-data-types-classes.html",
@@ -1404,14 +1411,91 @@
     "href": "slides/12-dse-bias-privacy.html#while-you-wait-for-class-to-begin",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
     "section": "While you wait for class to begin…",
-    "text": "While you wait for class to begin…\nOpen your ae-09 project in RStudio, render your document, and commit and push."
+    "text": "While you wait for class to begin…\n\n\n\n\n\n\nImportant\n\n\nStudy participation + exam extra credit opportunity:\n\n\n\nOptional! But the researchers would appreciate your participation!\nGo to bit.ly/sta199-learning-study-1 to fill out the survey.\nI won’t see your responses, answer freely and honestly.\nI will get a list of who filled out the survey from Duke Learning Innovations and use that to award +4 points extra credit for Exam 1.\nIRB Protocol #2022-0545."
   },
   {
     "objectID": "slides/12-dse-bias-privacy.html#announcements",
     "href": "slides/12-dse-bias-privacy.html#announcements",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
     "section": "Announcements",
-    "text": "Announcements\n\n…"
+    "text": "Announcements\n\nHW 3 posted later today, due one week from now\nNo OH over Fall break (weekend, Mon, Tue)"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#from-last-time-ae-08",
+    "href": "slides/12-dse-bias-privacy.html#from-last-time-ae-08",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "From last time: ae-08",
+    "text": "From last time: ae-08\nLet’s tidy up our plot a bit more!"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#your-data",
+    "href": "slides/12-dse-bias-privacy.html#your-data",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "“Your” data",
+    "text": "“Your” data\n\nEvery time we use apps, websites, and devices, our data is being collected and used or sold to others.\nMore importantly, decisions are made by law enforcement, financial institutions, and governments based on data that directly affect the lives of people."
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#privacy-of-your-data",
+    "href": "slides/12-dse-bias-privacy.html#privacy-of-your-data",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Privacy of your data",
+    "text": "Privacy of your data\n\nWhat pieces of data have you left on the internet today? Think through everything you’ve logged into, clicked on, checked in, either actively or automatically, that might be tracking you. Do you know where that data is stored? Who it can be accessed by? Whether it’s shared with others?"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#sharing-your-data",
+    "href": "slides/12-dse-bias-privacy.html#sharing-your-data",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Sharing your data",
+    "text": "Sharing your data\n\nWhat are you OK with sharing?\n\n\n\nName\nAge\nEmail\nPhone Number\nList of every video you watch\nList of every video you comment on\nHow you type: speed, accuracy\nHow long you spend on different content\nList of all your private messages (date, time, person sent to)\nInfo about your photos (how it was taken, where it was taken (GPS), when it was taken)"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#what-does-google-thinkknow-about-you",
+    "href": "slides/12-dse-bias-privacy.html#what-does-google-thinkknow-about-you",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "What does Google think/know about you?",
+    "text": "What does Google think/know about you?\n\nHave you ever thought about why you’re seeing an ad on Google? Google it! Try to figure out if you have ad personalization on and how your ads are personalized.\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#your-browing-history",
+    "href": "slides/12-dse-bias-privacy.html#your-browing-history",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Your browing history",
+    "text": "Your browing history\n\nWhich of the following are you OK with your browsing history to be used towards?\n\n\n\nFor serving you targeted ads\nTo score you as a candidate for a job\nTo predict your race/ethnicity for voting purposes"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#who-else-gets-to-use-your-data",
+    "href": "slides/12-dse-bias-privacy.html#who-else-gets-to-use-your-data",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Who else gets to use your data?",
+    "text": "Who else gets to use your data?\n\nSuppose you create a profile on a social media site and share your personal information on your profile. Who else gets to use that data?\n\n\n\nCompanies the social media company has a connection to?\nCompanies the social media company sells your data to?\nResearchers?"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#ok-cupid-data-breach",
+    "href": "slides/12-dse-bias-privacy.html#ok-cupid-data-breach",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "OK Cupid data breach",
+    "text": "OK Cupid data breach\n\nIn 2016, researchers published data of 70,000 OkCupid users—including usernames, political leanings, drug usage, and intimate sexual details\nResearchers didn’t release the real names and pictures of OKCupid users, but their identities could easily be uncovered from the details provided, e.g. usernames\n\n\n\n\n\nSome may object to the ethics of gathering and releasing this data. However, all the data found in the dataset are or were already publicly available, so releasing this dataset merely presents it in a more useful form.\nResearchers Emil Kirkegaard and Julius Daugbjerg Bjerrekær"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#gettysburg-address",
+    "href": "slides/12-dse-bias-privacy.html#gettysburg-address",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Gettysburg address",
+    "text": "Gettysburg address\n\n\n\nRandomly select 10 words from the Gettysburg Address and calculate the mean number of letters in these 10 words. Submit your answer at bit.ly/gburg199."
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#your-responses",
+    "href": "slides/12-dse-bias-privacy.html#your-responses",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Your responses",
+    "text": "Your responses"
+  },
+  {
+    "objectID": "slides/12-dse-bias-privacy.html#comparison-to-truth",
+    "href": "slides/12-dse-bias-privacy.html#comparison-to-truth",
+    "title": "Data science ethics: Algorithmic bias + Data privacy",
+    "section": "Comparison to “truth”",
+    "text": "Comparison to “truth”"
   },
   {
     "objectID": "slides/12-dse-bias-privacy.html#garbage-in-garbage-out",
@@ -1428,11 +1512,11 @@
     "text": "Google translate\n\nWhat might be the reason for Google’s gendered translation? How do ethics play into this situation?\n\n\n\n\n\n\n\n\nSource: Engadget - Google is working to remove gender bias in its translations"
   },
   {
-    "objectID": "slides/12-dse-bias-privacy.html#ae-09",
-    "href": "slides/12-dse-bias-privacy.html#ae-09",
+    "objectID": "slides/12-dse-bias-privacy.html#ae-09---part-1",
+    "href": "slides/12-dse-bias-privacy.html#ae-09---part-1",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "ae-09",
-    "text": "ae-09\n\n\nGo to the course GitHub org and find your ae-09 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nWork on Part 1 - Stochastic Parrots\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+    "section": "ae-09 - Part 1",
+    "text": "ae-09 - Part 1\n\n\nGo to the course GitHub org and find your ae-09 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nWork on Part 1 - Stochastic Parrots\nRender, commit, and push your edits by the AE deadline – 3 days from today."
   },
   {
     "objectID": "slides/12-dse-bias-privacy.html#machine-bias",
@@ -1456,32 +1540,11 @@
     "text": "Risk scores\n\n\n\nHow can an algorithm that doesn’t use race as input data be racist?"
   },
   {
-    "objectID": "slides/12-dse-bias-privacy.html#ae-09-1",
-    "href": "slides/12-dse-bias-privacy.html#ae-09-1",
+    "objectID": "slides/12-dse-bias-privacy.html#ae-09---part-2",
+    "href": "slides/12-dse-bias-privacy.html#ae-09---part-2",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "ae-09",
-    "text": "ae-09\n\n\nGo to the course GitHub org and find your ae-09 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nWork on Part 2 - Predicting ethnicity\nRender, commit, and push your edits by the AE deadline – 3 days from today."
-  },
-  {
-    "objectID": "slides/12-dse-bias-privacy.html#what-does-google-thinkknow-about-you",
-    "href": "slides/12-dse-bias-privacy.html#what-does-google-thinkknow-about-you",
-    "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "What does Google think/know about you?",
-    "text": "What does Google think/know about you?\n\nHave you ever thought about why you’re seeing an ad on Google? Google it! Try to figure out if you have ad personalization on and how your ads are personalized.\n\n\ncountdown(minutes = 5)\n\n\n−+\n05:00"
-  },
-  {
-    "objectID": "slides/12-dse-bias-privacy.html#privacy-of-your-data",
-    "href": "slides/12-dse-bias-privacy.html#privacy-of-your-data",
-    "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "Privacy of your data",
-    "text": "Privacy of your data\n\nWhat pieces of data have you left on the internet today? Think through everything you’ve logged into, clicked on, checked in, either actively or automatically, that might be tracking you. Do you know where that data is stored? Who it can be accessed by? Whether it’s shared with others?"
-  },
-  {
-    "objectID": "slides/12-dse-bias-privacy.html#more",
-    "href": "slides/12-dse-bias-privacy.html#more",
-    "title": "Data science ethics: Algorithmic bias + Data privacy",
-    "section": "More…",
-    "text": "More…\n\nMention webscraping\nMention data science ethics oath\nReproducibility? Good that they’re already learning… so much more to it than what we cover in class…\n\n\n\n\n🔗 sta199-f22-1.github.io"
+    "section": "ae-09 - Part 2",
+    "text": "ae-09 - Part 2\n\n\nGo to the course GitHub org and find your ae-09 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nWork on Part 2 - Predicting ethnicity\nRender, commit, and push your edits by the AE deadline – 3 days from today.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/04-visualizing-various-types-of-data.html#announcements",

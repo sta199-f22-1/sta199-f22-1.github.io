@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  resouces:
+  resources:
     - sta199-f22-1-syllabus.pdf
 
 website:
@@ -13,7 +13,7 @@ website:
   repo-url: https://github.com/sta199-f22-1/sta199-f22-1.github.io/
   repo-actions: [edit, issue]
 
-  opengraph: true
+  open-graph: true
   twitter-card:
     creator: "@minebocek"
     image: "images/twitter-card.png"

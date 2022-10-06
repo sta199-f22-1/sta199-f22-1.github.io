@@ -9,7 +9,7 @@ format:
     transition: fade
     slide-number: true
 editor: visual
-self-contained: true
+embed-resources: true
 execute:
   freeze: auto
   echo: true

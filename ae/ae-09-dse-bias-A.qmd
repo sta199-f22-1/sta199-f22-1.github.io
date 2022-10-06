@@ -1,5 +1,5 @@
 ---
-title: "AE 08: Data science ethics"
+title: "AE 09: Data science ethics - Algorithmic bias"
 subtitle: "Suggested answers"
 categories: 
   - Application exercise
@@ -23,7 +23,12 @@ editor: visual
 > We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.
 
 -   Have you used a natural language model before? Describe your use.
--   What is meant by "stochastic parrots" in the paper title?
+
+*\[Answers may vary.\]* Predictive typing on phone messages.
+
+-   What is meant by "stochastic *parrots*" in the paper title?
+
+*\[Answers may vary.\]* The language models "parrot" (repeat) the biases in the input data they're trained on.
 
 # Part 2 - Predicting ethnicity
 
@@ -46,12 +51,10 @@ Census Bureau's name list.
 
 The said "source software" is the **wru** package: <https://github.com/kosukeimai/wru>.
 
--   Then, if you feel comfortable, install the **wru** package and try it out using the sample data provided in the package. And if you don't feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?
+-   Then, if you feel comfortable, load the **wru** package and try it out using the sample data provided in the package. And if you don't feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?
 
 ```{r}
 #| message: false
-
-# install.packages("wru")
 
 library(tidyverse)
 library(wru)
@@ -60,6 +63,8 @@ predict_race(voter.file = voters, surname.only = TRUE) %>%
   select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)
 ```
 
+*\[Answers may vary.\]*
+
 -   If you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?
 
 ```{r}
@@ -67,3 +72,5 @@ me <- tibble(surname = "Rundel")
 
 predict_race(voter.file = me, surname.only = TRUE)
 ```
+
+*\[Answers may vary.\]*

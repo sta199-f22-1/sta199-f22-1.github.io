@@ -90,9 +90,8 @@ The bars are not drawn to scale, hence are misleading
       )
     ```
 
-```{=html}
 <!-- -->
-```
+
 -   **Your turn (10 minutes):** Improve the visualization.
     State the improvements you made and why you made them.
     Discuss how these improvements help make the plot less misleading.
