@@ -1,0 +1,225 @@
+---
+title: "HW 3 - Ethics + recap"
+categories: "Homework"
+editor: visual
+---
+
+::: callout-important
+This homework is due Thursday, Oct 13 at 11:59pm ET.
+:::
+
+# Getting started
+
+-   Go to the [sta199-f22-1](https://github.com/sta199-f22-1) organization on GitHub.
+    Click on the repo with the prefix `hw-03`.
+    It contains the starter documents you need to complete the homework assignment.
+
+-   Clone the repo and start a new project in RStudio.
+    See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+
+## Workflow + formatting
+
+Make sure to
+
+-   Update author name on your document.
+-   Label all code chunks informatively and concisely.
+-   Follow the [Tidyverse style guide](https://style.tidyverse.org/).
+-   Make at least 3 commits.
+-   Resize figures where needed, avoid tiny or huge plots.
+-   Use informative labels for plot axes, titles, etc.
+-   Turn in an organized, well formatted document.
+
+## Packages
+
+We'll use the **tidyverse** package for much of the data wrangling and visualization, though you're welcomed to also load other packages as needed.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+```
+
+# Exercises
+
+Exercises 1 and 2 are review exercises based on common questions that came up during the exam.
+
+## Exercise 1
+
+All about Quarto:
+
+a.  For each of the character strings below, determine if the string is an proper code chunk label.
+    If not, explain why.
+    You're welcomed to try them out to check.
+
+    -   
+
+    ```{r}
+    #| echo: fenced
+    #} eval: false
+    #| label: exercise 1
+    ```
+
+    -   
+
+    ```{r}
+    #| echo: fenced
+    #} eval: false
+    #| label: exercise 
+    #| 1
+    ```
+
+    -   
+
+    ```{r}
+    #| echo: fenced
+    #} eval: false
+    #| label: 1 exercise
+    ```
+
+    -   
+
+    ```{r}
+    #| echo: fenced
+    #} eval: false
+    #| label: exercise-1
+    ```
+
+b.  What values does each of the following chunk options take and what do they do?
+
+    -   `eval`
+
+    -   `error`
+
+    -   `warning`
+
+    -   `echo`
+
+c.  What do the chunk options `fig-height` and `fig-width` do -- what do they do when they're set in a single code chunk and what do they do when they're set in the document YAML on top?
+
+## Exercise 2
+
+All about `group_by()`:
+
+Suppose we have the following tiny data frame:
+
+```{r}
+df <- tibble(
+  x = 1:5,
+  y = c("a", "b", "a", "a", "b"),
+  z = c("K", "K", "L", "L", "K")
+)
+df
+```
+
+a\.
+What does the following code chunk do?
+Run it and analyze the result.
+
+```{r}
+df |>
+  group_by(y)
+```
+
+b\.
+What does the following code chunk do?
+Run it and analyze the result.
+How is it different than the `group_by()` in part (a)?
+
+```{r}
+df |>
+  arrange(y)
+```
+
+a.  What does the following code chunk do?
+    Run it and analyze the result.
+
+
+
+    - What does group_by do?
+
+    - How is it different from arrange?
+
+    - Why are the results from the following different... one with group_by one not...
+
+    - group_by \> summarize is diff group_by \> mutate
+
+::: render-commit-push
+<br>
+
+Render, commit (with a descriptive and concise commit message), and push.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
+
+<br>
+:::
+
+## Exercise 3
+
+The following chart was [shared](https://twitter.com/GraphCrimes/status/1566264004288331776) by \@GraphCrimes on Twitter on September 3, 2022.
+
+![](images/private-sector.jpg){fig-align="center"}
+
+a.  What is misleading about this graph?
+b.  If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations?
+c.  Load the data for this survey from `data/survation.csv`. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?
+
+## Exercise 4
+
+A data scientist compiled data from several public sources (voter registration, political contributions, tax records) that were used to predict sexual orientation of individuals in a community.
+What ethical considerations arise that should guide use of such data sets?[^1]
+
+[^1]: This exercise is from [MDSR, Chp 8](https://mdsr-book.github.io/mdsr2e/ch-ethics.html#ethics-exercises).
+
+::: render-commit-push
+<br>
+
+Once again, render, commit, and push.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
+
+<br>
+:::
+
+## Exercise 5
+
+A data analyst received permission to post a data set that was scraped from a social media site.
+The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships.
+Why might it be problematic to post a deidentified form of this data set where name and email address were removed?[^2]
+
+[^2]: This exercise is from [MDSR, Chp 8](https://mdsr-book.github.io/mdsr2e/ch-ethics.html#ethics-exercises).
+
+## Exercise 6
+
+To complete this exercise you will first need to watch the documentary Coded Bias.
+To do so, you either need to be on the Duke network or connected to the Duke VPN. Then go to <https://find.library.duke.edu/catalog/DUKE009834953> and click on "View Online".
+Once you watch the video, write a one paragraph reflection highlighting at least one thing that you already knew about (from the course prep materials) and at least one thing you learned from the movie as well as any other aspects of the documentary that you found interesting / enlightening.
+
+::: render-commit-push
+<br>
+
+Render, commit, and push one last time.
+Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding.
+
+<br>
+:::
+
+# Wrap up
+
+## Submission
+
+-   Go to <http://www.gradescope.com> and click Log in in the top right corner.
+-   Click School Credentials Duke Net ID and log in using your Net ID credentials.
+-   Click on your STA 199 course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark all the pages associated with exercise. All the pages of your homework should be associated with at least one question (i.e., should be "checked"). If you do not do this, you will be subject to lose points on the assignment.
+-   Select the first page of your PDF submission to be associated with the "Workflow & formatting" question.
+
+## Grading
+
+-   Exercise 1: 5 points
+-   Exercise 2: 5 points
+-   Exercise 3: 9 points
+-   Exercise 4: 10 points
+-   Exercise 5: 6 points
+-   Exercise 6: 10 points
+-   Workflow + formatting: 5 points
+-   Total: 50 points
