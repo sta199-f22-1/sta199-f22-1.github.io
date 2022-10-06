@@ -182,6 +182,83 @@
     "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradescope\n🔗 on Sakai\n\n\nGradebook\n🔗 on Sakai\n\n\nOffice hours\n🔗 on Google docs\n\n\nClass recording request form\n🔗 on Google forms\n\n\nTexbooks\n🔗 R for Data Science\n🔗 Introduction to Modern Statistics\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org\n🔗 tidyr: tidyr.tidyverse.org\n🔗 forcats: forcats.tidyverse.org\n🔗 stringr: stringr.tidyverse.org\n🔗 lubridate: lubridate.tidyverse.org\n🔗 readr: readr.tidyverse.org\n🔗 readxl: readxl.tidyverse.org"
   },
   {
+    "objectID": "hw/hw-3.html",
+    "href": "hw/hw-3.html",
+    "title": "HW 3 - Ethics + recap",
+    "section": "",
+    "text": "Important\n\n\n\nThis homework is due Thursday, Oct 13 at 11:59pm ET."
+  },
+  {
+    "objectID": "hw/hw-3.html#workflow-formatting",
+    "href": "hw/hw-3.html#workflow-formatting",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Workflow + formatting",
+    "text": "Workflow + formatting\nMake sure to\n\nUpdate author name on your document.\nLabel all code chunks informatively and concisely.\nFollow the Tidyverse style guide.\nMake at least 3 commits.\nResize figures where needed, avoid tiny or huge plots.\nUse informative labels for plot axes, titles, etc.\nTurn in an organized, well formatted document."
+  },
+  {
+    "objectID": "hw/hw-3.html#packages",
+    "href": "hw/hw-3.html#packages",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Packages",
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualization, though you’re welcomed to also load other packages as needed.\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "hw/hw-3.html#exercise-1",
+    "href": "hw/hw-3.html#exercise-1",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nAll about Quarto:\n\nFor each of the character strings below, determine if the string is an proper code chunk label. If not, explain why. You’re welcomed to try them out to check.\n\nChunk 1:\n\n#| label: label with spaces\n\nChunk 2:\n\n#| label: reaaaaaaaaaalllllllllyyyyy-long-label \n#|        with-line-breaks\n\nChunk 3:\n\n#| label: 1-label-starting-with-number\n\nChunk 4:\n\n#| label: label-with-dashes\nWhat values does each of the following chunk options take and what do they do?\n\neval\nerror\nwarning\necho\n\nWhat do the chunk options fig-height and fig-width do – what do they do when they’re set in a single code chunk and what do they do when they’re set in the document YAML on top?"
+  },
+  {
+    "objectID": "hw/hw-3.html#exercise-2",
+    "href": "hw/hw-3.html#exercise-2",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nAll about group_by():\nSuppose we have the following tiny data frame:\n\ndf <- tibble(\n  x = 1:5,\n  y = c(\"a\", \"b\", \"a\", \"a\", \"b\"),\n  z = c(\"K\", \"K\", \"L\", \"L\", \"K\")\n)\ndf\n\n# A tibble: 5 × 3\n      x y     z    \n  <int> <chr> <chr>\n1     1 a     K    \n2     2 b     K    \n3     3 a     L    \n4     4 a     L    \n5     5 b     K    \n\n\na. What does the following code chunk do? Run it and analyze the result and articulate in words what group_by() does.\n\ndf |>\n  group_by(y)\n\nb. What does the following code chunk do? Run it and analyze the result and articulate in words what arrange() does. Also comment on how it’s different from the group_by() in part (a)?\n\ndf |>\n  arrange(y)\n\nc. What does the following code chunk do? Run it and analyze the result and articulate in words what the pipeline does.\n\ndf |>\n  group_by(y) |>\n  summarize(mean_x = mean(x))\n\nd. What does the following code chunk do? Run it and analyze the result and articulate in words what the pipeline does. Then, comment on what the message says.\n\ndf |>\n  group_by(y, z) |>\n  summarize(mean_x = mean(x))\n\ne. What does the following code chunk do? Run it and analyze the result and articulate in words what the pipeline does. How is the output different from the one in part (d).\n\ndf |>\n  group_by(y, z) |>\n  summarize(mean_x = mean(x), .groups = \"drop\")\n\nf. What do the following pipelines do? Run both and analyze their results and articulate in words what each pipeline does. How are the outputs of the two pipelines different?\n\ndf |>\n  group_by(y, z) |>\n  summarize(mean_x = mean(x))\n\ndf |>\n  group_by(y, z) |>\n  mutate(mean_x = mean(x))\n\n\n\nRender, commit (with a descriptive and concise commit message), and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
+  },
+  {
+    "objectID": "hw/hw-3.html#exercise-3",
+    "href": "hw/hw-3.html#exercise-3",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\nWhat is misleading about this graph?\nIf you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations?\nLoad the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?"
+  },
+  {
+    "objectID": "hw/hw-3.html#exercise-4",
+    "href": "hw/hw-3.html#exercise-4",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nA data scientist compiled data from several public sources (voter registration, political contributions, tax records) that were used to predict sexual orientation of individuals in a community. What ethical considerations arise that should guide use of such data sets?1\n\n\nOnce again, render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
+  },
+  {
+    "objectID": "hw/hw-3.html#exercise-5",
+    "href": "hw/hw-3.html#exercise-5",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nA data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships. Why might it be problematic to post a deidentified form of this data set where name and email address were removed?2"
+  },
+  {
+    "objectID": "hw/hw-3.html#exercise-6",
+    "href": "hw/hw-3.html#exercise-6",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nTo complete this exercise you will first need to watch the documentary Coded Bias. To do so, you either need to be on the Duke network or connected to the Duke VPN. Then go to https://find.library.duke.edu/catalog/DUKE009834953 and click on “View Online”. Once you watch the video, write a one paragraph reflection highlighting at least one thing that you already knew about (from the course prep materials) and at least one thing you learned from the movie as well as any other aspects of the documentary that you found interesting / enlightening.\n\n\nRender, commit, and push one last time. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
+  },
+  {
+    "objectID": "hw/hw-3.html#submission",
+    "href": "hw/hw-3.html#submission",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Submission",
+    "text": "Submission\n\nGo to http://www.gradescope.com and click Log in in the top right corner.\nClick School Credentials Duke Net ID and log in using your Net ID credentials.\nClick on your STA 199 course.\nClick on the assignment, and you’ll be prompted to submit it.\nMark all the pages associated with exercise. All the pages of your homework should be associated with at least one question (i.e., should be “checked”). If you do not do this, you will be subject to lose points on the assignment.\nSelect the first page of your PDF submission to be associated with the “Workflow & formatting” question."
+  },
+  {
+    "objectID": "hw/hw-3.html#grading",
+    "href": "hw/hw-3.html#grading",
+    "title": "HW 3 - Ethics + recap",
+    "section": "Grading",
+    "text": "Grading\n\nExercise 1: 10 points\nExercise 2: 10 points\nExercise 3: 10 points\nExercise 4: 3 points\nExercise 5: 3 points\nExercise 6: 10 points\nWorkflow + formatting: 4 points\nTotal: 50 points"
+  },
+  {
     "objectID": "hw/hw-2.html",
     "href": "hw/hw-2.html",
     "title": "HW 2 - Data wrangling",
@@ -1418,7 +1495,7 @@
     "href": "slides/12-dse-bias-privacy.html#announcements",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
     "section": "Announcements",
-    "text": "Announcements\n\nHW 3 posted later today, due one week from now\nNo OH over Fall break (weekend, Mon, Tue)"
+    "text": "Announcements\n\nHW 3 posted later today, due one week from now\nNo OH over Fall break (weekend, Mon, Tue)\nMidterm evaluation - due Wed, Oct 12, 9am"
   },
   {
     "objectID": "slides/12-dse-bias-privacy.html#from-last-time-ae-08",
@@ -2350,82 +2427,5 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\n\nAnother approach is to request a restart of your container. To do so, select your container as you usually do and then, instead of Login, click on Request Restart. Read the warning in the next page, and then click once more to restart your container."
-  },
-  {
-    "objectID": "hw/hw-3.html",
-    "href": "hw/hw-3.html",
-    "title": "HW 3 - Ethics + recap",
-    "section": "",
-    "text": "Important\n\n\n\nThis homework is due Thursday, Oct 13 at 11:59pm ET."
-  },
-  {
-    "objectID": "hw/hw-3.html#workflow-formatting",
-    "href": "hw/hw-3.html#workflow-formatting",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Workflow + formatting",
-    "text": "Workflow + formatting\nMake sure to\n\nUpdate author name on your document.\nLabel all code chunks informatively and concisely.\nFollow the Tidyverse style guide.\nMake at least 3 commits.\nResize figures where needed, avoid tiny or huge plots.\nUse informative labels for plot axes, titles, etc.\nTurn in an organized, well formatted document."
-  },
-  {
-    "objectID": "hw/hw-3.html#packages",
-    "href": "hw/hw-3.html#packages",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Packages",
-    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualization, though you’re welcomed to also load other packages as needed.\n\nlibrary(tidyverse)"
-  },
-  {
-    "objectID": "hw/hw-3.html#exercise-1",
-    "href": "hw/hw-3.html#exercise-1",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nAll about Quarto:\n\n\n\n\nFor each of the character strings below, determine if the string is an proper code chunk label. If not, explain why. You’re welcomed to try them out to check.\n\n\n\n\n#} eval: false\n#| echo: fenced\n#| label: exercise 1\n\n\n\n\n\n#} eval: false\n#| echo: fenced\n#| label: exercise \n#| 1\n\n\n\n\n\n#} eval: false\n#| echo: fenced\n#| label: 1 exercise\n\n\n\n\n\n#} eval: false\n#| echo: fenced\n#| label: exercise-1\n\n\nlabel: exercise 1\nlabel: exercise\n`1`\n\nOne with spaces\nOne with line breaks\nOne that starts with a number (not ok?)\nOne correct\n\nchunk options:\n\neval\nerror\nwarning\nfig-height/width -- global or for a single chunk\necho"
-  },
-  {
-    "objectID": "hw/hw-3.html#exercise-2",
-    "href": "hw/hw-3.html#exercise-2",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nAll about group_by\n- What does group_by do?\n- How is it different from arrange?\n\n- Why are the results from the following different... one with group_by one not...\n\n- group_by \\> summarize is diff group_by \\> mutate\n\n\nRender, commit (with a descriptive and concise commit message), and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
-  },
-  {
-    "objectID": "hw/hw-3.html#exercise-3",
-    "href": "hw/hw-3.html#exercise-3",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\nWhat is misleading about this graph?\nIf you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations?\nLoad the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?"
-  },
-  {
-    "objectID": "hw/hw-3.html#exercise-4",
-    "href": "hw/hw-3.html#exercise-4",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nA data scientist compiled data from several public sources (voter registration, political contributions, tax records) that were used to predict sexual orientation of individuals in a community. What ethical considerations arise that should guide use of such data sets?1\n\n\nOnce again, render, commit, and push. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
-  },
-  {
-    "objectID": "hw/hw-3.html#exercise-5",
-    "href": "hw/hw-3.html#exercise-5",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nA data analyst received permission to post a data set that was scraped from a social media site. The full data set included name, screen name, email address, geographic location, IP (internet protocol) address, demographic profiles, and preferences for relationships. Why might it be problematic to post a deidentified form of this data set where name and email address were removed?2"
-  },
-  {
-    "objectID": "hw/hw-3.html#exercise-6",
-    "href": "hw/hw-3.html#exercise-6",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nTo complete this exercise you will first need to watch the documentary Coded Bias. To do so, you either need to be on the Duke network or connected to the Duke VPN. Then go to https://find.library.duke.edu/catalog/DUKE009834953 and click on “View Online”. Once you watch the video, write a one paragraph reflection highlighting at least one thing that you already knew about (from the course prep materials) and at least one thing you learned from the movie as well as any other aspects of the documentary that you found interesting / enlightening.\n\n\nRender, commit, and push one last time. Make sure that you commit and push all changed documents and your Git pane is completely empty before proceeding."
-  },
-  {
-    "objectID": "hw/hw-3.html#submission",
-    "href": "hw/hw-3.html#submission",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Submission",
-    "text": "Submission\n\nGo to http://www.gradescope.com and click Log in in the top right corner.\nClick School Credentials Duke Net ID and log in using your Net ID credentials.\nClick on your STA 199 course.\nClick on the assignment, and you’ll be prompted to submit it.\nMark all the pages associated with exercise. All the pages of your homework should be associated with at least one question (i.e., should be “checked”). If you do not do this, you will be subject to lose points on the assignment.\nSelect the first page of your PDF submission to be associated with the “Workflow & formatting” question."
-  },
-  {
-    "objectID": "hw/hw-3.html#grading",
-    "href": "hw/hw-3.html#grading",
-    "title": "HW 3 - Ethics + recap",
-    "section": "Grading",
-    "text": "Grading\n\nExercise 1: 5 points\nExercise 2: 5 points\nExercise 3: 9 points\nExercise 4: 10 points\nExercise 5: 6 points\nExercise 6: 10 points\nWorkflow + formatting: 5 points\nTotal: 50 points"
   }
 ]

@@ -37,6 +37,7 @@ library(countdown)
 
 -   HW 3 posted later today, due one week from now
 -   No OH over Fall break (weekend, Mon, Tue)
+-   Midterm evaluation - due Wed, Oct 12, 9am
 
 ## From last time: `ae-08`
 

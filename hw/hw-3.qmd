@@ -52,37 +52,29 @@ a.  For each of the character strings below, determine if the string is an prope
     If not, explain why.
     You're welcomed to try them out to check.
 
-    -   
+    -   Chunk 1:
 
-    ```{r}
-    #| echo: fenced
-    #} eval: false
-    #| label: exercise 1
+    ```
+    #| label: label with spaces
     ```
 
-    -   
+    -   Chunk 2:
 
-    ```{r}
-    #| echo: fenced
-    #} eval: false
-    #| label: exercise 
-    #| 1
+    ```
+    #| label: reaaaaaaaaaalllllllllyyyyy-long-label 
+    #|        with-line-breaks
     ```
 
-    -   
+    -   Chunk 3:
 
-    ```{r}
-    #| echo: fenced
-    #} eval: false
-    #| label: 1 exercise
+    ```
+    #| label: 1-label-starting-with-number
     ```
 
-    -   
+    -   Chunk 4:
 
-    ```{r}
-    #| echo: fenced
-    #} eval: false
-    #| label: exercise-1
+    ```
+    #| label: label-with-dashes
     ```
 
 b.  What values does each of the following chunk options take and what do they do?
@@ -114,35 +106,81 @@ df
 
 a\.
 What does the following code chunk do?
-Run it and analyze the result.
+Run it and analyze the result and articulate in words what `group_by()` does.
 
 ```{r}
+#| eval: false
+
 df |>
   group_by(y)
 ```
 
 b\.
 What does the following code chunk do?
-Run it and analyze the result.
-How is it different than the `group_by()` in part (a)?
+Run it and analyze the result and articulate in words what `arrange()` does.
+Also comment on how it's different from the `group_by()` in part (a)?
 
 ```{r}
+#| eval: false
+
 df |>
   arrange(y)
 ```
 
-a.  What does the following code chunk do?
-    Run it and analyze the result.
+c\.
+What does the following code chunk do?
+Run it and analyze the result and articulate in words what the pipeline does.
 
+```{r}
+#| eval: false
 
+df |>
+  group_by(y) |>
+  summarize(mean_x = mean(x))
+```
 
-    - What does group_by do?
+d\.
+What does the following code chunk do?
+Run it and analyze the result and articulate in words what the pipeline does.
+Then, comment on what the message says.
 
-    - How is it different from arrange?
+```{r}
+#| eval: false
 
-    - Why are the results from the following different... one with group_by one not...
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x))
+```
 
-    - group_by \> summarize is diff group_by \> mutate
+e\.
+What does the following code chunk do?
+Run it and analyze the result and articulate in words what the pipeline does.
+How is the output different from the one in part (d).
+
+```{r}
+#| eval: false
+
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x), .groups = "drop")
+```
+
+f\.
+What do the following pipelines do?
+Run both and analyze their results and articulate in words what each pipeline does.
+How are the outputs of the two pipelines different?
+
+```{r}
+#| eval: false
+
+df |>
+  group_by(y, z) |>
+  summarize(mean_x = mean(x))
+
+df |>
+  group_by(y, z) |>
+  mutate(mean_x = mean(x))
+```
 
 ::: render-commit-push
 <br>
@@ -215,11 +253,11 @@ Make sure that you commit and push all changed documents and your Git pane is co
 
 ## Grading
 
--   Exercise 1: 5 points
--   Exercise 2: 5 points
--   Exercise 3: 9 points
--   Exercise 4: 10 points
--   Exercise 5: 6 points
+-   Exercise 1: 10 points
+-   Exercise 2: 10 points
+-   Exercise 3: 10 points
+-   Exercise 4: 3 points
+-   Exercise 5: 3 points
 -   Exercise 6: 10 points
--   Workflow + formatting: 5 points
+-   Workflow + formatting: 4 points
 -   Total: 50 points
