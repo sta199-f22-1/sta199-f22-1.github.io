@@ -461,86 +461,24 @@ chr (1): party
 <p><img src="images/private-sector.jpg" class="img-fluid figure-img"></p>
 </figure>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This exercise has been moved to HW 3. Suggested answers will be released with HW 3 answers.</p>
+</div>
+</div>
 <ul>
 <li><strong>Question:</strong> What is misleading about this graph?</li>
-</ul>
-<p>The segments are not to scale.</p>
-<ul>
 <li><strong>Your turn (6 minutes):</strong> If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.</li>
-</ul>
-<p>Total sample size is 1858 – from the caption. Each respondent was asked about each service, so the services might be organized in columns in the data, but to make this plot we’ll ultimately want one column for service and one column for sector.</p>
-<ul>
 <li><strong>Demo:</strong> Load the data for this survey from <code>data/survation.csv</code>. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>survation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/survation.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 1858 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (4): Royal Mail, Energy, Water, Rail
-dbl (1): ID
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>survation_longer <span class="ot">&lt;-</span> survation <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>ID,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"service"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"sector"</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>survation_longer <span class="sc">|&gt;</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(service, sector) <span class="sc">|&gt;</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(service) <span class="sc">|&gt;</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 4
-# Groups:   service [4]
-   service    sector             n   prop
-   &lt;chr&gt;      &lt;chr&gt;          &lt;int&gt;  &lt;dbl&gt;
- 1 Energy     Don't know       130 0.0700
- 2 Energy     Private sector   112 0.0603
- 3 Energy     Public sector   1616 0.870 
- 4 Rail       Don't know        56 0.0301
- 5 Rail       Private sector    56 0.0301
- 6 Rail       Public sector   1746 0.940 
- 7 Royal Mail Don't know       149 0.0802
- 8 Royal Mail Private sector   130 0.0700
- 9 Royal Mail Public sector   1579 0.850 
-10 Water      Don't know        56 0.0301
-11 Water      Private sector    56 0.0301
-12 Water      Public sector   1746 0.940 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>survation_longer <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">service =</span> <span class="fu">fct_relevel</span>(service, <span class="st">"Royal Mail"</span>, <span class="st">"Energy"</span>, <span class="st">"Water"</span>, <span class="st">"Rail"</span>),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sector =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_relevel</span>(sector, <span class="st">"Public sector"</span>, <span class="st">"Private sector"</span>, <span class="st">"Don't know"</span>))</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> service, <span class="at">fill =</span> sector)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray"</span>, <span class="st">"#FF3205"</span>, <span class="st">"#006697"</span>),</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NULL</span>,</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Do you think the following services should be</span><span class="sc">\n</span><span class="st">run in the private sector or the public sector?"</span>,</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Base: All respondents unweighted. Total n = 1858."</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ae-08-dse-misrepresentation-A_files/figure-html/private-sector-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
 
 
 </section>

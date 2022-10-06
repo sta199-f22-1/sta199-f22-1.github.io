@@ -143,56 +143,11 @@ The following chart was [shared](https://twitter.com/GraphCrimes/status/15662640
 
 ![](images/private-sector.jpg){fig-align="center"}
 
+::: callout-note
+This exercise has been moved to HW 3.
+Suggested answers will be released with HW 3 answers.
+:::
+
 -   **Question:** What is misleading about this graph?
-
-The segments are not to scale.
-
 -   **Your turn (6 minutes):** If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.
-
-Total sample size is 1858 -- from the caption.
-Each respondent was asked about each service, so the services might be organized in columns in the data, but to make this plot we'll ultimately want one column for service and one column for sector.
-
 -   **Demo:** Load the data for this survey from `data/survation.csv`. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?
-
-```{r}
-#| label: private-sector
-
-survation <- read_csv("data/survation.csv")
-
-survation_longer <- survation |>
-  pivot_longer(
-    cols = -ID,
-    names_to = "service",
-    values_to = "sector"
-  )
-
-survation_longer |>
-  count(service, sector) |>
-  group_by(service) |>
-  mutate(prop = n / sum(n))
-
-survation_longer |>
-  mutate(
-    service = fct_relevel(service, "Royal Mail", "Energy", "Water", "Rail"),
-    sector = fct_rev(fct_relevel(sector, "Public sector", "Private sector", "Don't know"))
-    ) |>
-  ggplot(
-    aes(y = service, fill = sector)
-  ) +
-  geom_bar() +
-  scale_fill_manual(
-    values = c("gray", "#FF3205", "#006697"),
-  ) +
-  guides(
-    fill = guide_legend(reverse = TRUE)
-  ) +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  labs(
-    x = NULL,
-    y = NULL,
-    fill = NULL,
-    title = "Do you think the following services should be\nrun in the private sector or the public sector?",
-    caption = "Base: All respondents unweighted. Total n = 1858."
-  )
-```
