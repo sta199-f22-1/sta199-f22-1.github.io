@@ -1,0 +1,9 @@
+---
+title: "Prepare"
+subtitle: "Due: October 17, 2022"
+categories: "prepare"
+---
+
+Check your email before lab to find out who your teammates are.
+If you like, reach out to them before class.
+Or just find them when you get there.
