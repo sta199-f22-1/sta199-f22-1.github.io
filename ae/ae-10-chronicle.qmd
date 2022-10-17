@@ -1,6 +1,7 @@
 ---
 title: "Opinion articles in The Chronicle"
-format: html
+categories: 
+  - Application exercise
 editor: visual
 ---
 

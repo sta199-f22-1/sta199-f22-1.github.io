@@ -1,0 +1,16 @@
+{
+  "hash": "f97bc42ea00484995dceb4842cb9baa7",
+  "result": {
+    "markdown": "---\ntitle: \"Yankee Candle reviews on Amazon\"\ncategories: \n  - Application exercise\neditor: visual\n---\n\n\n## Part 1 - Data scraping\n\nDo this part in `yankee-candle-scrape.R`.\n\n## Part 2 - Data analysis\n\nLet's start by loading the packages we will need:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(lubridate)\n```\n:::\n\n\n-   Load the data you saved into the `data` folder and name it `yc_reviews_raw`.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# add code here\n```\n:::\n\n\n-   **Your turn (5 minutes):** Our goal is to plot the number of reviews mentioning \"no scent\" or \"no smell\" per week, limiting our plot to reviews posted in 2022. Take a look at the data you loaded and outline how you can transform it to prepare it for such a plot. Your response should be bullet points that can roughly be translated to steps in a data wrangling pipeline.\n\n*Add your response here.*\n\n-   **Demo:** Create the plot described above.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# add code here\n```\n:::\n\n\n-   **Your turn (3 minutes):** Outline how this exercise could be expanded to make a plot like [this one](https://twitter.com/nick_beauchamp/status/1473509106187223043) that compares number of reviews mentioning no scent/smell and number of COVID cases.\n\n*Add your response here.*\n",
+    "supporting": [
+      "ae-11-yankee-candle_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

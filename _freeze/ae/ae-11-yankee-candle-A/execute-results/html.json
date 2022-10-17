@@ -1,0 +1,16 @@
+{
+  "hash": "892f93b381d5e85b6716430d7982d95e",
+  "result": {
+    "markdown": "---\ntitle: \"Yankee Candle reviews on Amazon\"\nsubtitle: \"Suggested answers\"\ncategories: \n  - Application exercise\n  - Answers\neditor: visual\n---\n\n\n## Part 1 - Data scraping\n\nSee [`yankee-candle-scrape-A.R`](https://github.com/sta199-f22-1/sta199-f22-1.github.io/blob/main/ae/_yankee-candle-scrape-A.R) for suggested scraping code.\n\n## Part 2 - Data analysis\n\nLet's start by loading the packages we will need:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(lubridate)\n```\n:::\n\n\n-   Load the data you saved into the `data` folder and name it `yc_reviews_all`.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nyc_reviews_all <- read_csv(\"data/yc-reviews-all.csv\")\n```\n:::\n\n\n-   **Your turn (5 minutes):** Our goal is to plot the number of reviews or titles mentioning \"no scent\" or \"no smell\" per week. Take a look at the data you loaded and outline how you can transform it to prepare it for such a plot. Your response should be bullet points that can roughly be translated to steps in a data wrangling pipeline.\n    -   Extract date of review.\n    -   Figure out which week of the year the date corresponds to.\n    -   Look for \"no scent\" or \"no smell\" in the titles or reviews.\n    -   Count how many titles or reviews have these phrases mentioned for each week.\n    -   Plot the number of mentions by week against week number.\n-   **Demo:** Create the plot described above.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nyc_reviews_all |>\n  mutate(\n    date = mdy(country_date),\n    week = week(date),\n    review = str_to_lower(review),\n    title = str_to_lower(title),\n    no_scent = case_when(\n      str_detect(review, \"no scent\") | str_detect(title, \"no scent\") ~ \"mentioned\",\n      str_detect(review, \"no smell\") | str_detect(title, \"no smell\") ~ \"mentioned\",\n      TRUE ~ \"not mentioned\"\n    )\n  ) |>\n  count(week, no_scent) |>\n  filter(no_scent == \"mentioned\") |>\n  ggplot(aes(x = week, y = n, group = 1)) +\n  geom_line()\n```\n\n::: {.cell-output-display}\n![](ae-11-yankee-candle-A_files/figure-html/plot-reviews-1.png){width=672}\n:::\n:::\n\n\n-   **Your turn (3 minutes):** Outline how this exercise could be expanded to make a plot like [this one](https://twitter.com/nick_beauchamp/status/1473509106187223043) that compares number of reviews mentioning no scent/smell and number of COVID cases.\n\nScrape data going further back and join it with weekly COVID cases data from another source and plot both.\n",
+    "supporting": [
+      "ae-11-yankee-candle-A_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

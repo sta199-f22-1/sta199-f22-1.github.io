@@ -1,15 +1,15 @@
 ---
 title: "Opinion articles in The Chronicle"
-format: html
+subtitle: "Suggested answers"
+categories: 
+  - Application exercise
+  - Answers
 editor: visual
 ---
 
 ## Part 1 - Data scraping
 
-This will be done in the `chronicle.R` R script.
-Save the resulting data frame in the `data` folder.
-
-Suggested scraping code can be found here.
+See [`chronicle-scrape.R`](https://github.com/sta199-f22-1/sta199-f22-1.github.io/blob/main/ae/_chronicle-scrape-A.R) for suggested scraping code.
 
 ## Part 2 - Data analysis
 

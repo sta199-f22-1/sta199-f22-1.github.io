@@ -651,6 +651,20 @@
     "text": "group_by()\ngroup_by() is used for grouped operations. It’s very powerful when paired with summarise() to calculate summary statistics by group.\nHere we find the mean and standard deviation of departure delay for each month.\n\n# add code here\n\n\nYour turn (4 minutes): What is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay? Share your response on Slack on the relevant thread.\n\n\n# add code here"
   },
   {
+    "objectID": "ae/ae-11-yankee-candle.html",
+    "href": "ae/ae-11-yankee-candle.html",
+    "title": "Yankee Candle reviews on Amazon",
+    "section": "",
+    "text": "Do this part in yankee-candle-scrape.R."
+  },
+  {
+    "objectID": "ae/ae-11-yankee-candle.html#part-2---data-analysis",
+    "href": "ae/ae-11-yankee-candle.html#part-2---data-analysis",
+    "title": "Yankee Candle reviews on Amazon",
+    "section": "Part 2 - Data analysis",
+    "text": "Part 2 - Data analysis\nLet’s start by loading the packages we will need:\n\nlibrary(tidyverse)\nlibrary(lubridate)\n\n\nLoad the data you saved into the data folder and name it yc_reviews_raw.\n\n\n# add code here\n\n\nYour turn (5 minutes): Our goal is to plot the number of reviews mentioning “no scent” or “no smell” per week, limiting our plot to reviews posted in 2022. Take a look at the data you loaded and outline how you can transform it to prepare it for such a plot. Your response should be bullet points that can roughly be translated to steps in a data wrangling pipeline.\n\nAdd your response here.\n\nDemo: Create the plot described above.\n\n\n# add code here\n\n\nYour turn (3 minutes): Outline how this exercise could be expanded to make a plot like this one that compares number of reviews mentioning no scent/smell and number of COVID cases.\n\nAdd your response here."
+  },
+  {
     "objectID": "ae/ae-09-dse-bias-A.html",
     "href": "ae/ae-09-dse-bias-A.html",
     "title": "AE 09: Data science ethics - Algorithmic bias",
@@ -795,7 +809,7 @@
     "href": "ae/ae-10-chronicle-A.html",
     "title": "Opinion articles in The Chronicle",
     "section": "",
-    "text": "This will be done in the chronicle.R R script. Save the resulting data frame in the data folder.\nSuggested scraping code can be found here."
+    "text": "See chronicle-scrape.R for suggested scraping code."
   },
   {
     "objectID": "ae/ae-10-chronicle-A.html#part-2---data-analysis",
@@ -908,6 +922,20 @@
     "title": "AE 02: Visualizing penguins",
     "section": "Visualizing other variables - Your turn!",
     "text": "Visualizing other variables - Your turn!\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n\n\nInterpretation goes here…\n\nMake another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don’t forget to label your code chunk.\n\n\n# add code here\n\nInterpretation goes here…"
+  },
+  {
+    "objectID": "ae/ae-11-yankee-candle-A.html",
+    "href": "ae/ae-11-yankee-candle-A.html",
+    "title": "Yankee Candle reviews on Amazon",
+    "section": "",
+    "text": "See yankee-candle-scrape-A.R for suggested scraping code."
+  },
+  {
+    "objectID": "ae/ae-11-yankee-candle-A.html#part-2---data-analysis",
+    "href": "ae/ae-11-yankee-candle-A.html#part-2---data-analysis",
+    "title": "Yankee Candle reviews on Amazon",
+    "section": "Part 2 - Data analysis",
+    "text": "Part 2 - Data analysis\nLet’s start by loading the packages we will need:\n\nlibrary(tidyverse)\nlibrary(lubridate)\n\n\nLoad the data you saved into the data folder and name it yc_reviews_all.\n\n\nyc_reviews_all <- read_csv(\"data/yc-reviews-all.csv\")\n\n\nYour turn (5 minutes): Our goal is to plot the number of reviews or titles mentioning “no scent” or “no smell” per week. Take a look at the data you loaded and outline how you can transform it to prepare it for such a plot. Your response should be bullet points that can roughly be translated to steps in a data wrangling pipeline.\n\nExtract date of review.\nFigure out which week of the year the date corresponds to.\nLook for “no scent” or “no smell” in the titles or reviews.\nCount how many titles or reviews have these phrases mentioned for each week.\nPlot the number of mentions by week against week number.\n\nDemo: Create the plot described above.\n\n\nyc_reviews_all |>\n  mutate(\n    date = mdy(country_date),\n    week = week(date),\n    review = str_to_lower(review),\n    title = str_to_lower(title),\n    no_scent = case_when(\n      str_detect(review, \"no scent\") | str_detect(title, \"no scent\") ~ \"mentioned\",\n      str_detect(review, \"no smell\") | str_detect(title, \"no smell\") ~ \"mentioned\",\n      TRUE ~ \"not mentioned\"\n    )\n  ) |>\n  count(week, no_scent) |>\n  filter(no_scent == \"mentioned\") |>\n  ggplot(aes(x = week, y = n, group = 1)) +\n  geom_line()\n\n\n\n\n\nYour turn (3 minutes): Outline how this exercise could be expanded to make a plot like this one that compares number of reviews mentioning no scent/smell and number of COVID cases.\n\nScrape data going further back and join it with weekly COVID cases data from another source and plot both."
   },
   {
     "objectID": "ae/ae-05-pivoting-statsci-majors.html",
