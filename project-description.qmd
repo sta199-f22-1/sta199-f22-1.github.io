@@ -449,7 +449,7 @@ If you have concerns with the teamwork and/or contribution from any team members
 **You only need to email me if you have concerns.**
 Otherwise, I will assume everyone on the team equally contributed and will receive full credit for the teamwork portion of the grade.
 
-## Overall grading
+# Overall grading
 
 The grade breakdown is as follows:
 
@@ -463,7 +463,7 @@ The grade breakdown is as follows:
 | **Reproducibility + organization** | 5 pts   |
 | **Teamwork**                       | 10 pts  |
 
-### Grading summary
+## Grading summary
 
 Grading of the project will take into account the following:
 
@@ -480,6 +480,6 @@ A general breakdown of scoring is as follows:
 -   *60%-69%*: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.
 -   *Below 60%*: Student is not making a sufficient effort.
 
-### Late work policy
+## Late work policy
 
 **There is no late work accepted on this project.** Be sure to turn in your work early to avoid any technological mishaps.

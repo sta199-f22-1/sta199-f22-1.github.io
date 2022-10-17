@@ -189,4 +189,7 @@ Also, everyone should go to their Terminal and type `git config pull.rebase fals
 
 # Project proposal
 
-Go to the project assignment on the course website and read through the first two sections
+Go to the project assignment on the course website (<https://sta199-f22-1.github.io/project-description.html>) and read through the first three sections (Timeline, Introduction, and Proposal) and start working through the proposal in `proposal.qmd`.
+Your submission will be in your project repo, there is not a separate repo for this lab.
+
+Each person in the team must contribute to the proposal, i.e., each person should commit at least once to the project repo during the proposal stage.
