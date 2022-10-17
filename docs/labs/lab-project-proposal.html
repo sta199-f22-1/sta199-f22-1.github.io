@@ -220,18 +220,22 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#teamwork" id="toc-teamwork" class="nav-link" data-scroll-target="#teamwork">Teamwork</a>
   <ul class="collapse">
-  <li><a href="#why-teams-rationale" id="toc-why-teams-rationale" class="nav-link" data-scroll-target="#why-teams-rationale">Why Teams: Rationale</a></li>
-  <li><a href="#team-name" id="toc-team-name" class="nav-link" data-scroll-target="#team-name">Team Name</a></li>
-  <li><a href="#team-agreement" id="toc-team-agreement" class="nav-link" data-scroll-target="#team-agreement">Team Agreement</a></li>
-  <li><a href="#missing-teammates" id="toc-missing-teammates" class="nav-link" data-scroll-target="#missing-teammates">Missing Teammates</a></li>
+  <li><a href="#why-teams-rationale" id="toc-why-teams-rationale" class="nav-link" data-scroll-target="#why-teams-rationale">Why teams: Rationale</a></li>
+  <li><a href="#team-name" id="toc-team-name" class="nav-link" data-scroll-target="#team-name">Team name</a></li>
+  <li><a href="#team-agreement" id="toc-team-agreement" class="nav-link" data-scroll-target="#team-agreement">Team agreement</a></li>
+  <li><a href="#missing-teammates" id="toc-missing-teammates" class="nav-link" data-scroll-target="#missing-teammates">Missing teammates</a></li>
   </ul></li>
-  <li><a href="#resolving-merge-conflicts" id="toc-resolving-merge-conflicts" class="nav-link" data-scroll-target="#resolving-merge-conflicts">Resolving merge conflicts</a></li>
+  <li><a href="#merge-conflicts" id="toc-merge-conflicts" class="nav-link" data-scroll-target="#merge-conflicts">Merge conflicts</a>
+  <ul class="collapse">
+  <li><a href="#resolving" id="toc-resolving" class="nav-link" data-scroll-target="#resolving">Resolving</a></li>
   <li><a href="#merge-conflict-activity" id="toc-merge-conflict-activity" class="nav-link" data-scroll-target="#merge-conflict-activity">Merge conflict activity</a>
   <ul class="collapse">
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#lets-cause-a-merge-conflict" id="toc-lets-cause-a-merge-conflict" class="nav-link" data-scroll-target="#lets-cause-a-merge-conflict">Let’s cause a merge conflict!</a></li>
+  </ul></li>
   <li><a href="#tips-for-collaborating-via-github" id="toc-tips-for-collaborating-via-github" class="nav-link" data-scroll-target="#tips-for-collaborating-via-github">Tips for collaborating via GitHub</a></li>
   </ul></li>
   <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Project proposal</a></li>
@@ -290,23 +294,28 @@ Important
 <li>First, open the Quarto document <code>proposal.qmd</code> and Render it.</li>
 <li>Make sure it compiles without errors.</li>
 </ul>
+</section>
+<section id="teamwork" class="level1">
+<h1>Teamwork</h1>
 <section id="why-teams-rationale" class="level2">
-<h2 class="anchored" data-anchor-id="why-teams-rationale">Why Teams: Rationale</h2>
+<h2 class="anchored" data-anchor-id="why-teams-rationale">Why teams: Rationale</h2>
 <p>In the real world, data scientists and statisticians often work in research teams. It is a skill to be able to communicate and work together on common projects. Thus, the remaining labs + your project will be team based.</p>
 <p>Teams work better when members have a common understanding of the team’s goals and expectations for collaboration. The purpose of this activity is to help your team making a plan for working together during lab and outside of the scheduled lab time.</p>
 <p>Each team member will have some ideas about how a team should operate. These ideas may be very different. This is your opportunity to share your thoughts and ideas to promote optimal team function and prevent misunderstandings in the future.</p>
 </section>
 <section id="team-name" class="level2">
-<h2 class="anchored" data-anchor-id="team-name">Team Name</h2>
+<h2 class="anchored" data-anchor-id="team-name">Team name</h2>
 <p>Discuss with your group a team name to be called. Your GitHub repos will be created for this team name moving forward. Report your team name to your Lab Leader before moving on.</p>
 </section>
 <section id="team-agreement" class="level2">
-<h2 class="anchored" data-anchor-id="team-agreement">Team Agreement</h2>
+<h2 class="anchored" data-anchor-id="team-agreement">Team agreement</h2>
 <p>Discuss each of the items below with all team members.</p>
 <p>Have <em>one person</em> act as the recorder and type the team’s decisions in an email.</p>
 <p><em>Be sure the team agrees on an item before it is recorded.</em></p>
-<p>Once the email is complete, the recorder should send it to all team members and cc the lab leader and the course professor (mc301@duke.edu). All team members can refer to this email throughout the semester.</p>
+<p>Once the email is complete, the recorder should send it to all team members and cc the lab leader and the course professor (mc301@duke.edu). For the subject line use <code>Team agreement - [TEAM NAME]</code>, and replace <code>[TEAM NAME]</code> with your, you guessed it, team name!</p>
+<p>All team members can refer to this email throughout the semester.</p>
 <ul>
+<li>Team name: The team name you chose, not the code name I gave your team.</li>
 <li>Weekly meetings: Identify a 1 - 2 hour weekly block outside of lab where the team can meet to work on assignments. All team members should block off this time on their calendar in case the group needs to meet to finish lab or work on the project.</li>
 <li>Meeting “location”: How the team will meet to work together (e.g.&nbsp;in-person, Zoom, Facetime, Google Hangouts). Be sure every member is able to access the virtual meeting space, if needed. If you are unable to find a weekly time when the team can meet, briefly outline a plan to work on assignments outside of lab. Otherwise, you can delete this item.</li>
 <li>Primary method of communication: The team’s primary method of communication outside of meetings (e.g.&nbsp;Slack, text messages, etc.)</li>
@@ -316,12 +325,14 @@ Important
 </ul>
 </section>
 <section id="missing-teammates" class="level2">
-<h2 class="anchored" data-anchor-id="missing-teammates">Missing Teammates</h2>
+<h2 class="anchored" data-anchor-id="missing-teammates">Missing teammates</h2>
 <p>If you are missing teammates for today’s lab, it is your responsibility to reach out, say hello, and communicate with them that they must contribute to the above and below tasks before the deadline. You can find their email in the <code>teams</code> repo.</p>
 </section>
 </section>
-<section id="resolving-merge-conflicts" class="level1">
-<h1>Resolving merge conflicts</h1>
+<section id="merge-conflicts" class="level1">
+<h1>Merge conflicts</h1>
+<section id="resolving" class="level2">
+<h2 class="anchored" data-anchor-id="resolving">Resolving</h2>
 <p>Working in teams includes using a shared GitHub repo for labs and projects. Sometimes things will go swimmingly, and sometimes you’ll run into merge conflicts.</p>
 <p>When you and your teammates work on the lines of code within a document, and both try to push your changes, you will run into issues. Merge conflicts happen when you merge branches that have competing renders, and Git needs your help to decide which changes to incorporate in the final merge.</p>
 <p>Our first task today is to walk you through a merge conflict! First, a bit of Git review:</p>
@@ -348,17 +359,17 @@ See also [ggplot2 documentation](https://ggplot2.tidyverse.org/)
 <p>This is the <strong>hash</strong> (a unique identifier) of the render your collaborator made with the conflicting change.</p>
 <p>Your job is to <em>reconcile</em> the changes: edit the file so that it incorporates the best of both versions and delete the <code>&lt;&lt;&lt;</code>, <code>===</code>, and <code>&gt;&gt;&gt;</code> lines. Then you can stage and render the result.</p>
 </section>
-<section id="merge-conflict-activity" class="level1">
-<h1>Merge conflict activity</h1>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="merge-conflict-activity" class="level2">
+<h2 class="anchored" data-anchor-id="merge-conflict-activity">Merge conflict activity</h2>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
 <ul>
 <li>Clone the <code>project</code> repo and open the <code>about.qmd</code> file.</li>
 <li>Assign the numbers 1, 2, 3, 4, and 5 to each of the team members. If your team has fewer than 5 people, some people will need to have multiple numbers.</li>
 </ul>
 </section>
-<section id="lets-cause-a-merge-conflict" class="level2">
-<h2 class="anchored" data-anchor-id="lets-cause-a-merge-conflict">Let’s cause a merge conflict!</h2>
+<section id="lets-cause-a-merge-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="lets-cause-a-merge-conflict">Let’s cause a merge conflict!</h3>
 <p>Our goal is to see two different types of merges: first we’ll see a type of merge that git can’t figure out on its own how to do on its own (a <strong>merge conflict</strong>) and requires human intervention, then another type of where that git can figure out how to do without human intervention.</p>
 <p>Doing this will require some tight choreography, so pay attention!</p>
 <p>Take turns in completing the exercise, only one member at a time. <strong>Others should just watch, not doing anything on their own projects (this includes not even pulling changes!)</strong> until they are instructed to. If you feel like you won’t be able to resist the urge to touch your computer when it’s not your turn, we recommend putting your hands in your pockets or sitting on them!</p>
@@ -403,6 +414,7 @@ See also [ggplot2 documentation](https://ggplot2.tidyverse.org/)
 <li>If there is a merge conflict, fix it. If not, push your changes.</li>
 </ul>
 <p><strong>Everyone:</strong> Pull, and observe the changes in your document.</p>
+</section>
 </section>
 <section id="tips-for-collaborating-via-github" class="level2">
 <h2 class="anchored" data-anchor-id="tips-for-collaborating-via-github">Tips for collaborating via GitHub</h2>
