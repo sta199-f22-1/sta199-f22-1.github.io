@@ -21,8 +21,8 @@ In this lab, you will...
 
 -   Go to the [sta199-fa22-01](github.com/sta199-f22-1) organization on GitHub. Click on the repo with the prefix `project`. It contains the starter documents you need to complete your project.
 -   Clone the repo and start a new project in RStudio. See the [Lab 0 instructions](https://sta199-f22-1.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
--   First, open the Quarto document `proposal.qmd` and Render it.
--   Make sure it compiles without errors.
+-   Go to the Build tab and click Render website.
+-   Make sure it compiles without errors. View your project website in your Viewer tab.
 
 # Teamwork
 
