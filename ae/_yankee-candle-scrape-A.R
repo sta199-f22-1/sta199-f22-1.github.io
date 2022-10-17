@@ -11,21 +11,21 @@ paths_allowed("https://www.amazon.com")
 
 # read page --------------------------------------------------------------------
 
-page <- read_html("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1")
+page <- read_html("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1&sortBy=recent")
 
 # parse reviews ----------------------------------------------------------------
 
 titles <- page |>
-  html_nodes(".a-text-bold span") |>
-  html_text()
+  html_nodes("#cm_cr-review_list .celwidget .a-row:nth-child(2)") |>
+  html_text2()
 
 reviews <- page |>
-  html_nodes(".review-text-content span") |>
-  html_text()
+  html_nodes(".a-spacing-small.review-data") |>
+  html_text2()
 
 countries_dates <- page |>
   html_nodes("#cm_cr-review_list .review-date") |>
-  html_text()
+  html_text2()
 
 yc_reviews_1 <- tibble(
   title = titles,
@@ -39,19 +39,21 @@ yc_reviews_1 <- tibble(
 
 scrape_review <- function(url){
 
+  Sys.sleep(2)
+
   page <- read_html(url)
 
   titles <- page |>
-    html_nodes(".a-text-bold span") |>
-    html_text()
+    html_nodes("#cm_cr-review_list .celwidget .a-row:nth-child(2)") |>
+    html_text2()
 
   reviews <- page |>
-    html_nodes(".review-text-content span") |>
-    html_text()
+    html_nodes(".a-spacing-small.review-data") |>
+    html_text2()
 
   countries_dates <- page |>
     html_nodes("#cm_cr-review_list .review-date") |>
-    html_text()
+    html_text2()
 
   tibble(
     title = titles,
@@ -64,17 +66,17 @@ scrape_review <- function(url){
 # test function ----------------------------------------------------------------
 
 # page 1
-scrape_review("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1")
+scrape_review("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=1&sortBy=recent")
 
 # page 2
-scrape_review("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2")
+scrape_review("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=2&sortBy=recent")
 
 # page 3
-scrape_review("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=3")
+scrape_review("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=3&sortBy=recent")
 
 # create a vector of URLs ------------------------------------------------------
 
-yc_urls <- paste0("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_arp_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=", 1:10)
+yc_urls <- paste0("https://www.amazon.com/Yankee-Candle-Large-Apple-Pumpkin/product-reviews/B008P8YTU6/ref=cm_cr_getr_d_paging_btm_next_2?ie=UTF8&reviewerType=all_reviews&pageNumber=", 1:10, "&sortBy=recent")
 yc_urls
 
 # map function over URLs -------------------------------------------------------
