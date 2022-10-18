@@ -1,0 +1,311 @@
+---
+title: "Functions and iteration"
+subtitle: "Lecture 14"
+date: "October 18, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+Clone your `ae-11` project from GitHub, render your document, update your name, and commit and push.
+
+## Announcements
+
+-   Project proposals due Friday
+-   Make sure to review the video/reading for Thursday!
+
+## Midterm feedback followup
+
+> Can be difficult to catch up on AEs if bits are missed.
+
+Will post AE solutions after class instead of waiting for the deadline.
+You still need to attempt them to get points.
+
+# From last time
+
+## Recap of `ae-10`
+
+-   Use the SelectorGadget identify tags for elements you want to grab
+-   Use rvest to first read the whole page (into R) and then parse the object you've read in to the elements you're interested in
+-   Put the components together in a data frame (a tibble) and analyze it like you analyze any other data
+
+## A new R workflow {.smaller}
+
+-   When working in a Quarto document, your analysis is re-run each time you knit
+
+-   If web scraping in a Quarto document, you'd be re-scraping the data each time you knit, which is undesirable (and not *nice*)!
+
+-   An alternative workflow:
+
+    -   Use an R script to save your code
+    -   Saving interim data scraped using the code in the script as CSV or RDS files
+    -   Use the saved data in your analysis in your Quarto document
+
+## Ethics: "Can you?" vs "Should you?"
+
+![](images/13/ok-cupid-1.png){fig-align="center" width="800"}
+
+::: aside
+Source: Brian Resnick, [Researchers just released profile data on 70,000 OkCupid users without permission](https://www.vox.com/2016/5/12/11666116/70000-okcupid-users-data-release), Vox.
+:::
+
+## "Can you?" vs "Should you?"
+
+![](images/13/ok-cupid-2.png){fig-align="center" width="800"}
+
+## Challenges: Unreliable formatting
+
+![](images/13/unreliable-formatting.png){fig-align="center" width="699"}
+
+::: aside
+[alumni.duke.edu/news/notable-alumni](https://alumni.duke.edu/news/notable-alumni)
+:::
+
+## Challenges: Data broken into many pages
+
+![](images/13/many-pages.png){fig-align="center"}
+
+## Workflow: Screen scraping vs. APIs
+
+Two different scenarios for web scraping:
+
+-   Screen scraping: extract data from source code of website, with html parser (easy) or regular expression matching (less easy)
+
+-   Web APIs (application programming interface): website offers a set of structured http requests that return JSON or XML files
+
+# Functions
+
+## Functions in R
+
+::: question
+What are some functions you've learned?
+What are their inputs, what are their outputs?
+:::
+
+## `mean()`
+
+```{r}
+x <- c(1, 2, 3, 4, 5)
+mean(x)
+```
+
+## Custom function: `multiply_by_two()` {.smaller}
+
+::: incremental
+-   Decide on a goal: Multiply by two
+-   Decide on the number and type of inputs: 1 (a numeric vector of length 1)
+-   Decide on the number and type of outputs: 1 (a numeric vector of length 1)
+:::
+
+. . .
+
+```{r}
+multiply_by_two <- function(x){
+  x * 2
+}
+```
+
+. . .
+
+```{r}
+multiply_by_two(1)
+multiply_by_two(2)
+multiply_by_two(3)
+```
+
+## Custom function: `multiply_by()` {.smaller}
+
+::: incremental
+-   Decide on a goal: Multiply by a given value
+-   Decide on the number and type of inputs: 2 (two numeric vectors of length 1)
+-   Decide on the number and type of outputs: 1 (a numeric vector of length 1)
+:::
+
+. . .
+
+```{r}
+multiply <- function(x, y){
+  x * y
+}
+```
+
+. . .
+
+```{r}
+multiply(1, 3)
+multiply(2, 5)
+multiply(10, 35)
+```
+
+## Custom function: `temp_convert()`
+
+-   Goal: Convert temperatures in degrees Fahrenheit to Celsius; subtract 32 and multiply by $\frac{5}{9}$.
+-   Number and type of inputs: 1 (a numeric vector of length 1)
+-   Number and type of outputs: 1 (a numeric vector of length 1)
+
+. . .
+
+```{r}
+temp_convert <- function(temp_f){
+  (temp_f - 32) * 5/9
+}
+```
+
+## Test out the function
+
+```{r}
+temp_convert(32)   # freezing point
+```
+
+. . .
+
+```{r}
+temp_convert(360)  # cake baking temperature
+```
+
+. . .
+
+```{r}
+temp_convert(98.6) # body temperature
+```
+
+## Why do we need functions?
+
+::: columns
+::: {.column width="50%"}
+**Repeat yourself:**
+
+```{r}
+# freezing point
+(32 - 32) * (5/9)
+
+# cake baking temperature
+(180 - 32) * (5/9)
+
+# body temperature
+(98.6 - 32) * (5/9)
+```
+:::
+
+::: {.column width="50%"}
+**Do not repeat yourself (DRY):**
+
+```{r}
+# freezing point
+temp_convert(32)
+
+# cake baking temperature
+temp_convert(180)
+
+# body temperature
+temp_convert(98.6)
+```
+:::
+:::
+
+## Seriously, DRY! {.smaller}
+
+Load package:
+
+```{r}
+#| message: false
+
+library(tidyverse)
+```
+
+. . .
+
+Define input vector:
+
+```{r}
+x <- c(32, 180, 98.6)
+x
+```
+
+::: columns
+::: {.fragment .column width="50%"}
+**Map** your function over the elements of the input vector:
+
+```{r}
+map(x, temp_convert)
+```
+:::
+
+::: {.fragment .column width="50%"}
+**Control** the type of your output:
+
+```{r}
+map_dbl(x, temp_convert)
+```
+:::
+:::
+
+## Iteration
+
+To apply the same function to multiple values (stored in an object like a vector), use `map()` functions:
+
+::: incremental
+-   `map()` returns a list
+
+-   `map_lgl()`, `map_int()`, `map_dbl()` and `map_chr()` return an atomic vector of the indicated type (logical, integer, double, or character, respectively)
+
+-   `map_dfr()` and `map_dfc()` return a data frame created by row-binding and column-binding, respectively
+:::
+
+## Coming soon...
+
+::: incremental
+-   **Use** a function that takes a data frame and names of variables in that data frame
+-   Fits a regression model for predicting one specified variable from the others given
+-   Reports the model results along with measurements on prediction error and other diagnostic values
+:::
+
+## Coming now
+
+::: incremental
+-   **Write** a function that scrapes data from a single page and outputs a data frame with items of interest from that page
+-   Map that function over multiple pages to get a bigger data frame with items of interest from all pages
+-   Items of interest: Amazon reviews of Yankee Candles
+:::
+
+# Application exercise
+
+## Yankee Candle reviews and COVID
+
+[![](images/14/og-candle-review-tweet.png){fig-align="center" width="600"}](https://twitter.com/kate_ptrv/status/1332398737604431874?s=20)
+
+::: aside
+Source: [\@kate_ptrv on Twitter](https://twitter.com/kate_ptrv/status/1332398737604431874?s=20) + [GitHub](https://github.com/kateptrv/Candles)
+:::
+
+## Goal
+
+::: columns
+::: {.column width="50%"}
+-   Scrape data **from multiple pages** and organize it in a tidy format in R
+-   Perform light text parsing to clean data
+-   Summarize and visualize the data
+:::
+
+::: {.column width="50%"}
+![](images/14/yc.png){fig-align="center" width="601"}
+:::
+:::
+
+## `ae-11`
+
+::: appex
+::: nonincremental
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-11` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+:::

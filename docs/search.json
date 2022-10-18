@@ -1351,6 +1351,174 @@
     "text": "Other classes\nJust a couple of examples…\n\n\nDate:\n\ntoday <- Sys.Date()\ntoday\n\n[1] \"2022-09-22\"\n\ntypeof(today)\n\n[1] \"double\"\n\nattributes(today)\n\n$class\n[1] \"Date\"\n\n\n\nDate-time:\n\nnow <- as.POSIXct(\"2022-09-22 10:15\", tz = \"EST\")\nnow\n\n[1] \"2022-09-22 10:15:00 EST\"\n\ntypeof(now)\n\n[1] \"double\"\n\nattributes(now)\n\n$class\n[1] \"POSIXct\" \"POSIXt\" \n\n$tzone\n[1] \"EST\""
   },
   {
+    "objectID": "slides/14-functions-iteration.html#while-you-wait-for-class-to-begin",
+    "href": "slides/14-functions-iteration.html#while-you-wait-for-class-to-begin",
+    "title": "Functions and iteration",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\nClone your ae-11 project from GitHub, render your document, update your name, and commit and push."
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#announcements",
+    "href": "slides/14-functions-iteration.html#announcements",
+    "title": "Functions and iteration",
+    "section": "Announcements",
+    "text": "Announcements\n\nProject proposals due Friday\nMake sure to review the video/reading for Thursday!"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#midterm-feedback-followup",
+    "href": "slides/14-functions-iteration.html#midterm-feedback-followup",
+    "title": "Functions and iteration",
+    "section": "Midterm feedback followup",
+    "text": "Midterm feedback followup\n\nCan be difficult to catch up on AEs if bits are missed.\n\nWill post AE solutions after class instead of waiting for the deadline. You still need to attempt them to get points."
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#recap-of-ae-10",
+    "href": "slides/14-functions-iteration.html#recap-of-ae-10",
+    "title": "Functions and iteration",
+    "section": "Recap of ae-10",
+    "text": "Recap of ae-10\n\nUse the SelectorGadget identify tags for elements you want to grab\nUse rvest to first read the whole page (into R) and then parse the object you’ve read in to the elements you’re interested in\nPut the components together in a data frame (a tibble) and analyze it like you analyze any other data"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#a-new-r-workflow",
+    "href": "slides/14-functions-iteration.html#a-new-r-workflow",
+    "title": "Functions and iteration",
+    "section": "A new R workflow",
+    "text": "A new R workflow\n\nWhen working in a Quarto document, your analysis is re-run each time you knit\nIf web scraping in a Quarto document, you’d be re-scraping the data each time you knit, which is undesirable (and not nice)!\nAn alternative workflow:\n\nUse an R script to save your code\nSaving interim data scraped using the code in the script as CSV or RDS files\nUse the saved data in your analysis in your Quarto document"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#ethics-can-you-vs-should-you",
+    "href": "slides/14-functions-iteration.html#ethics-can-you-vs-should-you",
+    "title": "Functions and iteration",
+    "section": "Ethics: “Can you?” vs “Should you?”",
+    "text": "Ethics: “Can you?” vs “Should you?”\n\n\n\n\n\n\n\nSource: Brian Resnick, Researchers just released profile data on 70,000 OkCupid users without permission, Vox."
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#can-you-vs-should-you",
+    "href": "slides/14-functions-iteration.html#can-you-vs-should-you",
+    "title": "Functions and iteration",
+    "section": "“Can you?” vs “Should you?”",
+    "text": "“Can you?” vs “Should you?”"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#challenges-unreliable-formatting",
+    "href": "slides/14-functions-iteration.html#challenges-unreliable-formatting",
+    "title": "Functions and iteration",
+    "section": "Challenges: Unreliable formatting",
+    "text": "Challenges: Unreliable formatting\n\n\n\n\n\n\n\nalumni.duke.edu/news/notable-alumni"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#challenges-data-broken-into-many-pages",
+    "href": "slides/14-functions-iteration.html#challenges-data-broken-into-many-pages",
+    "title": "Functions and iteration",
+    "section": "Challenges: Data broken into many pages",
+    "text": "Challenges: Data broken into many pages"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#workflow-screen-scraping-vs.-apis",
+    "href": "slides/14-functions-iteration.html#workflow-screen-scraping-vs.-apis",
+    "title": "Functions and iteration",
+    "section": "Workflow: Screen scraping vs. APIs",
+    "text": "Workflow: Screen scraping vs. APIs\nTwo different scenarios for web scraping:\n\nScreen scraping: extract data from source code of website, with html parser (easy) or regular expression matching (less easy)\nWeb APIs (application programming interface): website offers a set of structured http requests that return JSON or XML files"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#functions-in-r",
+    "href": "slides/14-functions-iteration.html#functions-in-r",
+    "title": "Functions and iteration",
+    "section": "Functions in R",
+    "text": "Functions in R\n\nWhat are some functions you’ve learned? What are their inputs, what are their outputs?"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#mean",
+    "href": "slides/14-functions-iteration.html#mean",
+    "title": "Functions and iteration",
+    "section": "mean()",
+    "text": "mean()\n\nx <- c(1, 2, 3, 4, 5)\nmean(x)\n\n[1] 3"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#custom-function-multiply_by_two",
+    "href": "slides/14-functions-iteration.html#custom-function-multiply_by_two",
+    "title": "Functions and iteration",
+    "section": "Custom function: multiply_by_two()",
+    "text": "Custom function: multiply_by_two()\n\n\nDecide on a goal: Multiply by two\nDecide on the number and type of inputs: 1 (a numeric vector of length 1)\nDecide on the number and type of outputs: 1 (a numeric vector of length 1)\n\n\n\n\nmultiply_by_two <- function(x){\n  x * 2\n}\n\n\n\n\nmultiply_by_two(1)\n\n[1] 2\n\nmultiply_by_two(2)\n\n[1] 4\n\nmultiply_by_two(3)\n\n[1] 6"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#custom-function-multiply_by",
+    "href": "slides/14-functions-iteration.html#custom-function-multiply_by",
+    "title": "Functions and iteration",
+    "section": "Custom function: multiply_by()",
+    "text": "Custom function: multiply_by()\n\n\nDecide on a goal: Multiply by a given value\nDecide on the number and type of inputs: 2 (two numeric vectors of length 1)\nDecide on the number and type of outputs: 1 (a numeric vector of length 1)\n\n\n\n\nmultiply <- function(x, y){\n  x * y\n}\n\n\n\n\nmultiply(1, 3)\n\n[1] 3\n\nmultiply(2, 5)\n\n[1] 10\n\nmultiply(10, 35)\n\n[1] 350"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#custom-function-temp_convert",
+    "href": "slides/14-functions-iteration.html#custom-function-temp_convert",
+    "title": "Functions and iteration",
+    "section": "Custom function: temp_convert()",
+    "text": "Custom function: temp_convert()\n\nGoal: Convert temperatures in degrees Fahrenheit to Celsius; subtract 32 and multiply by \\(\\frac{5}{9}\\).\nNumber and type of inputs: 1 (a numeric vector of length 1)\nNumber and type of outputs: 1 (a numeric vector of length 1)\n\n\n\ntemp_convert <- function(temp_f){\n  (temp_f - 32) * 5/9\n}"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#test-out-the-function",
+    "href": "slides/14-functions-iteration.html#test-out-the-function",
+    "title": "Functions and iteration",
+    "section": "Test out the function",
+    "text": "Test out the function\n\ntemp_convert(32)   # freezing point\n\n[1] 0\n\n\n\n\ntemp_convert(360)  # cake baking temperature\n\n[1] 182.2222\n\n\n\n\n\ntemp_convert(98.6) # body temperature\n\n[1] 37"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#why-do-we-need-functions",
+    "href": "slides/14-functions-iteration.html#why-do-we-need-functions",
+    "title": "Functions and iteration",
+    "section": "Why do we need functions?",
+    "text": "Why do we need functions?\n\n\nRepeat yourself:\n\n# freezing point\n(32 - 32) * (5/9)\n\n[1] 0\n\n# cake baking temperature\n(180 - 32) * (5/9)\n\n[1] 82.22222\n\n# body temperature\n(98.6 - 32) * (5/9)\n\n[1] 37\n\n\n\nDo not repeat yourself (DRY):\n\n# freezing point\ntemp_convert(32)\n\n[1] 0\n\n# cake baking temperature\ntemp_convert(180)\n\n[1] 82.22222\n\n# body temperature\ntemp_convert(98.6)\n\n[1] 37"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#seriously-dry",
+    "href": "slides/14-functions-iteration.html#seriously-dry",
+    "title": "Functions and iteration",
+    "section": "Seriously, DRY!",
+    "text": "Seriously, DRY!\nLoad package:\n\nlibrary(tidyverse)\n\n\nDefine input vector:\n\nx <- c(32, 180, 98.6)\nx\n\n[1]  32.0 180.0  98.6\n\n\n\n\nMap your function over the elements of the input vector:\n\nmap(x, temp_convert)\n\n[[1]]\n[1] 0\n\n[[2]]\n[1] 82.22222\n\n[[3]]\n[1] 37\n\n\n\nControl the type of your output:\n\nmap_dbl(x, temp_convert)\n\n[1]  0.00000 82.22222 37.00000"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#iteration",
+    "href": "slides/14-functions-iteration.html#iteration",
+    "title": "Functions and iteration",
+    "section": "Iteration",
+    "text": "Iteration\nTo apply the same function to multiple values (stored in an object like a vector), use map() functions:\n\n\nmap() returns a list\nmap_lgl(), map_int(), map_dbl() and map_chr() return an atomic vector of the indicated type (logical, integer, double, or character, respectively)\nmap_dfr() and map_dfc() return a data frame created by row-binding and column-binding, respectively"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#coming-soon",
+    "href": "slides/14-functions-iteration.html#coming-soon",
+    "title": "Functions and iteration",
+    "section": "Coming soon…",
+    "text": "Coming soon…\n\n\nUse a function that takes a data frame and names of variables in that data frame\nFits a regression model for predicting one specified variable from the others given\nReports the model results along with measurements on prediction error and other diagnostic values"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#coming-now",
+    "href": "slides/14-functions-iteration.html#coming-now",
+    "title": "Functions and iteration",
+    "section": "Coming now",
+    "text": "Coming now\n\n\nWrite a function that scrapes data from a single page and outputs a data frame with items of interest from that page\nMap that function over multiple pages to get a bigger data frame with items of interest from all pages\nItems of interest: Amazon reviews of Yankee Candles"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#yankee-candle-reviews-and-covid",
+    "href": "slides/14-functions-iteration.html#yankee-candle-reviews-and-covid",
+    "title": "Functions and iteration",
+    "section": "Yankee Candle reviews and COVID",
+    "text": "Yankee Candle reviews and COVID\n\n\n\n\n\n\n\nSource: @kate_ptrv on Twitter + GitHub"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#goal",
+    "href": "slides/14-functions-iteration.html#goal",
+    "title": "Functions and iteration",
+    "section": "Goal",
+    "text": "Goal\n\n\n\nScrape data from multiple pages and organize it in a tidy format in R\nPerform light text parsing to clean data\nSummarize and visualize the data"
+  },
+  {
+    "objectID": "slides/14-functions-iteration.html#ae-11",
+    "href": "slides/14-functions-iteration.html#ae-11",
+    "title": "Functions and iteration",
+    "section": "ae-11",
+    "text": "ae-11\n\n\n\nGo to the course GitHub org and find your ae-11 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today.\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/01-welcome-199.html#meet-the-prof",
     "href": "slides/01-welcome-199.html#meet-the-prof",
     "title": "Welcome to STA 199",
