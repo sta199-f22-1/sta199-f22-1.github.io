@@ -504,8 +504,22 @@
     "text": "📖 Read:\n\nR4DS: Chp 2 - Data visualization - Sections 2.1 and 2.4\n\nIf you haven’t yet done so:\n\nRead the syllabus!\nComplete the Getting to know you survey\nGet a GitHub account if you don’t have one (some advice for choosing a username here)\nJoin the course Slack using the invitation link in your email.\nReserve a STA 198-199 container at https://cmgr.oit.duke.edu/containers."
   },
   {
+    "objectID": "prepare/10-24.html",
+    "href": "prepare/10-24.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "📖 Read:\n\nIMS: Chp 2 - Study design"
+  },
+  {
     "objectID": "prepare/10-18.html",
     "href": "prepare/10-18.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "Note\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
+  },
+  {
+    "objectID": "prepare/10-25.html",
+    "href": "prepare/10-25.html",
     "title": "Prepare",
     "section": "",
     "text": "Note\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
@@ -523,6 +537,13 @@
     "title": "Prepare",
     "section": "",
     "text": "📖 Read:\n\nR4DS: Chp 2 - Data visualization - Sections 2.5 - 2.10\n\n⌨️ Watch:\n\nData and visualization\nVisualising data with ggplot2"
+  },
+  {
+    "objectID": "prepare/10-26.html",
+    "href": "prepare/10-26.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "Note\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
   },
   {
     "objectID": "prepare/09-13.html",
@@ -861,6 +882,13 @@
     "text": "Part 1 - People’s Poll\nGB News tweeted the following on Aug 26, 2022.\n\n\n\n\n\n\nQuestion: What is wrong with the visualization above?\n\nThe bars are not drawn to scale, hence are misleading\n\nYour turn (5 minutes): The data from this poll are at data/gbpoll.csv. First, load the data and confirm the number of responses match those mentioned in the tweet.\n\ngbpoll <- read_csv(\"data/gbpoll.csv\")\n\nRows: 1235 Columns: 1\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): party\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nnrow(gbpoll)\n\n[1] 1235\n\n\nThen, confirm that the proportions of intended votes match those mentioned in the tweet.\n\ngbpoll |>\n  count(party) |>\n  mutate(prop = n / sum(n))\n\n# A tibble: 5 × 3\n  party                 n   prop\n  <chr>             <int>  <dbl>\n1 Conservative        321 0.260 \n2 Labour              494 0.4   \n3 Liberal Democrats   136 0.110 \n4 Other               210 0.170 \n5 SNP                  74 0.0599\n\n\nDemo: Recreate the visualization from the tweet. You do not need to worry about matching the colors precisely and your bars should be correctly scaled.\n\ngbpoll |>\n  count(party) |>\n  mutate(\n    prop = round(n / sum(n), 2),\n    prop_char = paste0(prop*100, \"%\")\n    ) |>\n  filter(party != \"Other\") |>\n  mutate(party = fct_reorder(party, prop)) |>\n  ggplot(\n    aes(\n      y = party, \n      x = prop, \n      fill = party\n    )\n  ) +\n  geom_col(show.legend = FALSE) +\n  scale_y_discrete(drop = TRUE) +\n  theme_void() +\n  geom_text(\n    aes(label = str_wrap(party, 10)),\n    x = 0.005,\n    hjust = 0,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  geom_text(\n    aes(label = prop_char),\n    nudge_x = -0.005,\n    hjust = 1,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  scale_fill_manual(values = c(\"#D0C123\", \"#F99C1A\",\"#00AEEF\", \"#E4013B\")) +\n  labs(\n    title = str_to_upper(\"If there were to be a general election tomorrow,\\nwhich party would you vote for?\")\n  )\n\n\n\n\n\n\n\nYour turn (10 minutes): Improve the visualization. State the improvements you made and why you made them. Discuss how these improvements help make the plot less misleading.\n\ngbpoll |>\n  count(party) |>\n  mutate(\n    prop = round(n / sum(n), 2),\n    prop_char = paste0(prop*100, \"%\")\n    ) |>\n  mutate(party = fct_reorder(party, prop)) |>\n  ggplot(\n    aes(\n      y = party, \n      x = prop, \n      fill = party\n    )\n  ) +\n  geom_col(show.legend = FALSE) +\n  scale_y_discrete(drop = TRUE) +\n  theme_void() +\n  geom_text(\n    aes(label = str_wrap(party, 10)),\n    x = 0.005,\n    hjust = 0,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  geom_text(\n    aes(label = prop_char),\n    nudge_x = -0.005,\n    hjust = 1,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  scale_fill_viridis_d(option = \"E\", end = 0.8) +\n  labs(\n    title = \"If there were to be a general election tomorrow,\\nwhich party would you vote for?\",\n    caption = \"Source: GBNews Poll, Aug 26, 2022\"\n  )\n\n\n\n\n\n\n\nPart 2 - Private sector\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis exercise has been moved to HW 3. Suggested answers will be released with HW 3 answers.\n\n\n\nQuestion: What is misleading about this graph?\nYour turn (6 minutes): If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.\nDemo: Load the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?"
   },
   {
+    "objectID": "ae/ae-12-modelling-fish-A.html",
+    "href": "ae/ae-12-modelling-fish-A.html",
+    "title": "Modelling fish",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidymodels)\n\nfish <- read_csv(\"data/fish.csv\")\n\nThe data dictionary is below:\n\n\n\nvariable\ndescription\n\n\n\n\nspecies\nSpecies name of fish\n\n\nweight\nWeight, in grams\n\n\nlength_vertical\nVertical length, in cm\n\n\nlength_diagonal\nDiagonal length, in cm\n\n\nlength_cross\nCross length, in cm\n\n\nheight\nHeight, in cm\n\n\nwidth\nDiagonal width, in cm\n\n\n\n\nVisualizing the model\nWe’re going to investigate the relationship between the weights and heights of fish.\n\nDemo: Create an appropriate plot to investigate this relationship. Add appropriate labels to the plot.\n\n\nggplot(fish, aes(x = height, y = weight)) +\n  geom_point() +\n  labs(\n    title = \"Weights vs. heights of fish\",\n    x = \"Height (cm)\",\n    y = \"Weight (gr)\"\n  )\n\n\n\n\n\nYour turn (5 minutes):\n\nIf you were to draw a a straight line to best represent the relationship between the heights and weights of fish, where would it go? Why?\nStart from the bottom and go up Identify the first and last point and draw a line through most the others.\nNow, let R draw the line for you. Refer to the documentation at https://ggplot2.tidyverse.org/reference/geom_smooth.html. Specifically, refer to the method section.\n\n\nggplot(fish, aes(x = height, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Weights vs. lengths of fish\",\n    x = \"Head-to-tail lentgh (cm)\",\n    y = \"Weight of fish (grams)\"\n  )\n\n`geom_smooth()` using formula 'y ~ x'\n\n\n\n\n\n\nWhat types of questions can this plot help answer?\nIs there a relationship between fish heights and weights of fish?\n\nYour turn (3 minutes):\n\nWe can use this line to make predictions. Predict what you think the weight of a fish would be with a height of 10 cm, 15 cm, and 20 cm. Which prediction is considered extrapolation?\nAt 10 cm, we estimate a weight of 375 grams. At 15 cm, we estimate a weight of 600 grams At 20 cm, we estimate a weight of 975 grams. 20 cm would be considered extrapolation.\nWhat is a residual?\nDifference between predicted and observed.\n\n\n\n\nModel fitting\n\nDemo: Fit a model to predict fish weights from their heights.\n\n\nfish_hw_fit <- linear_reg() |>\n  fit(weight ~ height, data = fish)\n\nfish_hw_fit\n\nparsnip model object\n\n\nCall:\nstats::lm(formula = weight ~ height, data = data)\n\nCoefficients:\n(Intercept)       height  \n    -288.42        60.92  \n\n\n\nYour turn (3 minutes): Predict what the weight of a fish would be with a height of 10 cm, 15 cm, and 20 cm using this model.\n\n\nx <- c(10, 15, 20)\n-288 + 60.92 * x\n\n[1] 321.2 625.8 930.4\n\n\n\nDemo: Calculate predicted weights for all fish in the data and visualize the residuals under this model.\n\n\nfish_hw_aug <- augment(fish_hw_fit$fit)\n\nggplot(fish_hw_aug, aes(x = height, y = weight)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE, color = \"lightgrey\") +  \n  geom_segment(aes(xend = height, yend = .fitted), color = \"gray\") +  \n  geom_point(aes(y = .fitted), shape = \"circle open\") + \n  theme_minimal() +\n  labs(\n    title = \"Weights vs. heights of fish\",\n    subtitle = \"Residuals\",\n    x = \"Height (cm)\",\n    y = \"Weight (gr)\"\n  )\n\n`geom_smooth()` using formula 'y ~ x'\n\n\n\n\n\n\n\nModel summary\n\nDemo: Display the model summary including estimates for the slope and intercept along with measurements of uncertainty around them. Show how you can extract these values from the model output.\n\n\nfish_hw_tidy <- tidy(fish_hw_fit)\n\n# intercept\nfish_hw_tidy |>\n  filter(term == \"(Intercept)\") |>\n  pull(estimate)\n\n[1] -288.4152\n\n# slope\nfish_hw_tidy |>\n  filter(term == \"height\") |>\n  pull(estimate)\n\n[1] 60.91587\n\n\n\nDemo: Write out your model using mathematical notation.\n\n\\(\\widehat{weight} = 1.96 + 0.233 \\times height\\)\n\n\nCorrelation\nWe can also assess correlation between two quantitative variables.\n\nYour turn (5 minutes):\n\nWhat is correlation? What are values correlation can take?\nStrength and direction of a linear relationship. It’s bounded by -1 and 1.\nAre you good at guessing correlation? Give it a try! https://www.rossmanchance.com/applets/2021/guesscorrelation/GuessCorrelation.html\n\nDemo: What is the correlation between heights and weights of fish?\n\n\nfish |>\n  summarize(r = cor(height, weight))\n\n# A tibble: 1 × 1\n      r\n  <dbl>\n1 0.954\n\n\n\n\nAdding a third variable\n\nDemo: Does the relationship between heights and weights of fish change if we take into consideration species? Plot two separate straight lines for the Bream and Roach species.\n\n\nggplot(fish, \n       aes(x = height, y = weight, color = species)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Weights vs. heights of fish\",\n    x = \"Height (cm)\",\n    y = \"Weight (gr)\"\n  )\n\n`geom_smooth()` using formula 'y ~ x'\n\n\n\n\n\n\n\nFitting other models\n\nDemo: We can fit more models than just a straight line. Change the following code below to read method = \"loess\". What is different from the plot created before?\n\n\nggplot(fish, \n       aes(x = height, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Weights vs. heights of fish\",\n    x = \"Height (cm)\",\n    y = \"Weight (gr)\"\n  )\n\n`geom_smooth()` using formula 'y ~ x'"
+  },
+  {
     "objectID": "ae/ae-10-chronicle-A.html",
     "href": "ae/ae-10-chronicle-A.html",
     "title": "Opinion articles in The Chronicle",
@@ -1020,6 +1048,13 @@
     "title": "AE 05: Pivoting StatSci Majors",
     "section": "Pivoting",
     "text": "Pivoting\n\nDemo: Pivot the statsci data frame longer such that each row represents a degree type / year combination and year and number of graduates for that year are columns in the data frame.\n\n\n# add your code here\n\n\nQuestion: What is the type of the year variable? Why? What should it be?\n\nAdd your response here.\n\nDemo: Start over with pivoting, and this time also make sure year is a numerical variable in the resulting data frame.\n\n\n# add your code here\n\n\nQuestion: What does an NA mean in this context? Hint: The data come from the university registrar, and they have records on every single graduates, there shouldn’t be anything “unknown” to them about who graduated when.\n\nAdd your response here.\n\nDemo: Add on to your pipeline that you started with pivoting and convert NAs in n to 0s.\n\n\n# add your code here\n\n\nDemo: In our plot the degree types are BS, BS2, AB, and AB2. This information is in our dataset, in the degree column, but this column also has additional characters we don’t need. Create a new column called degree_type with levels BS, BS2, AB, and AB2 (in this order) based on degree. Do this by adding on to your pipeline from earlier.\n\n\n# add your code here\n\n\nYour turn (5 minutes): Now we start making our plot, but let’s not get too fancy right away. Create the following plot, which will serve as the “first draft” on the way to our Goal. Do this by adding on to your pipeline from earlier.\n\n\n\n\n\n\n\n# add your code here\n\n\nYour turn (4 minutes): What aspects of the plot need to be updated to go from the draft you created above to the Goal plot at the beginning of this application exercise.\n\nAdd your response here.\n\nDemo: Update x-axis scale such that the years displayed go from 2011 to 2021 in increments of 2 years. Do this by adding on to your pipeline from earlier.\n\n\n# add your code here\n\n\nDemo: Update line colors using the following level / color assignments. Once again, do this by adding on to your pipeline from earlier.\n\n“BS” = “cadetblue4”\n“BS2” = “cadetblue3”\n“AB” = “lightgoldenrod4”\n“AB2” = “lightgoldenrod3”\n\n\n\n# add your code here\n\n\nYour turn (4 minutes): Update the plot labels (title, subtitle, x, y, and caption) and use theme_minimal(). Once again, do this by adding on to your pipeline from earlier.\n\n\n# add your code here\n\n\nDemo: Finally, adding to your pipeline you’ve developed so far, move the legend into the plot, make its background white, and its border gray. Set fig-width: 7 and fig-height: 5 for your plot in the chunk options.\n\n\n# add your code here"
+  },
+  {
+    "objectID": "ae/ae-12-modelling-fish.html",
+    "href": "ae/ae-12-modelling-fish.html",
+    "title": "Modelling fish",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidymodels)\n\nfish <- read_csv(\"data/fish.csv\")\n\nThe data dictionary is below:\n\n\n\nvariable\ndescription\n\n\n\n\nspecies\nSpecies name of fish\n\n\nweight\nWeight, in grams\n\n\nlength_vertical\nVertical length, in cm\n\n\nlength_diagonal\nDiagonal length, in cm\n\n\nlength_cross\nCross length, in cm\n\n\nheight\nHeight, in cm\n\n\nwidth\nDiagonal width, in cm\n\n\n\n\nVisualizing the model\nWe’re going to investigate the relationship between the weights and heights of fish.\n\nDemo: Create an appropriate plot to investigate this relationship. Add appropriate labels to the plot.\n\n\n# add code here\n\n\nYour turn (5 minutes):\n\nIf you were to draw a a straight line to best represent the relationship between the heights and weights of fish, where would it go? Why?\nAdd response here.\nNow, let R draw the line for you. Refer to the documentation at https://ggplot2.tidyverse.org/reference/geom_smooth.html. Specifically, refer to the method section.\n\n\n# add code here\n\n\nWhat types of questions can this plot help answer?\n\nAdd response here.\nYour turn (3 minutes):\n\nWe can use this line to make predictions. Predict what you think the weight of a fish would be with a height of 10 cm, 15 cm, and 20 cm. Which prediction is considered extrapolation?\n\nAdd response here.\n\nWhat is a residual?\n\nAdd response here.\n\n\n\nModel fitting\n\nDemo: Fit a model to predict fish weights from their heights.\n\n\n# add code here\n\n\nYour turn (3 minutes): Predict what the weight of a fish would be with a height of 10 cm, 15 cm, and 20 cm using this model.\n\n\n# add code here\n\n\nDemo: Calculate predicted weights for all fish in the data and visualize the residuals under this model.\n\n\n# add code here\n\n\n\nModel summary\n\nDemo: Display the model summary including estimates for the slope and intercept along with measurements of uncertainty around them. Show how you can extract these values from the model output.\n\n\n# add code here\n\n\nDemo: Write out your model using mathematical notation.\n\nAdd response here.\n\n\nCorrelation\nWe can also assess correlation between two quantitative variables.\n\nYour turn (5 minutes):\n\nWhat is correlation? What are values correlation can take?\n\nAdd response here.\n\nAre you good at guessing correlation? Give it a try! https://www.rossmanchance.com/applets/2021/guesscorrelation/GuessCorrelation.html\n\nDemo: What is the correlation between heights and weights of fish?\n\n\n# add code here\n\n\n\nAdding a third variable\n\nDemo: Does the relationship between heights and weights of fish change if we take into consideration species? Plot two separate straight lines for the Bream and Roach species.\n\n\n# add code here\n\n\n\nFitting other models\n\nDemo: We can fit more models than just a straight line. Change the following code below to read method = \"loess\". What is different from the plot created before?\n\n\n# add code here"
   },
   {
     "objectID": "ae/ae-04-joining-fisheries.html",
@@ -1274,6 +1309,118 @@
     "text": "Teaching assistants\n\n\n\n\n\n\n\n\nName\nRole\nLab section\n\n\n\n\nBora Jin\nTA / Course organizer\nM 10:15AM - 11:30AM\n\n\nJordan Bryan\nHead TA\nM 1:45PM - 3:00PM\n\n\nRichard Fremgen\nTA\nM 3:30PM - 4:45PM\n\n\nLeah Johnson\nTA\nM 5:15PM - 6:30PM\n\n\nAlison Reynolds\nTA\nM 12:00PM - 1:15PM\n\n\nFoxx Hart\nTA\n\n\n\nAlonso Guerrero Castaneda\nTA\n\n\n\nJasmine Wen\nTA\n\n\n\nBrooke Harmon\nTA\n\n\n\nAmber Potter\nTA\n\n\n\nOne Chowdhury\nTA\n\n\n\n\nFor office hours, please see STA 199 - Ultimate Office Hours sheet."
   },
   {
+    "objectID": "slides/15-language-of-models.html#while-you-wait-for-class-to-begin",
+    "href": "slides/15-language-of-models.html#while-you-wait-for-class-to-begin",
+    "title": "The language of models",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\nClone your ae-12 project from GitHub, render your document, update your name, and commit and push."
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#announcements",
+    "href": "slides/15-language-of-models.html#announcements",
+    "title": "The language of models",
+    "section": "Announcements",
+    "text": "Announcements\n\nProject proposals due Friday"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#goals",
+    "href": "slides/15-language-of-models.html#goals",
+    "title": "The language of models",
+    "section": "Goals",
+    "text": "Goals\n\nWhat is a model?\nWhy do we model?\nWhat is correlation?"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#setup",
+    "href": "slides/15-language-of-models.html#setup",
+    "title": "The language of models",
+    "section": "Setup",
+    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(gt)"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#modelling-cars",
+    "href": "slides/15-language-of-models.html#modelling-cars",
+    "title": "The language of models",
+    "section": "Modelling cars",
+    "text": "Modelling cars\n\n\nWhat is the relationship between cars’ weights and their mileage?\nWhat is your best guess for a car’s MPG that weighs 5000 pounds?\n\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(\n    x = \"Weight (1000 lbs)\",\n    y = \"Miles per gallon (MPG)\",\n    title = \"MPG vs. weights of cars\"\n  )"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#modelling-1",
+    "href": "slides/15-language-of-models.html#modelling-1",
+    "title": "The language of models",
+    "section": "Modelling",
+    "text": "Modelling\n\nUse models to explain the relationship between variables and to make predictions\nFor now we will focus on linear models (but there are many many other types of models too!)"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#modelling-vocabulary",
+    "href": "slides/15-language-of-models.html#modelling-vocabulary",
+    "title": "The language of models",
+    "section": "Modelling vocabulary",
+    "text": "Modelling vocabulary\n\nPredictor (explanatory variable)\nOutcome (response variable)\nRegression line\n\nSlope\nIntercept\n\nCorrelation"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#predictor-explanatory-variable",
+    "href": "slides/15-language-of-models.html#predictor-explanatory-variable",
+    "title": "The language of models",
+    "section": "Predictor (explanatory variable)",
+    "text": "Predictor (explanatory variable)\n\nbase <- ggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(\n    x = \"Weight (1000 lbs)\",\n    y = \"Miles per gallon (MPG)\",\n    title = \"MPG vs. weights of cars\"\n  )\n\n\n\n\n\n\n\n\n\n  \n  \n    \n      mpg\n      wt\n    \n  \n  \n    21\n2.62\n    21\n2.875\n    22.8\n2.32\n    21.4\n3.215\n    18.7\n3.44\n    18.1\n3.46\n    ...\n..."
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#outcome-response-variable",
+    "href": "slides/15-language-of-models.html#outcome-response-variable",
+    "title": "The language of models",
+    "section": "Outcome (response variable)",
+    "text": "Outcome (response variable)\n\n\n\n\n\n\n\n\n  \n  \n    \n      mpg\n      wt\n    \n  \n  \n    21\n2.62\n    21\n2.875\n    22.8\n2.32\n    21.4\n3.215\n    18.7\n3.44\n    18.1\n3.46\n    ...\n..."
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#regression-line",
+    "href": "slides/15-language-of-models.html#regression-line",
+    "title": "The language of models",
+    "section": "Regression line",
+    "text": "Regression line"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#regression-line-slope",
+    "href": "slides/15-language-of-models.html#regression-line-slope",
+    "title": "The language of models",
+    "section": "Regression line: slope",
+    "text": "Regression line: slope"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#regression-line-intercept",
+    "href": "slides/15-language-of-models.html#regression-line-intercept",
+    "title": "The language of models",
+    "section": "Regression line: intercept",
+    "text": "Regression line: intercept"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#correlation",
+    "href": "slides/15-language-of-models.html#correlation",
+    "title": "The language of models",
+    "section": "Correlation",
+    "text": "Correlation"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#correlation-1",
+    "href": "slides/15-language-of-models.html#correlation-1",
+    "title": "The language of models",
+    "section": "Correlation",
+    "text": "Correlation\n\nRanges between -1 and 1.\nSame sign as the slope."
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#visualizing-the-model",
+    "href": "slides/15-language-of-models.html#visualizing-the-model",
+    "title": "The language of models",
+    "section": "Visualizing the model",
+    "text": "Visualizing the model\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "slides/15-language-of-models.html#ae-12",
+    "href": "slides/15-language-of-models.html#ae-12",
+    "title": "The language of models",
+    "section": "ae-12",
+    "text": "ae-12\n\n\n\nGo to the course GitHub org and find your ae-12 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today.\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/08-data-types-classes.html#while-you-wait-for-class-to-begin",
     "href": "slides/08-data-types-classes.html#while-you-wait-for-class-to-begin",
     "title": "Data types and classes",
@@ -1362,7 +1509,7 @@
     "href": "slides/14-functions-iteration.html#announcements",
     "title": "Functions and iteration",
     "section": "Announcements",
-    "text": "Announcements\n\nProject proposals due Friday\nMake sure to review the video/reading for Thursday!"
+    "text": "Announcements\n\nProject proposals due Friday\nNo in person OH today (but I’ll be at majors fair!). OH on Zoom 8-9pm tonight (Tuesday) and Wednesday. Will email reminder with Zoom link + add to OH sheet.\nMake sure to review the video/reading for Thursday!"
   },
   {
     "objectID": "slides/14-functions-iteration.html#midterm-feedback-followup",
@@ -1442,11 +1589,11 @@
     "text": "Custom function: multiply_by_two()\n\n\nDecide on a goal: Multiply by two\nDecide on the number and type of inputs: 1 (a numeric vector of length 1)\nDecide on the number and type of outputs: 1 (a numeric vector of length 1)\n\n\n\n\nmultiply_by_two <- function(x){\n  x * 2\n}\n\n\n\n\nmultiply_by_two(1)\n\n[1] 2\n\nmultiply_by_two(2)\n\n[1] 4\n\nmultiply_by_two(3)\n\n[1] 6"
   },
   {
-    "objectID": "slides/14-functions-iteration.html#custom-function-multiply_by",
-    "href": "slides/14-functions-iteration.html#custom-function-multiply_by",
+    "objectID": "slides/14-functions-iteration.html#custom-function-multiply",
+    "href": "slides/14-functions-iteration.html#custom-function-multiply",
     "title": "Functions and iteration",
-    "section": "Custom function: multiply_by()",
-    "text": "Custom function: multiply_by()\n\n\nDecide on a goal: Multiply by a given value\nDecide on the number and type of inputs: 2 (two numeric vectors of length 1)\nDecide on the number and type of outputs: 1 (a numeric vector of length 1)\n\n\n\n\nmultiply <- function(x, y){\n  x * y\n}\n\n\n\n\nmultiply(1, 3)\n\n[1] 3\n\nmultiply(2, 5)\n\n[1] 10\n\nmultiply(10, 35)\n\n[1] 350"
+    "section": "Custom function: multiply()",
+    "text": "Custom function: multiply()\n\n\nDecide on a goal: Multiply by a given value\nDecide on the number and type of inputs: 2 (two numeric vectors of length 1)\nDecide on the number and type of outputs: 1 (a numeric vector of length 1)\n\n\n\n\nmultiply <- function(x, y){\n  x * y\n}\n\n\n\n\nmultiply(1, 3)\n\n[1] 3\n\nmultiply(2, 5)\n\n[1] 10\n\nmultiply(10, 35)\n\n[1] 350"
   },
   {
     "objectID": "slides/14-functions-iteration.html#custom-function-temp_convert",
@@ -1467,14 +1614,14 @@
     "href": "slides/14-functions-iteration.html#why-do-we-need-functions",
     "title": "Functions and iteration",
     "section": "Why do we need functions?",
-    "text": "Why do we need functions?\n\n\nRepeat yourself:\n\n# freezing point\n(32 - 32) * (5/9)\n\n[1] 0\n\n# cake baking temperature\n(180 - 32) * (5/9)\n\n[1] 82.22222\n\n# body temperature\n(98.6 - 32) * (5/9)\n\n[1] 37\n\n\n\nDo not repeat yourself (DRY):\n\n# freezing point\ntemp_convert(32)\n\n[1] 0\n\n# cake baking temperature\ntemp_convert(180)\n\n[1] 82.22222\n\n# body temperature\ntemp_convert(98.6)\n\n[1] 37"
+    "text": "Why do we need functions?\n\n\nRepeat yourself:\n\n# freezing point\n(32 - 32) * (5/9)\n\n[1] 0\n\n# cake baking temperature\n(360 - 32) * (5/9)\n\n[1] 182.2222\n\n# body temperature\n(98.6 - 32) * (5/9)\n\n[1] 37\n\n\n\nDo not repeat yourself (DRY):\n\n# freezing point\ntemp_convert(32)\n\n[1] 0\n\n# cake baking temperature\ntemp_convert(360)\n\n[1] 182.2222\n\n# body temperature\ntemp_convert(98.6)\n\n[1] 37"
   },
   {
     "objectID": "slides/14-functions-iteration.html#seriously-dry",
     "href": "slides/14-functions-iteration.html#seriously-dry",
     "title": "Functions and iteration",
     "section": "Seriously, DRY!",
-    "text": "Seriously, DRY!\nLoad package:\n\nlibrary(tidyverse)\n\n\nDefine input vector:\n\nx <- c(32, 180, 98.6)\nx\n\n[1]  32.0 180.0  98.6\n\n\n\n\nMap your function over the elements of the input vector:\n\nmap(x, temp_convert)\n\n[[1]]\n[1] 0\n\n[[2]]\n[1] 82.22222\n\n[[3]]\n[1] 37\n\n\n\nControl the type of your output:\n\nmap_dbl(x, temp_convert)\n\n[1]  0.00000 82.22222 37.00000"
+    "text": "Seriously, DRY!\nLoad package:\n\nlibrary(tidyverse)\n\n\nDefine input vector:\n\nx <- c(32, 360, 98.6)\nx\n\n[1]  32.0 360.0  98.6\n\n\n\n\nMap your function over the elements of the input vector:\n\nmap(x, temp_convert)\n\n[[1]]\n[1] 0\n\n[[2]]\n[1] 182.2222\n\n[[3]]\n[1] 37\n\n\n\nControl the type of your output:\n\nmap_dbl(x, temp_convert)\n\n[1]   0.0000 182.2222  37.0000"
   },
   {
     "objectID": "slides/14-functions-iteration.html#iteration",

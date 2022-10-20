@@ -20,6 +20,7 @@ Clone your `ae-11` project from GitHub, render your document, update your name, 
 ## Announcements
 
 -   Project proposals due Friday
+-   No in person OH today (but I'll be at majors fair!). OH on Zoom 8-9pm tonight (Tuesday) and Wednesday. Will email reminder with Zoom link + add to OH sheet.
 -   Make sure to review the video/reading for Thursday!
 
 ## Midterm feedback followup
@@ -121,7 +122,7 @@ multiply_by_two(2)
 multiply_by_two(3)
 ```
 
-## Custom function: `multiply_by()` {.smaller}
+## Custom function: `multiply()` {.smaller}
 
 ::: incremental
 -   Decide on a goal: Multiply by a given value
@@ -188,7 +189,7 @@ temp_convert(98.6) # body temperature
 (32 - 32) * (5/9)
 
 # cake baking temperature
-(180 - 32) * (5/9)
+(360 - 32) * (5/9)
 
 # body temperature
 (98.6 - 32) * (5/9)
@@ -203,7 +204,7 @@ temp_convert(98.6) # body temperature
 temp_convert(32)
 
 # cake baking temperature
-temp_convert(180)
+temp_convert(360)
 
 # body temperature
 temp_convert(98.6)
@@ -226,7 +227,7 @@ library(tidyverse)
 Define input vector:
 
 ```{r}
-x <- c(32, 180, 98.6)
+x <- c(32, 360, 98.6)
 x
 ```
 

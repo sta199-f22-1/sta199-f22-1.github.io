@@ -1,0 +1,8 @@
+---
+title: "Prepare"
+subtitle: "Due: October 24, 2022"
+categories: "prepare"
+---
+
+-   📖 Read:
+    -   IMS: [Chp 2 - Study design](https://openintro-ims.netlify.app/data-design.html)

@@ -1,0 +1,260 @@
+---
+title: "The language of models"
+subtitle: "Lecture 15"
+date: "October 20, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+Clone your `ae-12` project from GitHub, render your document, update your name, and commit and push.
+
+## Announcements
+
+-   Project proposals due Friday
+
+## Goals
+
+-   What is a model?
+-   Why do we model?
+-   What is correlation?
+
+## Setup
+
+```{r}
+#| label: load-pkg
+
+library(tidyverse)
+library(gt)
+```
+
+# Modelling
+
+## Modelling cars
+
+::: question
+-   What is the relationship between cars' weights and their mileage?
+-   What is your best guess for a car's MPG that weighs 5000 pounds?
+:::
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon (MPG)",
+    title = "MPG vs. weights of cars"
+  )
+```
+
+## Modelling
+
+-   Use models to explain the relationship between variables and to make predictions
+-   For now we will focus on **linear** models (but there are *many* *many* other types of models too!)
+
+## Modelling vocabulary
+
+-   Predictor (explanatory variable)
+-   Outcome (response variable)
+-   Regression line
+    -   Slope
+    -   Intercept
+-   Correlation
+
+## Predictor (explanatory variable)
+
+```{r}
+base <- ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon (MPG)",
+    title = "MPG vs. weights of cars"
+  )
+```
+
+::: columns
+::: {.column width="25%"}
+```{r}
+#| echo: false
+
+mtcars |>
+  select(mpg, wt) |>
+  slice_head(n = 6) |>
+  mutate(across(where(is.numeric), as.character)) |>
+  bind_rows(c(mpg = "...", wt = "...")) |>
+  gt() |>
+  tab_style(
+    style = list(
+      cell_fill(color = "#E34A6F"),
+      cell_text(color = "white")
+      ),
+    locations = cells_body(columns = mpg)
+  ) |>
+  tab_options(table.font.size = px(8))
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+
+base +
+  theme(
+    axis.title.x = element_text(color = "#E34A6F", face = "bold", size = 16)
+  )
+```
+:::
+:::
+
+## Outcome (response variable)
+
+::: columns
+::: {.column width="25%"}
+```{r}
+#| echo: false
+
+mtcars |>
+  select(mpg, wt) |>
+  slice_head(n = 6) |>
+  mutate(across(where(is.numeric), as.character)) |>
+  bind_rows(c(mpg = "...", wt = "...")) |>
+  gt() |>
+  tab_style(
+    style = list(
+      cell_fill(color = "#E34A6F"),
+      cell_text(color = "white")
+      ),
+    locations = cells_body(columns = wt)
+  ) |>
+  tab_options(table.font.size = px(8))
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="70%"}
+```{r}
+#| echo: false
+
+base +
+  theme(
+    axis.title.y = element_text(color = "#E34A6F", face = "bold", size = 16)
+  )
+```
+:::
+:::
+
+## Regression line
+
+```{r}
+#| echo: false
+
+base +
+  geom_smooth(method = "lm", color = "#E34A6F", size = 1.5, se = FALSE)
+```
+
+## Regression line: slope
+
+```{r}
+#| echo: false
+
+base +
+  geom_smooth(method = "lm", color = "black", se = FALSE) +
+  annotate(
+    geom = "segment",
+    x = 4, xend = 5, y = 16, yend = 16, 
+    linetype = "dashed", color = "#E34A6F"
+  ) +
+  annotate(
+    geom = "segment",
+    x = 5, xend = 5, y = 16, yend = 10.6, 
+    color = "#E34A6F"
+  ) +
+  annotate(
+    geom = "text",
+    x = 5.2, y = 13, label = "slope", 
+    color = "#E34A6F", size = 5, hjust = 0
+  )
+```
+
+## Regression line: intercept
+
+```{r}
+#| echo: false
+
+base +
+  geom_smooth(method = "lm", color = "gray", se = FALSE, fullrange = TRUE, linetype = "dashed") +
+  geom_smooth(method = "lm", color = "black", se = FALSE) +
+  scale_x_continuous(limits = c(0, 5.5)) +
+  annotate(
+    geom = "point",
+    shape = 1, size = 4, stroke = 2,
+    x = 0, y = 37.4, 
+    color = "#E34A6F"
+  ) +
+  annotate(
+    geom = "text",
+    label = "intercept",
+    x = 0.5, y = 37.4, 
+    color = "#E34A6F", size = 5, hjust = 0
+  )
+```
+
+## Correlation
+
+```{r}
+#| echo: false
+
+r <- mtcars |>
+  summarize(cor = round(cor(mpg, wt), 2)) |>
+  pull()
+
+base +
+  stat_ellipse(geom = "polygon", color = "#E34A6F", fill = "#E34A6F30") +
+  annotate(
+    geom = "text",
+    x = 3.5, y = 27.5, 
+    label = paste("r =", r),
+    color = "#E34A6F", size = 5, hjust = 0
+  )
+```
+
+## Correlation
+
+-   Ranges between -1 and 1.
+-   Same sign as the slope.
+
+![](images/15/corr-example.png){fig-align="center"}
+
+## Visualizing the model
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+# Application exercise
+
+## `ae-12`
+
+::: appex
+::: nonincremental
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-12` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+:::
