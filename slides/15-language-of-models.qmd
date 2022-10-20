@@ -38,7 +38,7 @@ library(gt)
 
 # Modelling
 
-## Modelling cars
+## Modelling cars {.smaller}
 
 ::: question
 -   What is the relationship between cars' weights and their mileage?
@@ -46,6 +46,8 @@ library(gt)
 :::
 
 ```{r}
+#| echo: false
+
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point() +
   labs(
@@ -72,6 +74,8 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 ## Predictor (explanatory variable)
 
 ```{r}
+#| echo: false
+
 base <- ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point() +
   labs(
@@ -97,7 +101,7 @@ mtcars |>
       cell_fill(color = "#E34A6F"),
       cell_text(color = "white")
       ),
-    locations = cells_body(columns = mpg)
+    locations = cells_body(columns = wt)
   ) |>
   tab_options(table.font.size = px(8))
 ```
@@ -136,7 +140,7 @@ mtcars |>
       cell_fill(color = "#E34A6F"),
       cell_text(color = "white")
       ),
-    locations = cells_body(columns = wt)
+    locations = cells_body(columns = mpg)
   ) |>
   tab_options(table.font.size = px(8))
 ```

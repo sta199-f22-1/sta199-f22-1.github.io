@@ -1341,7 +1341,7 @@
     "href": "slides/15-language-of-models.html#modelling-cars",
     "title": "The language of models",
     "section": "Modelling cars",
-    "text": "Modelling cars\n\n\nWhat is the relationship between cars’ weights and their mileage?\nWhat is your best guess for a car’s MPG that weighs 5000 pounds?\n\n\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(\n    x = \"Weight (1000 lbs)\",\n    y = \"Miles per gallon (MPG)\",\n    title = \"MPG vs. weights of cars\"\n  )"
+    "text": "Modelling cars\n\n\nWhat is the relationship between cars’ weights and their mileage?\nWhat is your best guess for a car’s MPG that weighs 5000 pounds?"
   },
   {
     "objectID": "slides/15-language-of-models.html#modelling-1",
@@ -1362,7 +1362,7 @@
     "href": "slides/15-language-of-models.html#predictor-explanatory-variable",
     "title": "The language of models",
     "section": "Predictor (explanatory variable)",
-    "text": "Predictor (explanatory variable)\n\nbase <- ggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(\n    x = \"Weight (1000 lbs)\",\n    y = \"Miles per gallon (MPG)\",\n    title = \"MPG vs. weights of cars\"\n  )\n\n\n\n\n\n\n\n\n\n  \n  \n    \n      mpg\n      wt\n    \n  \n  \n    21\n2.62\n    21\n2.875\n    22.8\n2.32\n    21.4\n3.215\n    18.7\n3.44\n    18.1\n3.46\n    ...\n..."
+    "text": "Predictor (explanatory variable)\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n    \n      mpg\n      wt\n    \n  \n  \n    21\n2.62\n    21\n2.875\n    22.8\n2.32\n    21.4\n3.215\n    18.7\n3.44\n    18.1\n3.46\n    ...\n..."
   },
   {
     "objectID": "slides/15-language-of-models.html#outcome-response-variable",

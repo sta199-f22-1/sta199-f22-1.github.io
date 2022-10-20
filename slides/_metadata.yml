@@ -8,8 +8,8 @@ format:
     multiplex: true
     transition: fade
     slide-number: true
+    chalkboard: true
 editor: visual
-embed-resources: true
 execute:
   freeze: auto
   echo: true
