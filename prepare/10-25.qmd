@@ -1,13 +1,14 @@
 ---
 title: "Prepare"
-subtitle: "Due: October 20, 2022"
+subtitle: "Due: October 25, 2022"
 categories: "prepare"
 ---
 
 -   ⌨️ Watch:
-    -   [The language of models](https://youtu.be/MWkkvDopBKc)
+    -   [Fitting and interpreting models](https://youtu.be/69U92Q3pwnA)
+    -   [Modelling nonlinear relationships](https://youtu.be/j4MZ6ZdHnHg)
 -   📖 Read:
-    -   IMS: [Chp 7 - Linear regression with a single predictor (Section 7.1)](https://openintro-ims.netlify.app/model-slr.html)
+    -   IMS: [Chp 7 - Linear regression with a single predictor (Section 7.2 - 7.4)](https://openintro-ims.netlify.app/model-slr.html)
 
 ::: callout-note
 Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.

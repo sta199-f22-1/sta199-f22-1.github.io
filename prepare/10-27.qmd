@@ -1,0 +1,15 @@
+---
+title: "Prepare"
+subtitle: "Due: October 27, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Watch:
+    -   [Models with multiple predictors](https://youtu.be/mjkNabD4oi4)
+    -   [More models with multiple predictors](https://youtu.be/nJAYRnLPb10)
+-   📖 Read:
+    -   IMS: [Chp 8 - Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr.html)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

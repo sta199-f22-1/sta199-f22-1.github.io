@@ -539,8 +539,8 @@
     "text": "📖 Read:\n\nR4DS: Chp 2 - Data visualization - Sections 2.5 - 2.10\n\n⌨️ Watch:\n\nData and visualization\nVisualising data with ggplot2"
   },
   {
-    "objectID": "prepare/10-26.html",
-    "href": "prepare/10-26.html",
+    "objectID": "prepare/10-27.html",
+    "href": "prepare/10-27.html",
     "title": "Prepare",
     "section": "",
     "text": "Note\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
