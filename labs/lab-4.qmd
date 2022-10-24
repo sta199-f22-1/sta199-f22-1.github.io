@@ -7,7 +7,7 @@ categories: "Lab"
 This lab is due Friday, October 28 at 11:59pm.
 :::
 
-# Learning Goals
+# Learning goals
 
 -   Calculate single event, conditional, and "and" probabilities.
 -   Interpret probabilities in the context of the problem.
@@ -20,14 +20,34 @@ This lab is due Friday, October 28 at 11:59pm.
 library(tidyverse)
 ```
 
-::: callout-tip
+# Getting started
+
 All team members should clone the team GitHub repository for the lab.
-:::
+Then, one team member should edit the document YAML by adding the team name to the `subtitle` field and adding the names of the team members contributing to lab to the `author` field.
+Hopefully that's everyone, but if someone doesn't contribute during the lab session or throughout the week before the deadline, their name should not be added.
+If you have 4 members in your team, you can delete the line for the 5th team member.
+Then, this team member should render the document and commit and push the changes.
+All others should **not** touch the document at this stage.
+
+``` yaml
+title: "Lab 4 - Probability and Simpson’s Paradox"
+subtitle: "Team name"
+author: 
+  - "Team member 1"
+  - "Team member 2"
+  - "Team member 3"
+  - "Team member 4"
+  - "Team member 5"
+format: pdf
+editor: visual
+execute:
+  echo: fenced
+```
 
 # Exercises
 
 ::: callout-important
-Pick one member of the team write the answer to Exercise 1.
+Pick another member of the team write the answer to Exercise 1.
 All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub.
 All others should **not** touch the document.
 :::
@@ -118,7 +138,7 @@ You will be investigating data for the months June, July, September, and Novembe
 Below is a list of variables and their definitions:
 
 | Variable  | Definition                                                                     |
-|:--------------|:--------------------------------------------------------|
+|:----------------|:------------------------------------------------------|
 | `season`  | Numerical representation of Spring (2), Summer (3), and Fall (4)               |
 | `year`    | Numerical representation of 2011 (0) or 2012 (1)                               |
 | `month`   | Month in which data were collected                                             |
