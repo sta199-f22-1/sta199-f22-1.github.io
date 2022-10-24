@@ -106,7 +106,7 @@ a.  Fill in the code below to create a hypothetical two-way table to represent t
 data <- tibble( 
   type = c(),
   sale = c(),
-  values = ()
+  values = c()
   )
 
 data |>
@@ -138,7 +138,7 @@ You will be investigating data for the months June, July, September, and Novembe
 Below is a list of variables and their definitions:
 
 | Variable  | Definition                                                                     |
-|:----------------|:------------------------------------------------------|
+|:-----------------|:-----------------------------------------------------|
 | `season`  | Numerical representation of Spring (2), Summer (3), and Fall (4)               |
 | `year`    | Numerical representation of 2011 (0) or 2012 (1)                               |
 | `month`   | Month in which data were collected                                             |
