@@ -61,12 +61,7 @@ First, we are going to investigate the relationship between a penguins' flipper 
 ```{r}
 #| label: correlation
 
-penguins |>
-  summarize(r = cor(flipper_length_mm, body_mass_g, use = "complete.obs"))
-
-penguins |>
-  drop_na(flipper_length_mm, body_mass_g) |>
-  summarize(r = cor(flipper_length_mm, body_mass_g))
+# add code here
 ```
 
 # Defining, fitting, and summarizing a model

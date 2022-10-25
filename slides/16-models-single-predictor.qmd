@@ -17,6 +17,11 @@ library(countdown)
 
 Clone your `ae-13` project from GitHub, render your document, update your name, and commit and push.
 
+## Announcements
+
+-   My office hours on Zoom today (2-4pm): [bit.ly/minezoom](http://bit.ly/minezoom)
+-   Advising / info session on Zoom 1-2pm today. Will send link along with OH info as Sakai announcement.
+
 ## Goals
 
 -   Modeling with a single predictor
