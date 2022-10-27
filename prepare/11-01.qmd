@@ -1,0 +1,11 @@
+---
+title: "Prepare"
+subtitle: "Due: November 1, 2022"
+categories: "prepare"
+---
+
+No new prep for today, but make sure you're caught up with last week's readings and videos.
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

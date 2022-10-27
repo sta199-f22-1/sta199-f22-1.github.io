@@ -1,0 +1,16 @@
+---
+title: "Prepare"
+subtitle: "Due: November 3, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Watch:
+    -   [Logistic regression](https://youtu.be/AidXFYSYfJg)
+
+    -   [Prediction and overfitting](https://youtu.be/Qd4lu_Lmwi0)
+-   📖 Read:
+    -   IMS: [Chp ](https://openintro-ims.netlify.app/model-mlr.html)[9 - Logistic regression](https://openintro-ims.netlify.app/model-logistic.html#model-logistic)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::
