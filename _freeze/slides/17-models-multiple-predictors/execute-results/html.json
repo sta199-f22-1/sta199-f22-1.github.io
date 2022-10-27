@@ -1,0 +1,18 @@
+{
+  "hash": "1d2761671c7fdc819ba0a761d06460b1",
+  "result": {
+    "markdown": "---\ntitle: \"Models with multiple predictors\t\t\t\t\t\t\t\"\nsubtitle: \"Lecture 16\"\ndate: \"October 27, 2022\"\nformat: revealjs\n---\n\n\n# Warm up\n\n\n::: {.cell}\n\n:::\n\n\n## While you wait for class to begin...\n\nClone your `ae-14` project from GitHub, render your document, update your name, and commit and push.\n\n## Announcements\n\n-   ...\n\n## Goals\n\n-   Recap modeling with a single predictor\n-   Fit and interpret models with multiple predictors\n-   Distinguish between additive and interaction models\n\n# Application exercise\n\n## `ae-14`\n\n::: appex\n::: nonincremental\n-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-14` (repo name will be suffixed with your GitHub name).\n-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\n-   Render, commit, and push your edits by the AE deadline -- 3 days from today.\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

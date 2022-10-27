@@ -1,0 +1,40 @@
+---
+title: "Models with multiple predictors							"
+subtitle: "Lecture 16"
+date: "October 27, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+Clone your `ae-14` project from GitHub, render your document, update your name, and commit and push.
+
+## Announcements
+
+-   ...
+
+## Goals
+
+-   Recap modeling with a single predictor
+-   Fit and interpret models with multiple predictors
+-   Distinguish between additive and interaction models
+
+# Application exercise
+
+## `ae-14`
+
+::: appex
+::: nonincremental
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-14` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+:::
