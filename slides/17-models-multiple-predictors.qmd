@@ -19,7 +19,12 @@ Clone your `ae-14` project from GitHub, render your document, update your name, 
 
 ## Announcements
 
--   ...
+-   My OH going forward: Zoom option will be available
+-   Project proposal feedback: Incorporate more variables into your analysis
+-   Upcoming:
+    -   HW 4 to be posted soon
+
+    -   Lab 4 due tomorrow evening
 
 ## Goals
 

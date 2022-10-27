@@ -1,0 +1,263 @@
+---
+title: "HW 4 - Scraping + modelling"
+categories: "Homework"
+editor: visual
+---
+
+::: callout-important
+This homework is due Thursday, Nov 3 at 11:59pm ET.
+
+Homework assignments are individual, not team based.
+:::
+
+# Getting started
+
+-   Go to the [sta199-f22-1](https://github.com/sta199-f22-1) organization on GitHub.
+    Click on the repo with the prefix `hw-04`.
+    It contains the starter documents you need to complete the homework assignment.
+
+-   Clone the repo and start a new project in RStudio.
+    See the [Lab 0 instructions](https://sta199-f22-2.github.io/labs/lab-0.html#clone-the-repo-start-new-rstudio-project) for details on cloning a repo and starting a new R project.
+
+## Workflow + formatting
+
+-   Update author name on your document.
+-   Label all code chunks informatively and concisely.
+-   Follow the [Tidyverse style guide](https://style.tidyverse.org/).
+-   Make at least 3 commits.
+-   Resize figures where needed, avoid tiny or huge plots.
+-   Use informative labels for plot axes, titles, etc.
+-   Turn in an organized, well formatted document.
+
+## Packages
+
+We'll use the **tidyverse** package for much of the data wrangling and visualization, though you're welcomed to also load other packages as needed.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(rvest)
+library(robotstxt)
+library(openintro)
+```
+
+# Exercises
+
+## Exercise 1 - Data Scraping
+
+Please justify, using the tools we've learning in this course, if you are allowed to scrape data from each of the following websites:
+
+-   [www.espn.com](https://www.espn.com/)
+-   [twitter.com](https://twitter.com/)
+-   [www.rottentomatoes.com](https://www.rottentomatoes.com)
+
+## Exercise 2 - Rotten Tomatoes
+
+Rotten Tomatoes is an American review aggregation website for film.
+They give percentage scores for movies based on how "good" the movies are.
+They provide 2 scores:
+
+|                              |                                                                                                                   |
+|------------------|------------------------------------------------------|
+| ![](images/popcornlogos.png) | The audience score, denoted by a popcorn bucket                                                                   |
+| ![](images/tomatologos.png)  | The Tomatometer score represents the percentage of professional critic reviews that are positive for a given film |
+
+We are going to investigate the relationship between the audience score and Tomatometer score between the Halloween movies.
+Please visit the following website to view the data we plan to scrape: <https://www.rottentomatoes.com/franchise/halloween>
+
+a.  Using `Selector Gadget`, scrape the `tomato_score` and `audience_score` and report the lengths of these vectors (using the `length()`) function.
+    *Hint:* Their lengths should be equal.
+
+b.  Next, run the following code:
+
+```{r}
+#| eval: false
+
+titles_years <- page |>
+  html_nodes(".franchise-media-list__h3") |>
+  html_text2()
+  
+halloween <- tibble(title_year = titles_years) |>
+  separate(titles, into = c("title", "year"), sep= "\\(" )
+```
+
+In 2-3 sentences, describe what the above code is doing.
+Make sure to articulate each step of both of the pipelines.
+*Hint:* Print out `titles_years` and `halloween` to see what these objects look like.
+This will help figure out what the code is doing.
+You should also try running each line of the pipeline individually to see their outputs.
+
+c.  Add the columns `tomato_score` and `audience_score` from part (a) to your data frame called `halloween` that you created in part (b).
+
+d.  Create an appropriate plot the assess the relationship between a movie's audience score and their tomatometer score.
+    In 2-3 sentences, comment on the relationship.
+    Your plot should include appropriate labels.
+
+## Exercise 3 - Smoking during pregnancy - Part 1
+
+We are interested in the impact of smoking during pregnancy.
+Since it is not possible to run a randomized controlled experiment to investigate this impact, we will instead use a data set has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children.
+This is a random sample of 1,000 cases from a data set released in 2014 by the state of North Carolina.
+The data set is called `births14`, and it is included in the **openintro** package you loaded at the beginning of the assignment.
+
+a.  Create a version of the `births14` data set dropping observations where there are `NA`s for `habit`.
+    You can call this version `births14_habitgiven`.
+
+b.  Plotting the data is a useful first step because it helps us quickly visualize trends, identify strong associations, and develop research questions.
+    Create an appropriate plot displaying the relationship between`habit` and `weight`.
+    In 2-3 sentences, discuss the relationships observed.
+
+c.  Now, fit a linear model that investigates the relationship between `weight` and `births14_habigtgiven`.
+    Provide the tidy summary output below.
+
+d.  Write the estimated least squares regression line below using proper notation.
+    *Hint:* If you need to type an equation using proper notation, type your answers in-between `$$` and `$$`.
+    You may use `\hat{example}` to put a hat on a character.
+
+## Exercise 4 - Smoking during pregnacy - Part 2
+
+a.  Another researcher is interested in assessing the relationship between babies' weights and mothers' ages.
+    Fit another linear model to investigate this relationship.
+    Provide the summary output below.
+
+b.  In 2-3 sentences, explain how R fit the least squares regression line to model these data.
+
+c.  Interpret the intercept in the context of the data and the research question.
+    Is the intercept meaningful in this context?
+    Why or why not?
+
+d.  Interpret the slope in the context of the data and the research question.
+
+## Exercise 5 - America's Neighborhood Pollster
+
+SurveyUSA interviewed 886 North Carolina adults between Septermber 28, 2022 and October 2, 2022.
+This research was conducted online among a representative cross section of North Carolina adults, selected at random by Lucid Holdings LLC of New Orleans.
+We will look at the results from the following question:
+
+> Are you optimistic or pessimistic about the economic outlook for your family over the next year?
+
+Responses were broken down into the following categories:
+
+| Variable | Levels                  |
+|:---------|:------------------------|
+| Age      | 18-49; 50+              |
+| Mood     | Optimistic; Pessimistic |
+
+a.  Of the 886 responses, 481 were between the ages of 18-49. Of the individuals that are between 18-49, 237 individuals responded that they were pessimistic. Of the individuals that are 50+, 164 claimed to be optimistic. Fill in the code below to create a hypothetical two-way table to represent this situation.
+
+```{r}
+#| eval: false
+
+data <- tibble( 
+  age = c(),
+  mood = c(),
+  values = ()
+  )
+
+data |>
+  pivot_wider( 
+    names_from = ...,
+    values_from = ...
+  )
+```
+
+b.  Using your table from part (a), calculate the probability that a randomly selected individual is 50+ and is pessimistic.
+
+c.  Using your table from part (a), calculate the probability that a randomly selected individual is optimistic.
+
+d.  Using your table from part (a), calculate the probability that a randomly selected 18-49 aged individual is optimistic.
+
+e.  Create an appropriate visualization to compare the the relationship between `age` and `mood`.
+    Your plot should include appropriate labels.
+    *Hint:* You may have to re manipulate the data into a more usable form.
+
+## Exercise 6 - Functionalizing Halloween
+
+Suppose you have two types of candy to give out on Halloween; Hershey's bars and Starbursts.
+The probability that you give a random trick-or-treater who knocks on your door a Hershey's bar is 0.5.
+With this information, create a function that chooses for you which type of candy you will give a trick-or-treater that knocks on your door.
+Your function should take a numerical value as an input and should give the numbers of Hershey's bars and Starbursts in a 2x2 tibble with columns `candy` and `n` as an output.
+
+For example, if you want to select candies for 3 trick or treaters, it might look something like this:
+
+```{r}
+#| eval: false
+
+trick_or_treat(3)
+```
+
+And the result might look something like this:
+
+```{r}
+#| eval: false
+
+# A tibble: 2 × 2
+  candy             n
+  <chr>         <int>
+1 Hershey's bar     2
+2 Starburst         1
+```
+
+Your function should be able to display a table of counts for Hershey's bars or Starbursts for any amount of people you expect to see on Halloween.
+
+Write this function and test it with 15, 100, and 200 as inputs.
+You will note that every time you render your document the results will change.
+This is expected as you're randomly sampling.
+(And later on in the course we'll talk about how to make these numbers not change every time you render, for reproducibility!)
+
+To create and test your function, please fill in the `___` below.
+
+*Hint:* Think about what varies in your function as you define your input.
+
+```{r}
+#| eval: false
+
+trick_or_treat <- function(___){ # input
+  candy_types <- c("___", "___") # types of candy
+  tibble(candy = sample(___, size = ___, replace = ___)) |>
+    ___(___)
+}
+
+trick_or_treat(___)
+
+trick_or_treat(___)
+
+trick_or_treat(___)
+```
+
+# Wrap up
+
+## Submission
+
+-   Go to <http://www.gradescope.com> and click Log in in the top right corner.
+-   Click School Credentials Duke Net ID and log in using your Net ID credentials.
+-   Click on your STA 199 course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark all the pages associated with exercise. All the pages of your homework should be associated with at least one question (i.e., should be "checked"). If you do not do this, you will be subject to lose points on the assignment.
+-   Select the first page of your PDF submission to be associated with the "Workflow & formatting" question.
+
+## Grading
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | 6      |
+| Ex 2                  | 9      |
+| Ex 3                  | 8      |
+| Ex 4                  | 8      |
+| Ex 5                  | 9      |
+| Ex 6                  | 5      |
+| Workflow & formatting | 5      |
+| **Total**             | **50** |
+
+::: callout-note
+The "Workflow & formatting" component assesses the reproducible workflow.
+This includes:
+
+-   At least three commits
+-   Linking HW pages on Gradescope
+-   Following [tidyverse code style](https://style.tidyverse.org/)
+-   All code being visible in rendered PDF (no more than 80 characters)
+-   Appropriate figure sizing, and figures with informative labels and legends
+:::
