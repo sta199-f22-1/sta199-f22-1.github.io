@@ -384,8 +384,8 @@ Important
 <p>Rotten Tomatoes is an American review aggregation website for film. They give percentage scores for movies based on how “good” the movies are. They provide 2 scores:</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -409,7 +409,7 @@ Important
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_text2</span>()</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>halloween <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">title_year =</span> titles_years) <span class="sc">|&gt;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(titles, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"title"</span>, <span class="st">"year"</span>), <span class="at">sep=</span> <span class="st">"</span><span class="sc">\\</span><span class="st">("</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(title_year, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"title"</span>, <span class="st">"year"</span>), <span class="at">sep=</span> <span class="st">"</span><span class="sc">\\</span><span class="st">("</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In 2-3 sentences, describe what the above code is doing. Make sure to articulate each step of both of the pipelines. <em>Hint:</em> Print out <code>titles_years</code> and <code>halloween</code> to see what these objects look like. This will help figure out what the code is doing. You should also try running each line of the pipeline individually to see their outputs.</p>
 <ol start="3" type="a">
