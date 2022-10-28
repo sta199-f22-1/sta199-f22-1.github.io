@@ -60,7 +60,7 @@ They give percentage scores for movies based on how "good" the movies are.
 They provide 2 scores:
 
 |                              |                                                                                                                   |
-|-------------------|-----------------------------------------------------|
+|--------------------|----------------------------------------------------|
 | ![](images/popcornlogos.png) | The audience score, denoted by a popcorn bucket                                                                   |
 | ![](images/tomatologos.png)  | The Tomatometer score represents the percentage of professional critic reviews that are positive for a given film |
 
@@ -106,10 +106,10 @@ a.  Create a version of the `births14` data set dropping observations where ther
     You can call this version `births14_habitgiven`.
 
 b.  Plotting the data is a useful first step because it helps us quickly visualize trends, identify strong associations, and develop research questions.
-    Create an appropriate plot displaying the relationship between`habit` and `weight`.
+    Create an appropriate plot displaying the relationship between `weight` and `habit`.
     In 2-3 sentences, discuss the relationships observed.
 
-c.  Now, fit a linear model that investigates the relationship between `weight` and `births14_habigtgiven`.
+c.  Now, fit a linear model that investigates the relationship between `weight` and `habit`.
     Provide the tidy summary output below.
 
 d.  Write the estimated least squares regression line below using proper notation.
@@ -122,7 +122,7 @@ a.  Another researcher is interested in assessing the relationship between babie
     Fit another linear model to investigate this relationship.
     Provide the summary output below.
 
-b.  In 2-3 sentences, explain how R fit the least squares regression line to model these data.
+b.  In 2-3 sentences, explain how the regression line to model these data is fit, i.e., based on what criteria R determines the regression line.
 
 c.  Interpret the intercept in the context of the data and the research question.
     Is the intercept meaningful in this context?
