@@ -60,7 +60,7 @@ They give percentage scores for movies based on how "good" the movies are.
 They provide 2 scores:
 
 |                              |                                                                                                                   |
-|------------------|------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | ![](images/popcornlogos.png) | The audience score, denoted by a popcorn bucket                                                                   |
 | ![](images/tomatologos.png)  | The Tomatometer score represents the percentage of professional critic reviews that are positive for a given film |
 
@@ -80,7 +80,7 @@ titles_years <- page |>
   html_text2()
   
 halloween <- tibble(title_year = titles_years) |>
-  separate(titles, into = c("title", "year"), sep= "\\(" )
+  separate(title_year, into = c("title", "year"), sep= "\\(" )
 ```
 
 In 2-3 sentences, describe what the above code is doing.
