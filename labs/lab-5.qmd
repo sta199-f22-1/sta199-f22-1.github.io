@@ -9,33 +9,38 @@ This lab is due Friday, November 4 at 11:59pm.
 
 # Learning Goals
 
-- Use tidymodels framework to build a linear model and estimate regression parameters
+-   Use tidymodels framework to build a linear model and estimate regression parameters
 
-- Visualize your linear model
+-   Visualize your linear model
 
 ## Intro
 
-Parasites can cause infectious disease -- but not all animals are affected by the same parasites. Some parasites are present in a multitude of species and others are confined to a single host. It is hypothesized that closely related hosts are more likely to share the same parasites. More specifically, it is thought that closely related hosts will live in similar environments and have similar genetic makeup that coincides with optimal conditions for the same parasite to flourish.
+Parasites can cause infectious disease -- but not all animals are affected by the same parasites.
+Some parasites are present in a multitude of species and others are confined to a single host.
+It is hypothesized that closely related hosts are more likely to share the same parasites.
+More specifically, it is thought that closely related hosts will live in similar environments and have similar genetic makeup that coincides with optimal conditions for the same parasite to flourish.
 
 In this lab we will see how much evolutionary history predicts parasite similarity.
 
 ## The Data
 
-Today's dataset comes from an Ecology Letters paper by Cooper at al. (2012) entitled "Phylogenetic host specificity and understanding parasite sharing in primates" located [here](https://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2012.01858.x). The goal of the paper was to identify the ability of evolutionary history and ecological traits to characterize parasite host specificity.
+Today's dataset comes from an Ecology Letters paper by Cooper at al. (2012) entitled "Phylogenetic host specificity and understanding parasite sharing in primates" located [here](https://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2012.01858.x).
+The goal of the paper was to identify the ability of evolutionary history and ecological traits to characterize parasite host specificity.
 
 Each row of the data contains two species, `species1` and `species2`.
 
 Subsequent columns describe metrics that compare the species:
 
-- divergence_time: how many (millions) of years ago the two species diverged. i.e. how many million years ago they were the same species.
+-   `divergence_time`: how many (millions) of years ago the two species diverged.
+    i.e. how many million years ago they were the same species.
 
-- distance: geodesic distance between species geographic range centroids (in kilometers)
+-   `distance`: geodesic distance between species geographic range centroids (in kilometers)
 
-- BMdiff: difference in body mass between the two species (in grams)
+-   `BMdiff`: difference in body mass between the two species (in grams)
 
-- precdiff: difference in mean annual precipitation across the two species geographic ranges (mm)
+-   `precdiff`: difference in mean annual precipitation across the two species geographic ranges (mm)
 
-- parsim: a measure of parasite similarity (proportion of parasites shared between species, ranges from 0 to 1.)
+-   `parsim`: a measure of parasite similarity (proportion of parasites shared between species, ranges from 0 to 1.)
 
 The data are available in `parasites.csv` in the data folder.
 
@@ -52,50 +57,151 @@ library(tidymodels)
 
 ## Exercises
 
-To get started, load the data and save the data frame as `parasites`. 
+::: callout-important
+Pick another member of the team write the answer to Exercise 1.
+All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub.
+All others should **not** touch the document.
+:::
 
-Let’s start by examining the relationship between divergence_time and parsim.
+To get started, load the data and save the data frame as `parasites`.
 
-1.(a) Based on the goals of the analysis, what is the response variable?
+1.  Let's start by examining the relationship between `divergence_time` and `parsim`.
+    a.  Based on the goals of the analysis, what is the response variable?
 
-(b) Visualize the relationship between the two variables.
+    b.  Visualize the relationship between the two variables.
 
-(c) Use the visualization to describe the relationship between the two variables.
+    c.  Use the visualization to describe the relationship between the two variables.
 
-2.(a) Write the regression equation using proper notation. 
+::: callout-important
+After the team member working on Exercise 1 renders, commits, and pushes, another team member should pull their changes and render the document.
+Then, they should write the answer to Exercise 2.
+All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub.
+All others should **not** touch the document.
+:::
 
-(b) Interpret the slope and the intercept in the context of the data.
+2.  Next, we'll model this relationship.
 
-(c) Recreate the visualization from Exercise 1, this time adding a regression line to the visualization.
+    a.  Fit the model and write the estimated regression equation.
 
-(d) What do you notice about the prediction (regression) line that may be strange, particularly for very large divergence times?
+    b.  Interpret the slope and the intercept in the context of the data.
 
-3.(a) Since parsim takes values between 0 and 1, we want to transform this variable so that it can range between (−∞,+∞). This will be better suited for fitting a regression model (and interpreting predicted values!)
+    c.  Recreate the visualization from Exercise 1, this time adding a regression line to the visualization.
 
-(b) Create a new variable transformed_parsim that is calculated as log(parsim/(1-parsim)). Add this variable to your data frame.
+    d.  What do you notice about the prediction (regression) line that may be strange, particularly for very large divergence times?
 
-(c) Then, visualize the relationship between divergence_time and transformed_parsim. Add a regression line to your visualization.
+::: callout-important
+After the team member working on Exercise 2 renders, commits, and pushes, another team member should pull their changes and render the document.
+Then, they should write the answer to Exercise 3.
+All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub.
+All others should **not** touch the document.
+:::
 
-(d) Write a 1-2 sentence description of what you observe in the visualization.
+3.  Since `parsim` takes values between 0 and 1, we want to transform this variable so that it can range between (−∞,+∞).
+    This will be better suited for fitting a regression model (and interpreting predicted values!)
 
-4.(a) *Which variable is the strongest individual predictor of parasite similarity between species?* To answer this question, begin by fitting a linear regression model to each pair of variables. Do not report the model outputs in a tidy format but save each one as dt_model, dist_model, BM_model and prec_model, respectively.
+    a.  Using mutate, create a new variable `transformed_parsim` that is calculated as `log(parsim/(1-parsim))`.
+        Add this variable to your data frame.
+        Note: `log()` in R represents taking the **nautral log**.
 
-- divergence_time and transformed_parsim
+    b.  Then, visualize the relationship between divergence_time and `transformed_parsim`.
+        Add a regression line to your visualization.
 
-- distance and transformed_parsim
+    c.  Write a 1-2 sentence description of what you observe in the visualization.
 
-- BMdiff and transformed_parsim
+::: callout-important
+After the team member working on Exercise 3 renders, commits, and pushes, another team member should pull their changes and render the document.
+Then, they should write the answer to Exercise 4.
+All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub.
+All others should **not** touch the document.
+:::
 
-- precdiff and transformed_parsim
+4.  *Which variable is the strongest individual predictor of parasite similarity between species?* To answer this question, begin by fitting a linear regression model to each pair of variables.
+    Do not report the model outputs in a tidy format but save each one as `dt_model`, `dist_model`, `BM_model`, and `prec_model`, respectively.
 
-Would it be useful to compare the slopes in each model to choose the variable that is the strongest predictor of parasite similarity? Why or why not?
+    -   `divergence_time` and `transformed_parsim`
 
-5. To compare the explanatory power of each individual predictor, we will look at $$R^2$$ between the models. $$R^2$$ is a measure of how much of the variability in the response variable is explained by the model. 
+    -   `distance` and `transformed_parsim`
 
-As you may have guessed from the name $$R^2$$ can be calculated by squaring the correlation. The correlation r takes values -1 to 1, therefore, $$R^2$$ takes values 0 to 1. Intuitively, if r=1 or −1, then $$R^2$$=1, indicating the model is a perfect fit for the data. If r≈0 then $$R^2$$≈0, indicating the model is a very bad fit for the data.
+    -   `BMdiff` and `transformed_parsim`
 
-You can calculate $$R^2$$ using the glance function. For example, you can calculate $$R^2$$ for dt_model using the code `glance(dt_model)$r.squared`.
+    -   `precdiff` and `transformed_parsim`
 
-(a) Calculate $$R^2$$ for each model fit in the previous exercise.
+    a.  Report the slops for each of these models.
+        Use proper notation.
 
-(b) Which variable is the strongest predictor of parasite similarity? Briefly explain your choice.
+    b.  To answer the question of interest, would it be useful to compare the slopes in each model to choose the variable that is the strongest predictor of parasite similarity?
+        Why or why not?
+
+::: callout-important
+After the team member working on Exercise 4 renders, commits, and pushes, another team member should pull their changes and render the document.
+Then, they should write the answer to Exercise 5.
+All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub.
+All others should **not** touch the document.
+:::
+
+5.  Now, what if calculated $R^2$ to help answer our question?
+    To compare the explanatory power of each individual predictor, we will look at $R^2$ between the models.
+    $R^2$ is a measure of how much of the variability in the response variable is explained by the model.
+
+    As you may have guessed from the name $R^2$ can be calculated by squaring the correlation when we have a simple linear regression model.
+    The correlation r takes values -1 to 1, therefore, $R^2$ takes values 0 to 1.
+    Intuitively, if r=1 or −1, then $R^2$=1, indicating the model is a perfect fit for the data.
+    If r≈0 then $R^2$≈0, indicating the model is a very bad fit for the data.
+
+    You can calculate $R^2$ using the glance function.
+    For example, you can calculate $R^2$ for dt_model using the code `glance(dt_model)$r.squared`.
+
+    a.  Calculate and report $R^2$ for each model fit in the previous exercise.
+
+    b.  To answer our question of interest, would it be useful to compare the $R^2$ in each model to choose the variable that is the strongest predictor of parasite similarity?
+        Why or why not?
+
+::: callout-important
+After the team member working on Exercise 5 renders, commits, and pushes, **all other team members** should pull the changes and render the document.
+Finally, a team member different than the one responsible for typing up responses to Exercise 5 should do the last task outlined below.
+:::
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.
+We will be checking these to make sure you have been practicing how to render and push changes.
+
+You must turn in a PDF file to the Gradescope page by the submission deadline to be considered "on time".
+
+Make sure your data are tidy!
+That is, your code should not be running off the pages and spaced properly.
+See: <https://style.tidyverse.org/ggplot2.html>.
+:::
+
+To submit your assignment:
+
+-   Go to <http://www.gradescope.com> and click *Log in* in the top right corner.
+-   Click *School Credentials* $\rightarrow$ *Duke NetID* and log in using your NetID credentials.
+-   Click on your *STA 199* course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark all the pages associated with exercise. All the pages of your lab should be associated with at least one question (i.e., should be "checked"). *If you do not do this, you will be subject to lose points on the assignment.*
+-   Select the first page of your .pdf submission to be associated with the *"Workflow & formatting"* question.
+
+# Grading
+
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  | 8      |
+| Ex 2                  | 14     |
+| Ex 3                  | 8      |
+| Ex 4                  | 8      |
+| Ex 4                  | 7      |
+| Workflow & formatting | 5      |
+| **Total**             | **50** |
+
+::: callout-note
+The "Workflow & formatting" component assesses the reproducible workflow.
+This includes:
+
+-   having at least 3 informative commit messages
+-   labeling the code chunks
+-   having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF
+-   each team member contributing to the repo with commits at least once
+-   the issue being closed with a commit message
+:::
