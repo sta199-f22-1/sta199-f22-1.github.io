@@ -1,0 +1,139 @@
+---
+title: "Lab - Project draft"
+categories: "Lab"
+execute:
+  eval: true
+---
+
+::: callout-important
+This lab is due XXX.
+:::
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(tidymodels)
+```
+
+# Learning goals
+
+In this lab, you will...
+
+-   Review your project proposal feedback and address it
+-   Finalize your data selection and analysis plan
+-   Work on your project draft
+
+# Getting started
+
+-   Go to RStudio and open the RStudio project called `project`. You can do this by navigating to it from the top right corner of your RStudio window.
+-   Pull to bring in any changes your teammates may have made to the project.
+-   Go to the Build tab and click Render website.
+-   Make sure it compiles without errors. View your project website in your Viewer tab.
+
+# Tasks
+
+## Proposal feedback review
+
+::: callout-important
+You do not need to submit a revised version of your proposal, but if there are issues in your proposal that prevent your project from rendering, you should fix those.
+:::
+
+-   As a team, review all feedback left as issues in your GitHub repo.
+-   Either close the issues on GitHub (by clicking on the Close Issue button) or address them with commits to your project like you learned last week.
+-   Make decision about which dataset you will use for your project and going forward write up your analysis in `report.qmd`.
+
+## Project draft
+
+::: callout-important
+Your next project related deadline is Fri, Nov 11 at 11:59pm.
+Your project draft, written in `report.qmd`, must be pushed to GitHub by that time.
+You will lose push access to your repo at that time until your draft has been reviewed.
+Once again, you will receive feedback as issues on your GitHub repository.
+:::
+
+-   Review <https://sta199-f22-1.github.io/project-description.html#draft> for requirements for the project draft.
+-   Start working on your draft! Make good use of the time with your TA during lab.
+-   Once you complete your draft but before you finalize it:
+    -   In `report.qmd` set `echo: false` in the YAML of your document.
+        Read through your draft completely and make sure everything makes sense without the code visible, and make any edits as needed.
+        Then, set `echo: true` again before submitting.
+        (For your draft we want to see your code so we can provide feedback on it. For your final report we will ask you to hide it again.)
+
+    -   Update your `index.qmd`:
+
+        -   Update the `title` field with your team name.
+
+        -   Add your abstract.
+
+    -   Update your About page (`about.qmd`) with information on your team.
+
+## Quarto options
+
+::: callout-note
+Much of what is listed in this section is optional, but we recommend reviewing them as a team and deciding on which ones you want to use/include in your project.
+:::
+
+### Theming
+
+You can see your deployed project website at the URL listed in your project repo.
+
+-   You can pick a theme from <https://quarto.org/docs/output-formats/html-themes.html>.
+-   You can update the theme of your project by changing the `theme` field in the `_quarto.yml` file.
+-   Render the website from the Build tab and commit and push your changes.
+
+### Footnotes
+
+To add a footnote, make sure you're in the Visual editor mode in RStudio and click on Insert \> Footnote.[^1]
+One you add your footnote, click outside of the footnote area, anywhere else in your document, to go back to editing your document.
+
+[^1]: Here is a footnote!
+
+### Cross references
+
+You can add cross references to your figures and tables so that you can refer to them like "Figure 1 shows that ..." or "As seen in Table 1, ..." instead of "the figure below" or "the table below".
+To do this, you need to label the code chunks for those figures and tables in a special way (with `fig-` and `tbl-` suffixes, respectively) and add captions to them.
+
+#### Figures
+
+For example, @fig-mtcars-plot shows a positive and moderately strong relationship between fuel efficiency of cars (measured as miles/gallon) and their displacement.
+
+```{r}
+#| echo: fenced
+#| label: fig-mtcars-plot
+#| fig-cap: "Fuel efficiency of cars vs. their displacement."
+
+ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point()
+```
+
+What you're not seeing in the text above is that we didn't type `Figure 1` in the text, but instead referenced this figure with `@fig-mtcars-plot`:
+
+>     For example, @fig-mtcars-plot shows a positive and moderately strong relationship between fuel efficiency of cars (measured as miles/gallon) and their displacement.
+
+#### Tables
+
+And @tbl-mpg-disp shows the output of the linear regression for predicting fuel efficiency from displacement.
+
+Note that we piped the result of the `tidy()` function (which outputs a tibble) into the `kable()` function from the **knitr** package to turn it into a table.
+Quarto needs this last step to know that this code chunk produces a table that can be formatted and cross referenced as such.
+
+```{r}
+#| echo: fenced
+#| label: tbl-mpg-disp
+#| tbl-cap: "Linear regression model for predicting fuel efficiency from displacement."
+
+linear_reg() |>
+  fit(mpg ~ disp, data = mtcars) |>
+  tidy() |>
+  knitr::kable()
+```
+
+Once again, what you're not seeing in the text above is that we didn't type `Table 1` in the text, but instead referenced this table with `@tbl-mpg-disp`.
+
+>     And @tbl-mpg-disp shows the output of the linear regression for predicting fuel efficiency from displacement.
+
+### Citations
+
+You can use Quarto's built-in citation and bibliography features for your citations.
+For example ...

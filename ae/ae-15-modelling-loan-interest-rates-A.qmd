@@ -136,7 +136,7 @@ The same.
 - **Demo:** Fit a model to predict interest rate from credit utilization and homeownership, **with** an interaction effect between the two predictors. Display the summary output and write out the estimated regression equation.
 
 ```{r}
-#| label: rate-util-home-fit
+#| label: rate-util-home-int-fit
 
 rate_util_home_int_fit <- linear_reg() |>
   fit(interest_rate ~ credit_util * homeownership, data = loans)
