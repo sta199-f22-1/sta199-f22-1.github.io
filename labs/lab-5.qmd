@@ -191,7 +191,7 @@ To submit your assignment:
 | Ex 2                  | 14     |
 | Ex 3                  | 8      |
 | Ex 4                  | 8      |
-| Ex 4                  | 7      |
+| Ex 5                  | 7      |
 | Workflow & formatting | 5      |
 | **Total**             | **50** |
 
