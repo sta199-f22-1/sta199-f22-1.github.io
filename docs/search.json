@@ -945,6 +945,34 @@
     "text": "Part 2 - Data analysis\nLet’s start by loading the packages we will need:\n\nlibrary(tidyverse)\nlibrary(lubridate)\n\n\nLoad the data you saved into the data folder and name it yc_reviews_raw.\n\n\n# add code here\n\n\nYour turn (5 minutes): Our goal is to plot the number of reviews mentioning “no scent” or “no smell” per week, limiting our plot to reviews posted in 2022. Take a look at the data you loaded and outline how you can transform it to prepare it for such a plot. Your response should be bullet points that can roughly be translated to steps in a data wrangling pipeline.\n\nAdd your response here.\n\nDemo: Create the plot described above.\n\n\n# add code here\n\n\nYour turn (3 minutes): Outline how this exercise could be expanded to make a plot like this one that compares number of reviews mentioning no scent/smell and number of COVID cases.\n\nAdd your response here."
   },
   {
+    "objectID": "ae/ae-15-modelling-loan-interest-rates.html",
+    "href": "ae/ae-15-modelling-loan-interest-rates.html",
+    "title": "Modelling loan interest rates",
+    "section": "",
+    "text": "In this application exercise we will be studying loan interest rates. The dataset is one you’ve come across before in your reading – the dataset about loans from the peer-to-peer lender, Lending Club, from the openintro package. We will use tidyverse and tidymodels for data exploration and modeling, respectively.\nBefore we use the dataset, we’ll make a few transformations to it.\nHere is a glimpse at the data:"
+  },
+  {
+    "objectID": "ae/ae-15-modelling-loan-interest-rates.html#main-effects-model",
+    "href": "ae/ae-15-modelling-loan-interest-rates.html#main-effects-model",
+    "title": "Modelling loan interest rates",
+    "section": "Main effects model",
+    "text": "Main effects model\n\nDemo: Fit a model to predict interest rate from credit utilization and homeownership, without an interaction effect between the two predictors. Display the summary output and write out the estimated regression equation.\n\n\n# add code here\n\n\\[\nadd~math~text~here\n\\]\n\nDemo: Write the estimated regression equation for loan applications from each of the homeownership groups separately.\n\nRent: \\(add~math~text~here\\)\nMortgage: \\(add~math~text~here\\)\nOwn: \\(add~math~text~here\\)\n\nQuestion: How does the model predict the interest rate to vary as credit utilization varies for loan applicants with different homeownership status. Are the rates the same or different?\n\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-15-modelling-loan-interest-rates.html#interaction-effects-model",
+    "href": "ae/ae-15-modelling-loan-interest-rates.html#interaction-effects-model",
+    "title": "Modelling loan interest rates",
+    "section": "Interaction effects model",
+    "text": "Interaction effects model\n\nDemo: Fit a model to predict interest rate from credit utilization and homeownership, with an interaction effect between the two predictors. Display the summary output and write out the estimated regression equation.\n\n\n# add code here\n\n\\[\nadd~math~text~here\n\\]\n\nDemo: Write the estimated regression equation for loan applications from each of the homeownership groups separately.\n\nRent: \\(add~math~text~here\\)\nMortgage: \\(add~math~text~here\\)\nOwn: \\(add~math~text~here\\)\n\nQuestion: How does the model predict the interest rate to vary as credit utilization varies for loan applicants with different homeownership status. Are the rates the same or different?\n\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-15-modelling-loan-interest-rates.html#choosing-a-model",
+    "href": "ae/ae-15-modelling-loan-interest-rates.html#choosing-a-model",
+    "title": "Modelling loan interest rates",
+    "section": "Choosing a model",
+    "text": "Choosing a model\nRule of thumb: Occam’s Razor - Don’t overcomplicate the situation! We prefer the simplest best model.\n\n# add code here\n\n\nReview: What is R-squared? What is adjusted R-squared?\n\nAdd response here.\n\nQuestion: Based on the adjusted \\(R^2\\)s of these two models, which one do we prefer?\n\nAdd response here."
+  },
+  {
     "objectID": "ae/ae-09-dse-bias-A.html",
     "href": "ae/ae-09-dse-bias-A.html",
     "title": "AE 09: Data science ethics - Algorithmic bias",
@@ -1271,7 +1299,7 @@
     "href": "ae/ae-15-modelling-loan-interest-rates-A.html",
     "title": "Modelling loan interest rates",
     "section": "",
-    "text": "In this application exercise we will be studying loan interest rates. The dataset is one you’ve come across before in your reading – the dataset about loans from the peer-to-peer lender, Lending Club, from the openintro packahe. We will use tidyverse and tidymodels for data exploration and modeling, respectively.\nBefore we use the dataset, we’ll make a few transformations to it.\nHere is a glimpse at the data:"
+    "text": "In this application exercise we will be studying loan interest rates. The dataset is one you’ve come across before in your reading – the dataset about loans from the peer-to-peer lender, Lending Club, from the openintro package. We will use tidyverse and tidymodels for data exploration and modeling, respectively.\nBefore we use the dataset, we’ll make a few transformations to it.\nHere is a glimpse at the data:"
   },
   {
     "objectID": "ae/ae-15-modelling-loan-interest-rates-A.html#main-effects-model",

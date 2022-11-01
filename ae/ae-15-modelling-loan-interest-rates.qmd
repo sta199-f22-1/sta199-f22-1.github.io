@@ -69,9 +69,7 @@ ggplot(loans, aes(x = credit_util, y = interest_rate)) +
 ```{r}
 #| label: predict-80
 
-credit_util_80 <- tibble(credit_util = 0.8)
-
-predict(rate_util_fit, new_data = credit_util_80)
+# add code here
 ```
 
 # Interest rate vs. homeownership
@@ -87,21 +85,14 @@ levels(loans$homeownership)
 ```{r}
 #| label: fit-rate-home
 
-rate_home_fit <- linear_reg() |>
-  fit(interest_rate ~ homeownership, data = loans)
-
-tidy(rate_home_fit)
+# add code here
 ```
 
 -   **Your turn:** Interpret each coefficient in context of the problem.
 
-    -   Intercept: Loan applicants who rent are predicted to receive an interest rate of 12.9%, on average.
+    -   Intercept: *Add response here.*
 
-    -   Slopes:
-
-        -   The model predicts that loan applicants who have a mortgage for their home receive 0.866% lower interest rate than those who rent their home, on average.
-
-        -   The model predicts that loan applicants who own their home receive 0.611% lower interest rate than those who rent their home, on average.
+    -   Slopes: *Add response here.*
 
 # Interest rate vs. credit utilization and homeownership
 
@@ -112,23 +103,20 @@ tidy(rate_home_fit)
 ```{r}
 #| label: rate-util-home-fit
 
-rate_util_home_fit <- linear_reg() |>
-  fit(interest_rate ~ credit_util + homeownership, data = loans)
-
-tidy(rate_util_home_fit)
+# add code here
 ```
 
 $$
-\widehat{interest~rate} = 9.93 + 5.34 \times credit~util + 0.696 \times Mortgage - 0.128 \times Own
+add~math~text~here
 $$
 
 -   **Demo:** Write the estimated regression equation for loan applications from each of the homeownership groups separately.
-    -   Rent: $\widehat{interest~rate} = 9.93 + 5.34 \times credit~util$
-    -   Mortgage: $\widehat{interest~rate} = 10.626 + 5.34 \times credit~util$
-    -   Own: $\widehat{interest~rate} = 10.058 + 5.34 \times credit~util$
+    -   Rent: $add~math~text~here$
+    -   Mortgage: $add~math~text~here$
+    -   Own: $add~math~text~here$
 -   **Question:** How does the model predict the interest rate to vary as credit utilization varies for loan applicants with different homeownership status. Are the rates the same or different?
 
-The same.
+*Add response here.*
 
 ## Interaction effects model
 
@@ -137,23 +125,20 @@ The same.
 ```{r}
 #| label: rate-util-home-int-fit
 
-rate_util_home_int_fit <- linear_reg() |>
-  fit(interest_rate ~ credit_util * homeownership, data = loans)
-
-tidy(rate_util_home_int_fit)
+# add code here
 ```
 
 $$
-\widehat{interest~rate} = 9.44 + 6.20 \times credit~util + 1.39 \times Mortgage + 0.697 \times Own - 1.64 \times credit_util:Mortgage - 1.06 \times credit_util:Own
+add~math~text~here
 $$
 
 -   **Demo:** Write the estimated regression equation for loan applications from each of the homeownership groups separately.
-    -   Rent: $\widehat{interest~rate} = 9.44 + 6.20 \times credit~util$
-    -   Mortgage: $\widehat{interest~rate} = 10.83 + 4.56 \times credit~util$
-    -   Own: $\widehat{interest~rate} = 10.137 + 5.14 \times credit~util$
+    -   Rent: $add~math~text~here$
+    -   Mortgage: $add~math~text~here$
+    -   Own: $add~math~text~here$
 -   **Question:** How does the model predict the interest rate to vary as credit utilization varies for loan applicants with different homeownership status. Are the rates the same or different?
 
-Different.
+*Add response here.*
 
 ## Choosing a model
 
@@ -163,30 +148,23 @@ We prefer the *simplest* best model.
 ```{r}
 #| label: glance
 
-glance(rate_util_home_fit)
-glance(rate_util_home_int_fit)
+# add code here
 ```
 
 -   **Review:** What is R-squared? What is adjusted R-squared?
 
-R-squared is the percent variability in the response that is explained by our model.
-(Can use when models have same number of variables for model selection)
-
-Adjusted R-squared is similar, but has a penalty for the number of variables in the model.
-(Should use for model selection when models have different numbers of variables).
+*Add response here.*
 
 -   **Question:** Based on the adjusted $R^2$s of these two models, which one do we prefer?
 
-The interaction effects model, though just barely.
+*Add response here.*
 
 # Another model to consider
 
 -   **Your turn:** Let's add one more model to the variable -- issue month. Should we add this variable to the interaction effects model from earlier?
 
 ```{r}
-linear_reg() |>
-  fit(interest_rate ~ credit_util * homeownership + issue_month, data = loans) |>
-  glance()
+# add code here
 ```
 
-No, the adjusted R-squared goes down.
+*Add response here.*

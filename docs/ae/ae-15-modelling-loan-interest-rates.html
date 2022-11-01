@@ -293,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#another-model-to-consider" id="toc-another-model-to-consider" class="nav-link" data-scroll-target="#another-model-to-consider">Another model to consider</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-15-modelling-loan-interest-rates-A.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-15-modelling-loan-interest-rates.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -385,29 +385,21 @@ $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, 
 <pre><code>Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="ae-15-modelling-loan-interest-rates-A_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="ae-15-modelling-loan-interest-rates_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><strong>Your turn:</strong> What is the estimated interest rate for a loan applicant with credit utilization of 0.8, i.e.&nbsp;someone whose total credit balance is 80% of their total available credit?</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>credit_util_80 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">credit_util =</span> <span class="fl">0.8</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(rate_util_fit, <span class="at">new_data =</span> credit_util_80)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  .pred
-  &lt;dbl&gt;
-1  14.3</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="interest-rate-vs.-homeownership" class="level1">
 <h1>Interest rate vs.&nbsp;homeownership</h1>
 <p>Next we predict interest rates from homeownership, which is a categorical predictor with three levels:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(loans<span class="sc">$</span>homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(loans<span class="sc">$</span>homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Rent"     "Mortgage" "Own"     </code></pre>
 </div>
@@ -416,28 +408,13 @@ $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, 
 <li><strong>Demo:</strong> Fit the linear regression model to predict interest rate from homeownership and display a tidy summary of the model. Write the estimated model output below.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>rate_home_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> homeownership, <span class="at">data =</span> loans)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(rate_home_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 5
-  term                  estimate std.error statistic  p.value
-  &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)             12.9      0.0803    161.   0       
-2 homeownershipMortgage   -0.866    0.108      -8.03 1.08e-15
-3 homeownershipOwn        -0.611    0.158      -3.88 1.06e- 4</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p><strong>Your turn:</strong> Interpret each coefficient in context of the problem.</p>
 <ul>
-<li><p>Intercept: Loan applicants who rent are predicted to receive an interest rate of 12.9%, on average.</p></li>
-<li><p>Slopes:</p>
-<ul>
-<li><p>The model predicts that loan applicants who have a mortgage for their home receive 0.866% lower interest rate than those who rent their home, on average.</p></li>
-<li><p>The model predicts that loan applicants who own their home receive 0.611% lower interest rate than those who rent their home, on average.</p></li>
-</ul></li>
+<li><p>Intercept: <em>Add response here.</em></p></li>
+<li><p>Slopes: <em>Add response here.</em></p></li>
 </ul></li>
 </ul>
 </section>
@@ -449,33 +426,21 @@ $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, 
 <li><strong>Demo:</strong> Fit a model to predict interest rate from credit utilization and homeownership, <strong>without</strong> an interaction effect between the two predictors. Display the summary output and write out the estimated regression equation.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rate_util_home_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> credit_util <span class="sc">+</span> homeownership, <span class="at">data =</span> loans)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(rate_util_home_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
-  term                  estimate std.error statistic   p.value
-  &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)              9.93      0.140    70.8   0        
-2 credit_util              5.34      0.207    25.7   2.20e-141
-3 homeownershipMortgage    0.696     0.121     5.76  8.71e-  9
-4 homeownershipOwn         0.128     0.155     0.827 4.08e-  1</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[
-\widehat{interest~rate} = 9.93 + 5.34 \times credit~util + 0.696 \times Mortgage - 0.128 \times Own
+add~math~text~here
 \]</span></p>
 <ul>
 <li><strong>Demo:</strong> Write the estimated regression equation for loan applications from each of the homeownership groups separately.
 <ul>
-<li>Rent: <span class="math inline">\(\widehat{interest~rate} = 9.93 + 5.34 \times credit~util\)</span></li>
-<li>Mortgage: <span class="math inline">\(\widehat{interest~rate} = 10.626 + 5.34 \times credit~util\)</span></li>
-<li>Own: <span class="math inline">\(\widehat{interest~rate} = 10.058 + 5.34 \times credit~util\)</span></li>
+<li>Rent: <span class="math inline">\(add~math~text~here\)</span></li>
+<li>Mortgage: <span class="math inline">\(add~math~text~here\)</span></li>
+<li>Own: <span class="math inline">\(add~math~text~here\)</span></li>
 </ul></li>
 <li><strong>Question:</strong> How does the model predict the interest rate to vary as credit utilization varies for loan applicants with different homeownership status. Are the rates the same or different?</li>
 </ul>
-<p>The same.</p>
+<p><em>Add response here.</em></p>
 </section>
 <section id="interaction-effects-model" class="level2">
 <h2 class="anchored" data-anchor-id="interaction-effects-model">Interaction effects model</h2>
@@ -483,68 +448,36 @@ $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, 
 <li><strong>Demo:</strong> Fit a model to predict interest rate from credit utilization and homeownership, <strong>with</strong> an interaction effect between the two predictors. Display the summary output and write out the estimated regression equation.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>rate_util_home_int_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> credit_util <span class="sc">*</span> homeownership, <span class="at">data =</span> loans)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(rate_util_home_int_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-  term                              estimate std.error statistic  p.value
-  &lt;chr&gt;                                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)                          9.44      0.199     47.5  0       
-2 credit_util                          6.20      0.325     19.1  1.01e-79
-3 homeownershipMortgage                1.39      0.228      6.11 1.04e- 9
-4 homeownershipOwn                     0.697     0.316      2.20 2.75e- 2
-5 credit_util:homeownershipMortgage   -1.64      0.457     -3.58 3.49e- 4
-6 credit_util:homeownershipOwn        -1.06      0.590     -1.80 7.24e- 2</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[
-\widehat{interest~rate} = 9.44 + 6.20 \times credit~util + 1.39 \times Mortgage + 0.697 \times Own - 1.64 \times credit_util:Mortgage - 1.06 \times credit_util:Own
+add~math~text~here
 \]</span></p>
 <ul>
 <li><strong>Demo:</strong> Write the estimated regression equation for loan applications from each of the homeownership groups separately.
 <ul>
-<li>Rent: <span class="math inline">\(\widehat{interest~rate} = 9.44 + 6.20 \times credit~util\)</span></li>
-<li>Mortgage: <span class="math inline">\(\widehat{interest~rate} = 10.83 + 4.56 \times credit~util\)</span></li>
-<li>Own: <span class="math inline">\(\widehat{interest~rate} = 10.137 + 5.14 \times credit~util\)</span></li>
+<li>Rent: <span class="math inline">\(add~math~text~here\)</span></li>
+<li>Mortgage: <span class="math inline">\(add~math~text~here\)</span></li>
+<li>Own: <span class="math inline">\(add~math~text~here\)</span></li>
 </ul></li>
 <li><strong>Question:</strong> How does the model predict the interest rate to vary as credit utilization varies for loan applicants with different homeownership status. Are the rates the same or different?</li>
 </ul>
-<p>Different.</p>
+<p><em>Add response here.</em></p>
 </section>
 <section id="choosing-a-model" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-a-model">Choosing a model</h2>
 <p>Rule of thumb: <strong>Occam’s Razor</strong> - Don’t overcomplicate the situation! We prefer the <em>simplest</em> best model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(rate_util_home_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.…¹ sigma stati…²   p.value    df  logLik    AIC    BIC devia…³
-      &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1    0.0682   0.0679  4.83    244. 1.25e-152     3 -29926. 59861. 59897. 232954.
-# … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
-#   variable names ¹​adj.r.squared, ²​statistic, ³​deviance</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(rate_util_home_int_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.…¹ sigma stati…²   p.value    df  logLik    AIC    BIC devia…³
-      &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1    0.0694   0.0689  4.83    149. 4.79e-153     5 -29919. 59852. 59903. 232652.
-# … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
-#   variable names ¹​adj.r.squared, ²​statistic, ³​deviance</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><strong>Review:</strong> What is R-squared? What is adjusted R-squared?</li>
 </ul>
-<p>R-squared is the percent variability in the response that is explained by our model. (Can use when models have same number of variables for model selection)</p>
-<p>Adjusted R-squared is similar, but has a penalty for the number of variables in the model. (Should use for model selection when models have different numbers of variables).</p>
+<p><em>Add response here.</em></p>
 <ul>
 <li><strong>Question:</strong> Based on the adjusted <span class="math inline">\(R^2\)</span>s of these two models, which one do we prefer?</li>
 </ul>
-<p>The interaction effects model, though just barely.</p>
+<p><em>Add response here.</em></p>
 </section>
 </section>
 <section id="another-model-to-consider" class="level1">
@@ -553,19 +486,9 @@ $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, 
 <li><strong>Your turn:</strong> Let’s add one more model to the variable – issue month. Should we add this variable to the interaction effects model from earlier?</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> credit_util <span class="sc">*</span> homeownership <span class="sc">+</span> issue_month, <span class="at">data =</span> loans) <span class="sc">|&gt;</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 12
-  r.squared adj.r.…¹ sigma stati…²   p.value    df  logLik    AIC    BIC devia…³
-      &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1    0.0694   0.0688  4.83    106. 5.62e-151     7 -29919. 59856. 59921. 232641.
-# … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
-#   variable names ¹​adj.r.squared, ²​statistic, ³​deviance</code></pre>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>No, the adjusted R-squared goes down.</p>
+<p><em>Add response here.</em></p>
 
 
 </section>
