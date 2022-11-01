@@ -1,9 +1,7 @@
 ---
 title: "Modelling loan interest rates"
-subtitle: "Suggested answers"
 categories: 
   - Application exercise
-  - Answers
 editor: visual
 ---
 

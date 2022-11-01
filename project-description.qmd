@@ -6,17 +6,15 @@ title: "Project description"
 
 [Proposal](#project-proposal) due Fri, Oct 21
 
-[Draft 1](#draft-report) due Fri, Nov 11
+[Draft 1](#project-draft) due Fri, Nov 11
 
-[Draft 2](#draft-report) due Sun, Nov 27 (optional)
+[Draft 2](#project-draft) due Sun, Nov 27 (optional)
 
 [Peer review](#peer-review) due Mon, Nov 28
 
-[Presentation + slides](#video-presentation--slides) and [final GitHub repo](#reproducibility---organization) due Mon, Dec 5
+[Presentation + slides](#presentation-slides) and [final GitHub repo](#reproducibility-organization) due Mon, Dec 5
 
-[Presentation comments](#presentation-comments) due Thu, Dec 8
-
-[Final report](#written-report) due Thu, Dec 8
+[Final report](#project-report) due Thu, Dec 8
 
 # Introduction
 
@@ -196,7 +194,7 @@ Each component will be graded as follows:
 It is critical to check feedback on your project proposal.
 Even if you earn full credit, it may not mean that your proposal is perfect.
 
-# Draft
+# Draft {#project-draft}
 
 The purpose of the draft and peer review is to give you an opportunity to get early feedback on your analysis.
 Therefore, the draft and peer review will focus primarily on the exploratory data analysis, modeling, and initial interpretations.
@@ -224,7 +222,7 @@ You should also justify the choice of statistical method(s) used to answer your 
 
 #### Results
 
-Showcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you\'re feeling adventurous).
+Showcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you're feeling adventurous).
 
 Provide only the main results from your analysis.
 The goal is not to do an exhaustive data analysis (calculate every possible statistic and perform every possible procedure for all variables).
@@ -236,14 +234,14 @@ More is not better.
 Your first draft will be reviewed and graded by your TAs.
 We recommend you incorporate their suggestions into your second (optional) draft before the second round of feedback by your peers.
 
-# Peer review
+# Peer review {#peer-review}
 
-Critically reviewing others\' work is a crucial part of the scientific process, and STA 199 is no exception.
+Critically reviewing others' work is a crucial part of the scientific process, and STA 199 is no exception.
 You will be assigned two teams to review.
 This feedback is intended to help you create a high quality final project, as well as give you experience reading and constructively critiquing the work of others.
 
-During the peer feedback process, you will be provided read-only access to your partner team\'s GitHub repo.
-You will provide your feedback in the form of GitHub issues to your partner team\'s GitHub repo.
+During the peer feedback process, you will be provided read-only access to your partner team's GitHub repo.
+You will provide your feedback in the form of GitHub issues to your partner team's GitHub repo.
 
 ## Process and questions
 
@@ -277,9 +275,9 @@ Spend \~30 mins to review each team's project.
 
 ## Peer review grading
 
-Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team\'s report: the research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions.
+Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions.
 
-# Report
+# Report {#project-report}
 
 Your written report must be completed in the `report.qmd` file and must be reproducible.
 All team members should contribute to the GitHub repository, with regular meaningful commits.
@@ -383,7 +381,7 @@ The written report is worth 40 points, broken down as follows
 | **Discussion**                | 6 pts  |
 | **Organization + formatting** | 4 pts  |
 
-# Presentation + slides
+# Presentation + slides {#presentation-slides}
 
 ## Slides
 
@@ -391,10 +389,13 @@ In addition to the written report, your team will also create presentation slide
 Introduce your research question and data set, showcase visualizations, and discuss the primary conclusions.
 These slides should serve as a brief visual addition to your written report and will be graded for content and quality.
 
-You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.). We recommend choosing an option that's easy to collaborate with, e.g., Google Slides. 
+You can create your slides with any software you like (Keynote, PowerPoint, Google Slides, etc.).
+We recommend choosing an option that's easy to collaborate with, e.g., Google Slides.
 
 ::: callout-note
-You can also use Quarto to make your slides! While we won't be covering making slides with Quarto in the class, we would be happy to help you with it in office hours. It's no different than writing other documents with Quarto, so the learning curve will not be steep!
+You can also use Quarto to make your slides!
+While we won't be covering making slides with Quarto in the class, we would be happy to help you with it in office hours.
+It's no different than writing other documents with Quarto, so the learning curve will not be steep!
 :::
 
 The slide deck should have no more than 6 content slides + 1 title slide.
@@ -410,8 +411,7 @@ Here is a *suggested* outline as you think through the slides; you [**do not**]{
 ## Presentation
 
 Presentations will take place in class during the last lab of the semester.
-**The presentation must be no longer than 5 minutes.** 
-You can choose to present live in class (recommended) or pre-record a video to be shown in class.
+**The presentation must be no longer than 5 minutes.** You can choose to present live in class (recommended) or pre-record a video to be shown in class.
 Either way you must attend the lab session for the Q&A following your presentation.
 
 If you choose to pre-record your presentation, you may use can use any platform that works best for your group to record your presentation.
@@ -431,7 +431,7 @@ To upload your video to Warpwire:
 -   Locate the video on your computer and click to upload.
 -   Once you've uploaded the video to Warpwire, click to share the video and copy the video's URL. You will need this when you post the video in the discussion forum.
 
-## Reproducibility + organization
+## Reproducibility + organization {#reproducibility-organization}
 
 All written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.
 
@@ -446,8 +446,7 @@ If you are suggesting that an individual did less than half the expected contrib
 If any individual gets an average peer score indicating that this was the case, their grade will be assessed accordingly and penalties may apply beyond the teamwork component of the grade.
 
 If you have concerns with the teamwork and/or contribution from any team members, please email me by the project presentation deadline.
-**You only need to email me if you have concerns.**
-Otherwise, I will assume everyone on the team equally contributed and will receive full credit for the teamwork portion of the grade.
+**You only need to email me if you have concerns.** Otherwise, I will assume everyone on the team equally contributed and will receive full credit for the teamwork portion of the grade.
 
 # Overall grading
 

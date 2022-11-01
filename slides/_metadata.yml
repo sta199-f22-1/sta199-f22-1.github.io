@@ -5,7 +5,6 @@ logo: "images/logo.png"
 format:
   revealjs:
     theme: slides.scss
-    multiplex: true
     transition: fade
     slide-number: true
     chalkboard: true

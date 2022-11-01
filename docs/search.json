@@ -3476,7 +3476,7 @@
     "href": "project-description.html",
     "title": "Project description",
     "section": "",
-    "text": "Proposal due Fri, Oct 21\nDraft 1 due Fri, Nov 11\nDraft 2 due Sun, Nov 27 (optional)\nPeer review due Mon, Nov 28\nPresentation + slides and final GitHub repo due Mon, Dec 5\nPresentation comments due Thu, Dec 8\nFinal report due Thu, Dec 8"
+    "text": "Proposal due Fri, Oct 21\nDraft 1 due Fri, Nov 11\nDraft 2 due Sun, Nov 27 (optional)\nPeer review due Mon, Nov 28\nPresentation + slides and final GitHub repo due Mon, Dec 5\nFinal report due Thu, Dec 8"
   },
   {
     "objectID": "project-description.html#criteria-for-datasets",
@@ -3511,7 +3511,7 @@
     "href": "project-description.html#draft-components",
     "title": "Project description",
     "section": "Draft components",
-    "text": "Draft components\n\nIntroduction and data\nThe introduction provides motivation and context for your research. Describe your topic (citing sources) and provide a concise, clear statement of your research question and hypotheses.\nThen identify the source of the data, when and how it was collected, the cases, a general description of relevant variables.\n\n\nMethodology\nThe methodology section should include visualizations and summary statistics relevant to your research question. You should also justify the choice of statistical method(s) used to answer your research question.\n\n\nResults\nShowcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you're feeling adventurous).\nProvide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and perform every possible procedure for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in interpreting and presenting results, and that you can accomplish these tasks using R. More is not better."
+    "text": "Draft components\n\nIntroduction and data\nThe introduction provides motivation and context for your research. Describe your topic (citing sources) and provide a concise, clear statement of your research question and hypotheses.\nThen identify the source of the data, when and how it was collected, the cases, a general description of relevant variables.\n\n\nMethodology\nThe methodology section should include visualizations and summary statistics relevant to your research question. You should also justify the choice of statistical method(s) used to answer your research question.\n\n\nResults\nShowcase how you arrived at answers to your research question using the techniques we have learned in class (and beyond, if you’re feeling adventurous).\nProvide only the main results from your analysis. The goal is not to do an exhaustive data analysis (calculate every possible statistic and perform every possible procedure for all variables). Rather, you should demonstrate that you are proficient at asking meaningful questions and answering them using data, that you are skilled in interpreting and presenting results, and that you can accomplish these tasks using R. More is not better."
   },
   {
     "objectID": "project-description.html#draft-grading",
@@ -3532,7 +3532,7 @@
     "href": "project-description.html#peer-review-grading",
     "title": "Project description",
     "section": "Peer review grading",
-    "text": "Peer review grading\nPeer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions."
+    "text": "Peer review grading\nPeer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team’s report: the research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions."
   },
   {
     "objectID": "project-description.html#report-components",

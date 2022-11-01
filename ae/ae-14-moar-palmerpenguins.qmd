@@ -112,8 +112,7 @@ predict(___, new_data = ___)
 
 *Add response here.*
 
--   **Demo:** What is the estimated body weight of a penguin on Biscoe island?
-    What are the estimated body weights of penguins on Dream and Torgersen islands?
+-   **Demo:** What is the estimated body weight of a penguin on Biscoe island? What are the estimated body weights of penguins on Dream and Torgersen islands?
 
 ```{r}
 #| label: predict-bm-island
