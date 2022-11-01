@@ -20,7 +20,8 @@ library(countdown)
 
 ## Announcements
 
--   My OH: In person + [bit.ly/minezoom](http://bit.ly/minezoom)
+-   My OH today: On Zoom at [bit.ly/minezoom](http://bit.ly/minezoom)
+-   Jasmine's OH moved to 4-5pm
 
 ## Goals
 
