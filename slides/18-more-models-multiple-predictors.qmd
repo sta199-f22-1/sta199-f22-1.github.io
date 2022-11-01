@@ -1,0 +1,49 @@
+---
+title: "Models with multiple predictors							"
+subtitle: "Lecture 18"
+date: "November 1, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+-   Clone your `ae-15` project from GitHub, render your document, update your name, and commit and push.
+-   Post any questions you have about the material so far at [sli.do / #sta199](https://app.sli.do/event/oKXbMbrd8RMEDfLPgEetpn).
+
+## Announcements
+
+-   My OH: In person + [bit.ly/minezoom](http://bit.ly/minezoom)
+
+## Goals
+
+-   Review prediction and interpretation of model results
+-   Review main and interaction effects models
+-   Discuss model selection further
+
+# Application exercise
+
+## `ae-15`
+
+::: appex
+::: nonincremental
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-15` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+:::
+
+## Recap
+
+::: incremental
+-   What is the practical difference between a model with parallel and non-parallel lines?
+-   What is the definition of R-squared?
+-   Why do we choose models based on adjusted R-squared and not R-squared?
+:::

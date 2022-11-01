@@ -1,0 +1,18 @@
+{
+  "hash": "5ca3e6dea9493904b3d054e5a5d8503f",
+  "result": {
+    "markdown": "---\ntitle: \"Models with multiple predictors\t\t\t\t\t\t\t\"\nsubtitle: \"Lecture 18\"\ndate: \"November 1, 2022\"\nformat: revealjs\n---\n\n\n# Warm up\n\n\n::: {.cell}\n\n:::\n\n\n## While you wait for class to begin...\n\n-   Clone your `ae-15` project from GitHub, render your document, update your name, and commit and push.\n-   Post any questions you have about the material so far at [sli.do / #sta199](https://app.sli.do/event/oKXbMbrd8RMEDfLPgEetpn).\n\n## Announcements\n\n-   My OH: In person + [bit.ly/minezoom](http://bit.ly/minezoom)\n\n## Goals\n\n-   Review prediction and interpretation of model results\n-   Review main and interaction effects models\n-   Discuss model selection further\n\n# Application exercise\n\n## `ae-15`\n\n::: appex\n::: nonincremental\n-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-15` (repo name will be suffixed with your GitHub name).\n-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\n-   Render, commit, and push your edits by the AE deadline -- 3 days from today.\n:::\n:::\n\n## Recap\n\n::: incremental\n-   What is the practical difference between a model with parallel and non-parallel lines?\n-   What is the definition of R-squared?\n-   Why do we choose models based on adjusted R-squared and not R-squared?\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

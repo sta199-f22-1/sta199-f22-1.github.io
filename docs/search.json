@@ -2478,6 +2478,41 @@
     "text": "Recap of AE\n\nPick geoms based on data types.\nSet appropriate binwidths for histograms.\nTurn off legends when they provide redundant information with show.legend = FALSE.\nCreate plots with multiple geoms, and pay attention to order.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/18-more-models-multiple-predictors.html#while-you-wait-for-class-to-begin",
+    "href": "slides/18-more-models-multiple-predictors.html#while-you-wait-for-class-to-begin",
+    "title": "Models with multiple predictors",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\nClone your ae-15 project from GitHub, render your document, update your name, and commit and push.\nPost any questions you have about the material so far at sli.do / #sta199."
+  },
+  {
+    "objectID": "slides/18-more-models-multiple-predictors.html#announcements",
+    "href": "slides/18-more-models-multiple-predictors.html#announcements",
+    "title": "Models with multiple predictors",
+    "section": "Announcements",
+    "text": "Announcements\n\nMy OH: In person + bit.ly/minezoom"
+  },
+  {
+    "objectID": "slides/18-more-models-multiple-predictors.html#goals",
+    "href": "slides/18-more-models-multiple-predictors.html#goals",
+    "title": "Models with multiple predictors",
+    "section": "Goals",
+    "text": "Goals\n\nReview prediction and interpretation of model results\nReview main and interaction effects models\nDiscuss model selection further"
+  },
+  {
+    "objectID": "slides/18-more-models-multiple-predictors.html#ae-15",
+    "href": "slides/18-more-models-multiple-predictors.html#ae-15",
+    "title": "Models with multiple predictors",
+    "section": "ae-15",
+    "text": "ae-15\n\n\n\nGo to the course GitHub org and find your ae-15 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/18-more-models-multiple-predictors.html#recap",
+    "href": "slides/18-more-models-multiple-predictors.html#recap",
+    "title": "Models with multiple predictors",
+    "section": "Recap",
+    "text": "Recap\n\n\nWhat is the practical difference between a model with parallel and non-parallel lines?\nWhat is the definition of R-squared?\nWhy do we choose models based on adjusted R-squared and not R-squared?\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/17-models-multiple-predictors.html#while-you-wait-for-class-to-begin",
     "href": "slides/17-models-multiple-predictors.html#while-you-wait-for-class-to-begin",
     "title": "Models with multiple predictors",

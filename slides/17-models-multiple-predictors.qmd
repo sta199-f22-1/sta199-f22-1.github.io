@@ -1,6 +1,6 @@
 ---
 title: "Models with multiple predictors							"
-subtitle: "Lecture 16"
+subtitle: "Lecture 17"
 date: "October 27, 2022"
 format: revealjs
 ---

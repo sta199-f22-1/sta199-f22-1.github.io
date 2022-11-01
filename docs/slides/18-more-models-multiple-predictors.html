@@ -10,7 +10,6 @@
   <meta name="generator" content="quarto-1.2.240">
 
   <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
-  <meta name="dcterms.date" content="2022-10-27">
   <title>STA 199 - Models with multiple predictors</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -322,10 +321,10 @@
     }
   </style>
 <meta property="og:title" content="STA 199 - Models with multiple predictors">
-<meta property="og:description" content="Lecture 17">
+<meta property="og:description" content="Lecture 18">
 <meta property="og:site-name" content="STA 199">
 <meta name="twitter:title" content="STA 199 - Models with multiple predictors">
-<meta name="twitter:description" content="Lecture 17">
+<meta name="twitter:description" content="Lecture 18">
 <meta name="twitter:image" content="https://sta199-f22-1.github.io/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
 <meta name="twitter:image-height" content="418">
@@ -338,7 +337,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Models with multiple predictors</h1>
-  <p class="subtitle">Lecture 17</p>
+  <p class="subtitle">Lecture 18</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -351,7 +350,7 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
     </div>
 </div>
 
-  <p class="date">10/27/22</p>
+  <p class="date">11/1/22</p>
 </section>
 <section>
 <section id="warm-up" class="title-slide slide level1 center">
@@ -362,26 +361,23 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
 </section>
 <section id="while-you-wait-for-class-to-begin" class="slide level2">
 <h2>While you wait for class to begin…</h2>
-<p>Clone your <code>ae-14</code> project from GitHub, render your document, update your name, and commit and push.</p>
+<ul>
+<li>Clone your <code>ae-15</code> project from GitHub, render your document, update your name, and commit and push.</li>
+<li>Post any questions you have about the material so far at <a href="https://app.sli.do/event/oKXbMbrd8RMEDfLPgEetpn">sli.do / #sta199</a>.</li>
+</ul>
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li>My OH going forward: Zoom option will be available</li>
-<li>Project proposal feedback: Incorporate more variables into your analysis</li>
-<li>Upcoming:
-<ul>
-<li><p>HW 4 to be posted soon</p></li>
-<li><p>Lab 4 due tomorrow evening</p></li>
-</ul></li>
+<li>My OH: In person + <a href="http://bit.ly/minezoom">bit.ly/minezoom</a></li>
 </ul>
 </section>
 <section id="goals" class="slide level2">
 <h2>Goals</h2>
 <ul>
-<li>Recap modeling with a single predictor</li>
-<li>Fit and interpret models with multiple predictors</li>
-<li>Distinguish between additive and interaction models</li>
+<li>Review prediction and interpretation of model results</li>
+<li>Review main and interaction effects models</li>
+<li>Discuss model selection further</li>
 </ul>
 </section></section>
 <section>
@@ -389,16 +385,26 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
 <h1>Application exercise</h1>
 
 </section>
-<section id="ae-14" class="slide level2">
-<h2><code>ae-14</code></h2>
+<section id="ae-15" class="slide level2">
+<h2><code>ae-15</code></h2>
 <div class="appex">
 <div>
 <ul>
-<li>Go to the course <a href="https://github.com/sta199-f22-1">GitHub org</a> and find your <code>ae-14</code> (repo name will be suffixed with your GitHub name).</li>
+<li>Go to the course <a href="https://github.com/sta199-f22-1">GitHub org</a> and find your <code>ae-15</code> (repo name will be suffixed with your GitHub name).</li>
 <li>Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.</li>
 <li>Render, commit, and push your edits by the AE deadline – 3 days from today.</li>
 </ul>
 </div>
+</div>
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<div>
+<ul>
+<li class="fragment">What is the practical difference between a model with parallel and non-parallel lines?</li>
+<li class="fragment">What is the definition of R-squared?</li>
+<li class="fragment">Why do we choose models based on adjusted R-squared and not R-squared?</li>
+</ul>
 </div>
 
 
