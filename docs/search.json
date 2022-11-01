@@ -361,7 +361,7 @@
     "href": "hw/hw-4.html#packages",
     "title": "HW 4 - Scraping + modelling",
     "section": "Packages",
-    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualization, though you’re welcomed to also load other packages as needed.\n\nlibrary(tidyverse)\nlibrary(rvest)\nlibrary(robotstxt)\nlibrary(openintro)"
+    "text": "Packages\nWe’ll use the tidyverse package for much of the data wrangling and visualization, though you’re welcomed to also load other packages as needed.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(rvest)\nlibrary(robotstxt)\nlibrary(openintro)"
   },
   {
     "objectID": "hw/hw-4.html#exercise-1---data-scraping",

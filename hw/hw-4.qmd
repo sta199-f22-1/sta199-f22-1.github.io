@@ -38,6 +38,7 @@ We'll use the **tidyverse** package for much of the data wrangling and visualiza
 #| message: false
 
 library(tidyverse)
+library(tidymodels)
 library(rvest)
 library(robotstxt)
 library(openintro)
@@ -60,7 +61,7 @@ They give percentage scores for movies based on how "good" the movies are.
 They provide 2 scores:
 
 |                              |                                                                                                                   |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | ![](images/popcornlogos.png) | The audience score, denoted by a popcorn bucket                                                                   |
 | ![](images/tomatologos.png)  | The Tomatometer score represents the percentage of professional critic reviews that are positive for a given film |
 
