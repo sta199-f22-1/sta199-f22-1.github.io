@@ -1036,6 +1036,41 @@
     "text": "Return-on-investment\nFinally, let’s take a look at return-on-investment (ROI).\n\nStep 1 - Your turn\nCreate side-by-side box plots of roi by clean_test where the boxes are colored by binary.\n\n# add code here\n\nWhat are those movies with very high returns on investment?\n\nbechdel |>\n  filter(roi > 400) |>\n  select(title, roi, budget_2013, gross_2013, year, clean_test)\n\n# A tibble: 3 × 6\n  title                     roi budget_2013 gross_2013  year clean_test\n  <chr>                   <dbl>       <dbl>      <dbl> <dbl> <chr>     \n1 Paranormal Activity      671.      505595  339424558  2007 dubious   \n2 The Blair Witch Project  648.      839077  543776715  1999 ok        \n3 El Mariachi              583.       11622    6778946  1992 nowomen   \n\n\n\n\nStep 2 - Demo\nExpand on your plot from the previous step to zoom in on movies with roi < ___ to get a better view of how the medians across the categories compare.\n\n# add code here\n\nWhat does this plot say about return-on-investment on movies that pass the Bechdel test?"
   },
   {
+    "objectID": "ae/ae-16-spam-filter-A.html",
+    "href": "ae/ae-16-spam-filter-A.html",
+    "title": "Building a spam filter",
+    "section": "",
+    "text": "Use logistic regression to fit a model for a binary response variable\nFit a logistic regression model in R\nUse a logistic regression model for classification\n\nTo illustrate logistic regression, we will build a spam filter from email data.\nThe data come from incoming emails in David Diez’s (one of the authors of OpenIntro textbooks) Gmail account for the first three months of 2012. All personally identifiable information has been removed.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\n\n\nglimpse(email)\n\nRows: 3,921\nColumns: 21\n$ spam         <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ to_multiple  <fct> 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ from         <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ cc           <int> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2, 1, 0, 2, 0, …\n$ sent_email   <fct> 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, …\n$ time         <dttm> 2012-01-01 01:16:41, 2012-01-01 02:03:59, 2012-01-01 11:…\n$ image        <dbl> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ attach       <dbl> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ dollar       <dbl> 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 5, 0, 0, …\n$ winner       <fct> no, no, no, no, no, no, no, no, no, no, no, no, no, no, n…\n$ inherit      <dbl> 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ viagra       <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ password     <dbl> 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …\n$ num_char     <dbl> 11.370, 10.504, 7.773, 13.256, 1.231, 1.091, 4.837, 7.421…\n$ line_breaks  <int> 202, 202, 192, 255, 29, 25, 193, 237, 69, 68, 25, 79, 191…\n$ format       <fct> 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, …\n$ re_subj      <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, …\n$ exclaim_subj <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …\n$ urgent_subj  <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ exclaim_mess <dbl> 0, 1, 6, 48, 1, 1, 1, 18, 1, 0, 2, 1, 0, 10, 4, 10, 20, 0…\n$ number       <fct> big, small, small, small, none, none, big, small, small, …\n\n\nThe variables we’ll use in this analysis are\n\nspam: 1 if the email is spam, 0 otherwise\nexclaim_mess: The number of exclamation points in the email message\n\nGoal: Use the number of exclamation points in an email to predict whether or not it is spam."
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter-A.html#exercise-1",
+    "href": "ae/ae-16-spam-filter-A.html#exercise-1",
+    "title": "Building a spam filter",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nDemo: Fit the logistic regression model using the number of exclamation points to predict the probability an email is spam.\n\n\nlog_fit <- logistic_reg() |>\n  fit(spam ~ exclaim_mess, data = email)\n\ntidy(log_fit)\n\n# A tibble: 2 × 5\n  term          estimate std.error statistic p.value\n  <chr>            <dbl>     <dbl>     <dbl>   <dbl>\n1 (Intercept)  -2.27      0.0553     -41.1     0    \n2 exclaim_mess  0.000272  0.000949     0.287   0.774\n\n\n\nYour turn: How does the code above differ from previous code we’ve used to fit regression models? Compare your summary output to the estimated model below.\n\n\\[\\log\\Big(\\frac{p}{1-p}\\Big) = -1.9114 - 0.1684 \\times exclaim\\_mess\\]\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter-A.html#exercise-2",
+    "href": "ae/ae-16-spam-filter-A.html#exercise-2",
+    "title": "Building a spam filter",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWhat is the probability the email is spam if it contains 10 exclamation points?\n\nDemo: Answer the question using R as a calculator\n\n\n# add code here\n\n\nDemo: Answer the question using the predict() function.\n\nWe can use the predict function in R to produce the probability as well.\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter-A.html#exercise-3",
+    "href": "ae/ae-16-spam-filter-A.html#exercise-3",
+    "title": "Building a spam filter",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe have the probability an email is spam, but ultimately we want to use the probability to classify an email as spam or not spam. Therefore, we need to set a decision-making threshold, such that an email is classified as spam if the predicted probability is greater than the threshold and not spam otherwise.\nSuppose you are a data scientist working on a spam filter. You must determine how high the predicted probability must be before you think it would be reasonable to call it spam and put it in the junk folder (which the user is unlikely to check).\nYour turn: What are some trade offs you would consider as you set the decision-making threshold? Discuss with your neighbor.\nAdd response here.\n\naugment(log_fit, email) |>\n  select(spam, exclaim_mess, .pred_class) |>\n  ggplot(aes(x = exclaim_mess, y = spam, color = .pred_class)) +\n  geom_jitter(alpha = 0.5)"
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter-A.html#exercise-4",
+    "href": "ae/ae-16-spam-filter-A.html#exercise-4",
+    "title": "Building a spam filter",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit a model with all variables in the dataset as predictors and receate the visualization above for this model.\n\n# add code here"
+  },
+  {
     "objectID": "ae/ae-02-viz-data-types.html",
     "href": "ae/ae-02-viz-data-types.html",
     "title": "AE 02: Visualizing penguins",
@@ -1489,6 +1524,41 @@
     "title": "AE 08: Data science ethics - Misrepresentation",
     "section": "",
     "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-08-YOUR_GITHUB_USERNAME to get started.\nThis AE is due Friday, Oct 7 at 11:59pm.\n\n\n\nPackages\n\nlibrary(tidyverse)\n\n\n\nPart 1 - People’s Poll\nGB News tweeted the following on Aug 26, 2022.\n\n\n\n\n\n\nQuestion: What is wrong with the visualization above?\n\nAdd your response here.\n\nYour turn (5 minutes): The data from this poll are at data/gbpoll.csv. First, load the data and confirm the number of responses match those mentioned in the tweet.\n\n# add code here\n\nThen, confirm that the proportions of intended votes match those mentioned in the tweet.\n\n# add code here\n\nDemo: Recreate the visualization from the tweet. You do not need to worry about matching the colors precisely and your bars should be correctly scaled.\n\n# add code here\n\nYour turn (10 minutes): Improve the visualization. State the improvements you made and why you made them. Discuss how these improvements help make the plot less misleading.\n\n# add code here\n\n\n\n\nPart 2 - Private sector\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\nQuestion: What is misleading about this graph?\n\nAdd your response here.\n\nYour turn (6 minutes): If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.\n\nAdd your response here.\n\nDemo: Load the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter.html",
+    "href": "ae/ae-16-spam-filter.html",
+    "title": "Building a spam filter",
+    "section": "",
+    "text": "Use logistic regression to fit a model for a binary response variable\nFit a logistic regression model in R\nUse a logistic regression model for classification\n\nTo illustrate logistic regression, we will build a spam filter from email data.\nThe data come from incoming emails in David Diez’s (one of the authors of OpenIntro textbooks) Gmail account for the first three months of 2012. All personally identifiable information has been removed.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\n\n\nglimpse(email)\n\nRows: 3,921\nColumns: 21\n$ spam         <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ to_multiple  <fct> 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ from         <fct> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …\n$ cc           <int> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2, 1, 0, 2, 0, …\n$ sent_email   <fct> 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, …\n$ time         <dttm> 2012-01-01 01:16:41, 2012-01-01 02:03:59, 2012-01-01 11:…\n$ image        <dbl> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ attach       <dbl> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ dollar       <dbl> 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 5, 0, 0, …\n$ winner       <fct> no, no, no, no, no, no, no, no, no, no, no, no, no, no, n…\n$ inherit      <dbl> 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ viagra       <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ password     <dbl> 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …\n$ num_char     <dbl> 11.370, 10.504, 7.773, 13.256, 1.231, 1.091, 4.837, 7.421…\n$ line_breaks  <int> 202, 202, 192, 255, 29, 25, 193, 237, 69, 68, 25, 79, 191…\n$ format       <fct> 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, …\n$ re_subj      <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, …\n$ exclaim_subj <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …\n$ urgent_subj  <fct> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ exclaim_mess <dbl> 0, 1, 6, 48, 1, 1, 1, 18, 1, 0, 2, 1, 0, 10, 4, 10, 20, 0…\n$ number       <fct> big, small, small, small, none, none, big, small, small, …\n\n\nThe variables we’ll use in this analysis are\n\nspam: 1 if the email is spam, 0 otherwise\nexclaim_mess: The number of exclamation points in the email message\n\nGoal: Use the number of exclamation points in an email to predict whether or not it is spam."
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter.html#exercise-1",
+    "href": "ae/ae-16-spam-filter.html#exercise-1",
+    "title": "Building a spam filter",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nDemo: Fit the logistic regression model using the number of exclamation points to predict the probability an email is spam.\n\n\nlog_fit <- logistic_reg() |>\n  fit(spam ~ exclaim_mess, data = email)\n\ntidy(log_fit)\n\n# A tibble: 2 × 5\n  term          estimate std.error statistic p.value\n  <chr>            <dbl>     <dbl>     <dbl>   <dbl>\n1 (Intercept)  -2.27      0.0553     -41.1     0    \n2 exclaim_mess  0.000272  0.000949     0.287   0.774\n\n\n\nYour turn: How does the code above differ from previous code we’ve used to fit regression models? Compare your summary output to the estimated model below.\n\n\\[\\log\\Big(\\frac{p}{1-p}\\Big) = -1.9114 - 0.1684 \\times exclaim\\_mess\\]\nAdd response here."
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter.html#exercise-2",
+    "href": "ae/ae-16-spam-filter.html#exercise-2",
+    "title": "Building a spam filter",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWhat is the probability the email is spam if it contains 10 exclamation points?\n\nDemo: Answer the question using R as a calculator\n\n\n# add code here\n\n\nDemo: Answer the question using the predict() function.\n\nWe can use the predict function in R to produce the probability as well.\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter.html#exercise-3",
+    "href": "ae/ae-16-spam-filter.html#exercise-3",
+    "title": "Building a spam filter",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWe have the probability an email is spam, but ultimately we want to use the probability to classify an email as spam or not spam. Therefore, we need to set a decision-making threshold, such that an email is classified as spam if the predicted probability is greater than the threshold and not spam otherwise.\nSuppose you are a data scientist working on a spam filter. You must determine how high the predicted probability must be before you think it would be reasonable to call it spam and put it in the junk folder (which the user is unlikely to check).\nYour turn: What are some trade offs you would consider as you set the decision-making threshold? Discuss with your neighbor.\nAdd response here.\n\naugment(log_fit, email) |>\n  select(spam, exclaim_mess, .pred_class) |>\n  ggplot(aes(x = exclaim_mess, y = spam, color = .pred_class)) +\n  geom_jitter(alpha = 0.5)"
+  },
+  {
+    "objectID": "ae/ae-16-spam-filter.html#exercise-4",
+    "href": "ae/ae-16-spam-filter.html#exercise-4",
+    "title": "Building a spam filter",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFit a model with all variables in the dataset as predictors and receate the visualization above for this model.\n\n# add code here"
   },
   {
     "objectID": "ae/ae-07-data-import.html",
@@ -2994,6 +3064,90 @@
     "title": "Grammar of graphics",
     "section": "Recap of AE",
     "text": "Recap of AE\n\nConstruct plots with ggplot().\nLayers of ggplots are separated by +s.\nThe formula is (almost) always as follows:\n\n\nggplot(DATA, aes(x = X-VAR, y = Y-VAR, ...)) +\n  geom_XXX()\n\n\nAesthetic attributes of a geometries (color, size, transparency, etc.) can be mapped to variables in the data or set by the user, e.g. color = binary vs. color = \"pink\".\nUse facet_wrap() when faceting (creating small multiples) by one variable and facet_grid() when faceting by two variables.\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#while-you-wait-for-class-to-begin",
+    "href": "slides/19-logistic-regression.html#while-you-wait-for-class-to-begin",
+    "title": "Models with multiple predictors",
+    "section": "While you wait for class to begin…",
+    "text": "While you wait for class to begin…\n\nClone your ae-18 project from GitHub, render your document, update your name, and commit and push.\nPost any questions you have about the material so far at sli.do / #sta199."
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#announcements",
+    "href": "slides/19-logistic-regression.html#announcements",
+    "title": "Models with multiple predictors",
+    "section": "Announcements",
+    "text": "Announcements\n\n…"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#goals",
+    "href": "slides/19-logistic-regression.html#goals",
+    "title": "Models with multiple predictors",
+    "section": "Goals",
+    "text": "Goals\n\nFit and interpret models for predicting binary outcomes\nIntroduce overfitting and mitigating it by splitting the data into training and testing sets"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#warm-up-questions",
+    "href": "slides/19-logistic-regression.html#warm-up-questions",
+    "title": "Models with multiple predictors",
+    "section": "Warm up questions",
+    "text": "Warm up questions\n\nWhat is a training data set?\n\n\n“Sandbox” for model building. Build the model on these data.\n\n\n\nWhat is a testing data set?\n\n\n\nHeld in reserve to test one or two chosen models and to evaluate their performance."
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#what-is-logistic-regression",
+    "href": "slides/19-logistic-regression.html#what-is-logistic-regression",
+    "title": "Models with multiple predictors",
+    "section": "What is logistic regression?",
+    "text": "What is logistic regression?\n\n\n\nSimilar to linear regression…. but\nModeling tool when our response is categorical"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#modelling-binary-outcomes",
+    "href": "slides/19-logistic-regression.html#modelling-binary-outcomes",
+    "title": "Models with multiple predictors",
+    "section": "Modelling binary outcomes",
+    "text": "Modelling binary outcomes\n\nVariables with binary outcomes follow the Bernouilli distribution:\n\n\\(y_i \\sim Bern(p)\\)\n\\(p\\): Probability of success\n\\(1-p\\): Probability of failure\n\nWe can’t model \\(y\\) directly, so instead we model \\(p\\)"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#linear-model",
+    "href": "slides/19-logistic-regression.html#linear-model",
+    "title": "Models with multiple predictors",
+    "section": "Linear model",
+    "text": "Linear model\n\\[\np_i = \\beta_o + \\beta_1 \\times X_1 + \\cdots\n\\]\n\nBut remember that \\(p\\) must be between 0 and 1\nWe need a link function that transforms the linear model to have an appropriate range"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#logit-link-function",
+    "href": "slides/19-logistic-regression.html#logit-link-function",
+    "title": "Models with multiple predictors",
+    "section": "Logit link function",
+    "text": "Logit link function\nThe logit function take values between 0 and 1 (probabilities) and maps them to values in the range negative infinity to positive infinity:\n\\[\nlogit(p) = log \\bigg( \\frac{p}{1 - p} \\bigg)\n\\]"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#this-isnt-exactly-what-we-need-though..",
+    "href": "slides/19-logistic-regression.html#this-isnt-exactly-what-we-need-though..",
+    "title": "Models with multiple predictors",
+    "section": "This isn’t exactly what we need though…..",
+    "text": "This isn’t exactly what we need though…..\n\nRecall, the goal is to take values between -\\(\\infty\\) and \\(\\infty\\) and map them to probabilities.\nWe need the opposite of the link function… or the inverse\nTaking the inverse of the logit function will map arbitrary real values back to the range [0, 1]"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#generalized-linear-model",
+    "href": "slides/19-logistic-regression.html#generalized-linear-model",
+    "title": "Models with multiple predictors",
+    "section": "Generalized linear model",
+    "text": "Generalized linear model\n\nWe model the logit (log-odds) of \\(p\\) :\n\n\\[\nlogit(p) = log \\bigg( \\frac{p}{1 - p} \\bigg) = \\beta_o + \\beta_1 \\times X1_i + \\cdots\n\\]\n\nThen take the inverse to obtain the predicted \\(p\\):\n\n\\[\np_i = \\frac{e^{\\beta_o + \\beta_1 \\times X1_i + \\cdots}}{1 + e^{\\beta_o + \\beta_1 \\times X1_i + \\cdots}}\n\\]"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#example-figure",
+    "href": "slides/19-logistic-regression.html#example-figure",
+    "title": "Models with multiple predictors",
+    "section": "Example Figure:",
+    "text": "Example Figure:"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#takeaways",
+    "href": "slides/19-logistic-regression.html#takeaways",
+    "title": "Models with multiple predictors",
+    "section": "Takeaways",
+    "text": "Takeaways\n\nGeneralized linear models allow us to fit models to predict non-continuous outcomes\nPredicting binary outcomes requires modeling the log-odds of success, where p = probability of success\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#while-you-wait-for-class-to-begin",

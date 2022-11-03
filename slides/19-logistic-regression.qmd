@@ -1,0 +1,147 @@
+---
+title: "Models with multiple predictors							"
+subtitle: "Lecture 19"
+date: "November 3, 2022"
+format: revealjs
+---
+
+# Warm up
+
+## While you wait for class to begin...
+
+-   Clone your `ae-18` project from GitHub, render your document, update your name, and commit and push.
+-   Post any questions you have about the material so far at [sli.do / #sta199](https://app.sli.do/event/oKXbMbrd8RMEDfLPgEetpn).
+
+## Announcements
+
+-   ...
+
+## Goals
+
+-   Fit and interpret models for predicting binary outcomes
+
+-   Introduce overfitting and mitigating it by splitting the data into training and testing sets
+
+## Warm up questions
+
+::: question
+What is a **training** data set?
+:::
+
+. . .
+
+"Sandbox" for model building.
+Build the model on these data.
+
+. . .
+
+::: question
+What is a **testing** data set?
+:::
+
+. . .
+
+Held in reserve to test one or two chosen models and to evaluate their performance.
+
+# Logistic regression
+
+## What is logistic regression?
+
+::: columns
+::: {.column width="50%"}
+-   Similar to linear regression....
+    but
+
+-   Modeling tool when our response is categorical
+:::
+
+::: {.column width="50%"}
+![](images/18/logistic.png){fig-align="center"}
+:::
+:::
+
+## Modelling binary outcomes
+
+-   Variables with binary outcomes follow the B**ernouilli distribution**:
+
+    -   $y_i \sim Bern(p)$
+
+    -   $p$: Probability of success
+
+    -   $1-p$: Probability of failure
+
+-   We can't model $y$ directly, so instead we model $p$
+
+## Linear model
+
+$$
+p_i = \beta_o + \beta_1 \times X_1 + \cdots
+$$
+
+-   But remember that $p$ must be between 0 and 1
+
+-   We need a **link function** that transforms the linear model to have an appropriate range
+
+## Logit link function
+
+The **logit** function take values between 0 and 1 (probabilities) and maps them to values in the range negative infinity to positive infinity:
+
+$$
+logit(p) = log \bigg( \frac{p}{1 - p} \bigg)
+$$
+
+```{r}
+#| include: false
+
+library(tidyverse)
+
+tibble(
+  x = seq(0.001, 0.999, 0.001),
+  y = log(x / (1-x))
+) |>
+  ggplot(aes(x = x, y = y)) +
+  geom_smooth() +
+  scale_x_continuous(limits = c(0,1), breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+  labs(x = "p", y = "logit(p)", title = "logit(p) vs. p")
+```
+
+## This isn't exactly what we need though.....
+
+-   Recall, the goal is to take values between -$\infty$ and $\infty$ and map them to probabilities.
+
+-   We need the opposite of the link function... or the *inverse*
+
+-   Taking the inverse of the logit function will map arbitrary real values back to the range \[0, 1\]
+
+## Generalized linear model
+
+-   We model the logit (log-odds) of $p$ :
+
+$$
+logit(p) = log \bigg( \frac{p}{1 - p} \bigg) = \beta_o + \beta_1 \times X1_i + \cdots 
+$$
+
+-   Then take the inverse to obtain the predicted $p$:
+
+$$
+p_i = \frac{e^{\beta_o + \beta_1 \times X1_i + \cdots}}{1 + e^{\beta_o + \beta_1 \times X1_i + \cdots}}
+$$
+
+## Example Figure:
+
+```{r}
+#| echo: false
+
+sigmoid = function(x) 1 / (1 + exp(-x + 10))
+plot.function(sigmoid, from = 0, to = 20, n = 101, 
+              ylab="P(Y = 1)", 
+              xlab = "X (predictor)", 
+              main = "Predicted probability Y = 1", 
+              lwd = 3)
+```
+
+## Takeaways
+
+-   Generalized linear models allow us to fit models to predict non-continuous outcomes
+
+-   Predicting binary outcomes requires modeling the log-odds of success, where p = probability of success
