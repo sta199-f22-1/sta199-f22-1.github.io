@@ -3077,21 +3077,42 @@
     "href": "slides/19-logistic-regression.html#announcements",
     "title": "Models with multiple predictors",
     "section": "Announcements",
-    "text": "Announcements\n\n…"
+    "text": "Announcements\n\nTeam evaluations open – due Sat night, 11:59pm (so we can review before Monday’s lab)\nHW 5 will be posted soon\nHW 6"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#questions-from-last-time",
+    "href": "slides/19-logistic-regression.html#questions-from-last-time",
+    "title": "Models with multiple predictors",
+    "section": "Questions from last time",
+    "text": "Questions from last time\nQ: What is a two-way table?\nA: A table of frequencies for two categorical variables.\n\n\nHow do we go from what’s on the left to what’s on the right?\n\n\n\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\npenguins |>\n  count(species, sex)\n\n# A tibble: 8 × 3\n  species   sex        n\n  <fct>     <fct>  <int>\n1 Adelie    female    73\n2 Adelie    male      73\n3 Adelie    <NA>       6\n4 Chinstrap female    34\n5 Chinstrap male      34\n6 Gentoo    female    58\n7 Gentoo    male      61\n8 Gentoo    <NA>       5\n\n\n\n\n\n# A tibble: 3 × 4\n  species   female  male  `NA`\n  <fct>      <int> <int> <int>\n1 Adelie        73    73     6\n2 Chinstrap     34    34    NA\n3 Gentoo        58    61     5"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#questions-from-last-time-1",
+    "href": "slides/19-logistic-regression.html#questions-from-last-time-1",
+    "title": "Models with multiple predictors",
+    "section": "Questions from last time",
+    "text": "Questions from last time\nQ: How do we build a two-way table in a pipeline?\n\n\npenguins |>\n  count(species, sex) |>\n  pivot_wider(names_from = sex, values_from = n)\n\n# A tibble: 3 × 4\n  species   female  male  `NA`\n  <fct>      <int> <int> <int>\n1 Adelie        73    73     6\n2 Chinstrap     34    34    NA\n3 Gentoo        58    61     5"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#questions-from-last-time-2",
+    "href": "slides/19-logistic-regression.html#questions-from-last-time-2",
+    "title": "Models with multiple predictors",
+    "section": "Questions from last time",
+    "text": "Questions from last time\nQ: How do we know whether we can scrape data from a website?\n\nA: Technically, with robotstxt::paths_allowed(), but that doesn’t address ethical considerations which are just as important, if not more.\n\nrobotstxt::paths_allowed(\"https://www.duke.edu/\")\n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#questions-from-last-time-3",
+    "href": "slides/19-logistic-regression.html#questions-from-last-time-3",
+    "title": "Models with multiple predictors",
+    "section": "Questions from last time",
+    "text": "Questions from last time\nQ: What is the proper notation for writing out a model?\n\n\nPopulation models (truth):\n\n\\[\ny = \\beta_0 + \\beta_1 \\times x + \\epsilon\n\\]\n\nSample models (estimated):\n\n\\[\n\\hat{y} = b_0 + b_1 \\times x\n\\]"
   },
   {
     "objectID": "slides/19-logistic-regression.html#goals",
     "href": "slides/19-logistic-regression.html#goals",
     "title": "Models with multiple predictors",
     "section": "Goals",
-    "text": "Goals\n\nFit and interpret models for predicting binary outcomes\nIntroduce overfitting and mitigating it by splitting the data into training and testing sets"
-  },
-  {
-    "objectID": "slides/19-logistic-regression.html#warm-up-questions",
-    "href": "slides/19-logistic-regression.html#warm-up-questions",
-    "title": "Models with multiple predictors",
-    "section": "Warm up questions",
-    "text": "Warm up questions\n\nWhat is a training data set?\n\n\n“Sandbox” for model building. Build the model on these data.\n\n\n\nWhat is a testing data set?\n\n\n\nHeld in reserve to test one or two chosen models and to evaluate their performance."
+    "text": "Goals\n\nFit and interpret models for predicting binary outcomes\nIntroduce over fitting and mitigating it by splitting the data into training and testing sets"
   },
   {
     "objectID": "slides/19-logistic-regression.html#what-is-logistic-regression",
@@ -3112,7 +3133,7 @@
     "href": "slides/19-logistic-regression.html#linear-model",
     "title": "Models with multiple predictors",
     "section": "Linear model",
-    "text": "Linear model\n\\[\np_i = \\beta_o + \\beta_1 \\times X_1 + \\cdots\n\\]\n\nBut remember that \\(p\\) must be between 0 and 1\nWe need a link function that transforms the linear model to have an appropriate range"
+    "text": "Linear model\n\\[\np_i = \\beta_o + \\beta_1 \\times X_1 + \\cdots + \\epsilon\n\\]\n\nBut remember that \\(p\\) must be between 0 and 1\nWe need a link function that transforms the linear model to have an appropriate range"
   },
   {
     "objectID": "slides/19-logistic-regression.html#logit-link-function",
@@ -3133,21 +3154,28 @@
     "href": "slides/19-logistic-regression.html#generalized-linear-model",
     "title": "Models with multiple predictors",
     "section": "Generalized linear model",
-    "text": "Generalized linear model\n\nWe model the logit (log-odds) of \\(p\\) :\n\n\\[\nlogit(p) = log \\bigg( \\frac{p}{1 - p} \\bigg) = \\beta_o + \\beta_1 \\times X1_i + \\cdots\n\\]\n\nThen take the inverse to obtain the predicted \\(p\\):\n\n\\[\np_i = \\frac{e^{\\beta_o + \\beta_1 \\times X1_i + \\cdots}}{1 + e^{\\beta_o + \\beta_1 \\times X1_i + \\cdots}}\n\\]"
+    "text": "Generalized linear model\n\nWe model the logit (log-odds) of \\(p\\) :\n\n\\[\nlogit(p) = log \\bigg( \\frac{p}{1 - p} \\bigg) = \\beta_o + \\beta_1 \\times X1_i + \\cdots + \\epsilon\n\\]\n\nThen take the inverse to obtain the predicted \\(p\\):\n\n\\[\np_i = \\frac{e^{\\beta_o + \\beta_1 \\times X1_i + \\cdots + \\epsilon}}{1 + e^{\\beta_o + \\beta_1 \\times X1_i + \\cdots + \\epsilon}}\n\\]"
   },
   {
-    "objectID": "slides/19-logistic-regression.html#example-figure",
-    "href": "slides/19-logistic-regression.html#example-figure",
+    "objectID": "slides/19-logistic-regression.html#a-logistic-model-visualized",
+    "href": "slides/19-logistic-regression.html#a-logistic-model-visualized",
     "title": "Models with multiple predictors",
-    "section": "Example Figure:",
-    "text": "Example Figure:"
+    "section": "A logistic model visualized",
+    "text": "A logistic model visualized"
   },
   {
     "objectID": "slides/19-logistic-regression.html#takeaways",
     "href": "slides/19-logistic-regression.html#takeaways",
     "title": "Models with multiple predictors",
     "section": "Takeaways",
-    "text": "Takeaways\n\nGeneralized linear models allow us to fit models to predict non-continuous outcomes\nPredicting binary outcomes requires modeling the log-odds of success, where p = probability of success\n\n\n\n\n🔗 sta199-f22-1.github.io"
+    "text": "Takeaways\n\nGeneralized linear models allow us to fit models to predict non-continuous outcomes\nPredicting binary outcomes requires modeling the log-odds of success, where p = probability of success"
+  },
+  {
+    "objectID": "slides/19-logistic-regression.html#review-questions",
+    "href": "slides/19-logistic-regression.html#review-questions",
+    "title": "Models with multiple predictors",
+    "section": "Review questions",
+    "text": "Review questions\n\nWhat is a training data set?\n\n\n“Sandbox” for model building. Build the model on these data.\n\n\n\nWhat is a testing data set?\n\n\n\nHeld in reserve to test one or two chosen models and to evaluate their performance.\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/05-grammar-of-data-wrangling.html#while-you-wait-for-class-to-begin",

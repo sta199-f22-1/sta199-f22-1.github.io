@@ -3,6 +3,8 @@ title: "Models with multiple predictors							"
 subtitle: "Lecture 19"
 date: "November 3, 2022"
 format: revealjs
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Warm up
@@ -14,34 +16,96 @@ format: revealjs
 
 ## Announcements
 
--   ...
+-   Team evaluations open -- due Sat night, 11:59pm (so we can review before Monday's lab)
+-   HW 5 will be posted soon
+-   HW 6
+
+## Questions from last time {.smaller}
+
+**Q: What is a two-way table?**
+
+A: A table of frequencies for two categorical variables.
+
+. . .
+
+::: question
+How do we go from what's on the left to what's on the right?
+:::
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| message: false
+
+library(palmerpenguins)
+library(tidyverse)
+
+penguins |>
+  count(species, sex)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+
+penguins |>
+  count(species, sex) |>
+  pivot_wider(names_from = sex, values_from = n)
+```
+:::
+:::
+
+## Questions from last time {.smaller}
+
+**Q: How do we build a two-way table in a pipeline?**
+
+. . .
+
+```{r}
+
+penguins |>
+  count(species, sex) |>
+  pivot_wider(names_from = sex, values_from = n)
+```
+
+## Questions from last time {.smaller}
+
+**Q: How do we know whether we can scrape data from a website?**
+
+. . .
+
+A: Technically, with `robotstxt::paths_allowed()`, but that doesn't address ethical considerations which are just as important, if not more.
+
+```{r}
+#| warning: false
+
+robotstxt::paths_allowed("https://www.duke.edu/")
+```
+
+## Questions from last time {.smaller}
+
+**Q: What is the proper notation for writing out a model?**
+
+. . .
+
+-   Population models (truth):
+
+$$
+y = \beta_0 + \beta_1 \times x + \epsilon
+$$
+
+-   Sample models (estimated):
+
+$$
+\hat{y} = b_0 + b_1 \times x
+$$
 
 ## Goals
 
 -   Fit and interpret models for predicting binary outcomes
 
--   Introduce overfitting and mitigating it by splitting the data into training and testing sets
-
-## Warm up questions
-
-::: question
-What is a **training** data set?
-:::
-
-. . .
-
-"Sandbox" for model building.
-Build the model on these data.
-
-. . .
-
-::: question
-What is a **testing** data set?
-:::
-
-. . .
-
-Held in reserve to test one or two chosen models and to evaluate their performance.
+-   Introduce over fitting and mitigating it by splitting the data into training and testing sets
 
 # Logistic regression
 
@@ -75,7 +139,7 @@ Held in reserve to test one or two chosen models and to evaluate their performan
 ## Linear model
 
 $$
-p_i = \beta_o + \beta_1 \times X_1 + \cdots
+p_i = \beta_o + \beta_1 \times X_1 + \cdots + \epsilon
 $$
 
 -   But remember that $p$ must be between 0 and 1
@@ -118,16 +182,16 @@ tibble(
 -   We model the logit (log-odds) of $p$ :
 
 $$
-logit(p) = log \bigg( \frac{p}{1 - p} \bigg) = \beta_o + \beta_1 \times X1_i + \cdots 
+logit(p) = log \bigg( \frac{p}{1 - p} \bigg) = \beta_o + \beta_1 \times X1_i + \cdots + \epsilon 
 $$
 
 -   Then take the inverse to obtain the predicted $p$:
 
 $$
-p_i = \frac{e^{\beta_o + \beta_1 \times X1_i + \cdots}}{1 + e^{\beta_o + \beta_1 \times X1_i + \cdots}}
+p_i = \frac{e^{\beta_o + \beta_1 \times X1_i + \cdots + \epsilon}}{1 + e^{\beta_o + \beta_1 \times X1_i + \cdots + \epsilon}}
 $$
 
-## Example Figure:
+## A logistic model visualized
 
 ```{r}
 #| echo: false
@@ -145,3 +209,24 @@ plot.function(sigmoid, from = 0, to = 20, n = 101,
 -   Generalized linear models allow us to fit models to predict non-continuous outcomes
 
 -   Predicting binary outcomes requires modeling the log-odds of success, where p = probability of success
+
+## Review questions
+
+::: question
+What is a **training** data set?
+:::
+
+. . .
+
+"Sandbox" for model building.
+Build the model on these data.
+
+. . .
+
+::: question
+What is a **testing** data set?
+:::
+
+. . .
+
+Held in reserve to test one or two chosen models and to evaluate their performance.
