@@ -189,3 +189,38 @@ Then, write a paragraph (4-5 sentences) addressing the following:
 -   What are your general take-aways from this presentation?
 
 -   What are your general take-aways from how this presentation was given?
+
+# Wrap up
+
+## Submission
+
+-   Go to <http://www.gradescope.com> and click Log in in the top right corner.
+-   Click School Credentials Duke Net ID and log in using your Net ID credentials.
+-   Click on your STA 199 course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark all the pages associated with exercise. All the pages of your homework should be associated with at least one question (i.e., should be "checked"). If you do not do this, you will be subject to lose points on the assignment.
+-   Select the first page of your PDF submission to be associated with the "Workflow & formatting" question.
+
+## Grading
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1                  | TBD    |
+| Ex 2                  | TBD    |
+| Ex 3                  | TBD    |
+| Ex 4                  | TBD    |
+| Ex 5                  | TBD    |
+| Ex 6                  | TBD    |
+| Workflow & formatting | 5      |
+| **Total**             | **50** |
+
+::: callout-note
+The "Workflow & formatting" component assesses the reproducible workflow.
+This includes:
+
+-   At least three commits
+-   Linking HW pages on Gradescope
+-   Following [tidyverse code style](https://style.tidyverse.org/)
+-   All code being visible in rendered PDF (no more than 80 characters)
+-   Appropriate figure sizing, and figures with informative labels and legends
+:::
