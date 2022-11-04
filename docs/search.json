@@ -343,6 +343,69 @@
     "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nGradescope\n🔗 on Sakai\n\n\nGradebook\n🔗 on Sakai\n\n\nOffice hours\n🔗 on Google docs\n\n\nClass recording request form\n🔗 on Google forms\n\n\nTexbooks\n🔗 R for Data Science\n🔗 Introduction to Modern Statistics\n\n\nPackage documentation\n🔗 ggplot2: ggplot2.tidyverse.org\n🔗 dplyr: dplyr.tidyverse.org\n🔗 tidyr: tidyr.tidyverse.org\n🔗 forcats: forcats.tidyverse.org\n🔗 stringr: stringr.tidyverse.org\n🔗 lubridate: lubridate.tidyverse.org\n🔗 readr: readr.tidyverse.org\n🔗 readxl: readxl.tidyverse.org"
   },
   {
+    "objectID": "hw/hw-5.html",
+    "href": "hw/hw-5.html",
+    "title": "HW 5 - Regression + other stories",
+    "section": "",
+    "text": "Important\n\n\n\nThis homework is due Thursday, Nov 10 at 11:59pm ET.\nHomework assignments are individual, not team based."
+  },
+  {
+    "objectID": "hw/hw-5.html#workflow-formatting",
+    "href": "hw/hw-5.html#workflow-formatting",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Workflow + formatting",
+    "text": "Workflow + formatting\n\nUpdate author name on your document.\nLabel all code chunks informatively and concisely.\nFollow the Tidyverse style guide.\nMake at least 3 commits.\nResize figures where needed, avoid tiny or huge plots.\nUse informative labels for plot axes, titles, etc.\nTurn in an organized, well formatted document."
+  },
+  {
+    "objectID": "hw/hw-5.html#packages",
+    "href": "hw/hw-5.html#packages",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Packages",
+    "text": "Packages\nWe’ll use the tidyverse for much of the data wrangling and visualization and tidymodels for modeling. In addition, we’ll use the palmerpenguins and gapminder for data.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(palmerpenguins)\nlibrary(gapminder)"
+  },
+  {
+    "objectID": "hw/hw-5.html#exercise-1---a-work-of-art",
+    "href": "hw/hw-5.html#exercise-1---a-work-of-art",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Exercise 1 - A work of aRt",
+    "text": "Exercise 1 - A work of aRt\nYour task is to make the following plot as ugly and as ineffective as possible. Change colors, axes, fonts, theme, or anything else you can think of in the code chunk below. You can also search online for other themes, fonts, etc. that you want to tweak. Try to make it as ugly as possible, the sky is the limit!\nIn 2-3 sentences, explain why the plot you created is ugly (to you, at least) and ineffective.\n\nggplot(\n  penguins, \n  aes(x = flipper_length_mm, y = bill_length_mm, color = species)\n  ) + \n  geom_point()\n\nWarning: Removed 2 rows containing missing values (geom_point)."
+  },
+  {
+    "objectID": "hw/hw-5.html#exercise-2---gdp-vs.-life-expectancy",
+    "href": "hw/hw-5.html#exercise-2---gdp-vs.-life-expectancy",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Exercise 2 - GDP vs. life expectancy",
+    "text": "Exercise 2 - GDP vs. life expectancy\nGapminder is a “fact tank” that uses publicly available world data to produce data visualizations and teaching resources on global development. We will use an excerpt of their data to explore relationships among world health metrics across countries and regions between the years 1952 and 2007. The data set is called gapminder, from the gapminder package. A table of variables can be found below.\n\ncountry: The country name\ncontinent: The continent name\nyear: ranges from 1952 to 2007 in increments of 5 years\nlifeExp: life expectancy at birth, in years\npop: population of country\ngdpPercap: GDP per capita (US$, inflation-adjusted)\n\n\nData: For our analysis, we will only be working with data from 2007. Below, filter the data set so only values from the year 2007 are shown. Save this data set as gapminder_07 and use it for the remainder of this exercise and the following.\nVisualization: We are interested in learning more about life expectancy, and we’ll start with exploring the relationship between life expectancy and GDP. Create two visualizations:\n\nScatter plot of gdpPercap vs. lifeExp.\nScatter plot of gdpPercap_log vs. lifeExp, where gdpPercap_log is a new variable you add to the data set by taking the natural log of gdpPercap.\n\nFirst describe the relationship between each pair of the variables. Then, comment on which relationship would be better modeled using a linear model, and explain your reasoning.\nModel fitting and interpretation:\n\nFit a linear model predicting log gross domestic product from life expectancy. Display the tidy summary.\nInterpret the intercept of the model, making sure that your interpretation is in the units of the original data (not on log scale).\nInterpret the slope of the model, making sure that your interpretation is in the units of the original data (not on log scale).\n\nModel evaluation:\n\nCalculate the R-squared of the model using two methods and confirm that the values match: first method is using glance() and the other method is based on the value of the correlation coefficient between the two variables.\nInterpret R-squared in the context of the data and the research question."
+  },
+  {
+    "objectID": "hw/hw-5.html#exercise-3---gdp-vs.-life-expectancy-continent",
+    "href": "hw/hw-5.html#exercise-3---gdp-vs.-life-expectancy-continent",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Exercise 3 - GDP vs. life expectancy + continent",
+    "text": "Exercise 3 - GDP vs. life expectancy + continent\nNext, we want to examine if the relationship between GDP and life expectancy that we observed in the previous exercise holds across all continents in our data. We’ll continue to work with logged GDP (gdpPercap_log) and data from 2007.\n\nJustification: Create a scatter plot of gdpPercap_log vs. lifeExp, where the points are colored by continent. Do you think the trend between gdpPercap_log and lifeExp is different for different continents? Justify your answer with specific features of the plot.\nModel fitting and interpretation:\n\nRegardless of your answer in part (a), fit an additive model (main effects) that predicts gdpPercap_log from life expectancy and continent (with Americas as the baseline level). Display a tidy summary of the model output.\nInterpret the intercept of the model, making sure that your interpretation is in the units of the original data (not on log scale).\nInterpret the slope of the model, making sure that your interpretation is in the units of the original data (not on log scale).\n\nPrediction: Predict the GDP of a country in Asia where the average life expectancy is 70 years old."
+  },
+  {
+    "objectID": "hw/hw-5.html#exercise-4---gdp-vs.-life-expectancy-x-continent",
+    "href": "hw/hw-5.html#exercise-4---gdp-vs.-life-expectancy-x-continent",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Exercise 4 - GDP vs. life expectancy x continent",
+    "text": "Exercise 4 - GDP vs. life expectancy x continent\nFinally, we want to examine if the relationship between GDP and life expectancy that we observed in the previous exercise holds across all continents in our data again, this time allowing for different relationships between GDP and life expectancy across continents.. We’ll continue to work with logged GDP (gdpPercap_log) and data from 2007.\n\nModel fitting and interpretation: Fit an interaction model that predicts gdpPercap_log from life expectancy and continent (with Americas as the baseline level). Display a tidy summary of the model output and in 2-3 sentences, explain how this model differs from the additive model.\nEstimated model: Write out the estimated model using proper notation.\nPrediction: Predict the GDP of a country in Asia where the average life expectancy is 70 years old. Is this prediction different from your prediction with the additive model from Exercise 3?\nModel evaluation: Would the R-squared value for this model in exercise 4 be larger or smaller than the R-squared value for the model in exercise 3. Without running any code, please write out and justify your answer."
+  },
+  {
+    "objectID": "hw/hw-5.html#exercise-5---hotel-cancellation",
+    "href": "hw/hw-5.html#exercise-5---hotel-cancellation",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Exercise 5 - Hotel Cancellation",
+    "text": "Exercise 5 - Hotel Cancellation\nFor this exercise, we will explore hotel cancellations. The data describe the demand of two different types of hotels. Each observation represents a hotel booking between July 1, 2015 and August 31, 2017. Some bookings were cancelled (is_canceled = 1) and others were kept, i.e., the guests checked into the hotel (is_canceled = 0). You can view the code book for all variables here.\nThe data can be found in the data folder: hotels.csv. Using these data, we will try to answer the following question:\n\nDo we expect reservations earlier in the month or later in the month to be cancelled?\n\n\nExploration: In a single pipeline, calculate the mean arrival date (arrival_date_day_of_month) for both booking that were cancelled and that were not cancelled.\nJustification: In your own words, explain why we can not fit a linear model to model the relationship between if a hotel reservation was cancelled and the day of month for the booking.\nModel fitting and interpretation:\n\nFit the appropriate model and display a tidy summary of the model output.\nInterpret the slope coefficient in context of the data and the research question.\n\nEstimated model: Write out the estimated model using proper notation.\nPredicted: Calculate the probability that the hotel reservation is cancelled if it the arrival date date is on the 26th of the month. Based on this probability, would you predict this booking would be cancelled or not cancelled. Explain your reasoning for your classification."
+  },
+  {
+    "objectID": "hw/hw-5.html#exercise-6---communicating-statistics",
+    "href": "hw/hw-5.html#exercise-6---communicating-statistics",
+    "title": "HW 5 - Regression + other stories",
+    "section": "Exercise 6 - Communicating statistics",
+    "text": "Exercise 6 - Communicating statistics\nCommunication is a critical yet often overlooked part of data science. When we engage with our audience and capture their interest, we can ultimately better communicate what we are trying to share.\nPlease watch the following video: Hans Rosling: 200 years in 4 minutes.\nThen, write a paragraph (4-5 sentences) addressing the following:\n\nWhat did you enjoy about the presentation of data? What did you find interesting\nWere there any aspects of the presentation that were hard to follow? If so, what?\nWhat are your general take-aways from this presentation?\nWhat are your general take-aways from how this presentation was given?"
+  },
+  {
     "objectID": "hw/hw-4.html",
     "href": "hw/hw-4.html",
     "title": "HW 4 - Scraping + modelling",
