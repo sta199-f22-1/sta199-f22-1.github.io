@@ -4,7 +4,7 @@
     "href": "labs/lab-project-draft.html",
     "title": "Lab - Project draft",
     "section": "",
-    "text": "Important\n\n\n\nThis lab is due XXX."
+    "text": "Important\n\n\n\nThe project draft is due Friday, Nov 11, at 11:59pm. No submission on Gradescope needed, just push to GitHub by this time."
   },
   {
     "objectID": "labs/lab-project-draft.html#proposal-feedback-review",
@@ -25,7 +25,7 @@
     "href": "labs/lab-project-draft.html#quarto-options",
     "title": "Lab - Project draft",
     "section": "Quarto options",
-    "text": "Quarto options\n\n\n\n\n\n\nNote\n\n\n\nMuch of what is listed in this section is optional, but we recommend reviewing them as a team and deciding on which ones you want to use/include in your project.\n\n\n\nTheming\nYou can see your deployed project website at the URL listed in your project repo.\n\nYou can pick a theme from https://quarto.org/docs/output-formats/html-themes.html.\nYou can update the theme of your project by changing the theme field in the _quarto.yml file.\nRender the website from the Build tab and commit and push your changes.\n\n\n\nFootnotes\nTo add a footnote, make sure you’re in the Visual editor mode in RStudio and click on Insert > Footnote.1 One you add your footnote, click outside of the footnote area, anywhere else in your document, to go back to editing your document.\n\n\nCross references\nYou can add cross references to your figures and tables so that you can refer to them like “Figure 1 shows that …” or “As seen in Table 1, …” instead of “the figure below” or “the table below”. To do this, you need to label the code chunks for those figures and tables in a special way (with fig- and tbl- suffixes, respectively) and add captions to them.\n\nFigures\nFor example, Figure 1 shows a positive and moderately strong relationship between fuel efficiency of cars (measured as miles/gallon) and their displacement.\n\n```{r}\n#| label: fig-mtcars-plot\n#| fig-cap: \"Fuel efficiency of cars vs. their displacement.\"\n\nggplot(mtcars, aes(x = disp, y = mpg)) +\n  geom_point()\n```\n\n\n\n\nFigure 1: Fuel efficiency of cars vs. their displacement.\n\n\n\n\nWhat you’re not seeing in the text above is that we didn’t type Figure 1 in the text, but instead referenced this figure with @fig-mtcars-plot:\n\nFor example, @fig-mtcars-plot shows a positive and moderately strong relationship between fuel efficiency of cars (measured as miles/gallon) and their displacement.\n\n\n\nTables\nAnd Table 1 shows the output of the linear regression for predicting fuel efficiency from displacement.\nNote that we piped the result of the tidy() function (which outputs a tibble) into the kable() function from the knitr package to turn it into a table. Quarto needs this last step to know that this code chunk produces a table that can be formatted and cross referenced as such.\n\n```{r}\n#| label: tbl-mpg-disp\n#| tbl-cap: \"Linear regression model for predicting fuel efficiency from displacement.\"\n\nlinear_reg() |>\n  fit(mpg ~ disp, data = mtcars) |>\n  tidy() |>\n  knitr::kable()\n```\n\n\n\nTable 1: Linear regression model for predicting fuel efficiency from displacement.\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n29.5998548\n1.2297195\n24.070411\n0\n\n\ndisp\n-0.0412151\n0.0047118\n-8.747151\n0\n\n\n\n\n\n\nOnce again, what you’re not seeing in the text above is that we didn’t type Table 1 in the text, but instead referenced this table with @tbl-mpg-disp.\n\nAnd @tbl-mpg-disp shows the output of the linear regression for predicting fuel efficiency from displacement.\n\n\n\n\nCitations\nYou can use Quarto’s built-in citation and bibliography features for your citations. For example …"
+    "text": "Quarto options\n\n\n\n\n\n\nNote\n\n\n\nMuch of what is listed in this section is optional, but we recommend reviewing them as a team and deciding on which ones you want to use/include in your project.\n\n\n\nTheming\nYou can see your deployed project website at the URL listed in your project repo.\n\nYou can pick a theme from https://quarto.org/docs/output-formats/html-themes.html.\nYou can update the theme of your project by changing the theme field in the _quarto.yml file.\nRender the website from the Build tab and commit and push your changes.\n\n\n\nFootnotes\nTo add a footnote, make sure you’re in the Visual editor mode in RStudio and click on Insert > Footnote.1 One you add your footnote, click outside of the footnote area, anywhere else in your document, to go back to editing your document.\n\n\nCross references\nYou can add cross references to your figures and tables so that you can refer to them like “Figure 1 shows that …” or “As seen in Table 1, …” instead of “the figure below” or “the table below”. To do this, you need to label the code chunks for those figures and tables in a special way (with fig- and tbl- suffixes, respectively) and add captions to them.\n\nFigures\nFor example, Figure 1 shows a positive and moderately strong relationship between fuel efficiency of cars (measured as miles/gallon) and their displacement.\n\n```{r}\n#| label: fig-mtcars-plot\n#| fig-cap: \"Fuel efficiency of cars vs. their displacement.\"\n\nggplot(mtcars, aes(x = disp, y = mpg)) +\n  geom_point()\n```\n\n\n\n\nFigure 1: Fuel efficiency of cars vs. their displacement.\n\n\n\n\nWhat you’re not seeing in the text above is that we didn’t type Figure 1 in the text, but instead referenced this figure with @fig-mtcars-plot:\n\nFor example, @fig-mtcars-plot shows a positive and moderately strong relationship between fuel efficiency of cars (measured as miles/gallon) and their displacement.\n\n\n\nTables\nAnd Table 1 shows the output of the linear regression for predicting fuel efficiency from displacement.\nNote that we piped the result of the tidy() function (which outputs a tibble) into the kable() function from the knitr package to turn it into a table. Quarto needs this last step to know that this code chunk produces a table that can be formatted and cross referenced as such.\n\n```{r}\n#| label: tbl-mpg-disp\n#| tbl-cap: \"Linear regression model for predicting fuel efficiency from displacement.\"\n\nlinear_reg() |>\n  fit(mpg ~ disp, data = mtcars) |>\n  tidy() |>\n  knitr::kable()\n```\n\n\n\nTable 1: Linear regression model for predicting fuel efficiency from displacement.\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n29.5998548\n1.2297195\n24.070411\n0\n\n\ndisp\n-0.0412151\n0.0047118\n-8.747151\n0\n\n\n\n\n\n\nOnce again, what you’re not seeing in the text above is that we didn’t type Table 1 in the text, but instead referenced this table with @tbl-mpg-disp.\n\nAnd @tbl-mpg-disp shows the output of the linear regression for predicting fuel efficiency from displacement."
   },
   {
     "objectID": "labs/lab-2.html",
@@ -501,7 +501,7 @@
     "href": "hw/hw-6.html",
     "title": "HW 6 - Statistics experience",
     "section": "",
-    "text": "Important\n\n\n\nThis homework is due Friday, Dec 9 at 11:59pm ET.\nHomework assignments are individual, not team based.\nThe world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.\nYou may submit the statistics experience assignment anytime between now and the deadline.\nEach experience has two parts:\n1️⃣ Have a statistics experience\n2️⃣ Make a slide summarizing on your experience\nYou must complete both parts to receive credit."
+    "text": "Important\n\n\n\nThis homework is due Friday, Dec 9 at 11:59pm ET.\nHomework assignments are individual, not team based.\nThere is no GitHub repo for this assignment, see below for slide format.\nThe world of statistics and data science is vast and continually growing! The goal of the statistics experience assignments is to help you engage with the statistics and data science communities outside of the classroom.\nYou may submit the statistics experience assignment anytime between now and the deadline.\nEach experience has two parts:\n1️⃣ Have a statistics experience\n2️⃣ Make a slide summarizing on your experience\nYou must complete both parts to receive credit."
   },
   {
     "objectID": "hw/hw-6.html#part-1-experience-statistics-outside-of-the-classroom",
@@ -882,6 +882,20 @@
     "text": "📖 Read:\n\nIMS: Chp 6 - Applications: Explore\nR4DS: Chp 10 - Exploratory data analysis\nR4DS: Chp 11 - Workflow: Getting help\n\n⌨️ Watch:\n\nTips for effective data visualization\nDoing data science\n\n\n\n\n\n\n\n\nNote\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
   },
   {
+    "objectID": "prepare/11-07.html",
+    "href": "prepare/11-07.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "Read the instructions for working on the project draft: .\n\n\n\n\n\n\nNote\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
+  },
+  {
+    "objectID": "prepare/11-10.html",
+    "href": "prepare/11-10.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "⌨️ Review slide deck:\n\nHypothesis testing\nInference overview\n\n📖 Read:\n\nIMS: Chp 11 - Hypothesis testing with randomization\n\n\n\n\n\n\n\n\nNote\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
+  },
+  {
     "objectID": "prepare/08-30.html",
     "href": "prepare/08-30.html",
     "title": "Prepare",
@@ -901,6 +915,13 @@
     "title": "Prepare",
     "section": "",
     "text": "⌨️ Watch:\n\nLogistic regression\nPrediction and overfitting\n\n📖 Read:\n\nIMS: Chp9 - Logistic regression\n\n\n\n\n\n\n\n\nNote\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
+  },
+  {
+    "objectID": "prepare/11-08.html",
+    "href": "prepare/11-08.html",
+    "title": "Prepare",
+    "section": "",
+    "text": "⌨️ Watch:\n\nQuantifying uncertainty\nBootstrapping\n\n📖 Read:\n\nIMS: Chp 12 - Confidence intervals with bootstrapping\n\n\n\n\n\n\n\n\nNote\n\n\n\nVideos use the “old school” pipe (%>%) but we’ll be using the newer (|>) pipe operator in class."
   },
   {
     "objectID": "prepare/10-04.html",

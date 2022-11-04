@@ -1,0 +1,16 @@
+---
+title: "Prepare"
+subtitle: "Due: November 10, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Review slide deck:
+    -   [Hypothesis testing](https://datasciencebox.org/course-materials/_slides/u4-d12-hypothesis-testing/u4-d12-hypothesis-testing.html#1)
+
+    -   [Inference overview](https://datasciencebox.org/course-materials/_slides/u4-d13-inference-overview/u4-d13-inference-overview.html#1)
+-   📖 Read:
+    -   IMS: [Chp 11 - Hypothesis testing with randomization](https://openintro-ims.netlify.app/foundations-randomization.html)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

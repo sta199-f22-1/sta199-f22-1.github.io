@@ -1,0 +1,11 @@
+---
+title: "Prepare"
+subtitle: "Due: November 7, 2022"
+categories: "prepare"
+---
+
+Read the instructions for working on the project draft: .
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

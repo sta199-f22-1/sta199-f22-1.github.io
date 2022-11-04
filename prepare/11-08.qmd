@@ -1,0 +1,16 @@
+---
+title: "Prepare"
+subtitle: "Due: November 8, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Watch:
+    -   [Quantifying uncertainty](https://www.youtube.com/watch?v=LYpKrtZmQtI)
+
+    -   [Bootstrapping](https://youtu.be/bdqpI3iVOso)
+-   📖 Read:
+    -   IMS: [Chp 12 - Confidence intervals with bootstrapping](https://openintro-ims.netlify.app/foundations-bootstrapping.html)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

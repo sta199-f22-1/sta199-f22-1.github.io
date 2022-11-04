@@ -6,7 +6,8 @@ execute:
 ---
 
 ::: callout-important
-This lab is due XXX.
+The project draft is due Friday, Nov 11, at 11:59pm.
+No submission on Gradescope needed, just push to GitHub by this time.
 :::
 
 ```{r}
@@ -132,8 +133,3 @@ linear_reg() |>
 Once again, what you're not seeing in the text above is that we didn't type `Table 1` in the text, but instead referenced this table with `@tbl-mpg-disp`.
 
 >     And @tbl-mpg-disp shows the output of the linear regression for predicting fuel efficiency from displacement.
-
-### Citations
-
-You can use Quarto's built-in citation and bibliography features for your citations.
-For example ...
