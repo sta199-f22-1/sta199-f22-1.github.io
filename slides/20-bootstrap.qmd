@@ -7,7 +7,7 @@ format: revealjs
 
 ## Checklist
 
--- Clone `ae-19`
+-- Clone `ae-17`
 
 ## Announcements
 
