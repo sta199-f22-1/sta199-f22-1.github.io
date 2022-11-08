@@ -47,11 +47,11 @@ $\widehat{body.mass} = -5781 + 49.7 \times flipper.length$
 
 ## 
 
-$body.mass = \beta_o + \beta_1 \times flipper.length$ - Population Model 
+$body.mass = \beta_o + \beta_1 \times flipper.length$ 
 
 What is $\beta_1$?
 
-Does our estimated line tell us what $\beta_1$ ?
+Does our estimated line tell us what $\beta_1$ is?
 
 ## Population Parameters 
 
