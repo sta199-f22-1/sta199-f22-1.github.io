@@ -4050,7 +4050,7 @@
     "href": "slides/20-bootstrap.html#section",
     "title": "Bootstrap",
     "section": "",
-    "text": "\\(body.mass = \\beta_o + \\beta_1 \\times flipper.length\\) - Population Model\nWhat is \\(\\beta_1\\)?\nDoes our estimated line tell us what \\(\\beta_1\\) ?"
+    "text": "\\(body.mass = \\beta_o + \\beta_1 \\times flipper.length\\)\nWhat is \\(\\beta_1\\)?\nDoes our estimated line tell us what \\(\\beta_1\\) is?"
   },
   {
     "objectID": "slides/20-bootstrap.html#population-parameters",
