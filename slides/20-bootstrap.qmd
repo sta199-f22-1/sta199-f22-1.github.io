@@ -59,7 +59,7 @@ Does our estimated line tell us what $\beta_1$ is?
 
 -- $\mu$
 
--- $\pi$
+-- $\pi$ or *p*
 
 .
 .
