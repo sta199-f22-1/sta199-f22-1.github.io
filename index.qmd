@@ -94,7 +94,7 @@ d |>
       )
     }
   ) |>
-  fmt_date(date, date_style = 30) |>
+  fmt_date(date, date_style = 9) |> #this was 30. Was producing error saying needed to be between 1-14
   sub_missing(columns = c(date, what, topic, notes), missing_text = "") |>
   cols_align(
     align = "center", 
