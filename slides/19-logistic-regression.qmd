@@ -1,5 +1,5 @@
 ---
-title: "Models with multiple predictors							"
+title: "Models with multiple predictors"
 subtitle: "Lecture 19"
 date: "November 3, 2022"
 format: revealjs
