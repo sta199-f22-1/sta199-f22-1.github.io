@@ -392,7 +392,7 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
 <p>What does the visualization, published by <a href="http://static5.businessinsider.com/image/53038b556da8110e5ce82be7-604-756/florida%20gun%20deaths.jpg">Reuters</a> on February 16, 2014, say about the number of firearm murders in Florida over the years?</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_30e75906" data-update-every="1" tabindex="0" style="bottom:0.1;left:0;">
+<div class="countdown" id="timer_d09da39a" data-update-every="1" tabindex="0" style="bottom:0.1;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -423,7 +423,7 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_47139b76" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
+<div class="countdown" id="timer_66c87de0" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -714,12 +714,15 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -730,13 +733,6 @@ Dr.&nbsp;Mine Çetinkaya-Rundel
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy

@@ -1,0 +1,86 @@
+---
+title: "Bootstrap"
+subtitle: "Lecture 20"
+date: "November 8th, 2022"
+format: revealjs
+---
+
+## Checklist
+
+-- Clone `ae-17`
+
+## Announcements
+
+-- HW 5 (Due Thursday)
+
+-- Project Proposal (Due Friday)
+
+## Project Hints
+
+-- Reference the AEs and Videos for example research questions
+
+-- Make sure your variable is not an *id*
+
+-- Write yourself a project outline
+
+-   What is the topic?
+
+-   Why do we care?
+
+-   What are we interested in?
+
+
+## Goals
+
+-- What is bootstrapping
+
+-- What is a confidence interval
+
+## Warm Up: Remember the Penguins
+
+
+![](images/20/slr.png)
+
+$\widehat{body.mass} = -5781 + 49.7 \times flipper.length$
+
+-- What does this line tell us? 
+
+## 
+
+$body.mass = \beta_o + \beta_1 \times flipper.length$ 
+
+What is $\beta_1$?
+
+Does our estimated line tell us what $\beta_1$ is?
+
+## Population Parameters 
+
+-- $\beta_1$
+
+-- $\mu$
+
+-- $\pi$ or *p*
+
+.
+.
+.
+
+## This week
+
+-- Is all about **concepts**
+
+-- Main goal is to develop a fundamental understanding about bootstrapping, confidence intervals, and hypothesis testing.
+
+We will put our understanding into more practice starting next week.
+
+# ae-17 - Bootstrap
+
+## In Summary
+
+-   Bootstrap methods are simulation methods
+
+-   Variability - *Uncertainty*: How spread out your data are
+
+-   We can use this to guess plausible values around our parameter of interest
+
+-   This is called a confidence interval, and it's different than probability

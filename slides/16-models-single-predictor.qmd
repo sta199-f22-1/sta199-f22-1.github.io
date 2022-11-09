@@ -1,5 +1,5 @@
 ---
-title: "Models with a single predictor							"
+title: "Models with a single predictor"
 subtitle: "Lecture 16"
 date: "October 25, 2022"
 format: revealjs
