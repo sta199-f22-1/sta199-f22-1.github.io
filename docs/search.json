@@ -1113,6 +1113,62 @@
     "text": "Part 1 - Stochastic parrots\nYour turn (10 minutes):\n\nRead the following title and abstract.\n\n\nOn the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜 (Bender et. al., 2021)\nThe past 3 years of work in NLP have been characterized by the development and deployment of ever larger language models, especially for English. BERT, its variants, GPT-2/3, and others, most recently Switch-C, have pushed the boundaries of the possible both through architectural innovations and through sheer size. Using these pretrained models and the methodology of fine-tuning them for specific tasks, researchers have extended the state of the art on a wide array of tasks as measured by leaderboards on specific benchmarks for English. In this paper, we take a step back and ask: How big is too big? What are the possible risks associated with this technology and what paths are available for mitigating those risks? We provide recommendations including weighing the environmental and financial costs first, investing resources into curating and carefully documenting datasets rather than ingesting everything on the web, carrying out pre-development exercises evaluating how the planned approach fits into research and development goals and supports stakeholder values, and encouraging research directions beyond ever larger language models.\n\n\nHave you used a natural language model before? Describe your use.\n\n[Answers may vary.] Predictive typing on phone messages.\n\nWhat is meant by “stochastic parrots” in the paper title?\n\n[Answers may vary.] The language models “parrot” (repeat) the biases in the input data they’re trained on.\n\n\nPart 2 - Predicting ethnicity\nYour turn (12 minutes): Imai and Khanna (2016) built a racial prediction algorithm using a Bayes classifier trained on voter registration records from Florida and the U.S. Census Bureau’s name list.\n\nThe following is the title and the abstract of the paper. Take a minute to read them.\n\n\nImproving Ecological Inference by Predicting Individual Ethnicity from Voter Registration Record (Imran and Khan, 2016)\n\n\nIn both political behavior research and voting rights litigation, turnout and vote choice for different racial groups are often inferred using aggregate election results and racial composition. Over the past several decades, many statistical methods have been proposed to address this ecological inference problem. We propose an alternative method to reduce aggregation bias by predicting individual-level ethnicity from voter registration records. Building on the existing methodological literature, we use Bayes’s rule to combine the Census Bureau’s Surname List with various information from geocoded voter registration records. We evaluate the performance of the proposed methodology using approximately nine million voter registration records from Florida, where self-reported ethnicity is available. We find that it is possible to reduce the false positive rate among Black and Latino voters to 6% and 3%, respectively, while maintaining the true positive rate above 80%. Moreover, we use our predictions to estimate turnout by race and find that our estimates yields substantially less amounts of bias and root mean squared error than standard ecological inference estimates. We provide open-source software to implement the proposed methodology. The open-source software is available for implementing the proposed methodology.\n\nThe said “source software” is the wru package: https://github.com/kosukeimai/wru.\n\nThen, if you feel comfortable, load the wru package and try it out using the sample data provided in the package. And if you don’t feel comfortable doing so, take a look at the results below. Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nlibrary(tidyverse)\nlibrary(wru)\n\npredict_race(voter.file = voters, surname.only = TRUE) %>% \n  select(surname, pred.whi, pred.bla, pred.his, pred.asi, pred.oth)\n\n      surname    pred.whi    pred.bla     pred.his    pred.asi    pred.oth\n1      Khanna 0.045110474 0.003067623 0.0068522723 0.860411906 0.084557725\n2        Imai 0.052645440 0.001334812 0.0558160072 0.719376581 0.170827160\n3      Rivera 0.043285692 0.008204605 0.9136195794 0.024316883 0.010573240\n4     Fifield 0.895405704 0.001911388 0.0337464844 0.011079323 0.057857101\n5        Zhou 0.006572555 0.001298962 0.0005388581 0.982365594 0.009224032\n6    Ratkovic 0.861236727 0.008212824 0.0095395642 0.011334635 0.109676251\n7     Johnson 0.543815322 0.344128607 0.0272403940 0.007405765 0.077409913\n8       Lopez 0.038939877 0.004920643 0.9318797791 0.012154125 0.012105576\n10 Wantchekon 0.330697188 0.194700665 0.4042849478 0.021379541 0.048937658\n9       Morse 0.866360147 0.044429853 0.0246568086 0.010219712 0.054333479\n\n\n[Answers may vary.]\n\nIf you have installed the package, re-run the code, this time to see what the package predicts for your race. Now consider the same questions again: Was the publication of this model ethical? Does the open-source nature of the code affect your answer? Is it ethical to use this software? Does your answer change depending on the intended use?\n\n\nme <- tibble(surname = \"Rundel\")\n\npredict_race(voter.file = me, surname.only = TRUE)\n\nWarning: Unknown or uninitialised column: `state`.\n\n\nProceeding with last name predictions...\n\n\nℹ All local files already up-to-date!\nℹ All local files already up-to-date!\n\n\n  surname  pred.whi pred.bla pred.his pred.asi   pred.oth\n1  Rundel 0.9177967        0        0        0 0.08220329\n\n\n[Answers may vary.]"
   },
   {
+    "objectID": "ae/ae-17-quantify-uncertainty.html",
+    "href": "ae/ae-17-quantify-uncertainty.html",
+    "title": "Quantifying uncertainty",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidymodels)"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#population-vs-sample",
+    "href": "ae/ae-17-quantify-uncertainty.html#population-vs-sample",
+    "title": "Quantifying uncertainty",
+    "section": "Population vs Sample",
+    "text": "Population vs Sample\n\nMotivation\nWe have data on the price per guest (ppg) for a random sample of 50 Airbnb listings in 2020 for Asheville, NC. We are going to use these data to investigate what we would of expected to pay for an Airbnb in in Asheville, NC in June 2020. Read in the data and answer the following questions.\n\nabb <- read_csv(\"data/asheville.csv\")\n\nglimpse(abb)\n\nRows: 50\nColumns: 1\n$ ppg <dbl> 48.00000, 40.00000, 99.00000, 13.00000, 55.00000, 75.00000, 74.000…"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#terminology",
+    "href": "ae/ae-17-quantify-uncertainty.html#terminology",
+    "title": "Quantifying uncertainty",
+    "section": "Terminology",
+    "text": "Terminology\n\nPopulation parameter - What we are interested in. Statistical measure that describes an entire population.\nSample statistic (point estimate) - describes a sample. A piece of information you get from a fraction of the population.\n\nUse these data and the tools we’ve learned in this class to come up with your best guess for what you would expect to pay (i.e. true price) for an Airbnb in Asheville, NC (June 2020).\n\n# add code here\n\nDo you think your guess is correct?\nNot really\n\nIf you want to estimate a population parameter, do you prefer to report a range of values the parameter might be in, or a single value?\n\nRange of values\n\nVariability - How spread out your data are. Uncertainty.\n\nSuppose we split the class in half and ask each student their height. Then, we calculate the mean height of students on each side of the classroom. Would you expect these two means to be exactly equal, close but not equal, or wildly different?\nClose, but not equal"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#why-do-we-care",
+    "href": "ae/ae-17-quantify-uncertainty.html#why-do-we-care",
+    "title": "Quantifying uncertainty",
+    "section": "Why do we care?",
+    "text": "Why do we care?\nWe can quantify the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest\nBootstrapping is a statistical procedure that re samples a single data set to create many simulated samples."
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#how-do-we-do-this",
+    "href": "ae/ae-17-quantify-uncertainty.html#how-do-we-do-this",
+    "title": "Quantifying uncertainty",
+    "section": "How do we do this?",
+    "text": "How do we do this?\nGoal: create a distribution of sample statistics under “the same” conditions. How do we do this?\nDemo\n- Resample with replacement from our data n (50) times - Calculate the new resampled mean - Plot it - Do this entire process many many times"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#confidence-interval",
+    "href": "ae/ae-17-quantify-uncertainty.html#confidence-interval",
+    "title": "Quantifying uncertainty",
+    "section": "Confidence Interval",
+    "text": "Confidence Interval\n\nWhat is it?\n\nRange of plausiable values for our population parameter… just like we wanted!\n\nExercise 1 - Airbnb\nLet’s bootstrap!\nIt’s good practice to ask yourself the following questions:\n\nWhat is my sample statistic? 76.6\nHow many draws do we need for our bootstrap sample? n number of times (50)\n\nFill in the *** from the bootstrap sample code below.\n\nset.seed(12345)\n\nboot_df <- abb |>\n  specify(response = ppg) |>\n  generate(reps = 10000, type = \"bootstrap\") |>\n  calculate(stat = \"mean\")\n\n\nTake a glimpse at boot_df. What do you see?\n\n\n# add code here\n\n\nPlot a histogram of boot_df. Where is it centered? Why does this make sense?\n\n\n# add code here\n\nNow, let’s use boot_dfto create our 95% confidence interval.\n\n# add code here\n\nLet’s visualize our confidence interval by adding a vertical line at each of these values. Use the code you wrote above and add two lines using geom_vline.\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#interpretation",
+    "href": "ae/ae-17-quantify-uncertainty.html#interpretation",
+    "title": "Quantifying uncertainty",
+    "section": "Interpretation",
+    "text": "Interpretation\nConfidence intervals - range of plausible values for our parameter of interest\nConfidence intervals are often misinterpreted as probability….\nLets explore: http://www.rossmanchance.com/ISIapplets.html\n\nHow do we interpret this?\n\nA There is a 95% probability the true mean price per night for an Airbnb in Asheville is between 63.3 and 91.0.\nB There is a 95% probability the price per night for an Airbnb in Asheville is between 63.3 and 91.0.\nC We are 95% confident the true mean price per night for Airbnbs in Asheville is between 63.3 and 91.0 $.\nD We are 95% confident the price per night for an Airbnb in Asheville is between 63.3 and 91.0."
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty.html#optional",
+    "href": "ae/ae-17-quantify-uncertainty.html#optional",
+    "title": "Quantifying uncertainty",
+    "section": "Optional",
+    "text": "Optional\nNow, create a 90% confidence interval. Report it below. Is it wider or more narrow than the 95% confidence interval?\n\n# add code here"
+  },
+  {
     "objectID": "ae/ae-06-data-types-classes-A.html",
     "href": "ae/ae-06-data-types-classes-A.html",
     "title": "AE 06: Data types and classes",
@@ -1167,6 +1223,62 @@
     "title": "AE 01: Bechdel + data visualization",
     "section": "Return-on-investment",
     "text": "Return-on-investment\nFinally, let’s take a look at return-on-investment (ROI).\n\nStep 1 - Your turn\nCreate side-by-side box plots of roi by clean_test where the boxes are colored by binary.\n\n# add code here\n\nWhat are those movies with very high returns on investment?\n\nbechdel |>\n  filter(roi > 400) |>\n  select(title, roi, budget_2013, gross_2013, year, clean_test)\n\n# A tibble: 3 × 6\n  title                     roi budget_2013 gross_2013  year clean_test\n  <chr>                   <dbl>       <dbl>      <dbl> <dbl> <chr>     \n1 Paranormal Activity      671.      505595  339424558  2007 dubious   \n2 The Blair Witch Project  648.      839077  543776715  1999 ok        \n3 El Mariachi              583.       11622    6778946  1992 nowomen   \n\n\n\n\nStep 2 - Demo\nExpand on your plot from the previous step to zoom in on movies with roi < ___ to get a better view of how the medians across the categories compare.\n\n# add code here\n\nWhat does this plot say about return-on-investment on movies that pass the Bechdel test?"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html",
+    "href": "ae/ae-17-quantify-uncertainty-A.html",
+    "title": "Quantifying uncertainty",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidymodels)"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#population-vs-sample",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#population-vs-sample",
+    "title": "Quantifying uncertainty",
+    "section": "Population vs Sample",
+    "text": "Population vs Sample\n\nMotivation\nWe have data on the price per guest (ppg) for a random sample of 50 Airbnb listings in 2020 for Asheville, NC. We are going to use these data to investigate what we would of expected to pay for an Airbnb in in Asheville, NC in June 2020. Read in the data and answer the following questions.\n\nabb <- read_csv(\"data/asheville.csv\")\n\nglimpse(abb)\n\nRows: 50\nColumns: 1\n$ ppg <dbl> 48.00000, 40.00000, 99.00000, 13.00000, 55.00000, 75.00000, 74.000…"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#terminology",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#terminology",
+    "title": "Quantifying uncertainty",
+    "section": "Terminology",
+    "text": "Terminology\n\nPopulation parameter - What we are interested in. Statistical measure that describes an entire population.\nSample statistic (point estimate) - describes a sample. A piece of information you get from a fraction of the population.\n\nUse these data and the tools we’ve learned in this class to come up with your best guess for what you would expect to pay (i.e. true price) for an Airbnb in Asheville, NC (June 2020).\n\nabb |> \n  summarize(ppg.mean = mean(ppg))\n\n# A tibble: 1 × 1\n  ppg.mean\n     <dbl>\n1     76.6\n\n\nDo you think your guess is correct?\nNot really\n\nIf you want to estimate a population parameter, do you prefer to report a range of values the parameter might be in, or a single value?\n\nRange of values\n\nVariability - How spread out your data are. Uncertainty.\n\nSuppose we split the class in half and ask each student their height. Then, we calculate the mean height of students on each side of the classroom. Would you expect these two means to be exactly equal, close but not equal, or wildly different?\nClose, but not equal"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#why-do-we-care",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#why-do-we-care",
+    "title": "Quantifying uncertainty",
+    "section": "Why do we care?",
+    "text": "Why do we care?\nWe can quantify the variability of the sample statistics to help calculate a range of plausible values for the population parameter of interest\nBootstrapping is a statistical procedure that re samples a single data set to create many simulated samples."
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#how-do-we-do-this",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#how-do-we-do-this",
+    "title": "Quantifying uncertainty",
+    "section": "How do we do this?",
+    "text": "How do we do this?\nGoal: create a distribution of sample statistics under “the same” conditions. How do we do this?\nDemo\n- Resample with replacement from our data n (50) times - Calculate the new resampled mean - Plot it - Do this entire process many many times"
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#confidence-interval",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#confidence-interval",
+    "title": "Quantifying uncertainty",
+    "section": "Confidence Interval",
+    "text": "Confidence Interval\n\nWhat is it?\n\nRange of plausiable values for our population parameter… just like we wanted!\n\nExercise 1 - Airbnb\nLet’s bootstrap!\nIt’s good practice to ask yourself the following questions:\n\nWhat is my sample statistic? 76.6\nHow many draws do we need for our bootstrap sample? n number of times (50)\n\nFill in the *** from the bootstrap sample code below.\n\nset.seed(12345) \n\nboot_df <- abb |>\n  specify(response = ppg) |>\n  generate(reps = 10000, type = \"bootstrap\") |>\n  calculate(stat = \"mean\")\n\n\nTake a glimpse at boot_df. What do you see?\n\n\nglimpse(boot_df)\n\nRows: 10,000\nColumns: 2\n$ replicate <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…\n$ stat      <dbl> 81.03667, 63.22333, 81.23333, 76.11333, 81.31833, 84.60500, …\n\n\n\nPlot a histogram of boot_df. Where is it centered? Why does this make sense?\n\n\nboot_df |> \n  ggplot(\n    aes( x = stat)\n  ) + \n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nNow, let’s use boot_dfto create our 95% confidence interval.\n\nboot_df |>\n  summarize(\n    lower = quantile(stat, 0.025),\n    upper = quantile(stat, 0.975)\n  )\n\n# A tibble: 1 × 2\n  lower upper\n  <dbl> <dbl>\n1  63.3  91.0\n\n\nLet’s visualize our confidence interval by adding a vertical line at each of these values. Use the code you wrote above and add two lines using geom_vline.\n\nboot_df |>\n  ggplot(\n    aes(x = stat)\n  ) + \n  geom_histogram() + \n  geom_vline(xintercept = c(63.3, 91.0)) \n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#interpretation",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#interpretation",
+    "title": "Quantifying uncertainty",
+    "section": "Interpretation",
+    "text": "Interpretation\nConfidence intervals - range of plausible values for our parameter of interest\nConfidence intervals are often misinterpreted as probability….\nLets explore: http://www.rossmanchance.com/ISIapplets.html\n\nHow do we interpret this?\n\nA There is a 95% probability the true mean price per night for an Airbnb in Asheville is between 63.3 and 91.0.\nB There is a 95% probability the price per night for an Airbnb in Asheville is between 63.3 and 91.0.\nC We are 95% confident the true mean price per night for Airbnbs in Asheville is between 63.3 and 91.0 $.\nD We are 95% confident the price per night for an Airbnb in Asheville is between 63.3 and 91.0."
+  },
+  {
+    "objectID": "ae/ae-17-quantify-uncertainty-A.html#optional",
+    "href": "ae/ae-17-quantify-uncertainty-A.html#optional",
+    "title": "Quantifying uncertainty",
+    "section": "Optional",
+    "text": "Optional\nNow, create a 90% confidence interval. Report it below. Is it wider or more narrow than the 95% confidence interval?\n\n# add code here"
   },
   {
     "objectID": "ae/ae-16-spam-filter-A.html",
