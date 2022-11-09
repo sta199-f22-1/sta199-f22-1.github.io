@@ -81,7 +81,7 @@ A table of variables can be found below.
     Below, filter the data set so only values from the year 2007 are shown.
     Save this data set as `gapminder_07` and use it for the remainder of this exercise and the following.
 
-(b) **Visualization:** We are interested in learning more about life expectancy, and we'll start with exploring the relationship between life expectancy and GDP.
+(b) **Visualization:** We are interested in learning more about GDP, and we'll start with exploring the relationship between life expectancy and GDP.
     Create two visualizations:
 
     -   Scatter plot of `gdpPercap` vs. `lifeExp`.
@@ -142,7 +142,7 @@ We'll continue to work with logged GDP (`gdpPercap_log`) and data from 2007.
 (d) **Model evaluation:** Would the R-squared value for this model in exercise 4 be larger or smaller than the R-squared value for the model in exercise 3.
     Without running any code, please write out and justify your answer.
 
-## Exercise 5 - Hotel Cancellation
+## Exercise 5 - Hotel cancellations
 
 For this exercise, we will explore hotel cancellations.
 The data describe the demand of two different types of hotels.

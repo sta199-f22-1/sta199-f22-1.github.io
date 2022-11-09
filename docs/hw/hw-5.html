@@ -291,7 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#exercise-2---gdp-vs.-life-expectancy" id="toc-exercise-2---gdp-vs.-life-expectancy" class="nav-link" data-scroll-target="#exercise-2---gdp-vs.-life-expectancy">Exercise 2 - GDP vs.&nbsp;life expectancy</a></li>
   <li><a href="#exercise-3---gdp-vs.-life-expectancy-continent" id="toc-exercise-3---gdp-vs.-life-expectancy-continent" class="nav-link" data-scroll-target="#exercise-3---gdp-vs.-life-expectancy-continent">Exercise 3 - GDP vs.&nbsp;life expectancy + continent</a></li>
   <li><a href="#exercise-4---gdp-vs.-life-expectancy-x-continent" id="toc-exercise-4---gdp-vs.-life-expectancy-x-continent" class="nav-link" data-scroll-target="#exercise-4---gdp-vs.-life-expectancy-x-continent">Exercise 4 - GDP vs.&nbsp;life expectancy x continent</a></li>
-  <li><a href="#exercise-5---hotel-cancellation" id="toc-exercise-5---hotel-cancellation" class="nav-link" data-scroll-target="#exercise-5---hotel-cancellation">Exercise 5 - Hotel Cancellation</a></li>
+  <li><a href="#exercise-5---hotel-cancellations" id="toc-exercise-5---hotel-cancellations" class="nav-link" data-scroll-target="#exercise-5---hotel-cancellations">Exercise 5 - Hotel cancellations</a></li>
   <li><a href="#exercise-6---communicating-statistics" id="toc-exercise-6---communicating-statistics" class="nav-link" data-scroll-target="#exercise-6---communicating-statistics">Exercise 6 - Communicating statistics</a></li>
   </ul></li>
   <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a>
@@ -401,7 +401,7 @@ Important
 </ul>
 <ol type="a">
 <li><p><strong>Data:</strong> For our analysis, we will only be working with data from 2007. Below, filter the data set so only values from the year 2007 are shown. Save this data set as <code>gapminder_07</code> and use it for the remainder of this exercise and the following.</p></li>
-<li><p><strong>Visualization:</strong> We are interested in learning more about life expectancy, and we’ll start with exploring the relationship between life expectancy and GDP. Create two visualizations:</p>
+<li><p><strong>Visualization:</strong> We are interested in learning more about GDP, and we’ll start with exploring the relationship between life expectancy and GDP. Create two visualizations:</p>
 <ul>
 <li><p>Scatter plot of <code>gdpPercap</code> vs.&nbsp;<code>lifeExp</code>.</p></li>
 <li><p>Scatter plot of <code>gdpPercap_log</code> vs.&nbsp;<code>lifeExp</code>, where <code>gdpPercap_log</code> is a new variable you add to the data set by taking the natural log of <code>gdpPercap</code>.</p></li>
@@ -444,8 +444,8 @@ Important
 <li><p><strong>Model evaluation:</strong> Would the R-squared value for this model in exercise 4 be larger or smaller than the R-squared value for the model in exercise 3. Without running any code, please write out and justify your answer.</p></li>
 </ol>
 </section>
-<section id="exercise-5---hotel-cancellation" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5---hotel-cancellation">Exercise 5 - Hotel Cancellation</h2>
+<section id="exercise-5---hotel-cancellations" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5---hotel-cancellations">Exercise 5 - Hotel cancellations</h2>
 <p>For this exercise, we will explore hotel cancellations. The data describe the demand of two different types of hotels. Each observation represents a hotel booking between July 1, 2015 and August 31, 2017. Some bookings were cancelled (<code>is_canceled = 1</code>) and others were kept, i.e., the guests checked into the hotel (<code>is_canceled = 0</code>). You can view the code book for all variables <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md">here</a>.</p>
 <p>The data can be found in the <code>data</code> folder: <code>hotels.csv</code>. Using these data, we will try to answer the following question:</p>
 <blockquote class="blockquote">
