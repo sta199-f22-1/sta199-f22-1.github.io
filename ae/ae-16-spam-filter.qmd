@@ -2,7 +2,6 @@
 title: "Building a spam filter"
 categories: 
   - Application exercise
-  - Answers
 editor: visual
 ---
 

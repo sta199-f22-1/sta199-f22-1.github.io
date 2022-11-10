@@ -1,6 +1,8 @@
 ---
 title: "Quantifying uncertainty"
-format: html
+categories: 
+  - Application exercise
+  - Answers
 editor: visual
 ---
 

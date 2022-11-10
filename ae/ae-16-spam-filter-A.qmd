@@ -2,6 +2,7 @@
 title: "Building a spam filter"
 categories: 
   - Application exercise
+  - Answers
 editor: visual
 editor_options: 
   chunk_output_type: console

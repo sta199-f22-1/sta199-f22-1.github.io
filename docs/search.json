@@ -1190,6 +1190,27 @@
     "text": "Hotel bookings\n\n# From TidyTuesday: https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md\n\nhotels <- read_csv(\"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-02-11/hotels.csv\")\n\nQuestion: Take a look at the the following visualization. How are the months ordered? What would be a better order?\n\n\n\n\n\nDemo: Reorder the months on the x-axis (levels of arrival_date_month) in a way that makes more sense. You will want to use a function from the forcats package, see https://forcats.tidyverse.org/reference/index.html for inspiration and help.\n\nhotels |>\n  group_by(hotel, arrival_date_month) |>   # group by hotel type and arrival month\n  summarise(mean_adr = mean(adr), .groups = \"drop\") |>       # calculate mean adr for each group\n  ggplot(aes(\n    x = arrival_date_month,                 # x-axis = arrival_date_month\n    y = mean_adr,                           # y-axis = mean_adr calculated above\n    group = hotel,                          # group lines by hotel type\n    color = hotel)                          # and color by hotel type\n  ) +\n  geom_line() +                             # use lines to represent data\n  theme_minimal() +                         # use a minimal theme\n  labs(\n    x = \"Arrival month\",                 # customize labels\n    y = \"Mean ADR (average daily rate)\",\n    title = \"Comparison of resort and city hotel prices across months\",\n    subtitle = \"Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year\",\n    color = \"Hotel type\"\n  )\n\n\n\n\nStretch goal: If you finish the above task before time is up, change the y-axis label so the values are shown with dollar signs, e.g. $80 instead of 80. You will want to use a function from the scales package, see https://scales.r-lib.org/reference/index.html for inspiration and help.\n\nhotels |>\n  group_by(hotel, arrival_date_month) |>   # group by hotel type and arrival month\n  summarise(mean_adr = mean(adr), .groups = \"drop\") |>       # calculate mean adr for each group\n  ggplot(aes(\n    x = arrival_date_month,                 # x-axis = arrival_date_month\n    y = mean_adr,                           # y-axis = mean_adr calculated above\n    group = hotel,                          # group lines by hotel type\n    color = hotel)                          # and color by hotel type\n  ) +\n  geom_line() +                             # use lines to represent data\n  theme_minimal() +                         # use a minimal theme\n  labs(\n    x = \"Arrival month\",                 # customize labels\n    y = \"Mean ADR (average daily rate)\",\n    title = \"Comparison of resort and city hotel prices across months\",\n    subtitle = \"Resort hotel prices soar in the summer while ciry hotel prices remain relatively constant throughout the year\",\n    color = \"Hotel type\"\n  ) +\n  scale_y_continuous(labels = label_dollar())"
   },
   {
+    "objectID": "ae/ae-18-hypothesis-testing.html",
+    "href": "ae/ae-18-hypothesis-testing.html",
+    "title": "Quantifying uncertainty",
+    "section": "",
+    "text": "An article in the The Asheville Citizen-Times published in the summer of 2020 claims that the average price per guest (ppg) for properties in Asheville is $60 on Airbnb. To evaluate their claim we will use a dataset on 50 randomly selected Asheville Airbnb listings in June 2020. These data can be found in data/asheville.csv.\nLet’s load the packages we’ll use first.\nAnd then the data."
+  },
+  {
+    "objectID": "ae/ae-18-hypothesis-testing.html#generate",
+    "href": "ae/ae-18-hypothesis-testing.html#generate",
+    "title": "Quantifying uncertainty",
+    "section": "Generate",
+    "text": "Generate\nWe’ll start by generating the null distribution.\n\nDemo: Generate the null distribution?\n\n\nset.seed(4321)\n\n\n# add code here\n\n\nYour turn: Take a look at null_dist. What does each element in this distribution represent?\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-18-hypothesis-testing.html#visualize",
+    "href": "ae/ae-18-hypothesis-testing.html#visualize",
+    "title": "Quantifying uncertainty",
+    "section": "Visualize",
+    "text": "Visualize\n\nQuestion: Before you visualize the distribution of null_dist – at what value would you expect this distribution to be centered? Why?\n\nAdd response here.\n\nDemo: Create an appropriate visualization for your null distribution. Does the center of the distribution match what you guessed in the previous question?\n\n\n# add code here\n\n\nDemo: Now, add a vertical red line on your null distribution that represents your sample statistic.\n\n\n# add code here\n\n\nQuestion: Based on the position of this line, does your observed sample mean appear to be an unusual observation under the assumption of the null hypothesis?\n\nAdd response here."
+  },
+  {
     "objectID": "ae/ae-01-bechdel-dataviz.html",
     "href": "ae/ae-01-bechdel-dataviz.html",
     "title": "AE 01: Bechdel + data visualization",
@@ -1419,6 +1440,27 @@
     "title": "AE 08: Data science ethics - Misrepresentation",
     "section": "",
     "text": "Packages\n\nlibrary(tidyverse)\n\n\n\nPart 1 - People’s Poll\nGB News tweeted the following on Aug 26, 2022.\n\n\n\n\n\n\nQuestion: What is wrong with the visualization above?\n\nThe bars are not drawn to scale, hence are misleading\n\nYour turn (5 minutes): The data from this poll are at data/gbpoll.csv. First, load the data and confirm the number of responses match those mentioned in the tweet.\n\ngbpoll <- read_csv(\"data/gbpoll.csv\")\n\nRows: 1235 Columns: 1\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): party\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nnrow(gbpoll)\n\n[1] 1235\n\n\nThen, confirm that the proportions of intended votes match those mentioned in the tweet.\n\ngbpoll |>\n  count(party) |>\n  mutate(prop = n / sum(n))\n\n# A tibble: 5 × 3\n  party                 n   prop\n  <chr>             <int>  <dbl>\n1 Conservative        321 0.260 \n2 Labour              494 0.4   \n3 Liberal Democrats   136 0.110 \n4 Other               210 0.170 \n5 SNP                  74 0.0599\n\n\nDemo: Recreate the visualization from the tweet. You do not need to worry about matching the colors precisely and your bars should be correctly scaled.\n\ngbpoll |>\n  count(party) |>\n  mutate(\n    prop = round(n / sum(n), 2),\n    prop_char = paste0(prop*100, \"%\")\n    ) |>\n  filter(party != \"Other\") |>\n  mutate(party = fct_reorder(party, prop)) |>\n  ggplot(\n    aes(\n      y = party, \n      x = prop, \n      fill = party\n    )\n  ) +\n  geom_col(show.legend = FALSE) +\n  scale_y_discrete(drop = TRUE) +\n  theme_void() +\n  geom_text(\n    aes(label = str_wrap(party, 10)),\n    x = 0.005,\n    hjust = 0,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  geom_text(\n    aes(label = prop_char),\n    nudge_x = -0.005,\n    hjust = 1,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  scale_fill_manual(values = c(\"#D0C123\", \"#F99C1A\",\"#00AEEF\", \"#E4013B\")) +\n  labs(\n    title = str_to_upper(\"If there were to be a general election tomorrow,\\nwhich party would you vote for?\")\n  )\n\n\n\n\n\n\n\nYour turn (10 minutes): Improve the visualization. State the improvements you made and why you made them. Discuss how these improvements help make the plot less misleading.\n\ngbpoll |>\n  count(party) |>\n  mutate(\n    prop = round(n / sum(n), 2),\n    prop_char = paste0(prop*100, \"%\")\n    ) |>\n  mutate(party = fct_reorder(party, prop)) |>\n  ggplot(\n    aes(\n      y = party, \n      x = prop, \n      fill = party\n    )\n  ) +\n  geom_col(show.legend = FALSE) +\n  scale_y_discrete(drop = TRUE) +\n  theme_void() +\n  geom_text(\n    aes(label = str_wrap(party, 10)),\n    x = 0.005,\n    hjust = 0,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  geom_text(\n    aes(label = prop_char),\n    nudge_x = -0.005,\n    hjust = 1,\n    color = \"white\",\n    fontface = \"bold\"\n    ) +\n  scale_fill_viridis_d(option = \"E\", end = 0.8) +\n  labs(\n    title = \"If there were to be a general election tomorrow,\\nwhich party would you vote for?\",\n    caption = \"Source: GBNews Poll, Aug 26, 2022\"\n  )\n\n\n\n\n\n\n\nPart 2 - Private sector\nThe following chart was shared by @GraphCrimes on Twitter on September 3, 2022.\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis exercise has been moved to HW 3. Suggested answers will be released with HW 3 answers.\n\n\n\nQuestion: What is misleading about this graph?\nYour turn (6 minutes): If you needed to recreate this plot, with improvements to avoid its misleading pitfalls, what data do you need? How many variables? How many observations? Can you find the data online? Try looking for it for at least 3 minutes with a partner.\nDemo: Load the data for this survey from data/survation.csv. First confirm that the data match the percentages from the visualization. Then, recreate the visualization, and improve it. Does the improved visualization look different than the original? Does it send a different message at a first glance?"
+  },
+  {
+    "objectID": "ae/ae-18-hypothesis-testing-A.html",
+    "href": "ae/ae-18-hypothesis-testing-A.html",
+    "title": "Quantifying uncertainty",
+    "section": "",
+    "text": "An article in the The Asheville Citizen-Times published in the summer of 2020 claims that the average price per guest (ppg) for properties in Asheville is $60 on Airbnb. To evaluate their claim we will use a dataset on 50 randomly selected Asheville Airbnb listings in June 2020. These data can be found in data/asheville.csv.\nLet’s load the packages we’ll use first.\nAnd then the data."
+  },
+  {
+    "objectID": "ae/ae-18-hypothesis-testing-A.html#generate",
+    "href": "ae/ae-18-hypothesis-testing-A.html#generate",
+    "title": "Quantifying uncertainty",
+    "section": "Generate",
+    "text": "Generate\nWe’ll start by generating the null distribution.\n\nDemo: Generate the null distribution?\n\n\nset.seed(4321)\n\n\nnull_dist <- abb |>\n  specify(response = ppg) |>\n  hypothesize(null = \"point\", mu = 60) |>\n  generate(reps = 100, type = \"bootstrap\") |>\n  calculate(stat = \"mean\")\n\n\nYour turn: Take a look at null_dist. What does each element in this distribution represent?\n\n\nnull_dist\n\nResponse: ppg (numeric)\nNull Hypothesis: point\n# A tibble: 100 × 2\n   replicate  stat\n       <int> <dbl>\n 1         1  63.7\n 2         2  50.7\n 3         3  74.3\n 4         4  56.7\n 5         5  66.1\n 6         6  50.5\n 7         7  52.8\n 8         8  62.4\n 9         9  55.9\n10        10  58.7\n# … with 90 more rows"
+  },
+  {
+    "objectID": "ae/ae-18-hypothesis-testing-A.html#visualize",
+    "href": "ae/ae-18-hypothesis-testing-A.html#visualize",
+    "title": "Quantifying uncertainty",
+    "section": "Visualize",
+    "text": "Visualize\n\nQuestion: Before you visualize the distribution of null_dist – at what value would you expect this distribution to be centered? Why?\n\nAt 60, since we created this distribution assuming \\(\\mu = 60\\).\n\nDemo: Create an appropriate visualization for your null distribution. Does the center of the distribution match what you guessed in the previous question?\n\n\nggplot(null_dist, aes(x = stat)) +\n  geom_dotplot()\n\nBin width defaults to 1/30 of the range of the data. Pick better value with\n`binwidth`.\n\n\n\n\n\n\nDemo: Now, add a vertical red line on your null distribution that represents your sample statistic.\n\n\nggplot(null_dist, aes(x = stat)) +\n  geom_dotplot() +\n  geom_vline(xintercept = 76.6, color = \"red\")\n\nBin width defaults to 1/30 of the range of the data. Pick better value with\n`binwidth`.\n\n\n\n\n\n\nQuestion: Based on the position of this line, does your observed sample mean appear to be an unusual observation under the assumption of the null hypothesis?\n\nYes, it’s pretty far from the center."
   },
   {
     "objectID": "ae/ae-12-modelling-fish-A.html",
@@ -3638,6 +3680,97 @@
     "title": "Data science ethics: Misrepresentation",
     "section": "Recap of AE",
     "text": "Recap of AE\n\nNot all visualizations are equally informative. But, perhaps more importantly, some might be misleading.\nAlways be cautious of a visualization, particularly one with an agenda, at the first glance. Look closely to check if it might be put together to mislead, instead of clarify.\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#announcements",
+    "href": "slides/21-hypothesis-testing.html#announcements",
+    "title": "Hypothesis testing",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 5 due tonight\nProject draft due tomorrow night"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#goals",
+    "href": "slides/21-hypothesis-testing.html#goals",
+    "title": "Hypothesis testing",
+    "section": "Goals",
+    "text": "Goals\n\nReview constructing confidence intervals via bootstrapping\nHypothesis testing, p-values, and making conclusions\n\nTest a claim about a population parameter\nUse simulation-based methods to generate the null distribution\nCalculate and interpret the p-value\nUse the p-value to draw conclusions in the context of the data and the research question"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#review-bootstrap-intervals",
+    "href": "slides/21-hypothesis-testing.html#review-bootstrap-intervals",
+    "title": "Hypothesis testing",
+    "section": "Review: Bootstrap intervals",
+    "text": "Review: Bootstrap intervals\n\n\nWhy do we construct confidence intervals?\nWhat is bootstrapping?\nWhat does each dot on the plot represent? Note: The plot is of a bootstrap distribution of a sample mean.\n\n\n\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#why-do-we-construct-confidence-intervals",
+    "href": "slides/21-hypothesis-testing.html#why-do-we-construct-confidence-intervals",
+    "title": "Hypothesis testing",
+    "section": "Why do we construct confidence intervals?",
+    "text": "Why do we construct confidence intervals?\nTo estimate plausible values of a parameter of interest, e.g., a slope (\\(\\beta_1\\)), a mean (\\(\\mu\\)), a proportion (\\(p\\))."
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#what-is-bootstrapping",
+    "href": "slides/21-hypothesis-testing.html#what-is-bootstrapping",
+    "title": "Hypothesis testing",
+    "section": "What is bootstrapping?",
+    "text": "What is bootstrapping?\n\nBootstrapping is a statistical procedure that resamples(with replacement) a single data set to create many simulated samples.\nWe then use these simulated samples to quantify the uncertainty around the sample statistic we’re interested in, e.g., a slope (\\(\\b_1\\)), a mean (\\(\\bar{x}\\)), a proportion (\\(\\hat{p}\\))."
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#what-does-each-dot-on-the-plot-represent",
+    "href": "slides/21-hypothesis-testing.html#what-does-each-dot-on-the-plot-represent",
+    "title": "Hypothesis testing",
+    "section": "What does each dot on the plot represent?",
+    "text": "What does each dot on the plot represent?\nNote: The plot is of a bootstrap distribution of a sample mean.\n\nResample, with replacement, from the original data\nDo this 20 times (since there are 20 dots on the plot)\nCalculate the summary statistic of interest in each of these samples"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#hypothesis-testing-1",
+    "href": "slides/21-hypothesis-testing.html#hypothesis-testing-1",
+    "title": "Hypothesis testing",
+    "section": "Hypothesis testing",
+    "text": "Hypothesis testing\nA hypothesis test is a statistical technique used to evaluate competing claims using data\n\n\nNull hypothesism \\(H_0\\): An assumption about the population. “There is nothing going on.”\nAlternative hypothesis, \\(H_A\\): A research question about the population. “There is something going on”.\n\n\n\nNote: Hypotheses are always at the population level!"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#writing-hypotheses",
+    "href": "slides/21-hypothesis-testing.html#writing-hypotheses",
+    "title": "Hypothesis testing",
+    "section": "Writing hypotheses",
+    "text": "Writing hypotheses\n\nAs a researcher, you are interested in the average number of cups of coffee Duke students drink in a day. An article on The Chronicle suggests that the Duke students drink, on average, 2 cups of coffee. You are interested in evaluating The Chronicle’s claim. What are your hypotheses?\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#writing-hypotheses-1",
+    "href": "slides/21-hypothesis-testing.html#writing-hypotheses-1",
+    "title": "Hypothesis testing",
+    "section": "Writing hypotheses",
+    "text": "Writing hypotheses\n\n= As a researcher, you are interested in the average number of cups of coffee Duke students drink in a day.\n\nAn article on The Chronicle suggests that the Duke students drink, on average, 1.2 cups of coffee. \\(\\rightarrow H_0: \\mu = 1.2\\)\nYou are interested in evaluating if The Chronicle’s too high. \\(\\rightarrow H_0: \\mu < 1.2\\)"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#collecting-data",
+    "href": "slides/21-hypothesis-testing.html#collecting-data",
+    "title": "Hypothesis testing",
+    "section": "Collecting data",
+    "text": "Collecting data\nLet’s suppose you manage to take a random sample of 100 Duke students and ask them how many cups of coffee they drink and calculate the sample average to be \\(\\bar{x} = 1\\)."
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#hypothesis-testing-mindset",
+    "href": "slides/21-hypothesis-testing.html#hypothesis-testing-mindset",
+    "title": "Hypothesis testing",
+    "section": "Hypothesis testing “mindset”",
+    "text": "Hypothesis testing “mindset”\n\nAssume yoi live in a world where null hypothesis is true: \\(\\mu = 1.2\\).\nAsk yourself how likely you are to observe the sample statistic, or something even more extreme, in this world: \\(P(\\bar{x} < 1 | \\mu = 1.2)\\) = ?"
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#ae-18",
+    "href": "slides/21-hypothesis-testing.html#ae-18",
+    "title": "Hypothesis testing",
+    "section": "ae-18",
+    "text": "ae-18\n\n\nGo to the course GitHub org and find your ae-18 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today."
+  },
+  {
+    "objectID": "slides/21-hypothesis-testing.html#recap-of-ae",
+    "href": "slides/21-hypothesis-testing.html#recap-of-ae",
+    "title": "Hypothesis testing",
+    "section": "Recap of AE",
+    "text": "Recap of AE\n\nA hypothesis test is a statistical technique used to evaluate competing claims (null and alternative hypotheses) using data.\nWe simulate a null distribution using our original data.\nWe use our sample statistic and direction of the alternative hypothesis to calculate the p-value.\nWe use the p-value to determine conclusions about the alternative hypotheses.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/02-meet-the-toolkit.html#five-tips-for-success",

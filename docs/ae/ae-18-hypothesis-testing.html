@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 199 - Building a spam filter</title>
+<title>STA 199 - Quantifying uncertainty</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,11 +125,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="STA 199 - Building a spam filter">
-<meta property="og:description" content="To illustrate logistic regression, we will build a spam filter from email data.">
+<meta property="og:title" content="STA 199 - Quantifying uncertainty">
+<meta property="og:description" content="An article in the The Asheville Citizen-Times published in the summer of 2020 claims that the average price per guest (ppg) for properties in Asheville is $60 on Airbnb.">
 <meta property="og:site-name" content="STA 199">
-<meta name="twitter:title" content="STA 199 - Building a spam filter">
-<meta name="twitter:description" content="To illustrate logistic regression, we will build a spam filter from email data.">
+<meta name="twitter:title" content="STA 199 - Quantifying uncertainty">
+<meta name="twitter:description" content="An article in the The Asheville Citizen-Times published in the summer of 2020 claims that the average price per guest (ppg) for properties in Asheville is $60 on Airbnb.">
 <meta name="twitter:image" content="https://sta199-f22-1.github.io/images/twitter-card.png">
 <meta name="twitter:creator" content="@minebocek">
 <meta name="twitter:image-height" content="418">
@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Building a spam filter</h1>
+      <h1 class="quarto-secondary-nav-title">Quantifying uncertainty</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -283,29 +283,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
-  <li><a href="#linear-model-a-false-start" id="toc-linear-model-a-false-start" class="nav-link" data-scroll-target="#linear-model-a-false-start">Linear model – a false start</a></li>
-  <li><a href="#logistic-regression-a-different-approach" id="toc-logistic-regression-a-different-approach" class="nav-link" data-scroll-target="#logistic-regression-a-different-approach">Logistic regression – a different approach</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <li><a href="#hypotheses" id="toc-hypotheses" class="nav-link active" data-scroll-target="#hypotheses">Hypotheses</a></li>
+  <li><a href="#observed-data" id="toc-observed-data" class="nav-link" data-scroll-target="#observed-data">Observed data</a></li>
+  <li><a href="#the-null-distribution" id="toc-the-null-distribution" class="nav-link" data-scroll-target="#the-null-distribution">The null distribution</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#generate" id="toc-generate" class="nav-link" data-scroll-target="#generate">Generate</a></li>
+  <li><a href="#visualize" id="toc-visualize" class="nav-link" data-scroll-target="#visualize">Visualize</a></li>
   </ul></li>
+  <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value">p-value</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#get-real" id="toc-get-real" class="nav-link" data-scroll-target="#get-real">Get real…</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-16-spam-filter-A.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-18-hypothesis-testing.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Building a spam filter</h1>
+<h1 class="title d-none d-lg-block">Quantifying uncertainty</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Application exercise</div>
-    <div class="quarto-category">Answers</div>
   </div>
   </div>
 
@@ -321,165 +319,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="learning-goals" class="level1">
-<h1>Learning goals</h1>
-<ul>
-<li>Use logistic regression to fit a model for a binary response variable</li>
-<li>Fit a logistic regression model in R</li>
-<li>Use a logistic regression model for classification</li>
-</ul>
-<p>To illustrate logistic regression, we will build a spam filter from email data.</p>
-<p>The data come from incoming emails in David Diez’s (one of the authors of OpenIntro textbooks) Gmail account for the first three months of 2012. All personally identifiable information has been removed.</p>
+<p>An article in the The Asheville Citizen-Times published in the summer of 2020 claims that the average price per guest (ppg) for properties in Asheville is $60 on Airbnb. To evaluate their claim we will use a dataset on 50 randomly selected Asheville Airbnb listings in June 2020. These data can be found in <code>data/asheville.csv</code>.</p>
+<p>Let’s load the packages we’ll use first.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>And then the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(email)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 3,921
-Columns: 21
-$ spam         &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ to_multiple  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ from         &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-$ cc           &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2, 1, 0, 2, 0, …
-$ sent_email   &lt;fct&gt; 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, …
-$ time         &lt;dttm&gt; 2012-01-01 01:16:41, 2012-01-01 02:03:59, 2012-01-01 11:…
-$ image        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ attach       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ dollar       &lt;dbl&gt; 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 5, 0, 0, …
-$ winner       &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no, no, no, no, n…
-$ inherit      &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ viagra       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ password     &lt;dbl&gt; 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …
-$ num_char     &lt;dbl&gt; 11.370, 10.504, 7.773, 13.256, 1.231, 1.091, 4.837, 7.421…
-$ line_breaks  &lt;int&gt; 202, 202, 192, 255, 29, 25, 193, 237, 69, 68, 25, 79, 191…
-$ format       &lt;fct&gt; 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, …
-$ re_subj      &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, …
-$ exclaim_subj &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, …
-$ urgent_subj  &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-$ exclaim_mess &lt;dbl&gt; 0, 1, 6, 48, 1, 1, 1, 18, 1, 0, 2, 1, 0, 10, 4, 10, 20, 0…
-$ number       &lt;fct&gt; big, small, small, small, none, none, big, small, small, …</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>The variables we’ll use in this analysis are</p>
+<section id="hypotheses" class="level1">
+<h1>Hypotheses</h1>
 <ul>
-<li><code>spam</code>: 1 if the email is spam, 0 otherwise</li>
-<li><code>exclaim_mess</code>: The number of exclamation points in the email message</li>
+<li><strong>Your turn:</strong> Write out the correct null and alternative hypothesis. Do this in both words <em>and</em> in proper notation.</li>
 </ul>
-<p><strong>Goal:</strong> Use the number of exclamation points in an email to predict whether or not it is spam.</p>
+<p><em>Add response here.</em></p>
 </section>
-<section id="exploratory-data-analysis" class="level1">
-<h1>Exploratory data analysis</h1>
-<p>Let’s start by taking a look at our data. Create an density plot to investigate the relationship between <code>spam</code> and <code>exclaim_mess</code>. Additionally, calculate the mean number of exclamation points for both spam and non-spam emails.</p>
+<section id="observed-data" class="level1">
+<h1>Observed data</h1>
+<p>Our goal is to use calculate the probability of a sample statistic at least as extreme as the one observed in our data if in fact the null hypothesis is true.</p>
+<ul>
+<li><strong>Demo:</strong> Calculate and report the sample statistic below using proper notation.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><span class="math display">\[\bar{x} = 76.6\]</span></p>
 </section>
-<section id="linear-model-a-false-start" class="level1">
-<h1>Linear model – a false start</h1>
-<p>Suppose we try using a linear model to describe the relationship between the number of exclamation points and whether an email is spam. Write up a linear model that models spam by exclamation marks.</p>
+<section id="the-null-distribution" class="level1">
+<h1>The null distribution</h1>
+<p>Let’s use simulation-based methods to conduct the hypothesis test specified above.</p>
+<section id="generate" class="level2">
+<h2 class="anchored" data-anchor-id="generate">Generate</h2>
+<p>We’ll start by generating the null distribution.</p>
+<ul>
+<li><strong>Demo:</strong> Generate the null distribution?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4321</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A visualization of a linear model is below.</p>
+<ul>
+<li><strong>Your turn:</strong> Take a look at <code>null_dist</code>. What does each element in this distribution represent?</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(email, <span class="fu">aes</span>(<span class="at">x =</span> exclaim_mess, <span class="at">y =</span> <span class="fu">as.numeric</span>(spam), <span class="at">color =</span> spam)) <span class="sc">+</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<p><img src="ae-16-spam-filter-A_files/figure-html/plot-linear-model-1.png" class="img-fluid" width="672"></p>
-</div>
+</section>
+<section id="visualize" class="level2">
+<h2 class="anchored" data-anchor-id="visualize">Visualize</h2>
+<ul>
+<li><strong>Question:</strong> Before you visualize the distribution of <code>null_dist</code> – at what value would you expect this distribution to be centered? Why?</li>
+</ul>
+<p><em>Add response here.</em></p>
+<ul>
+<li><strong>Demo:</strong> Create an appropriate visualization for your null distribution. Does the center of the distribution match what you guessed in the previous question?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><strong>Your turn:</strong> Is the linear model a good fit for the data? Why or why not?</li>
+<li><strong>Demo:</strong> Now, add a vertical red line on your null distribution that represents your sample statistic.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Question:</strong> Based on the position of this line, does your observed sample mean appear to be an unusual observation under the assumption of the null hypothesis?</li>
 </ul>
 <p><em>Add response here.</em></p>
 </section>
-<section id="logistic-regression-a-different-approach" class="level1">
-<h1>Logistic regression – a different approach</h1>
-<p>Let <span class="math inline">\(p\)</span> be the probability an email is spam (success).</p>
-<ul>
-<li><span class="math inline">\(\frac{p}{1-p}\)</span>: odds an email is spam (if p = 0.7, then the odds are 0.7/(1 - 0.7) = 2.33)</li>
-<li><span class="math inline">\(\log\Big(\frac{p}{1-p}\Big)\)</span>: “log-odds”, i.e., the natural log, an email is spam</li>
-</ul>
-<p>The logistic regression model using the number of exclamation points as an explanatory variable is as follows:</p>
-<p><span class="math display">\[\log\Big(\frac{p}{1-p}\Big) = \beta_0 + \beta_1 \times exclaim\_mess\]</span></p>
-<p>The probability an email is spam can be calculated as:</p>
-<p><span class="math display">\[p = \frac{\exp\{\beta_0 + \beta_1 \times exclaim\_mess\}}{1 + \exp\{\beta_0 + \beta_1 \times exclaim\_mess\}}\]</span></p>
 </section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<section id="p-value" class="level1">
+<h1>p-value</h1>
+<p>Above, we eyeballed how likely/unlikely our observed mean is. Now, let’s actually quantify it using a p-value.</p>
 <ul>
-<li><strong>Demo:</strong> Fit the logistic regression model using the number of exclamation points to predict the probability an email is spam.</li>
+<li><strong>Question:</strong> What is a p-value?</li>
+</ul>
+<p><em>Add response here.</em></p>
+<ul>
+<li><strong>Demo:</strong> Visualize the p-value.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>log_fit <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(spam <span class="sc">~</span> exclaim_mess, <span class="at">data =</span> email)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(log_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 5
-  term          estimate std.error statistic p.value
-  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-1 (Intercept)  -2.27      0.0553     -41.1     0    
-2 exclaim_mess  0.000272  0.000949     0.287   0.774</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><strong>Your turn:</strong> How does the code above differ from previous code we’ve used to fit regression models? Compare your summary output to the estimated model below.</li>
+<li><strong>Your turn:</strong> What is the p-value?</li>
 </ul>
-<p><span class="math display">\[\log\Big(\frac{p}{1-p}\Big) = -1.9114 - 0.1684 \times exclaim\_mess\]</span></p>
 <p><em>Add response here.</em></p>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
-<p>What is the probability the email is spam if it contains 10 exclamation points?</p>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
 <ul>
-<li><strong>Demo:</strong> Answer the question using R as a calculator</li>
+<li><strong>Your turn:</strong> What is the conclusion of the hypothesis test based on the p-value you calculated? Make sure to frame it in context of the data and the research question. Use a significance level of 5% to make your conclusion.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li><strong>Demo:</strong> Answer the question using the <code>predict()</code> function.</li>
-</ul>
-<p>We can use the predict function in R to produce the probability as well.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>We have the probability an email is spam, but ultimately we want to use the probability to classify an email as spam or not spam. Therefore, we need to set a <strong>decision-making threshold</strong>, such that an email is classified as spam if the predicted probability is greater than the threshold and not spam otherwise.</p>
-<p>Suppose you are a data scientist working on a spam filter. You must determine how high the predicted probability must be before you think it would be reasonable to call it spam and put it in the junk folder (which the user is unlikely to check).</p>
-<p><strong>Your turn:</strong> What are some trade offs you would consider as you set the decision-making threshold? Discuss with your neighbor.</p>
 <p><em>Add response here.</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(log_fit, email) <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(spam, exclaim_mess, .pred_class) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> exclaim_mess, <span class="at">y =</span> spam, <span class="at">color =</span> .pred_class)) <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ae-16-spam-filter-A_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<ul>
+<li><strong>Demo:</strong> Interpret the p-value in context of the data and the research question.</li>
+</ul>
+<p><em>Add response here.</em></p>
 </section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>Fit a model with <strong>all</strong> variables in the dataset as predictors and receate the visualization above for this model.</p>
+<section id="get-real" class="level1">
+<h1>Get real…</h1>
+<ul>
+<li><strong>Question:</strong> What we did above was a “toy example” to illustrate hypothesis test. What would you change to make this a real, more robust analysis?</li>
+</ul>
+<p><em>Add response here.</em></p>
+<ul>
+<li><strong>Demo:</strong> Work through the analysis again with these changes.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add-code-here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -1,0 +1,152 @@
+---
+title: "Quantifying uncertainty"
+categories: 
+  - Application exercise
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+An article in the The Asheville Citizen-Times published in the summer of 2020 claims that the average price per guest (ppg) for properties in Asheville is \$60 on Airbnb.
+To evaluate their claim we will use a dataset on 50 randomly selected Asheville Airbnb listings in June 2020.
+These data can be found in `data/asheville.csv`.
+
+Let's load the packages we'll use first.
+
+```{r}
+#| label: load-packages
+#| message: false
+
+library(tidyverse)
+library(tidymodels)
+```
+
+And then the data.
+
+```{r}
+#| label: load-data
+#| message: false
+
+# add code here
+```
+
+# Hypotheses
+
+-   **Your turn:** Write out the correct null and alternative hypothesis. Do this in both words *and* in proper notation.
+
+*Add response here.*
+
+# Observed data
+
+Our goal is to use calculate the probability of a sample statistic at least as extreme as the one observed in our data if in fact the null hypothesis is true.
+
+-   **Demo:** Calculate and report the sample statistic below using proper notation.
+
+```{r}
+#| label: point-estimate
+
+# add code here
+```
+
+$$\bar{x} = 76.6$$
+
+# The null distribution
+
+Let's use simulation-based methods to conduct the hypothesis test specified above.
+
+## Generate
+
+We'll start by generating the null distribution.
+
+-   **Demo:** Generate the null distribution?
+
+```{r}
+#| label: set-seed
+
+set.seed(4321)
+```
+
+```{r}
+#| label: null-dist-generate
+
+# add code here
+```
+
+-   **Your turn:** Take a look at `null_dist`. What does each element in this distribution represent?
+
+```{r}
+#| label: null-dist-view
+
+# add code here
+```
+
+## Visualize
+
+-   **Question:** Before you visualize the distribution of `null_dist` -- at what value would you expect this distribution to be centered? Why?
+
+*Add response here.*
+
+-   **Demo:** Create an appropriate visualization for your null distribution. Does the center of the distribution match what you guessed in the previous question?
+
+```{r}
+#| label: null-dist-visualize
+
+# add code here
+```
+
+-   **Demo:** Now, add a vertical red line on your null distribution that represents your sample statistic.
+
+```{r}
+#| label: null-dist-annotate
+
+# add code here
+```
+
+-   **Question:** Based on the position of this line, does your observed sample mean appear to be an unusual observation under the assumption of the null hypothesis?
+
+*Add response here.*
+
+# p-value
+
+Above, we eyeballed how likely/unlikely our observed mean is.
+Now, let's actually quantify it using a p-value.
+
+-   **Question:** What is a p-value?
+
+*Add response here.*
+
+-   **Demo:** Visualize the p-value.
+
+```{r}
+#| label: p-value-visualize
+
+# add code here
+```
+
+-   **Your turn:** What is the p-value?
+
+*Add response here.*
+
+# Conclusion
+
+-   **Your turn:** What is the conclusion of the hypothesis test based on the p-value you calculated? Make sure to frame it in context of the data and the research question. Use a significance level of 5% to make your conclusion.
+
+*Add response here.*
+
+-   **Demo:** Interpret the p-value in context of the data and the research question.
+
+*Add response here.*
+
+# Get real...
+
+-   **Question:** What we did above was a "toy example" to illustrate hypothesis test. What would you change to make this a real, more robust analysis?
+
+*Add response here.*
+
+-   **Demo:** Work through the analysis again with these changes.
+
+```{r}
+#| label: hypothesis-test
+
+# add-code-here
+```
