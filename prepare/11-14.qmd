@@ -1,0 +1,19 @@
+---
+title: "Prepare"
+subtitle: "Due: November 14, 2022"
+categories: "prepare"
+---
+
+If you haven't yet done so last week:
+
+-   ⌨️ Watch:
+
+    -   [Quantifying uncertainty](https://www.youtube.com/watch?v=LYpKrtZmQtI)
+
+    -   [Bootstrapping](https://youtu.be/bdqpI3iVOso)
+
+    -   [Hypothesis testing](https://datasciencebox.org/course-materials/_slides/u4-d12-hypothesis-testing/u4-d12-hypothesis-testing.html#1)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

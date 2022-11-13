@@ -1,0 +1,17 @@
+---
+title: "Prepare"
+subtitle: "Due: November 15, 2022"
+categories: "prepare"
+---
+
+If you haven't yet done so last week:
+
+-   📖 Read:
+
+    -   IMS: [Chp 11 - Hypothesis testing with randomization](https://openintro-ims.netlify.app/foundations-randomization.html)
+
+    -   IMS: [Chp 12 - Confidence intervals with bootstrapping](https://openintro-ims.netlify.app/foundations-bootstrapping.html)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::
