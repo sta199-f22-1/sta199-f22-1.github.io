@@ -1,0 +1,162 @@
+---
+title: "Lab 6 - Prediction and bootstrapping"
+categories: "Lab"
+---
+
+::: callout-important
+This lab is due Friday 18th at 11:59pm.
+:::
+
+# Data and packages
+
+The data can be found in the **dsbox** package, and it's called `gss16`. Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package. And we'll use the **tidyverse** and **tidymodels** packages as well.
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(tidymodels)
+library(dsbox)
+```
+
+You can find out more about the dataset by inspecting its documentation, which you can access by running `?gss16` in the Console or using the Help menu in RStudio to search for `gss16`. You can also find this information [here](https://rstudio-education.github.io/dsbox/reference/gss16.html).
+
+# Exercises
+
+## Exercise 1
+
+::: callout-important
+Pick a member of the team write the answer to Exercise 1. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+a. Create a new data frame called `gss16_advfront` that includes the variables `advfront`, `educ`, `polviews`, and `wrkstat`. Then, use the `drop_na()` function to remove rows that contain `NA`s from this new data frame. Sample code is provided below.
+
+```{r}
+#| eval: false
+
+gss16_advfront <- gss16 %>%
+  select(___, ___, ___, ___) %>%
+  drop_na()
+```
+
+b. Re-level the `advfront` variable such that it has two levels: `Strongly agree` and "`Agree"` combined into a new level called `Agree` and the remaining levels combined into"`Not agree"`. Then, re-order the levels in the following order: `"Agree"` and `"Not agree"`. Finally, `count()` how many times each new level appears in the `advfront` variable.
+
+*Hint:* You can do this in various ways. One option is to use the `str_detect()` function to detect the existence of words. Note that these sometimes show up with lowercase first letters and sometimes with upper case first letters. To detect either in the `str_detect()` function, you can use \[Aa\]gree. However, solve the problem however you like, this is just one option!
+
+c. Combine the levels of the `polviews` variable such that levels that have the word "liberal" in them are lumped into a level called `"Liberal"` and those that have the word conservative in them are lumped into a level called `"Conservative"`. Then, re-order the levels in the following order: `"Conservative"` , `"Moderate"`, and `"Liberal"`. Finally, `count()` how many times each new level appears in the `polviews` variable.
+
+::: callout-important
+After the team member working on Exercise 1 renders, commits, and pushes, another team member should pull their changes and render the document. Then, they should write the answer to Exercise 2. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+## Exercise 2
+
+::: callout-important
+Pick another member of the team write the answer to Exercise 2. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+a. Specify a logistic regression model using "glm" as the engine, that predicts `advfront` by `educ`. Name this specification gss16_spec. Report the tidy output below.
+
+b. Write out the estimated model in proper notation.
+
+c. Using your estimated model, predict the probability of agreeing with the following statement: Even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge is necessary and should be supported by the federal government (`Agree` in advfront) if you have an education of 7 years.
+
+::: callout-important
+After the team member working on Exercise 2 renders, commits, and pushes, another team member should pull their changes and render the document. Then, they should write the answer to Exercise 2. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+## Exercise 3
+
+::: callout-important
+Pick another member of the team write the answer to Exercise 3. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+a. Fit a new model that adds the additional explanatory variable of `polviews`. Report the tidy output below.
+
+b. Now, predict the probability of agreeing with the following statement: Even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge is necessary and should be supported by the federal government (`Agree` in advfront) if you have an education of 7 years and are Conservative.
+
+::: callout-important
+After the team member working on Exercise 3 renders, commits, and pushes, another team member should pull their changes and render the document. Then, they should write the answer to Exercise 2. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+## Exercise 4
+
+::: callout-important
+Pick another member of the team write the answer to Exercise 4. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+In 2016, the GSS added a new question on harassment at work. The question is phrased as the following.
+
+Over the past five years, have you been harassed by your superiors or co-workers at your job, for example, have you experienced any bullying, physical or psychological abuse?
+
+Answers to this question are stored in the `harass5` variable in our data set.
+
+a. Create a subset of the data that only contains `Yes` and `No` answers for the harassment question. How many responses chose each of these answers?
+
+b. Describe how bootstrapping can be used to estimate the proportion of all Americans who have been harassed by their superiors or co-workers at their job.
+
+c. Calculate a 95% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Use 1000 iterations when creating your bootstrap distribution. Interpret this interval in context of the data.
+
+::: callout-important
+After the team member working on Exercise 4 renders, commits, and pushes, another team member should pull their changes and render the document. Then, they should write the answer to Exercise 2. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+## Exercise 5
+
+::: callout-important
+Pick another member of the team write the answer to Exercise 5. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+a. Where was your 95% confidence interval centered? Why does this make sense?
+
+b. Now, calculate 90% bootstrap confidence interval for the proportion of Americans who have been harassed by their superiors or co-workers at their job. Report the interval below. Is it wider or more narrow than the 95% confidence interval?
+
+c. Now, suppose you created a bootstrap distribution with 50,000 simulations instead of 1,000. What would you expect to change (if anything)?
+
+-   Center of the CI
+-   Width of the CI
+
+::: callout-important
+After the team member working on Exercise 5 renders, commits, and pushes, another team member should pull their changes and render the document. Then, they should write the answer to Exercise 2. All others should contribute to the discussion but only one person should type up the answer, render the document, commit, and push to GitHub. All others should **not** touch the document.
+:::
+
+# Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to render and push changes.
+
+You must turn in a PDF file to the Gradescope page by the submission deadline to be considered "on time".
+
+Make sure your data are tidy! That is, your code should not be running off the pages and spaced properly. See: <https://style.tidyverse.org/ggplot2.html>.
+:::
+
+To submit your assignment:
+
+-   Go to <http://www.gradescope.com> and click *Log in* in the top right corner.
+-   Click *School Credentials* $\rightarrow$ *Duke NetID* and log in using your NetID credentials.
+-   Click on your *STA 199* course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark all the pages associated with exercise. All the pages of your lab should be associated with at least one question (i.e., should be "checked"). *If you do not do this, you will be subject to lose points on the assignment.*
+-   Select the first page of your .pdf submission to be associated with the *"Workflow & formatting"* question.
+
+# Grading
+
+| Component             | Points |
+|:----------------------|:-------|
+| Ex 1                  | 11     |
+| Ex 2                  | 11     |
+| Ex 3                  | 6      |
+| Ex 4                  | 11     |
+| Ex 5                  | 6      |
+| Workflow & formatting | 5      |
+| **Total**             | 50     |
+
+::: callout-note
+The "Workflow & formatting" component assesses the reproducible workflow. This includes:
+
+-   having at least 3 informative commit messages
+-   labeling the code chunks
+-   having readable code that does not exceed 80 characters, i.e., we can read all your code in the rendered PDF
+-   each team member contributing to the repo with commits at least once
+-   the issue being closed with a commit message
+:::
