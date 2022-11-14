@@ -89,7 +89,7 @@ For the purpose of this activity, we will work with a random sample of 157 rolle
 
 ## Practice with data manipulation
 
--   **Demo:** Create a new variable called `time` that has a response of `yes` if the roller coaster was built after 1970, and `no` if the roller coaster was built during or before 1970. Save this new factor variable in the `rc` data set. Additionally, make `type` a factor variable.
+-   **Demo:** Create a new variable called `opened_recently` that has a response of `yes` if the roller coaster was built after 1970, and `no` if the roller coaster was built during or before 1970. Save this new factor variable in the `rc` data set. Additionally, make `type` a factor variable.
 
 ```{r}
 #| label: data-prep
