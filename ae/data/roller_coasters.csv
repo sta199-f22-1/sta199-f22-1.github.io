@@ -1,0 +1,158 @@
+age_group,coaster,park,city,state,type,design,year_opened,top_speed,max_height,drop,length,duration,inversions,num_of_inversions
+1:older,Zippin Pippin,Libertyland,Memphis,Tennessee,Wooden,Sit Down,1915,40,70,70,2865,90,N,0
+1:older,Jack Rabbit,Kennywood Park,West Mifflin,Pennsylvania,Wooden,Sit Down,1921,45,40,70,2132,96,N,0
+1:older,Thunderhawk,Dorney Park,Allentown,Pennsylvania,Wooden,Sit Down,1923,45,80,65,2767,78,N,0
+1:older,Giant Dipper,Santa Cruz Beach Boardwalk,Santa Cruz,California,Wooden,Sit Down,1924,55,70,65,2640,112,N,0
+1:older,Thunderbolt,Kennywood Park,West Mifflin,Pennsylvania,Wooden,Sit Down,1924,55,70,95,2887,101,N,0
+1:older,Wildcat,Lake Compounce,Bristol,Connecticut,Wooden,Sit Down,1927,48,85,78,2746,75,N,0
+1:older,Coaster Thrill Ride,Puyallup Fair,Puyallup,Washington,Wooden,Sit Down,1935,50,55,52,2650,105,N,0
+1:older,Cyclone,Lakeside,Denver,Colorado,Wooden,Sit Down,1940,NA,90,89,2800,120,N,0
+1:older,Comet,Hersheypark,Hershey,Pennsylvania,Wooden,Sit Down,1946,50,84,78,3360,105,N,0
+1:older,Comet,Waldameer Park,Erie,Pennsylvania,Wooden,Sit Down,1951,25,37,25,1300,84,N,0
+1:older,High Speed Thrill Coaster,Knoebels,Elysburg,Pennsylvania,Steel,Sit Down,1955,40,18,12,200,NA,N,0
+1:older,Bobsleds,Seabreeze,Rochester,New York,Steel,Sit Down,1962,23,31,16,1240,NA,N,0
+1:older,Starliner,Miracle Strip Amusement Park,Panama City Beach,Florida,Wooden,Sit Down,1963,55,70,76,2640,NA,N,0
+1:older,Swamp Fox,Family Kingdom Amusement Park,Myrtle Beach,South Carolina,Wooden,Sit Down,1963,50,75,65,2400,NA,N,0
+1:older,Blue Streak,Cedar Point,Sandusky,Ohio,Wooden,Sit Down,1964,40,78,72,2558,105,N,0
+1:older,Cannon Ball,Lake Winnepesaukah,Rossville,Georgia,Wooden,Sit Down,1967,50,70,70,2272,NA,N,0
+1:older,River King Mine Train,Six Flags St. Louis,Eureka,Missouri,Steel,Sit Down,1971,37,32,41,2500,180,N,0
+1:older,Big Bend,Six Flags Over Texas,Arlington,Texas,Steel,Sit Down,1971,52,81,NA,2876,98,N,0
+1:older,Great American Scream Machine,Six Flags Over Georgia,Austell,Georgia,Wooden,Sit Down,1973,57,105,89,3450,120,N,0
+1:older,Demon,Six Flags Great America,Gurnee,Illinois,Steel,Sit Down,1976,50,102,90,2130,105,Y,4
+1:older,Demon,Paramounts Great America,Santa Clara,California,Steel,Sit Down,1976,50,102,90,2130,105,Y,4
+1:older,Screamin Eagle,Six Flags St. Louis,Eureka,Missouri,Wooden,Sit Down,1976,62,110,92,3872,150,N,0
+1:older,Texas Cyclone,Six Flags AstroWorld,Houston,Texas,Wooden,Sit Down,1976,NA,93,80,3180,135,N,0
+1:older,Whizzer,Six Flags Great America,Gurnee,Illinois,Steel,Sit Down,1976,42,70,64,3100,120,N,0
+1:older,Colossus,Six Flags Magic Mountain,Valencia,California,Wooden,Sit Down,1978,62,125,115,4325,150,N,0
+1:older,Gemini,Cedar Point,Sandusky,Ohio,Steel,Sit Down,1978,60,125,118,3935,140,N,0
+1:older,Loch Ness Monster,Busch Gardens Williamsburg,Williamsburg,Virginia,Steel,Sit Down,1978,60,130,114,3240,130,Y,2
+1:older,Montezooma's Revenge,Knotts Berry Farm,Buena Park,California,Steel,Sit Down,1978,55,148,137,800,36,Y,1
+1:older,Beast,Paramounts Kings Island,Kings Mills,Ohio,Wooden,Sit Down,1979,65,110,141,7359,250,N,0
+1:older,Revolution,Libertyland,Memphis,Tennessee,Steel,Sit Down,1979,55,70,65,1565,80,Y,3
+1:older,Silver Bullet,Frontier City,Oklahoma City,Oklahoma,Steel,Sit Down,1979,55,83,75,1942,NA,Y,1
+2:recent,Judge Roy Scream,Six Flags Over Texas,Arlington,Texas,Wooden,Sit Down,1980,53,71,65,2670,90,N,0
+2:recent,American Eagle,Six Flags Great America,Gurnee,Illinois,Wooden,Sit Down,1981,66,127,147,4650,143,N,0
+2:recent,Viper,Six Flags Darien Lake,Darien Center,New York,Steel,Sit Down,1982,50,121,75,3100,124,Y,5
+2:recent,Big Bad Wolf,Busch Gardens Williamsburg,Williamsburg,Virginia,Steel,Suspended,1984,48,100,80,2800,180,N,0
+2:recent,Phoenix,Knoebels,Elysburg,Pennsylvania,Wooden,Sit Down,1985,45,78,72,3200,120,N,0
+2:recent,Wild One,Six Flags America,Upper Marlboro,Maryland,Wooden,Sit Down,1986,53,98,88,4000,112,N,0
+2:recent,Skyliner,Lakemont Park,Altoona,Pennsylvania,Wooden,Sit Down,1987,NA,60,45,2400,NA,N,0
+2:recent,Vortex,Paramounts Kings Island,Kings Mills,Ohio,Steel,Sit Down,1987,55,148,138,3800,150,Y,6
+2:recent,Excalibur,Valleyfair!,Shakopee,Minnesota,Steel,Sit Down,1989,55,100,105,2415,137,N,0
+2:recent,Great American Scream Machine,Six Flags Great Adventure,Jackson,New Jersey,Steel,Sit Down,1989,68,173,155,3800,140,Y,7
+2:recent,Magnum XL-200,Cedar Point,Sandusky,Ohio,Steel,Sit Down,1989,72,205,195,5106,120,N,0
+2:recent,Timber Wolf,Worlds of Fun,Kansas City,Missouri,Wooden,Sit Down,1989,53,100,95,4230,133,N,0
+2:recent,Corkscrew,Silverwood Theme Park,Athol,Idaho,Steel,Sit Down,1990,46,70,62,1250,NA,Y,2
+2:recent,Georgia Cyclone,Six Flags Over Georgia,Austell,Georgia,Wooden,Sit Down,1990,50,95,79,2970,108,N,0
+2:recent,Iron Wolf,Six Flags Great America,Gurnee,Illinois,Steel,Stand Up,1990,55,100,90,2900,120,Y,2
+2:recent,Texas Giant,Six Flags Over Texas,Arlington,Texas,Wooden,Sit Down,1990,65,143,137,4920,120,N,0
+2:recent,Ultra Twister,Six Flags AstroWorld,Houston,Texas,Steel,Pipeline,1990,44,97,92,1421,100,Y,3
+2:recent,Viper,Six Flags Magic Mountain,Valencia,California,Steel,Sit Down,1990,70,188,171,3830,150,Y,7
+2:recent,Afterburner,Fun Spot,Angola,Indiana,Steel,Sit Down,1991,45,56,47,635,66,Y,1
+2:recent,Anaconda,Paramounts Kings Dominion,Doswell,Virginia,Steel,Sit Down,1991,50,128,144,2700,110,Y,4
+2:recent,Dragon,Adventureland,Altoona,Iowa,Steel,Sit Down,1991,NA,90,85,2250,90,Y,2
+2:recent,Mean Streak,Cedar Point,Sandusky,Ohio,Wooden,Sit Down,1991,65,161,155,5427,193,N,0
+2:recent,Wildcat,Frontier City,Oklahoma City,Oklahoma,Wooden,Sit Down,1991,60,75,65,2653,130,N,0
+2:recent,Rattler,Six Flags Fiesta Texas,San Antonio,Texas,Wooden,Sit Down,1992,65,180,124,5080,NA,N,0
+2:recent,Batman The Escape,Six Flags AstroWorld,Houston,Texas,Steel,Stand Up,1993,55,90,85,2300,NA,Y,1
+2:recent,Canyon Blaster,Adventuredome,Las Vegas,Nevada,Steel,Sit Down,1993,41,94,66,2423,90,Y,4
+2:recent,Diamond Back,Frontier City,Oklahoma City,Oklahoma,Steel,Sit Down,1993,45,56,47,635,66,Y,1
+2:recent,Kumba,Busch Gardens Tampa,Tampa,Florida,Steel,Sit Down,1993,60,143,135,3978,174,Y,7
+2:recent,Top Gun,Paramounts Great America,Santa Clara,California,Steel,Inverted,1993,50,102,91,2260,146,Y,3
+2:recent,Whirlwind,Knoebels,Elysburg,Pennsylvania,Steel,Sit Down,1993,NA,64,48,1200,NA,Y,2
+2:recent,Comet,Great Escape,Lake George,New York,Wooden,Sit Down,1994,55,95,87,4197,120,N,0
+2:recent,Desperado,Buffalo Bills Resort & Casino,Primm,Nevada,Steel,Sit Down,1994,80,209,225,5843,163,N,0
+2:recent,Raptor,Cedar Point,Sandusky,Ohio,Steel,Inverted,1994,57,137,119,3790,136,Y,6
+2:recent,Cyclops,Big Chief Carts And Coasters,Wisconsin Dells,Wisconsin,Wooden,Sit Down,1995,58,70,75,1900,60,N,0
+2:recent,Great NorEaster,Moreys Piers,Wildwood,New Jersey,Steel,Inverted,1995,55,115,95,2170,125,Y,5
+2:recent,Jaguar!,Knotts Berry Farm,Buena Park,California,Steel,Sit Down,1995,35,65,45,2602,120,N,0
+2:recent,Raven,Holiday World,Santa Claus,Indiana,Wooden,Sit Down,1995,48,80,110,2731,90,N,0
+2:recent,Screamer,Scandia Amusement Park,Ontario,California,Steel,Sit Down,1995,50,90,80,2600,116,N,0
+2:recent,Sidewinder,Six Flags Elitch Gardens,Denver,Colorado,Steel,Sit Down,1995,45,56,47,635,66,Y,1
+2:recent,Viper,Six Flags Great America,Gurnee,Illinois,Wooden,Sit Down,1995,50,100,80,3458,105,N,0
+2:recent,Great White,Moreys Piers,Wildwood,New Jersey,Wooden,Sit Down,1996,50,110,100,3300,120,N,0
+2:recent,Mantis,Cedar Point,Sandusky,Ohio,Steel,Stand Up,1996,60,145,137,3900,160,Y,4
+2:recent,Montu,Busch Gardens Tampa,Tampa,Florida,Steel,Inverted,1996,60,150,128,3983,180,Y,7
+2:recent,Pegasus,Big Chief Carts And Coasters,Wisconsin Dells,Wisconsin,Wooden,Sit Down,1996,NA,60,45,NA,NA,N,0
+2:recent,Wild Thing,Valleyfair!,Shakopee,Minnesota,Steel,Sit Down,1996,74,207,196,5460,180,N,0
+2:recent,Wildcat,Hersheypark,Hershey,Pennsylvania,Wooden,Sit Down,1996,50,90,85,3183,NA,N,0
+2:recent,Alpengeist,Busch Gardens Williamsburg,Williamsburg,Virginia,Steel,Inverted,1997,67,195,170,3828,190,NA,NA
+2:recent,Chang,Six Flags Kentucky Kingdom,Louisville,Kentucky,Steel,Stand Up,1997,63,154,144,4155,150,Y,5
+2:recent,Cyclone,Williams Grove Park,Mechanicsburg,Pennsylvania,Wooden,Sit Down,1997,NA,65,60,2300,NA,N,0
+2:recent,Great White,SeaWorld Of Texas,San Antonio,Texas,Steel,Inverted,1997,50,108,81,2562,120,Y,5
+2:recent,Manhattan Express,"New York, New York Hotel & Casino",Las Vegas,Nevada,Steel,Sit Down,1997,67,203,144,4777,160,Y,2
+2:recent,Steel Force,Dorney Park,Allentown,Pennsylvania,Steel,Sit Down,1997,75,200,205,5600,180,N,0
+2:recent,Superman The Escape,Six Flags Magic Mountain,Valencia,California,Steel,Sit Down,1997,100,415,328,1235,28,N,0
+2:recent,Wild Thing,Wild Waves and Enchanted Village,Federal Way,Washington,Steel,Sit Down,1997,NA,NA,64,NA,60,Y,3
+2:recent,Zeus,Big Chief Carts And Coasters,Wisconsin Dells,Wisconsin,Wooden,Sit Down,1997,60,90,85,2900,85,N,0
+2:recent,Batman And Robin; The Chiller,Six Flags Great Adventure,Jackson,New Jersey,Steel,Sit Down,1998,70,200,139,1137,32,Y,2
+2:recent,Batman And Robin; The Chiller,Six Flags Great Adventure,Jackson,New Jersey,Steel,Sit Down,1998,70,200,105,1229,48,Y,3
+2:recent,Excalibur,Funtown Splashtown U.S.A.,Saco,Maine,Wooden,Sit Down,1998,55,100,82,2700,118,N,0
+2:recent,GhostRider,Knotts Berry Farm,Buena Park,California,Wooden,Sit Down,1998,56,118,108,4533,160,N,0
+2:recent,Great Bear,Hersheypark,Hershey,Pennsylvania,Steel,Inverted,1998,58,90,124,2800,175,Y,4
+2:recent,Invertigo,Paramounts Great America,Santa Clara,California,Steel,Inverted,1998,50,161,138,1014,90,Y,3
+2:recent,Mamba,Worlds of Fun,Kansas City,Missouri,Steel,Sit Down,1998,75,205,205,5600,180,N,0
+2:recent,Riddlers Revenge,Six Flags Magic Mountain,Valencia,California,Steel,Stand Up,1998,65,156,146,4370,180,Y,6
+2:recent,Vapor Trail,Sesame Place,Langhorne,Pennsylvania,Steel,Sit Down,1998,27,43,56,1300,180,N,0
+2:recent,"Volcano, The Blast Coaster",Paramounts Kings Dominion,Doswell,Virginia,Steel,Inverted,1998,70,155,80,2757,NA,Y,4
+2:recent,Apollos Chariot,Busch Gardens Williamsburg,Williamsburg,Virginia,Steel,Sit Down,1999,73,170,210,4882,135,N,0
+2:recent,Dueling Dragons,Universal Studios Islands of Adventure,Orlando,Florida,Steel,Inverted,1999,60,125,115,3200,145,Y,5
+2:recent,Dueling Dragons,Universal Studios Islands of Adventure,Orlando,Florida,Steel,Inverted,1999,55,125,95,3200,145,Y,5
+2:recent,Face/Off,Paramounts Kings Island,Kings Mills,Ohio,Steel,Inverted,1999,50,161,138,1014,90,Y,3
+2:recent,Georgia Scorcher,Six Flags Over Georgia,Austell,Georgia,Steel,Stand Up,1999,54,107,101,3000,84,Y,2
+2:recent,Incredible Hulk,Universal Studios Islands of Adventure,Orlando,Florida,Steel,Sit Down,1999,67,110,105,3700,135,Y,7
+2:recent,Leap The Dips,Lakemont Park,Altoona,Pennsylvania,Wooden,Sit Down,1999,NA,41,9,1452,60,N,0
+2:recent,Medusa,Six Flags Great Adventure,Jackson,New Jersey,Steel,Sit Down,1999,61,142,132,3985,140,Y,7
+2:recent,Raging Bull,Six Flags Great America,Gurnee,Illinois,Steel,Sit Down,1999,73,202,208,5057,150,N,0
+2:recent,Silver Comet,Martins Fantasy Island,Grand Island,New York,Wooden,Sit Down,1999,50,NA,82,2800,105,N,0
+2:recent,Steel Eel,SeaWorld Of Texas,San Antonio,Texas,Steel,Sit Down,1999,65,150,150,3700,100,N,0
+2:recent,Superman - Ride Of Steel,Six Flags Darien Lake,Darien Center,New York,Steel,Sit Down,1999,73,208,205,5400,122,N,0
+2:recent,Tennessee Tornado,Dollywood,Pigeon Forge,Tennessee,Steel,Sit Down,1999,63,163,128,2682,108,Y,3
+2:recent,Tremors,Silverwood Theme Park,Athol,Idaho,Wooden,Sit Down,1999,60,100,103,3000,100,N,0
+2:recent,Twister,Knoebels,Elysburg,Pennsylvania,Wooden,Sit Down,1999,52,102,90,3900,130,N,0
+2:recent,Two-Face: The Flip Side,Six Flags America,Upper Marlboro,Maryland,Steel,Inverted,1999,50,161,138,1014,90,Y,3
+2:recent,Joker's Jinx,Six Flags America,Upper Marlboro,Maryland,Steel,Sit Down,1999,60,79,NA,2750,56,Y,4
+3:newest,Batman The Ride,Six Flags Fiesta Texas,San Antonio,Texas,Steel,Wing,2015,38,120,54,1019,NA,Y,6
+3:newest,Arkansas Twister,Magic Springs and Crystal Falls,Hot Springs,Arkansas,Wooden,Sit Down,2000,NA,95,92,3340,NA,N,0
+3:newest,Batman Knight Flight,Six Flags Worlds of Adventure,Aurora,Ohio,Steel,Sit Down,2000,65,157,148,4210,NA,Y,5
+3:newest,Boss,Six Flags St. Louis,Eureka,Missouri,Wooden,Sit Down,2000,66,122,150,5051,NA,N,0
+3:newest,Boulder Dash,Lake Compounce,Bristol,Connecticut,Wooden,Sit Down,2000,60,NA,115,4725,150,N,0
+3:newest,Goliath,Six Flags Magic Mountain,Valencia,California,Steel,Sit Down,2000,85,235,255,4500,180,N,0
+3:newest,Hurricane,Myrtle Beach Pavilion,Myrtle Beach,South Carolina,Wooden,Sit Down,2000,55,102,100,3800,120,N,0
+3:newest,Kraken,SeaWorld Orlando,Orlando,Florida,Steel,Sit Down,2000,65,149,144,4177,122,Y,7
+3:newest,Medusa,Six Flags Marine World,Vallejo,California,Steel,Sit Down,2000,65,150,150,3937,195,Y,7
+3:newest,Millennium Force,Cedar Point,Sandusky,Ohio,Steel,Sit Down,2000,93,310,300,6595,140,N,0
+3:newest,Son Of Beast,Paramounts Kings Island,Kings Mills,Ohio,Wooden,Sit Down,2000,78,218,214,7032,140,Y,1
+3:newest,Superman - Ride Of Steel,Six Flags New England,Agawam,Massachusetts,Steel,Sit Down,2000,77,208,221,5400,155,N,0
+3:newest,Superman - Ride Of Steel,Six Flags America,Upper Marlboro,Maryland,Steel,Sit Down,2000,73,200,190,5350,130,N,0
+3:newest,California Screamin,Disneys California Adventure,Anaheim,California,Steel,Sit Down,2001,55,NA,108,6072,156,Y,1
+3:newest,Cheetah,Wild Adventures,Valdosta,Georgia,Wooden,Sit Down,2001,52,92,90,2680,NA,N,0
+3:newest,Deja Vu,Six Flags Great America,Gurnee,Illinois,Steel,Inverted,2001,66,192,177,1204,92,Y,3
+3:newest,Deja Vu,Six Flags Over Georgia,Austell,Georgia,Steel,Inverted,2001,66,192,177,1204,92,Y,3
+3:newest,HyperSonic XLC,Paramounts Kings Dominion,Doswell,Virginia,Steel,Sit Down,2001,80,165,133,1560,NA,N,0
+3:newest,Nitro,Six Flags Great Adventure,Jackson,New Jersey,Steel,Sit Down,2001,80,230,215,5394,140,N,0
+3:newest,Phantoms Revenge,Kennywood Park,West Mifflin,Pennsylvania,Steel,Sit Down,2001,82,160,228,3200,117,N,0
+3:newest,Talon,Dorney Park,Allentown,Pennsylvania,Steel,Inverted,2001,58,135,120,3110,NA,Y,4
+3:newest,Titan,Six Flags Over Texas,Arlington,Texas,Steel,Sit Down,2001,85,245,255,5312,210,N,0
+3:newest,Wildfire,Silver Dollar City,Branson,Missouri,Steel,Sit Down,2001,66,120,155,3073,136,Y,5
+3:newest,Big Bad John,Magic Springs and Crystal Falls,Hot Springs,Arkansas,Steel,Sit Down,2002,37,32,41,2349,180,N,0
+3:newest,New Mexico Rattler,Cliffs Amusement Park,Albuquerque,New Mexico,Wooden,Sit Down,2002,47,80,75,2750,75,N,0
+3:newest,Ricochet,Paramounts Kings Dominion,Doswell,Virginia,Steel,Sit Down,2002,35,52,50,1340,180,N,0
+3:newest,Superman - Ultimate Flight,Six Flags Over Georgia,Austell,Georgia,Steel,Flying,2002,NA,115,100,2760,120,Y,2
+3:newest,Wicked Twister,Cedar Point,Sandusky,Ohio,Steel,Inverted,2002,72,215,206,NA,NA,N,0
+3:newest,X,Six Flags Magic Mountain,Valencia,California,Steel,4th Dimension,2002,76,175,215,3610,NA,Y,2
+3:newest,Batman: The Ride,Six Flags New Orleans,New Orleans,Louisiana,Steel,Inverted,2003,50,105,80,2693,120,Y,5
+3:newest,Rampage,VisionLand,Bessemer,Alabama,Wooden,Sit Down,2003,56,120,102,3500,NA,N,0
+3:newest,Scream!,Six Flags Magic Mountain,Valencia,California,Steel,Sit Down,2003,63,150,141,3985,180,Y,7
+3:newest,Steel Venom,Valleyfair!,Shakopee,Minnesota,Steel,Inverted,2003,68,185,175,630,NA,N,0
+3:newest,Superman - Ultimate Flight,Six Flags Great America,Gurnee,Illinois,Steel,Flying,2003,50,115,109,2798,180,Y,2
+3:newest,Superman - Ultimate Flight,Six Flags Great Adventure,Jackson,New Jersey,Steel,Flying,2003,60,115,100,2759,126,Y,2
+3:newest,Top Thrill Dragster,Cedar Point,Sandusky,Ohio,Steel,Sit Down,2003,120,420,400,2800,30,N,0
+3:newest,Zonga,Six Flags Marine World,Vallejo,California,Steel,Sit Down,2003,62,115,98,3675,NA,Y,4
+3:newest,Dominator,Kings Dominion,Doswell,Virginia,Steel,Sit Down,2008,65,157,148,4210,126,Y,5
+3:newest,Intimidator,Carowinds,Charlotte,North Carolina,Steel,Sit Down,2010,75,232,211,5316,213,N,0
+3:newest,Fury 325,Carowinds,Charlotte,North Carolina,Steel,Sit Down,2015,95,325,320,6602,205,N,0
+3:newest,Lightning Rod,Dollywood,Pigeon Forge,Tennessee,Wooden,Sit Down,2016,73,NA,165,3800,192,N,0
+3:newest,StormChaser,Kentucky Kingdom,Louisville,Kentucky,Steel,Sit Down,2016,52,100,NA,2744,100,Y,3
+3:newest,Superman: Krypton Coaster,Six Flags Fiesta Texas,San Antonio,Texas,Steel,Sit Down,2000,70,168,163,4025,155,Y,6
+3:newest,Joker,Six Flags Great Adventure,Jackson,New Jersey,Steel,Wing,2016,38,120,54,1019,NA,Y,6

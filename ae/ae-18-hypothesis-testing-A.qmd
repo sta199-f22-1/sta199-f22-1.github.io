@@ -34,8 +34,7 @@ glimpse(abb)
 
 # Hypotheses
 
--   **Your turn:** Write out the correct null and alternative hypothesis.
-    Do this in both words *and* in proper notation.
+-   **Your turn:** Write out the correct null and alternative hypothesis. Do this in both words *and* in proper notation.
 
 **Null hypothesis:** The average price per guest (ppg) in Asheville is \$60.
 
@@ -86,8 +85,7 @@ null_dist <- abb |>
   calculate(stat = "mean")
 ```
 
--   **Your turn:** Take a look at `null_dist`.
-    What does each element in this distribution represent?
+-   **Your turn:** Take a look at `null_dist`. What does each element in this distribution represent?
 
 ```{r}
 #| label: null-dist-view
@@ -97,13 +95,11 @@ null_dist
 
 ## Visualize
 
--   **Question:** Before you visualize the distribution of `null_dist` -- at what value would you expect this distribution to be centered?
-    Why?
+-   **Question:** Before you visualize the distribution of `null_dist` -- at what value would you expect this distribution to be centered? Why?
 
 At 60, since we created this distribution assuming $\mu = 60$.
 
--   **Demo:** Create an appropriate visualization for your null distribution.
-    Does the center of the distribution match what you guessed in the previous question?
+-   **Demo:** Create an appropriate visualization for your null distribution. Does the center of the distribution match what you guessed in the previous question?
 
 ```{r}
 #| label: null-dist-visualize
@@ -152,9 +148,7 @@ ggplot(null_dist, aes(x = stat)) +
 
 # Conclusion
 
--   **Your turn:** What is the conclusion of the hypothesis test based on the p-value you calculated?
-    Make sure to frame it in context of the data and the research question.
-    Use a significance level of 5% to make your conclusion.
+-   **Your turn:** What is the conclusion of the hypothesis test based on the p-value you calculated? Make sure to frame it in context of the data and the research question. Use a significance level of 5% to make your conclusion.
 
 Since the p-value is smaller than the significance level, we reject the null hypothesis.
 The data provide convincing evidence that the average price per guest of properties on Airbnb in Asheville is different than \$60.
@@ -165,8 +159,7 @@ If in fact the true average price per guest of properties on Airbnb in Ashevlle 
 
 # Get real...
 
--   **Question:** What we did above was a "toy example" to illustrate hypothesis test.
-    What would you change to make this a real, more robust analysis?
+-   **Question:** What we did above was a "toy example" to illustrate hypothesis test. What would you change to make this a real, more robust analysis?
 
 Change the number of resamples to a higher number, somewhere \~10,000 replicates.
 
