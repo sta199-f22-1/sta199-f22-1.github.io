@@ -283,15 +283,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link active" data-scroll-target="#research-question-1">Research question 1</a>
-  <ul class="collapse">
-  <li><a href="#practice-with-data-manipulation" id="toc-practice-with-data-manipulation" class="nav-link" data-scroll-target="#practice-with-data-manipulation">Practice with data manipulation</a></li>
-  </ul></li>
+  <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link active" data-scroll-target="#research-question-1">Research question 1</a></li>
   <li><a href="#research-question-2" id="toc-research-question-2" class="nav-link" data-scroll-target="#research-question-2">Research question 2</a></li>
   <li><a href="#research-question-3" id="toc-research-question-3" class="nav-link" data-scroll-target="#research-question-3">Research question 3</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-19-inference-oerview-A.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/ae/ae-19-inference-overview-A.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -373,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Stand Up: a coaster ridden while standing up instead of sitting down.</p>
 <p>Pipeline: a coaster where riders are positioned between the rails instead of above or below.</p>
 <p>Wing: a coaster where pairs of riders sit on either side of a roller coaster track in which nothing is above or below the riders.</p>
-<p>Bobsled: designed like a bobsled run -- without a fixed track. The train travels freely through a trough.</p></td>
+<p>4th Dimension: a coaster where the cars have the ability to rotate on an axis perpendicular to that of the track.</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>year_opened</code></td>
@@ -412,12 +409,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="research-question-1" class="level1">
 <h1>Research question 1</h1>
 <blockquote class="blockquote">
-<p><strong>Is the true proportion of steel roller coasters built before 1970 different than those built after 1970?</strong></p>
+<p><strong>Is the true proportion of steel roller coasters opened before 1970 different than those opened after 1970?</strong></p>
 </blockquote>
-<section id="practice-with-data-manipulation" class="level2">
-<h2 class="anchored" data-anchor-id="practice-with-data-manipulation">Practice with data manipulation</h2>
 <ul>
-<li><strong>Demo:</strong> Create a new variable called <code>time</code> that has a response of <code>yes</code> if the roller coaster was built after 1970, and <code>no</code> if the roller coaster was built during or before 1970. Save this new factor variable in the <code>rc</code> data set. Additionally, make <code>type</code> a factor variable.</li>
+<li><strong>Demo:</strong> Create a new variable called <code>opened_recently</code> that has a response of <code>yes</code> if the roller coaster was opened after 1970, and <code>no</code> if the roller coaster was opened during or before 1970. Save this new factor variable in the <code>rc</code> data set. Additionally, make <code>type</code> a factor variable.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>rc <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
@@ -442,7 +437,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><span class="math inline">\(H_A\)</span>: <span class="math inline">\(p_1 - p_2 \ne 0\)</span></p>
 <ul>
-<li>Calculate the observed statistic.</li>
+<li><strong>Demo:</strong> Calculate the observed statistic.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>point_estimate <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
@@ -475,18 +470,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualize</span>(null_dist) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> point_estimate, <span class="at">direction =</span> <span class="st">"two sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="ae-19-inference-oerview-A_files/figure-html/null-dist-visualize-1.png" class="img-fluid" width="672"></p>
+<p><img src="ae-19-inference-overview-A_files/figure-html/null-dist-visualize-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><strong>Your turn:</strong> Calculate p-value. Then use the p-value to make your conclusion using a significance level of 0.1 and write out an appropriate conclusion below. Recall that the conclusion has 3 components.
 <ul>
-<li><p>How the p-value compares to the significance level.</p></li>
-<li><p>The decision you make with respect to the hypotheses (reject <span class="math inline">\(H_0\)</span> /fail to reject <span class="math inline">\(H_0\)</span>)</p></li>
-<li><p>The conclusion in the context of the <strong>alternative hypothesis</strong>.</p></li>
+<li>How the p-value compares to the significance level.</li>
+<li>The decision you make with respect to the hypotheses (reject <span class="math inline">\(H_0\)</span> /fail to reject <span class="math inline">\(H_0\)</span>)</li>
+<li>The conclusion in the context of the <strong>alternative hypothesis</strong>.</li>
 </ul></li>
 </ul>
-<p>Since the p-value is smaller than 10%, we reject the null hypothesis in favor of the alternative hypothesis. The data provide convincing evidence that the proportion of steel roller coasters built before 1970 is different than those built after 1970.</p>
+<p>Since the p-value is smaller than 10%, we reject the null hypothesis in favor of the alternative hypothesis. The data provide convincing evidence that the proportion of steel roller coasters opened before 1970 is different than those opened after 1970.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> point_estimate, <span class="at">direction =</span> <span class="st">"two sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -503,30 +498,70 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 </div>
 </div>
 </section>
-</section>
 <section id="research-question-2" class="level1">
 <h1>Research question 2</h1>
 <blockquote class="blockquote">
-<p><strong>We want to investigate the relationship between how fast a roller coaster goes, and how long a roller coaster lasts. Specifically, we are interested in how well the duration of a roller coaster explains how fast it is.</strong></p>
+<p><strong>We want to investigate the relationship between how fast a roller coaster goes, and how long a roller coaster lasts. Specifically, we are interested in how well the duration of a roller coaster explains or predicts how fast it is.</strong></p>
 </blockquote>
 <ul>
-<li><strong>Your turn:</strong> Based on this research question, which two variables should we use from our data set? Which is our response?</li>
+<li><strong>Question:</strong> Based on this research question, which two variables should we use from our data set? Which is our response?</li>
 </ul>
-<p><code>top_speed</code>.</p>
+<p><code>top_speed</code> and <code>duration</code>.</p>
 <ul>
-<li><strong>Your turn:</strong> Describe how we can construct a bootstrap distribution for the slope of the model predicting <code>top_speed</code> from <code>duration</code>.</li>
+<li><strong>Demo:</strong> Fit a model predicting <code>top_speed</code> from <code>duration</code> and display the tidy summary output.</li>
 </ul>
-<p>…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>speed_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(top_speed <span class="sc">~</span> duration, <span class="at">data =</span> rc) </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(speed_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term        estimate std.error statistic  p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)  52.0       4.08       12.8  3.99e-24
+2 duration      0.0560    0.0305      1.83 6.92e- 2</code></pre>
+</div>
+</div>
 <ul>
+<li><strong>Your turn:</strong> Use your model to estimate the top speed of a roller coaster if their duration is 155 minutes</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>duration_155 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">duration =</span> <span class="dv">155</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(speed_fit, <span class="at">new_data =</span> duration_155)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  .pred
+  &lt;dbl&gt;
+1  60.7</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Demo:</strong> Write out the estimated model in proper notation and interpret the slope coefficient</li>
+</ul>
+<p><span class="math inline">\(\widehat{top~speed} = 52 + 0.056 \times duration\)</span></p>
+<p>For each additional second the ride is longer, the predicted top speed of the roller coaster is higher by 0.057 miles per hour, on average.</p>
+<ul>
+<li><strong>Question:</strong> The slope you calculated and interpeted above is a sample statistic (an estimate). It is possible (and quite likely) that the true slope of the relationship between durations and top speeds of all roller coasters is not exactly equal to this value. How can we quantify the uncertainty around this estimate?</li>
+</ul>
+<p>Use a confidence interval.</p>
+<ul>
+<li><strong>Your turn:</strong> Describe how we can construct a bootstrap distribution for the slope of the model predicting <code>top_speed</code> from <code>duration</code>.
+<ol type="1">
+<li>Take a bootstrap sample of pairs of <code>top_speed</code> and <code>duration</code>.</li>
+<li>Fit a model predicting <code>top_speed</code> from <code>duration</code> using the bootstrap sample and record the value of the slope.</li>
+<li>Repeat steps 1 and 2 many times.</li>
+</ol></li>
 <li><strong>Demo:</strong> Now, construct this bootstrap distribution.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>boot_df_slope <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(top_speed <span class="sc">~</span> duration) <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"slope"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>boot_df_slope <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(top_speed <span class="sc">~</span> duration) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"slope"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 34 rows containing missing values.</code></pre>
 </div>
@@ -535,11 +570,11 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 <li><strong>Demo:</strong> Create a 90% confidence interval by filling in the code below.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>boot_df_slope <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.05</span>),</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.95</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>boot_df_slope <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.05</span>),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.95</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
     lower upper
@@ -550,78 +585,62 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 <ul>
 <li><strong>Demo:</strong> Interpret the confidence interval in the context of the problem.</li>
 </ul>
-<p>We are 90% confident that, for a 1 minute increase in duration, the true mean speed is expected to be lower by -0.0195 to higher by 0.132 mph.</p>
+<p>We are 90% confident that, for each additional second the ride is longer, the predicted top speed of the roller coaster is lower by -0.0195 to higher by 0.132 miles per hour, on average.</p>
 <ul>
-<li><strong>Demo:</strong> Prediction: How is this different than what we’ve done before?</li>
-</ul>
-<p>Previously we have estimated the slope with a single value, now we’re also reporting a confidence interval around it.</p>
-<p>Now let’s practice predicting!</p>
-<ul>
-<li><strong>Demo:</strong> Report the tidy output of your model below</li>
+<li><strong>Demo:</strong> Now fit a model predicting log of <code>top_speed</code> from <code>duration</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>speed_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(top_speed <span class="sc">~</span> duration, <span class="at">data =</span> rc) </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(speed_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>rc <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">top_speed_log =</span> <span class="fu">log</span>(top_speed))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>speed_log_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(top_speed_log <span class="sc">~</span> duration, <span class="at">data =</span> rc) </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(speed_log_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)  52.0       4.08       12.8  3.99e-24
-2 duration      0.0560    0.0305      1.83 6.92e- 2</code></pre>
+1 (Intercept)  3.92     0.0686       57.1  2.15e-89
+2 duration     0.00104  0.000514      2.03 4.48e- 2</code></pre>
 </div>
 </div>
 <ul>
-<li>Write out the estimated model in proper notation and interpret the slope coefficient</li>
+<li><strong>Demo:</strong> Write the estimated model and interpret the slope.</li>
 </ul>
-<p><span class="math inline">\(\widehat{top~speed} = 52 + 0.056 \times duration\)</span></p>
-<ul>
-<li><strong>Demo:</strong> Use your model to estimate the top speed of a roller coaster if their duration is 155 minutes</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>duration_155 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">duration =</span> <span class="dv">155</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(speed_fit, <span class="at">new_data =</span> duration_155)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  .pred
-  &lt;dbl&gt;
-1  60.7</code></pre>
-</div>
-</div>
-<ul>
-<li>What if our response was logged? How does the interpretation change?</li>
-</ul>
-<p><span class="math inline">\(\widehat{log(TopSpeed)} = 52 + 0.056 \times Duration\)</span></p>
+<p><span class="math inline">\(\widehat{log(top~speed)} = 3.92 + 0.00104 \times duration\)</span></p>
 <p>Recall that to interpret the slope value we need to exponentiate it!</p>
 <p>Why?</p>
-<p><span class="math inline">\(log(y) = \beta_o + \beta_1x\)</span></p>
-<p>y = <span class="math inline">\(exp(\beta_o + \beta_1x)\)</span>)</p>
-<p>y = <span class="math inline">\(exp(\beta_o) * exp(\beta_1x)\)</span>)</p>
-<p>This implies that our explanatory variable has a multiplicative relationship with our response variable</p>
-<p><em>For a one unit increase in duration, we estimate on average, top speed to increase by a factor of 0.05, or by about 5%.</em></p>
+<p><span class="math display">\[
+\begin{aligned}
+log(y~for~x + 1) - log(y~for~x) &amp;= \beta_1 \\
+log\Big(\frac{y~for~x + 1}{y~for~x}\Big) &amp;= \beta_1 \\
+e^{log\Big(\frac{y~for~x + 1}{y~for~x}\Big)} &amp;= e^\beta_1 \\
+\frac{y~for~x + 1}{y~for~x} &amp;= e^\beta_1
+\end{aligned}
+\]</span></p>
+<p>This implies that our explanatory variable has a multiplicative relationship with our response variable.</p>
+<p>For each additional second the ride is longer, the predicted top speed of the roller coaster is higher by a factor of <span class="math inline">\(e^0.00104 = 1.001\)</span>, on average.</p>
 </section>
 <section id="research-question-3" class="level1">
 <h1>Research question 3</h1>
 <blockquote class="blockquote">
-<p><strong>We are also interested in investigating if roller coasters after 1970 are faster than those built before. For this question, we want to estimate the difference.</strong></p>
+<p><strong>We are also interested in investigating if roller coasters opened after 1970 are faster than those opened before. For this question, we want to estimate the difference.</strong></p>
 </blockquote>
 <ul>
-<li>How is this different from question one? Should we make a confidence interval or hypothesis test?</li>
+<li><strong>Question:</strong> How is this different from question one? Should we make a confidence interval or conduct a hypothesis test?</li>
 </ul>
 <p>We are interested in estimating the difference. This suggests we should make a confidence interval.</p>
 <ul>
 <li><strong>Demo:</strong> Now, use bootstrapping to estimate the difference between the true speeds of roller coasters before and after 1970.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>boot_df <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(top_speed <span class="sc">~</span> opened_recently) <span class="sc">|&gt;</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>boot_df <span class="ot">&lt;-</span> rc <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(top_speed <span class="sc">~</span> opened_recently) <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"yes"</span>, <span class="st">"no"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 11 rows containing missing values.</code></pre>
 </div>
@@ -630,11 +649,11 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 <li><strong>Your turn:</strong> Create a 99% confidence interval and interpret it in the context of the data and the research question.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>boot_df <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.005</span>),</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.995</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>boot_df <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.005</span>),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.995</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   lower upper
@@ -647,7 +666,7 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 <section id="discussion" class="level1">
 <h1>Discussion</h1>
 <ul>
-<li>Brainstorm the different between bootstrap and permute. Write down the key differences below. <em>Hint:</em> Think back to the different sampling techniques between question 1 and question 2 / 3.</li>
+<li>Brainstorm the differences between generating new samples via bootstrapping and permuting. Write down the key differences below. <em>Hint:</em> Think back to the different sampling techniques between research question 1 and research questions 2 and 3.</li>
 </ul>
 
 

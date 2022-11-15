@@ -64,7 +64,7 @@ For the purpose of this activity, we will work with a random sample of 157 rolle
 |                     |                                                                                                                                                                                                             |
 |                     | Wing: a coaster where pairs of riders sit on either side of a roller coaster track in which nothing is above or below the riders.                                                                           |
 |                     |                                                                                                                                                                                                             |
-|                     | Bobsled: designed like a bobsled run \-- without a fixed track. The train travels freely through a trough.                                                                                                  |
+|                     | 4th Dimension: a coaster where the cars have the ability to rotate on an axis perpendicular to that of the track.                                                                                           |
 +---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `year_opened`       | Year when roller coaster opened                                                                                                                                                                             |
 +---------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -86,8 +86,6 @@ For the purpose of this activity, we will work with a random sample of 157 rolle
 # Research question 1
 
 > **Is the true proportion of steel roller coasters opened before 1970 different than those opened after 1970?**
-
-## Practice with data manipulation
 
 -   **Demo:** Create a new variable called `opened_recently` that has a response of `yes` if the roller coaster was opened after 1970, and `no` if the roller coaster was opened during or before 1970. Save this new factor variable in the `rc` data set. Additionally, make `type` a factor variable.
 
@@ -117,7 +115,7 @@ The answer is (d).
 
 $H_A$: $p_1 - p_2 \ne 0$
 
--   Calculate the observed statistic.
+-   **Demo:** Calculate the observed statistic.
 
 ```{r}
 #| label: point-estimate
@@ -160,9 +158,7 @@ visualize(null_dist) +
 
 -   **Your turn:** Calculate p-value. Then use the p-value to make your conclusion using a significance level of 0.1 and write out an appropriate conclusion below. Recall that the conclusion has 3 components.
     -   How the p-value compares to the significance level.
-
     -   The decision you make with respect to the hypotheses (reject $H_0$ /fail to reject $H_0$)
-
     -   The conclusion in the context of the **alternative hypothesis**.
 
 Since the p-value is smaller than 10%, we reject the null hypothesis in favor of the alternative hypothesis.
@@ -177,16 +173,49 @@ null_dist |>
 
 # Research question 2
 
-> **We want to investigate the relationship between how fast a roller coaster goes, and how long a roller coaster lasts. Specifically, we are interested in how well the duration of a roller coaster explains how fast it is.**
+> **We want to investigate the relationship between how fast a roller coaster goes, and how long a roller coaster lasts. Specifically, we are interested in how well the duration of a roller coaster explains or predicts how fast it is.**
 
--   **Your turn:** Based on this research question, which two variables should we use from our data set? Which is our response?
+-   **Question:** Based on this research question, which two variables should we use from our data set? Which is our response?
 
-`top_speed`.
+`top_speed` and `duration`.
+
+-   **Demo:** Fit a model predicting `top_speed` from `duration` and display the tidy summary output.
+
+```{r}
+#| label: speed-fit
+
+speed_fit <- linear_reg() |>
+  fit(top_speed ~ duration, data = rc) 
+
+tidy(speed_fit)
+```
+
+-   **Your turn:** Use your model to estimate the top speed of a roller coaster if their duration is 155 minutes
+
+```{r}
+#| label: prediction
+
+duration_155 <- tibble(duration = 155)
+
+predict(speed_fit, new_data = duration_155)
+```
+
+-   **Demo:** Write out the estimated model in proper notation and interpret the slope coefficient
+
+$\widehat{top~speed} = 52 + 0.056 \times duration$
+
+For each additional second the ride is longer, the predicted top speed of the roller coaster is higher by 0.057 miles per hour, on average.
+
+-   **Question:** The slope you calculated and interpeted above is a sample statistic (an estimate).
+    It is possible (and quite likely) that the true slope of the relationship between durations and top speeds of all roller coasters is not exactly equal to this value.
+    How can we quantify the uncertainty around this estimate?
+
+Use a confidence interval.
 
 -   **Your turn:** Describe how we can construct a bootstrap distribution for the slope of the model predicting `top_speed` from `duration`.
-
-...
-
+    1.  Take a bootstrap sample of pairs of `top_speed` and `duration`.
+    2.  Fit a model predicting `top_speed` from `duration` using the bootstrap sample and record the value of the slope.
+    3.  Repeat steps 1 and 2 many times.
 -   **Demo:** Now, construct this bootstrap distribution.
 
 ```{r}
@@ -214,63 +243,48 @@ boot_df_slope |>
 
 -   **Demo:** Interpret the confidence interval in the context of the problem.
 
-We are 90% confident that, for a 1 minute increase in duration, the true mean speed is expected to be lower by -0.0195 to higher by 0.132 mph.
+We are 90% confident that, for each additional second the ride is longer, the predicted top speed of the roller coaster is lower by -0.0195 to higher by 0.132 miles per hour, on average.
 
--   **Demo:** Prediction: How is this different than what we've done before?
-
-Previously we have estimated the slope with a single value, now we're also reporting a confidence interval around it.
-
-Now let's practice predicting!
-
--   **Demo:** Report the tidy output of your model below
+-   **Demo:** Now fit a model predicting log of `top_speed` from `duration`.
 
 ```{r}
-#| label: speef-fit
+#| label: speed-log-fit
 
-speed_fit <- linear_reg() |>
-  set_engine("lm") |>
-  fit(top_speed ~ duration, data = rc) 
+rc <- rc |>
+  mutate(top_speed_log = log(top_speed))
 
-tidy(speed_fit)
+speed_log_fit <- linear_reg() |>
+  fit(top_speed_log ~ duration, data = rc) 
+
+tidy(speed_log_fit)
 ```
 
--   Write out the estimated model in proper notation and interpret the slope coefficient
+-   **Demo:** Write the estimated model and interpret the slope.
 
-$\widehat{top~speed} = 52 + 0.056 \times duration$
-
--   **Demo:** Use your model to estimate the top speed of a roller coaster if their duration is 155 minutes
-
-```{r}
-#| label: prediction
-
-duration_155 <- tibble(duration = 155)
-
-predict(speed_fit, new_data = duration_155)
-```
-
--   What if our response was logged? How does the interpretation change?
-
-$\widehat{log(TopSpeed)} = 52 + 0.056 \times Duration$
+$\widehat{log(top~speed)} = 3.92 + 0.00104 \times duration$
 
 Recall that to interpret the slope value we need to exponentiate it!
 
 Why?
 
-$log(y) = \beta_o + \beta_1x$
+$$
+\begin{aligned}
+log(y~for~x + 1) - log(y~for~x) &= \beta_1 \\
+log\Big(\frac{y~for~x + 1}{y~for~x}\Big) &= \beta_1 \\
+e^{log\Big(\frac{y~for~x + 1}{y~for~x}\Big)} &= e^\beta_1 \\
+\frac{y~for~x + 1}{y~for~x} &= e^\beta_1
+\end{aligned}
+$$
 
-y = $exp(\beta_o + \beta_1x)$)
+This implies that our explanatory variable has a multiplicative relationship with our response variable.
 
-y = $exp(\beta_o) * exp(\beta_1x)$)
-
-This implies that our explanatory variable has a multiplicative relationship with our response variable
-
-*For a one unit increase in duration, we estimate on average, top speed to increase by a factor of 0.05, or by about 5%.*
+For each additional second the ride is longer, the predicted top speed of the roller coaster is higher by a factor of $e^0.00104 = 1.001$, on average.
 
 # Research question 3
 
-> **We are also interested in investigating if roller coasters after 1970 are faster than those opened before. For this question, we want to estimate the difference.**
+> **We are also interested in investigating if roller coasters opened after 1970 are faster than those opened before. For this question, we want to estimate the difference.**
 
--   How is this different from question one? Should we make a confidence interval or hypothesis test?
+-   **Question:** How is this different from question one? Should we make a confidence interval or conduct a hypothesis test?
 
 We are interested in estimating the difference.
 This suggests we should make a confidence interval.
@@ -304,4 +318,4 @@ We are 99% confident that the true mean speed between roller coasters after 1970
 
 # Discussion
 
--   Brainstorm the different between bootstrap and permute. Write down the key differences below. *Hint:* Think back to the different sampling techniques between question 1 and question 2 / 3.
+-   Brainstorm the differences between generating new samples via bootstrapping and permuting. Write down the key differences below. *Hint:* Think back to the different sampling techniques between research question 1 and research questions 2 and 3.

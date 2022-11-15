@@ -1,0 +1,81 @@
+---
+title: "Inference overview"
+subtitle: "Lecture 22"
+date: "November 15, 2022"
+format: revealjs
+---
+
+# Warm up
+
+```{r}
+#| echo: false
+
+library(countdown)
+```
+
+## While you wait for class to begin...
+
+::: callout-important
+Come up with at least one question you'd like to see answered in the Exam 1 review on Thursday.
+
+Go to [slido.com](https://www.slido.com/) and submit your question with the code **#sta199exam2**.
+
+You can also upvote others' questions.
+:::
+
+## Announcements {.smaller}
+
+-   My office hours today 3:30-5pm on Zoom: [bit.ly/minezoom](https://bit.ly/minezoom).
+
+-   Lab 6 due Friday night (11:59 pm) -- but I strongly recommend you finish and submit it before the exam begins!
+
+-   Exam 2 is released on Thursday at noon and is due at 2pm on Monday.
+
+    -   No TA OH during the exam.
+
+    -   I will have OH 4-5pm on Friday (on Zoom).
+
+    -   Any clarification questions must be **emailed to me** only.
+
+    -   No Slack use during the exam, even about non-exam related questions.
+
+## Exam study tips
+
+-   Take notes that you can reference
+-   Review feedback given to you on graded work
+-   Revisit AEs
+-   Review suggested solutions
+-   Ask questions
+
+## Topics for review
+
+::: question
+Come up with at least one question you'd like to see answered in the Exam 2 review on Thursday.
+
+Go to [slido.com](https://www.slido.com/) and submit your question with the code **#sta199exam2**.
+
+You can also upvote others' questions.
+:::
+
+```{r}
+#| echo: false
+
+countdown(minutes = 3)
+```
+
+# Application exercise
+
+## Recap of inference ideas {.smaller}
+
+-   A hypothesis test is a statistical technique used to evaluate competing claims (null and alternative hypotheses) using data.
+-   We simulate a null distribution using our original data.
+-   We use our sample statistic and direction of the alternative hypothesis to calculate the p-value.
+-   We use the p-value to determine conclusions about the alternative hypotheses.
+
+## `ae-19`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-19` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
