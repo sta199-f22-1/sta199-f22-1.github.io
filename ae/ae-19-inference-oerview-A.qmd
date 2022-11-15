@@ -85,11 +85,11 @@ For the purpose of this activity, we will work with a random sample of 157 rolle
 
 # Research question 1
 
-> **Is the true proportion of steel roller coasters built before 1970 different than those built after 1970?**
+> **Is the true proportion of steel roller coasters opened before 1970 different than those opened after 1970?**
 
 ## Practice with data manipulation
 
--   **Demo:** Create a new variable called `opened_recently` that has a response of `yes` if the roller coaster was built after 1970, and `no` if the roller coaster was built during or before 1970. Save this new factor variable in the `rc` data set. Additionally, make `type` a factor variable.
+-   **Demo:** Create a new variable called `opened_recently` that has a response of `yes` if the roller coaster was opened after 1970, and `no` if the roller coaster was opened during or before 1970. Save this new factor variable in the `rc` data set. Additionally, make `type` a factor variable.
 
 ```{r}
 #| label: data-prep
@@ -166,7 +166,7 @@ visualize(null_dist) +
     -   The conclusion in the context of the **alternative hypothesis**.
 
 Since the p-value is smaller than 10%, we reject the null hypothesis in favor of the alternative hypothesis.
-The data provide convincing evidence that the proportion of steel roller coasters built before 1970 is different than those built after 1970.
+The data provide convincing evidence that the proportion of steel roller coasters opened before 1970 is different than those opened after 1970.
 
 ```{r}
 #| label: p-value
@@ -268,7 +268,7 @@ This implies that our explanatory variable has a multiplicative relationship wit
 
 # Research question 3
 
-> **We are also interested in investigating if roller coasters after 1970 are faster than those built before. For this question, we want to estimate the difference.**
+> **We are also interested in investigating if roller coasters after 1970 are faster than those opened before. For this question, we want to estimate the difference.**
 
 -   How is this different from question one? Should we make a confidence interval or hypothesis test?
 
