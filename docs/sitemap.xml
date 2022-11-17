@@ -1,247 +1,483 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-project-draft.html</loc>
+    <lastmod>2022-11-17T22:42:45.486Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-2.html</loc>
+    <lastmod>2022-11-17T22:42:46.146Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-3.html</loc>
+    <lastmod>2022-11-17T22:42:46.807Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-1.html</loc>
+    <lastmod>2022-11-17T22:42:47.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-project-proposal.html</loc>
+    <lastmod>2022-11-17T22:42:47.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-0.html</loc>
+    <lastmod>2022-11-17T22:42:48.608Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-4.html</loc>
+    <lastmod>2022-11-17T22:42:49.244Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-5.html</loc>
+    <lastmod>2022-11-17T22:42:49.820Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/labs/lab-6.html</loc>
+    <lastmod>2022-11-17T22:42:50.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/course-links.html</loc>
+    <lastmod>2022-11-17T22:42:50.771Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/hw/hw-5.html</loc>
+    <lastmod>2022-11-17T22:42:51.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/hw/hw-4.html</loc>
+    <lastmod>2022-11-17T22:42:51.983Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/hw/hw-6.html</loc>
+    <lastmod>2022-11-17T22:42:52.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/hw/hw-3.html</loc>
+    <lastmod>2022-11-17T22:42:52.973Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/hw/hw-2.html</loc>
+    <lastmod>2022-11-17T22:42:53.573Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/hw/hw-1.html</loc>
+    <lastmod>2022-11-17T22:42:54.203Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-05.html</loc>
+    <lastmod>2022-11-17T22:42:54.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-24.html</loc>
+    <lastmod>2022-11-17T22:42:54.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-18.html</loc>
+    <lastmod>2022-11-17T22:42:55.199Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-25.html</loc>
+    <lastmod>2022-11-17T22:42:55.525Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-31.html</loc>
+    <lastmod>2022-11-17T22:42:55.846Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-12.html</loc>
+    <lastmod>2022-11-17T22:42:56.180Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-06.html</loc>
+    <lastmod>2022-11-17T22:42:56.489Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-27.html</loc>
+    <lastmod>2022-11-17T22:42:56.798Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-13.html</loc>
+    <lastmod>2022-11-17T22:42:57.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-20.html</loc>
+    <lastmod>2022-11-17T22:42:57.456Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-15.html</loc>
+    <lastmod>2022-11-17T22:42:57.768Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-01.html</loc>
+    <lastmod>2022-11-17T22:42:58.103Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-29.html</loc>
+    <lastmod>2022-11-17T22:42:58.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-07.html</loc>
+    <lastmod>2022-11-17T22:42:58.735Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-10.html</loc>
+    <lastmod>2022-11-17T22:42:59.068Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/08-30.html</loc>
+    <lastmod>2022-11-17T22:42:59.387Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-15.html</loc>
+    <lastmod>2022-11-17T22:42:59.707Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-01.html</loc>
+    <lastmod>2022-11-17T22:43:00.047Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-14.html</loc>
+    <lastmod>2022-11-17T22:43:00.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-17.html</loc>
+    <lastmod>2022-11-17T22:43:00.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-03.html</loc>
+    <lastmod>2022-11-17T22:43:00.996Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/11-08.html</loc>
+    <lastmod>2022-11-17T22:43:01.315Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-04.html</loc>
+    <lastmod>2022-11-17T22:43:01.643Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-19.html</loc>
+    <lastmod>2022-11-17T22:43:01.959Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-27.html</loc>
+    <lastmod>2022-11-17T22:43:02.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-06.html</loc>
+    <lastmod>2022-11-17T22:43:02.619Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-13.html</loc>
+    <lastmod>2022-11-17T22:43:02.940Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-26.html</loc>
+    <lastmod>2022-11-17T22:43:03.272Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-22.html</loc>
+    <lastmod>2022-11-17T22:43:03.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/10-17.html</loc>
+    <lastmod>2022-11-17T22:43:03.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-20.html</loc>
+    <lastmod>2022-11-17T22:43:04.258Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/prepare/09-08.html</loc>
+    <lastmod>2022-11-17T22:43:04.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-03-wrangling-flights.html</loc>
+    <lastmod>2022-11-17T22:43:05.186Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-11-yankee-candle.html</loc>
+    <lastmod>2022-11-17T22:43:05.682Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-19-inference-overview.html</loc>
+    <lastmod>2022-11-17T22:43:06.324Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-15-modelling-loan-interest-rates.html</loc>
+    <lastmod>2022-11-17T22:43:06.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-09-dse-bias-A.html</loc>
+    <lastmod>2022-11-17T22:43:07.472Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-17-quantify-uncertainty.html</loc>
+    <lastmod>2022-11-17T22:43:08.040Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-06-data-types-classes-A.html</loc>
+    <lastmod>2022-11-17T22:43:08.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-18-hypothesis-testing.html</loc>
+    <lastmod>2022-11-17T22:43:09.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-01-bechdel-dataviz.html</loc>
+    <lastmod>2022-11-17T22:43:09.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/ae/ae-17-quantify-uncertainty-A.html</loc>
+    <lastmod>2022-11-17T22:43:10.491Z</lastmod>
+  </url>
+  <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-16-spam-filter-A.html</loc>
-    <lastmod>2022-11-17T21:16:09.140Z</lastmod>
+    <lastmod>2022-11-17T22:43:11.082Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-02-viz-data-types.html</loc>
-    <lastmod>2022-11-17T21:15:37.274Z</lastmod>
+    <lastmod>2022-11-17T22:43:11.618Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-14-moar-palmerpenguins-A.html</loc>
-    <lastmod>2022-11-17T21:15:37.980Z</lastmod>
+    <lastmod>2022-11-17T22:43:12.267Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-13-palmerpenguins-A.html</loc>
-    <lastmod>2022-11-17T21:15:38.610Z</lastmod>
+    <lastmod>2022-11-17T22:43:12.908Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-01-bechdel-dataviz-A.html</loc>
-    <lastmod>2022-11-17T21:15:39.308Z</lastmod>
+    <lastmod>2022-11-17T22:43:13.604Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-08-dse-misrepresentation-A.html</loc>
-    <lastmod>2022-11-17T21:15:39.895Z</lastmod>
+    <lastmod>2022-11-17T22:43:14.195Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-18-hypothesis-testing-A.html</loc>
-    <lastmod>2022-11-17T21:15:40.495Z</lastmod>
+    <lastmod>2022-11-17T22:43:14.791Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-19-inference-overview-A.html</loc>
-    <lastmod>2022-11-17T21:15:41.155Z</lastmod>
+    <lastmod>2022-11-17T22:43:15.442Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-12-modelling-fish-A.html</loc>
-    <lastmod>2022-11-17T21:15:41.767Z</lastmod>
+    <lastmod>2022-11-17T22:43:16.000Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-10-chronicle-A.html</loc>
-    <lastmod>2022-11-17T21:15:42.351Z</lastmod>
+    <lastmod>2022-11-17T22:43:16.574Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-13-palmerpenguins.html</loc>
-    <lastmod>2022-11-17T21:15:42.939Z</lastmod>
+    <lastmod>2022-11-17T22:43:17.150Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-05-pivoting-statsci-majors-A.html</loc>
-    <lastmod>2022-11-17T21:15:43.546Z</lastmod>
+    <lastmod>2022-11-17T22:43:17.762Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-09-dse-bias.html</loc>
-    <lastmod>2022-11-17T21:15:44.102Z</lastmod>
+    <lastmod>2022-11-17T22:43:18.360Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-10-chronicle.html</loc>
-    <lastmod>2022-11-17T21:15:44.628Z</lastmod>
+    <lastmod>2022-11-17T22:43:18.952Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-14-moar-palmerpenguins.html</loc>
-    <lastmod>2022-11-17T21:15:45.204Z</lastmod>
+    <lastmod>2022-11-17T22:43:19.544Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-06-data-types-classes.html</loc>
-    <lastmod>2022-11-17T21:15:45.765Z</lastmod>
+    <lastmod>2022-11-17T22:43:20.158Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-02-viz-data-types-A.html</loc>
-    <lastmod>2022-11-17T21:15:46.338Z</lastmod>
+    <lastmod>2022-11-17T22:43:20.764Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-15-modelling-loan-interest-rates-A.html</loc>
-    <lastmod>2022-11-17T21:15:46.907Z</lastmod>
+    <lastmod>2022-11-17T22:43:21.362Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-11-yankee-candle-A.html</loc>
-    <lastmod>2022-11-17T21:15:47.470Z</lastmod>
+    <lastmod>2022-11-17T22:43:21.908Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-05-pivoting-statsci-majors.html</loc>
-    <lastmod>2022-11-17T21:15:48.022Z</lastmod>
+    <lastmod>2022-11-17T22:43:22.493Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-12-modelling-fish.html</loc>
-    <lastmod>2022-11-17T21:15:48.598Z</lastmod>
+    <lastmod>2022-11-17T22:43:23.079Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-04-joining-fisheries.html</loc>
-    <lastmod>2022-11-17T21:15:49.199Z</lastmod>
+    <lastmod>2022-11-17T22:43:23.674Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-07-data-import-A.html</loc>
-    <lastmod>2022-11-17T21:15:49.756Z</lastmod>
+    <lastmod>2022-11-17T22:43:24.234Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-03-wrangling-flights-A.html</loc>
-    <lastmod>2022-11-17T21:15:50.456Z</lastmod>
+    <lastmod>2022-11-17T22:43:24.948Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-08-dse-misrepresentation.html</loc>
-    <lastmod>2022-11-17T21:15:50.976Z</lastmod>
+    <lastmod>2022-11-17T22:43:25.476Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-16-spam-filter.html</loc>
-    <lastmod>2022-11-17T21:15:51.478Z</lastmod>
+    <lastmod>2022-11-17T22:43:26.043Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-07-data-import.html</loc>
-    <lastmod>2022-11-17T21:15:52.025Z</lastmod>
+    <lastmod>2022-11-17T22:43:26.601Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/ae/ae-04-joining-fisheries-A.html</loc>
-    <lastmod>2022-11-17T21:15:52.621Z</lastmod>
+    <lastmod>2022-11-17T22:43:27.221Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/project-tips-resources.html</loc>
-    <lastmod>2022-11-17T21:15:53.155Z</lastmod>
+    <lastmod>2022-11-17T22:43:27.771Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/computing-access.html</loc>
-    <lastmod>2022-11-17T21:15:53.483Z</lastmod>
+    <lastmod>2022-11-17T22:43:28.101Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-overview.html</loc>
-    <lastmod>2022-11-17T21:15:53.820Z</lastmod>
+    <lastmod>2022-11-17T22:43:28.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta199-f22-1.github.io/index.html</loc>
+    <lastmod>2022-11-17T22:43:31.510Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-team.html</loc>
-    <lastmod>2022-11-17T21:15:54.154Z</lastmod>
+    <lastmod>2022-11-17T22:43:31.857Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/15-language-of-models.html</loc>
-    <lastmod>2022-11-17T21:15:54.775Z</lastmod>
+    <lastmod>2022-11-17T22:43:32.534Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/08-data-types-classes.html</loc>
-    <lastmod>2022-11-17T21:15:55.358Z</lastmod>
+    <lastmod>2022-11-17T22:43:33.107Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/14-functions-iteration.html</loc>
-    <lastmod>2022-11-17T21:15:55.924Z</lastmod>
+    <lastmod>2022-11-17T22:43:33.716Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/01-welcome-199.html</loc>
-    <lastmod>2022-11-17T21:15:56.381Z</lastmod>
+    <lastmod>2022-11-17T22:43:34.161Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/07-tidying-data.html</loc>
-    <lastmod>2022-11-17T21:15:56.724Z</lastmod>
+    <lastmod>2022-11-17T22:43:34.501Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/23-exam-2-review.html</loc>
-    <lastmod>2022-11-17T21:15:57.215Z</lastmod>
+    <lastmod>2022-11-17T22:43:35.011Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/12-dse-bias-privacy.html</loc>
-    <lastmod>2022-11-17T21:15:57.653Z</lastmod>
+    <lastmod>2022-11-17T22:43:35.426Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/04-visualizing-various-types-of-data.html</loc>
-    <lastmod>2022-11-17T21:15:58.014Z</lastmod>
+    <lastmod>2022-11-17T22:43:35.768Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/18-more-models-multiple-predictors.html</loc>
-    <lastmod>2022-11-17T21:15:58.352Z</lastmod>
+    <lastmod>2022-11-17T22:43:36.099Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/17-models-multiple-predictors.html</loc>
-    <lastmod>2022-11-17T21:15:58.681Z</lastmod>
+    <lastmod>2022-11-17T22:43:36.430Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/13-web-scraping.html</loc>
-    <lastmod>2022-11-17T21:15:59.084Z</lastmod>
+    <lastmod>2022-11-17T22:43:36.835Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/16-models-single-predictor.html</loc>
-    <lastmod>2022-11-17T21:15:59.684Z</lastmod>
+    <lastmod>2022-11-17T22:43:37.382Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/22-inference-overview.html</loc>
-    <lastmod>2022-11-17T21:16:00.031Z</lastmod>
+    <lastmod>2022-11-17T22:43:37.722Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/10-exam-1-review.html</loc>
-    <lastmod>2022-11-17T21:16:00.631Z</lastmod>
+    <lastmod>2022-11-17T22:43:38.271Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/03-grammar-of-graphics.html</loc>
-    <lastmod>2022-11-17T21:16:01.171Z</lastmod>
+    <lastmod>2022-11-17T22:43:38.811Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/20-bootstrap.html</loc>
-    <lastmod>2022-11-17T21:16:01.493Z</lastmod>
+    <lastmod>2022-11-17T22:43:39.138Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/19-logistic-regression.html</loc>
-    <lastmod>2022-11-17T21:16:02.060Z</lastmod>
+    <lastmod>2022-11-17T22:43:39.690Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/05-grammar-of-data-wrangling.html</loc>
-    <lastmod>2022-11-17T21:16:02.547Z</lastmod>
+    <lastmod>2022-11-17T22:43:40.184Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/09-data-import.html</loc>
-    <lastmod>2022-11-17T21:16:02.884Z</lastmod>
+    <lastmod>2022-11-17T22:43:40.537Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/11-dse-misrepresentation.html</loc>
-    <lastmod>2022-11-17T21:16:03.262Z</lastmod>
+    <lastmod>2022-11-17T22:43:40.893Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/21-hypothesis-testing.html</loc>
-    <lastmod>2022-11-17T21:16:03.650Z</lastmod>
+    <lastmod>2022-11-17T22:43:41.268Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/02-meet-the-toolkit.html</loc>
-    <lastmod>2022-11-17T21:16:04.279Z</lastmod>
+    <lastmod>2022-11-17T22:43:41.863Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/slides/06-working-with-multiple-data-frames.html</loc>
-    <lastmod>2022-11-17T21:16:04.606Z</lastmod>
+    <lastmod>2022-11-17T22:43:42.199Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-faq.html</loc>
-    <lastmod>2022-11-17T21:16:04.954Z</lastmod>
+    <lastmod>2022-11-17T22:43:42.563Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/computing-cheatsheets.html</loc>
-    <lastmod>2022-11-17T21:16:05.315Z</lastmod>
+    <lastmod>2022-11-17T22:43:42.915Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-support.html</loc>
-    <lastmod>2022-11-17T21:16:05.678Z</lastmod>
+    <lastmod>2022-11-17T22:43:43.287Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/project-description.html</loc>
-    <lastmod>2022-11-17T21:16:06.333Z</lastmod>
+    <lastmod>2022-11-17T22:43:43.905Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/course-syllabus.html</loc>
-    <lastmod>2022-11-17T21:16:06.855Z</lastmod>
+    <lastmod>2022-11-17T22:43:44.406Z</lastmod>
   </url>
   <url>
     <loc>https://sta199-f22-1.github.io/computing-troubleshooting.html</loc>
-    <lastmod>2022-11-17T21:16:07.190Z</lastmod>
+    <lastmod>2022-11-17T22:43:44.731Z</lastmod>
   </url>
 </urlset>
