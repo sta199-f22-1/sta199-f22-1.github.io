@@ -46,7 +46,12 @@ Create an density plot to investigate the relationship between `spam` and `excla
 Additionally, calculate the mean number of exclamation points for both spam and non-spam emails.
 
 ```{r}
-# add code here
+ggplot(email, aes(x = exclaim_mess, fill = spam)) + 
+  geom_density()
+
+email |>
+  group_by(spam) |>
+  summarize(mean_ep = mean(exclaim_mess))
 ```
 
 # Linear model -- a false start
@@ -55,7 +60,8 @@ Suppose we try using a linear model to describe the relationship between the num
 Write up a linear model that models spam by exclamation marks.
 
 ```{r}
-# add code here
+linear_reg() |>
+  fit(as.numeric(spam) ~ exclaim_mess, data = email)
 ```
 
 A visualization of a linear model is below.
@@ -70,7 +76,7 @@ ggplot(email, aes(x = exclaim_mess, y = as.numeric(spam), color = spam)) +
 
 -   **Your turn:** Is the linear model a good fit for the data? Why or why not?
 
-*Add response here.*
+*No.*
 
 # Logistic regression -- a different approach
 
@@ -104,9 +110,9 @@ tidy(log_fit)
 
 -   **Your turn:** How does the code above differ from previous code we've used to fit regression models? Compare your summary output to the estimated model below.
 
-$$\log\Big(\frac{p}{1-p}\Big) = -1.9114 - 0.1684 \times exclaim\_mess$$
+$$\log\Big(\frac{p}{1-p}\Big) = -2.27 - 0.000272 \times exclaim\_mess$$
 
-*Add response here.*
+We use logistic instead of linear regression.
 
 ## Exercise 2
 
@@ -117,7 +123,9 @@ What is the probability the email is spam if it contains 10 exclamation points?
 ```{r}
 #| label: pred-log-odds-1
 
-# add code here
+-2.27 - 0.000272 * 10
+exp(-2.27272) # p / (1 - p)
+0.103 / 1.103
 ```
 
 -   **Demo:** Answer the question using the `predict()` function.
@@ -127,7 +135,8 @@ We can use the predict function in R to produce the probability as well.
 ```{r}
 #| label: pred-log-odds-2
 
-# add code here
+ep_10 <- tibble(exclaim_mess = 10)
+predict(log_fit, ep_10, type = "prob")
 ```
 
 ## Exercise 3
@@ -141,7 +150,7 @@ You must determine how high the predicted probability must be before you think i
 **Your turn:** What are some trade offs you would consider as you set the decision-making threshold?
 Discuss with your neighbor.
 
-*Add response here.*
+*Answers will vary.*
 
 ```{r}
 augment(log_fit, email) |>
@@ -152,8 +161,14 @@ augment(log_fit, email) |>
 
 ## Exercise 4
 
-Fit a model with **all** variables in the dataset as predictors and receate the visualization above for this model.
+Fit a model with **all** variables in the dataset as predictors and recreate the visualization above for this model.
 
 ```{r}
-# add code here
+log_fit2 <- logistic_reg() |>
+  fit(spam ~ ., data = email)
+
+augment(log_fit2, email) |>
+  select(spam, exclaim_mess, .pred_class) |>
+  ggplot(aes(x = exclaim_mess, y = spam, color = .pred_class)) +
+  geom_jitter(alpha = 0.5)
 ```
