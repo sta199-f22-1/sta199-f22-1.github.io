@@ -1,0 +1,149 @@
+---
+title: "Exam 2 review"
+subtitle: "Lecture 23"
+date: "November 17, 2022"
+format: revealjs
+---
+
+# Warm up
+
+## Announcements {.smaller}
+
+-   Exam 2 is released on today at noon and is due at 2pm on Monday.
+
+    -   No TA OH during the exam.
+
+    -   I will have OH 4-5pm on Friday (on Zoom).
+
+    -   Any clarification questions must be **emailed to me** only.
+
+    -   No Slack use during the exam, even about non-exam related questions.
+
+-   Answer keys:
+
+    -   HW 4 and HW 5 feedback: Keys both posted, feedback coming soon.
+
+    -   All lab keys also posted.
+
+    -   AE 16 key missing complete answers, will post after class.
+
+# Review questions
+
+## Questions: Grouping {.smaller}
+
+::: question
+Does order of variables in `group_by()` matter?
+:::
+
+```{r}
+#| message: false
+
+library(palmerpenguins)
+library(tidyverse)
+```
+
+::: columns
+::: {.column width="50%"}
+```{r}
+penguins |>
+  group_by(species, sex) |>
+  summarize(mean_bm = mean(body_mass_g))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+penguins |>
+  group_by(sex, species) |>
+  summarize(mean_bm = mean(body_mass_g))
+```
+:::
+:::
+
+## Questions: Factors
+
+::: question
+-   When will we use factors and how does that make a difference in the data?
+
+-   When do you use `fct_relevel()` versus `fct_reorder()`?
+
+-   How to use `case_when()` function and the proper use of forcats functions like `fct_relevel()` , `fct_reorder()`, `fct_other()`?
+:::
+
+Review: <https://r4ds.hadley.nz/factors.html>.
+
+## Questions: LaTeX / equations
+
+::: question
+-   What is the name of the math symbol text we use to write equations? Is there a cheat sheet with the shortcuts for each symbol?
+-   Do we have to use LaTeX for our equations?
+:::
+
+::: columns
+::: {.column width="50%"}
+$H_0:\mu_1 - \mu_2 = 0$
+
+$H_A: \mu_1 - \mu_2 \ne 0$
+
+    $H_0:\mu_1 - \mu_2 = 0$
+
+    $H_A: \mu_1 - \mu_2 \ne 0$
+:::
+
+::: {.column width="50%"}
+H0: mu1 - mu2 = 0
+
+HA: mu1 - mu2 ≠ 0
+:::
+:::
+
+## Questions: Ethics
+
+::: question
+Would love to review data ethics and how to answer questions about ethical issues with any dataset.
+:::
+
+Review: The videos from the Ethics module.
+
+## Questions: Miscellaneous
+
+::: question
+What does geom_smooth(method = "loess") do?
+:::
+
+. . .
+
+Fits a non-linear model to the data, a smooth curve.
+
+. . .
+
+::: question
+How do we know how much to round by?
+:::
+
+. . .
+
+Round as much as it makes sense in the context of the data.
+Avoid rounding in interim steps.
+
+## Question: Inference
+
+::: question
+How do we decide whether to use bootstrap, simulate, or permute in the `generate()` step of inference?
+:::
+
+-   Bootstrap: For constructing bootstrap intervals or for testing for a single mean ($H0: \mu_0 = 5$)
+
+-   Simulate: For testing for a single proportion ($H_0: p_0 = 0.3$)
+
+-   Permute: For testing for independence, i.e., for testing for differences in means or proportions across groups (or whether one is less/greater than the other)
+
+# Application exercise
+
+## `ae-19`
+
+::: appex
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-19` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   You should have already pushed updates on Tuesday, so you should be good for submission.
+:::

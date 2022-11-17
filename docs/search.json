@@ -2723,6 +2723,62 @@
     "text": "Recap of AE\n\nData sets can’t be labeled as wide or long but they can be made wider or longer for a certain analysis that requires a certain format\nWhen pivoting longer, variable names that turn into values are characters by default. If you need them to be in another format, you need to explicitly make that transformation, which you can do so within the pivot_longer() function.\nYou can tweak a plot forever, but at some point the tweaks are likely not very productive. However, you should always be critical of defaults (however pretty they might be) and see if you can improve the plot to better portray your data / results / what you want to communicate.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/23-exam-2-review.html#announcements",
+    "href": "slides/23-exam-2-review.html#announcements",
+    "title": "Exam 2 review",
+    "section": "Announcements",
+    "text": "Announcements\n\nExam 2 is released on today at noon and is due at 2pm on Monday.\n\nNo TA OH during the exam.\nI will have OH 4-5pm on Friday (on Zoom).\nAny clarification questions must be emailed to me only.\nNo Slack use during the exam, even about non-exam related questions.\n\nAnswer keys:\n\nHW 4 and HW 5 feedback: Keys both posted, feedback coming soon.\nAll lab keys also posted.\nAE 16 key missing complete answers, will post after class."
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#questions-grouping",
+    "href": "slides/23-exam-2-review.html#questions-grouping",
+    "title": "Exam 2 review",
+    "section": "Questions: Grouping",
+    "text": "Questions: Grouping\n\nDoes order of variables in group_by() matter?\n\n\nlibrary(palmerpenguins)\nlibrary(tidyverse)\n\n\n\n\npenguins |>\n  group_by(species, sex) |>\n  summarize(mean_bm = mean(body_mass_g))\n\n# A tibble: 8 × 3\n# Groups:   species [3]\n  species   sex    mean_bm\n  <fct>     <fct>    <dbl>\n1 Adelie    female   3369.\n2 Adelie    male     4043.\n3 Adelie    <NA>       NA \n4 Chinstrap female   3527.\n5 Chinstrap male     3939.\n6 Gentoo    female   4680.\n7 Gentoo    male     5485.\n8 Gentoo    <NA>       NA \n\n\n\n\npenguins |>\n  group_by(sex, species) |>\n  summarize(mean_bm = mean(body_mass_g))\n\n# A tibble: 8 × 3\n# Groups:   sex [3]\n  sex    species   mean_bm\n  <fct>  <fct>       <dbl>\n1 female Adelie      3369.\n2 female Chinstrap   3527.\n3 female Gentoo      4680.\n4 male   Adelie      4043.\n5 male   Chinstrap   3939.\n6 male   Gentoo      5485.\n7 <NA>   Adelie        NA \n8 <NA>   Gentoo        NA"
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#questions-factors",
+    "href": "slides/23-exam-2-review.html#questions-factors",
+    "title": "Exam 2 review",
+    "section": "Questions: Factors",
+    "text": "Questions: Factors\n\n\nWhen will we use factors and how does that make a difference in the data?\nWhen do you use fct_relevel() versus fct_reorder()?\nHow to use case_when() function and the proper use of forcats functions like fct_relevel() , fct_reorder(), fct_other()?\n\n\nReview: https://r4ds.hadley.nz/factors.html."
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#questions-latex-equations",
+    "href": "slides/23-exam-2-review.html#questions-latex-equations",
+    "title": "Exam 2 review",
+    "section": "Questions: LaTeX / equations",
+    "text": "Questions: LaTeX / equations\n\n\nWhat is the name of the math symbol text we use to write equations? Is there a cheat sheet with the shortcuts for each symbol?\nDo we have to use LaTeX for our equations?\n\n\n\n\n\\(H_0:\\mu_1 - \\mu_2 = 0\\)\n\\(H_A: \\mu_1 - \\mu_2 \\ne 0\\)\n$H_0:\\mu_1 - \\mu_2 = 0$\n\n$H_A: \\mu_1 - \\mu_2 \\ne 0$\n\nH0: mu1 - mu2 = 0\nHA: mu1 - mu2 ≠ 0"
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#questions-ethics",
+    "href": "slides/23-exam-2-review.html#questions-ethics",
+    "title": "Exam 2 review",
+    "section": "Questions: Ethics",
+    "text": "Questions: Ethics\n\nWould love to review data ethics and how to answer questions about ethical issues with any dataset.\n\nReview: The videos from the Ethics module."
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#questions-miscellaneous",
+    "href": "slides/23-exam-2-review.html#questions-miscellaneous",
+    "title": "Exam 2 review",
+    "section": "Questions: Miscellaneous",
+    "text": "Questions: Miscellaneous\n\nWhat does geom_smooth(method = “loess”) do?\n\n\nFits a non-linear model to the data, a smooth curve.\n\n\n\nHow do we know how much to round by?\n\n\n\nRound as much as it makes sense in the context of the data. Avoid rounding in interim steps."
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#question-inference",
+    "href": "slides/23-exam-2-review.html#question-inference",
+    "title": "Exam 2 review",
+    "section": "Question: Inference",
+    "text": "Question: Inference\n\nHow do we decide whether to use bootstrap, simulate, or permute in the generate() step of inference?\n\n\nBootstrap: For constructing bootstrap intervals or for testing for a single mean (\\(H0: \\mu_0 = 5\\))\nSimulate: For testing for a single proportion (\\(H_0: p_0 = 0.3\\))\nPermute: For testing for independence, i.e., for testing for differences in means or proportions across groups (or whether one is less/greater than the other)"
+  },
+  {
+    "objectID": "slides/23-exam-2-review.html#ae-19",
+    "href": "slides/23-exam-2-review.html#ae-19",
+    "title": "Exam 2 review",
+    "section": "ae-19",
+    "text": "ae-19\n\n\nGo to the course GitHub org and find your ae-19 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nYou should have already pushed updates on Tuesday, so you should be good for submission.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/12-dse-bias-privacy.html#while-you-wait-for-class-to-begin",
     "href": "slides/12-dse-bias-privacy.html#while-you-wait-for-class-to-begin",
     "title": "Data science ethics: Algorithmic bias + Data privacy",
