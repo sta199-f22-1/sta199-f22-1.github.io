@@ -6,3 +6,4 @@ categories: "prepare"
 
 -   ⌨️ Watch:
     -   [Doing data science](https://youtu.be/b9lSW0kyqBg)
+-   [Take the survey](https://sakai.duke.edu/samigo-app/servlet/Login?id=6fa7ebf3-01af-42a6-91ba-3e813d3901221669414796154) for indicating preferences for looking further topics

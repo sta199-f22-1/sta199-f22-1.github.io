@@ -9,6 +9,7 @@ categories: "prepare"
 -   📖 Read (if you haven't done so previously in the semester):
     -   IMS: [Chp 6 - Applications: Explore](https://openintro-ims.netlify.app/explore-applications.html)
     -   R4DS: [Chp 10 - Exploratory data analysis](https://r4ds.hadley.nz/eda)
+-   Fill out Peer evaluation 2 -- check your email for an email from TEAMMATES. Check your spam box if you don't see it in your inbox.
 
 ::: callout-note
 Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
