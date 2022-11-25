@@ -243,39 +243,10 @@ This feedback is intended to help you create a high quality final project, as we
 During the peer feedback process, you will be provided read-only access to your partner team's GitHub repo.
 You will provide your feedback in the form of GitHub issues to your partner team's GitHub repo.
 
-## Process and questions
+Peer review process and questions are outlined in the [relevant lab instructions](/labs/project-peer-review).
 
-Spend \~30 mins to review each team's project.
-
--   Find your team name on the **Reviewer 1** and **Reviewer 2** columns.
--   For each of the columns, find the name of the team to review in the **Team being reviewed** column. You should already have access to this team's repo.
--   Open the repo of the team you're reviewing, read their project draft, and browser around the rest of their repo.
--   Then, go to the Issues tab in that repo, click on New issue, and click on Get started for the Peer review issue. Fill out this issue, answering the following questions:
-    -   Peer review by: \[NAME OF TEAM DOING THE REVIEW\]
-
-    -   Names of team members that participated in this review: \[FULL NAMES OF TEAM MEMBERS DOING THE REVIEW\]
-
-    -   Describe the goal of the project.
-
-    -   Describe the data used or collected, if any.
-        If the proposal does not include the use of a specific dataset, comment on whether the project would be strengthened by the inclusion of a dataset.
-
-    -   Describe the approaches, tools, and methods that will be used.
-
-    -   Is there anything that is unclear from the proposal?
-
-    -   Provide constructive feedback on how the team might be able to improve their project.
-        Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but do feel free to comment on aspects beyond the modeling.
-
-    -   What aspect of this project are you most interested in and would like to see highlighted in the presentation.
-
-    -   Provide constructive feedback on any issues with file and/or code organization.
-
-    -   (Optional) Any further comments or feedback?
-
-## Peer review grading
-
-Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, and any inference, modeling, or conclusions.
+Peer reviews will be graded on the extent to which it comprehensively and constructively addresses the components of the reviewee's team's report.
+Specifics of peer review grading are also outlined in the [relevant lab instructions](/labs/project-peer-review).
 
 # Report {#project-report}
 
