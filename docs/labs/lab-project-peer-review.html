@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STA 199 - Lab - Project peer review</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta property="og:title" content="STA 199 - Lab - Project peer review">
+<meta property="og:description" content="In this lab, you will…">
+<meta property="og:site-name" content="STA 199">
+<meta name="twitter:title" content="STA 199 - Lab - Project peer review">
+<meta name="twitter:description" content="In this lab, you will…">
+<meta name="twitter:image" content="https://sta199-f22-1.github.io/images/twitter-card.png">
+<meta name="twitter:creator" content="@minebocek">
+<meta name="twitter:image-height" content="418">
+<meta name="twitter:image-width" content="800">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Lab - Project peer review</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="sidebar-tool px-1"><i class="bi bi-code-square"></i></a>
+    <a href="" title="Sakai" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/d55dc1df-28e1-4637-be6f-6ba7c848fabf/page/e6e5b35b-ae85-4d98-8c56-ec6c559db637">
+          Gradescope
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/d55dc1df-28e1-4637-be6f-6ba7c848fabf/tool/1d0ca2ac-6304-46b2-a6ac-de5a93f677b2/">
+          Gradebook
+          </a>
+        </li>
+    </ul>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Course information</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-overview.html" class="sidebar-item-text sidebar-link">Overview</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-support.html" class="sidebar-item-text sidebar-link">Support</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-team.html" class="sidebar-item-text sidebar-link">Teaching team</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Schedule</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-links.html" class="sidebar-item-text sidebar-link">Useful links</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-faq.html" class="sidebar-item-text sidebar-link">FAQ</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Computing</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-access.html" class="sidebar-item-text sidebar-link">Access</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../computing-cheatsheets.html" class="sidebar-item-text sidebar-link">Cheatsheets</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Project</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project-description.html" class="sidebar-item-text sidebar-link">Description</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project-tips-resources.html" class="sidebar-item-text sidebar-link">Tips + resources</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#project-peer-review" id="toc-project-peer-review" class="nav-link" data-scroll-target="#project-peer-review">Project peer review</a></li>
+  <li><a href="#review-pairings" id="toc-review-pairings" class="nav-link" data-scroll-target="#review-pairings">Review pairings</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/edit/main/labs/lab-project-peer-review.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta199-f22-1/sta199-f22-1.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Lab - Project peer review</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Lab</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The project peer review is due <strong>at the end of your lab section</strong> on Monday, Nov 28. No submission on Gradescope needed, just post issues on GitHub by this time.</p>
+</div>
+</div>
+<section id="learning-goals" class="level1">
+<h1>Learning goals</h1>
+<p>In this lab, you will…</p>
+<ul>
+<li>Review others’ project drafts as a team and provide feedback</li>
+<li>Post issues on GitHub using an issue template</li>
+<li>Learn from others’ projects and improve your own project based on their strengths and weaknesses</li>
+</ul>
+</section>
+<section id="project-peer-review" class="level1">
+<h1>Project peer review</h1>
+<p>Each team will review two other teams’ project. As a team you should spend ~30 minutes on each team’s project.</p>
+<ul>
+<li><p>Find the names of the teams whose projects you’re reviewing below. You should already have access to this team's repo.</p></li>
+<li><p>Each team member should go to the repo of the team you’re reviewing.</p></li>
+<li><p>Then,</p>
+<ul>
+<li><p>1-2 team members clone the team’s project and renders it to check for reproducibility.</p></li>
+<li><p>1-2 team members open the team’s project in their browser and starts reading through the project draft.</p></li>
+<li><p>1 team member opens an issue on the team’s repo using the peer review template.</p></li>
+<li><p>All team members discuss the project based on the prompts on the issue template and one team member records the feedback and submits the issue.</p></li>
+</ul></li>
+<li><p>To open an issue in the repo you’re reviewing, click on New issue, and click on Get started for the Peer review issue. Fill out this issue, answering the following questions:</p>
+<ul>
+<li><p>Peer review by: [NAME OF TEAM DOING THE REVIEW]</p></li>
+<li><p>Names of team members that participated in this review: [FULL NAMES OF TEAM MEMBERS DOING THE REVIEW]</p></li>
+<li><p>Describe the goal of the project.</p></li>
+<li><p>Describe the data used or collected, if any. If the proposal does not include the use of a specific dataset, comment on whether the project would be strengthened by the inclusion of a dataset.</p></li>
+<li><p>Describe the approaches, tools, and methods that will be used.</p></li>
+<li><p>Is there anything that is unclear from the proposal?</p></li>
+<li><p>Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but do feel free to comment on aspects beyond the modeling.</p></li>
+<li><p>What aspect of this project are you most interested in and would like to see highlighted in the presentation.</p></li>
+<li><p>Were you able to reproduce the project by clicking on Render Website once you cloned it? Were there any issues with reproducibility?</p></li>
+<li><p>Provide constructive feedback on any issues with file and/or code organization.</p></li>
+<li><p>(Optional) Any further comments or feedback?</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="review-pairings" class="level1">
+<h1>Review pairings</h1>
+<div class="cell" data-hash="lab-project-peer-review_cache/html/unnamed-chunk-1_ad5122ff8cb66d501de61283294ad277">
+<div class="cell-output-display">
+
+<div id="ggrrijwnlp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#ggrrijwnlp) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#ggrrijwnlp) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#ggrrijwnlp) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#ggrrijwnlp) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#ggrrijwnlp) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#ggrrijwnlp) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#ggrrijwnlp) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#ggrrijwnlp) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#ggrrijwnlp) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#ggrrijwnlp) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#ggrrijwnlp) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#ggrrijwnlp) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#ggrrijwnlp) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#ggrrijwnlp) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ggrrijwnlp) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#ggrrijwnlp) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#ggrrijwnlp) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ggrrijwnlp) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#ggrrijwnlp) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ggrrijwnlp) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#ggrrijwnlp) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ggrrijwnlp) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#ggrrijwnlp) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#ggrrijwnlp) .gt_left {
+  text-align: left;
+}
+
+:where(#ggrrijwnlp) .gt_center {
+  text-align: center;
+}
+
+:where(#ggrrijwnlp) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#ggrrijwnlp) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#ggrrijwnlp) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#ggrrijwnlp) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#ggrrijwnlp) .gt_super {
+  font-size: 65%;
+}
+
+:where(#ggrrijwnlp) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#ggrrijwnlp) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#ggrrijwnlp) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#ggrrijwnlp) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#ggrrijwnlp) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#ggrrijwnlp) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#ggrrijwnlp) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Your team name">Your team name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="To review 1">To review 1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="To review 2">To review 2</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Section 1 - M 10:15 - 11:30 am">Section 1 - M 10:15 - 11:30 am</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">Alpha equals one</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">Seven</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">Sealteam6</td></tr>
+    <tr><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">2cool4school</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">Alpha equals one</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">Seven</td></tr>
+    <tr><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">ggplot3</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">2cool4school</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">Alpha equals one</td></tr>
+    <tr><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">Cuatro</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">ggplot3</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">2cool4school</td></tr>
+    <tr><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">Cinco</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">Cuatro</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">ggplot3</td></tr>
+    <tr><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">Sealteam6</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">Cinco</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">Cuatro</td></tr>
+    <tr><td headers="Section 1 - M 10:15 - 11:30 am  team_name" class="gt_row gt_left">Seven</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_1" class="gt_row gt_left">Sealteam6</td>
+<td headers="Section 1 - M 10:15 - 11:30 am  rev_2" class="gt_row gt_left">Cinco</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Section 2 - M 1:45 - 3:00 pm">Section 2 - M 1:45 - 3:00 pm</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Section 2 - M 1:45 - 3:00 pm  team_name" class="gt_row gt_left">Blue Squirrels</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_1" class="gt_row gt_left">Who's your data?</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_2" class="gt_row gt_left">Suffer</td></tr>
+    <tr><td headers="Section 2 - M 1:45 - 3:00 pm  team_name" class="gt_row gt_left">Stats R Us</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_1" class="gt_row gt_left">Blue Squirrels</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_2" class="gt_row gt_left">Who's your data?</td></tr>
+    <tr><td headers="Section 2 - M 1:45 - 3:00 pm  team_name" class="gt_row gt_left">Team300</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_1" class="gt_row gt_left">Stats R Us</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_2" class="gt_row gt_left">Blue Squirrels</td></tr>
+    <tr><td headers="Section 2 - M 1:45 - 3:00 pm  team_name" class="gt_row gt_left">geom_slay</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_1" class="gt_row gt_left">Team300</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_2" class="gt_row gt_left">Stats R Us</td></tr>
+    <tr><td headers="Section 2 - M 1:45 - 3:00 pm  team_name" class="gt_row gt_left">Suffer</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_1" class="gt_row gt_left">geom_slay</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_2" class="gt_row gt_left">Team300</td></tr>
+    <tr><td headers="Section 2 - M 1:45 - 3:00 pm  team_name" class="gt_row gt_left">Who's your data?</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_1" class="gt_row gt_left">Suffer</td>
+<td headers="Section 2 - M 1:45 - 3:00 pm  rev_2" class="gt_row gt_left">geom_slay</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Section 3 - M 3:30 - 4:45 pm">Section 3 - M 3:30 - 4:45 pm</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Cool Kids</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Seven Wonders</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Mine's Minions</td></tr>
+    <tr><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Meteors</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Cool Kids</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Seven Wonders</td></tr>
+    <tr><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Green Team</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Meteors</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Cool Kids</td></tr>
+    <tr><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Fantastic Four</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Green Team</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Meteors</td></tr>
+    <tr><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Theta-Five</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Fantastic Four</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Green Team</td></tr>
+    <tr><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Mine's Minions</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Theta-Five</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Fantastic Four</td></tr>
+    <tr><td headers="Section 3 - M 3:30 - 4:45 pm  team_name" class="gt_row gt_left">Seven Wonders</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_1" class="gt_row gt_left">Mine's Minions</td>
+<td headers="Section 3 - M 3:30 - 4:45 pm  rev_2" class="gt_row gt_left">Theta-Five</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Section 4 - M 5:15 - 6:30 pm">Section 4 - M 5:15 - 6:30 pm</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Section 4 - M 5:15 - 6:30 pm  team_name" class="gt_row gt_left">Merge Conflicts</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_1" class="gt_row gt_left">group_by(6)</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_2" class="gt_row gt_left">Git Freaky</td></tr>
+    <tr><td headers="Section 4 - M 5:15 - 6:30 pm  team_name" class="gt_row gt_left">Quart2</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_1" class="gt_row gt_left">Merge Conflicts</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_2" class="gt_row gt_left">group_by(6)</td></tr>
+    <tr><td headers="Section 4 - M 5:15 - 6:30 pm  team_name" class="gt_row gt_left">Git Real</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_1" class="gt_row gt_left">Quart2</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_2" class="gt_row gt_left">Merge Conflicts</td></tr>
+    <tr><td headers="Section 4 - M 5:15 - 6:30 pm  team_name" class="gt_row gt_left">Kameron Krazies</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_1" class="gt_row gt_left">Git Real</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_2" class="gt_row gt_left">Quart2</td></tr>
+    <tr><td headers="Section 4 - M 5:15 - 6:30 pm  team_name" class="gt_row gt_left">Git Freaky</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_1" class="gt_row gt_left">Kameron Krazies</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_2" class="gt_row gt_left">Git Real</td></tr>
+    <tr><td headers="Section 4 - M 5:15 - 6:30 pm  team_name" class="gt_row gt_left">group_by(6)</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_1" class="gt_row gt_left">Git Freaky</td>
+<td headers="Section 4 - M 5:15 - 6:30 pm  rev_2" class="gt_row gt_left">Kameron Krazies</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="Section 5 - M 12:00 - 1:15 pm">Section 5 - M 12:00 - 1:15 pm</th>
+    </tr>
+    <tr class="gt_row_group_first"><td headers="Section 5 - M 12:00 - 1:15 pm  team_name" class="gt_row gt_left">Women in Tech</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_1" class="gt_row gt_left">Split Ends</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_2" class="gt_row gt_left">Super Raspberries</td></tr>
+    <tr><td headers="Section 5 - M 12:00 - 1:15 pm  team_name" class="gt_row gt_left">Stats Sisters</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_1" class="gt_row gt_left">Women in Tech</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_2" class="gt_row gt_left">Split Ends</td></tr>
+    <tr><td headers="Section 5 - M 12:00 - 1:15 pm  team_name" class="gt_row gt_left">The Outliers</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_1" class="gt_row gt_left">Stats Sisters</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_2" class="gt_row gt_left">Women in Tech</td></tr>
+    <tr><td headers="Section 5 - M 12:00 - 1:15 pm  team_name" class="gt_row gt_left">Duke Data Devils</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_1" class="gt_row gt_left">The Outliers</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_2" class="gt_row gt_left">Stats Sisters</td></tr>
+    <tr><td headers="Section 5 - M 12:00 - 1:15 pm  team_name" class="gt_row gt_left">Super Raspberries</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_1" class="gt_row gt_left">Duke Data Devils</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_2" class="gt_row gt_left">The Outliers</td></tr>
+    <tr><td headers="Section 5 - M 12:00 - 1:15 pm  team_name" class="gt_row gt_left">Split Ends</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_1" class="gt_row gt_left">Super Raspberries</td>
+<td headers="Section 5 - M 12:00 - 1:15 pm  rev_2" class="gt_row gt_left">Duke Data Devils</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="grading" class="level1">
+<h1>Grading</h1>
+<p>You will be graded on the quality of the feedback you provide.</p>
+<ul>
+<li><p>0 points: No peer review</p></li>
+<li><p>1 point: Only one peer review issue open, feedback provided is not constructive or actionable</p></li>
+<li><p>2 points: Both peer review issues open, feedback provided is not constructive or actionable</p></li>
+<li><p>3 points: Both peer review issues open, feedback provided is not sufficiently thorough</p></li>
+<li><p>4 points: Both peer review issues open, one of the reviews is not sufficiently thorough</p></li>
+<li><p>5 points: Both peer review issues open, both reviews are constructive, actionable, and sufficiently thorough</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The feedback issue will come from one team member on GitHub since you can’t collectively edit an issue. However it must represent the opinions of the entire team. It is not a single team member’s responsibility to provide feedback, they’re just the record keeper for the team.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2022, Mine Çetinkaya-Rundel</div>   
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
