@@ -1,0 +1,15 @@
+---
+title: "Prepare"
+subtitle: "Due: November 29, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Watch:
+    -   [Tips for effective data visualization](https://youtu.be/ZrifrBvFWgg)
+-   📖 Read (if you haven't done so previously in the semester):
+    -   IMS: [Chp 6 - Applications: Explore](https://openintro-ims.netlify.app/explore-applications.html)
+    -   R4DS: [Chp 10 - Exploratory data analysis](https://r4ds.hadley.nz/eda)
+
+::: callout-note
+Videos use the "old school" pipe (`%>%`) but we'll be using the newer (`|>`) pipe operator in class.
+:::

@@ -1,0 +1,8 @@
+---
+title: "Prepare"
+subtitle: "Due: December 1, 2022"
+categories: "prepare"
+---
+
+-   ⌨️ Watch:
+    -   [Doing data science](https://youtu.be/b9lSW0kyqBg)
