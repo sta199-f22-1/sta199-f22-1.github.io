@@ -4499,5 +4499,110 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If you’re having difficulty launching an RStudio session from your reserved container, go to status.oit.duke.edu and scroll down to Teaching and Learning Tools. Under this heading you’ll find an entry called Container Manager (CMGR Coursework Containers).\n\nIf the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\n\nAnother approach is to request a restart of your container. To do so, select your container as you usually do and then, instead of Login, click on Request Restart. Read the warning in the next page, and then click once more to restart your container."
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html",
+    "href": "ae/ae-20-effective-dataviz.html",
+    "title": "Trends instructional staff employees in universities",
+    "section": "",
+    "text": "The American Association of University Professors (AAUP) is a nonprofit membership association of faculty and other academic professionals. This report by the AAUP shows trends in instructional staff employees between 1975 and 2011, and contains the following image. What trends are apparent in this visualization?"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#packages",
+    "href": "ae/ae-20-effective-dataviz.html#packages",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#data",
+    "href": "ae/ae-20-effective-dataviz.html#data",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Data",
+    "text": "Data\nEach row in this dataset represents a faculty type, and the columns are the years for which we have data. The values are percentage of hires of that type of faculty for each year.\n\nstaff <- read_csv(\"data/instructional-staff.csv\")\nstaff\n\n# A tibble: 5 × 12\n  facult…¹ `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007` `2009`\n  <chr>     <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>\n1 Full-Ti…   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2   16.8\n2 Full-Ti…   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8      7.6\n3 Full-Ti…   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9   15.1\n4 Part-Ti…   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5   41.1\n5 Graduat…   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5   19.4\n# … with 1 more variable: `2011` <dbl>, and abbreviated variable name\n#   ¹​faculty_type"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#recreate",
+    "href": "ae/ae-20-effective-dataviz.html#recreate",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Recreate",
+    "text": "Recreate\n\nYour turn (10 minutes): Recreate the visualization above. Try to match as many of the elements as possible. Hint: You might need to reshape your data first.\n\n\nstaff_long <- staff |>\n  pivot_longer(cols = -faculty_type, names_to = \"year\", \n               values_to = \"percentage\") |>\n  mutate(\n    percentage = as.numeric(percentage),\n    faculty_type = fct_relevel(faculty_type,\n                               \"Full-Time Tenured Faculty\",\n                               \"Full-Time Tenure-Track Faculty\",\n                               \"Full-Time Non-Tenure-Track Faculty\",\n                               \"Part-Time Faculty\",\n                               \"Graduate Student Employees\")\n    )\n\n\nstaff_long |>\n  ggplot(aes(x = str_wrap(faculty_type, 20), \n             y = percentage, \n             fill = year)) +\n  geom_col(position = \"dodge\") +\n  scale_y_continuous(breaks = seq(5, 45, 5), limits = c(0, 45)) +\n  labs(\n    x = NULL, \n    y = \"Percent of Total Instructional Staff\", \n    fill = NULL,\n    title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n    subtitle = \"All Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n    ) +\n  theme(\n    legend.position = c(0.4, 0.93),\n    legend.direction = \"horizontal\",\n    legend.key.size = unit(0.2, \"cm\"),\n    legend.key.height = unit(0.1, \"cm\"),\n    legend.text.align = 0,\n    legend.background = element_rect(color = \"black\", linewidth = 0.2),\n    legend.text = element_text(size = 7),\n    panel.grid.minor = element_blank(),\n    panel.grid.major.x = element_blank(),\n    plot.caption = element_text(size = 8, hjust = 0)\n    ) +\n  guides(fill = guide_legend(nrow = 1))"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#represent-percentages-as-parts-of-a-whole",
+    "href": "ae/ae-20-effective-dataviz.html#represent-percentages-as-parts-of-a-whole",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Represent percentages as parts of a whole",
+    "text": "Represent percentages as parts of a whole\n\nDemo: Recreate the previous visualization where the percentages are represented as parts of a whole.\n\n\nstaff_long |>\n  ggplot(aes(x = str_wrap(faculty_type, 20), \n             y = percentage, \n             fill = fct_rev(year))) +\n  geom_col(position = \"fill\", color = \"white\", linewidth = 0.2) +\n  scale_y_continuous(labels = label_percent()) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       fill = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  theme(\n    legend.text.align = 0,\n    legend.background = element_rect(color = \"black\", size = 0.2),\n    legend.text = element_text(size = 7),\n    panel.grid.minor = element_blank(),\n    panel.grid.major.x = element_blank(),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )\n\nWarning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.\nℹ Please use the `linewidth` argument instead."
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#place-time-on-x-axis",
+    "href": "ae/ae-20-effective-dataviz.html#place-time-on-x-axis",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Place time on x-axis",
+    "text": "Place time on x-axis\n\nDemo: Convert the visualization to a line plot with time on the x-axis.\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#represent-time-as-time",
+    "href": "ae/ae-20-effective-dataviz.html#represent-time-as-time",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Represent time as time",
+    "text": "Represent time as time\n\nstaff_long <- staff_long |>\n  mutate(year = as.numeric(year))\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-an-accessible-color-scale",
+    "href": "ae/ae-20-effective-dataviz.html#use-an-accessible-color-scale",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use an accessible color scale",
+    "text": "Use an accessible color scale\nQuestion: What do we mean by an accessible color scale? What types of color vision deficiencies are there?\n\nDemo: What does the plot look like to people with various color vision deficiencies?\nDemo: Remake the plot with an accessible color scale.\n\n\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  ) +\n  scale_color_colorblind() # from ggthemes package"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-direct-labeling",
+    "href": "ae/ae-20-effective-dataviz.html#use-direct-labeling",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use direct labeling",
+    "text": "Use direct labeling\n\nDemo: Remove the legend and add labels for each line at the end of the line (where x is the max(x) recorded).\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type, \n             group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  geom_text(\n    data = staff_long |> filter(year == max(year)),\n    aes(x = year + 1, y = percentage, label = faculty_type),\n    hjust = \"left\", show.legend = FALSE, size = 4\n  ) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(    \n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 2.5, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\") +\n  scale_color_colorblind()"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-color-to-draw-attention",
+    "href": "ae/ae-20-effective-dataviz.html#use-color-to-draw-attention",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use color to draw attention",
+    "text": "Use color to draw attention\n\nDemo: Redo the line plot where Part-time Faculty is red and the rest are gray.\n\n\nstaff_long <- staff_long |>\n  mutate(faculty_type_color = if_else(faculty_type == \"Part-Time Faculty\", \"firebrick3\", \"gray40\"))\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type_color, group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  geom_text(\n    data = staff_long |> filter(year == max(year)),\n    aes(x = year + 1, y = percentage, label = faculty_type),\n    hjust = \"left\", show.legend = FALSE, size = 4\n  ) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  scale_color_identity() +\n  theme(\n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 2.5, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\")"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#pick-a-purpose",
+    "href": "ae/ae-20-effective-dataviz.html#pick-a-purpose",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Pick a purpose",
+    "text": "Pick a purpose\n\np <- staff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type_color, group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  scale_color_identity() +\n  theme(\n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 0.6, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\") +\n    annotate(\n    geom = \"text\",\n    x = 2012, y = 41, label = \"Part-Time\\nFaculty\", \n    color = \"firebrick3\", hjust = \"left\", size = 5\n  ) +\n  annotate(\n    geom = \"text\",\n    x = 2012, y = 13.5, label = \"Other\\nFaculty\", \n    color = \"gray40\", hjust = \"left\", size = 5\n  ) +\n  annotate(\n    geom = \"segment\",\n    x = 2011.5, xend = 2011.5,\n    y = 7, yend = 20,\n    color = \"gray40\", linetype = \"dotted\"\n  )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-labels-to-communicate-the-message",
+    "href": "ae/ae-20-effective-dataviz.html#use-labels-to-communicate-the-message",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use labels to communicate the message",
+    "text": "Use labels to communicate the message\n\np + \n  labs(\n    title = \"Instruction by part-time faculty on a steady increase\",\n    subtitle = \"Trends in Instructional Staff Employment Status, 1975-2011\\nAll Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\",\n    y = \"Percent of Total Instructional Staff\", \n    x = NULL\n)"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#simplify",
+    "href": "ae/ae-20-effective-dataviz.html#simplify",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Simplify",
+    "text": "Simplify\n\np + \n  labs(\n    title = \"Instruction by part-time faculty on a steady increase\",\n    subtitle = \"Trends in Instructional Staff Employment Status, 1975-2011\\nAll Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\",\n    y = \"Percent of Total Instructional Staff\", \n    x = NULL\n) +\n  theme(\n    panel.grid.minor = element_blank()\n    )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#summary",
+    "href": "ae/ae-20-effective-dataviz.html#summary",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Summary",
+    "text": "Summary\n\nRepresent percentages as parts of a whole\nPlace variables representing time on the x-axis when possible\nPay attention to data types, e.g., represent time as time on a continuous scale, not years as levels of a categorical variable\nPrefer direct labeling over legends\nUse accessible colors\nUse color to draw attention\nPick a purpose and label, color, annotate for that purpose\nCommunicate your main message directly in the plot labels\nSimplify before you call it done (a.k.a. “Before you leave the house, look in the mirror and take one thing off”)"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#pay-attention-to-variable-types",
+    "href": "ae/ae-20-effective-dataviz.html#pay-attention-to-variable-types",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Pay attention to variable types",
+    "text": "Pay attention to variable types\n\nQuestion: What is wrong with the x-axis of the plot above? How can you fix it?\n\nTime is represented as a character string (equally spaces between levels) instead of on a continuous scale (with spacing indicating numbers of years between ticks.\n\nYour turn: Implement the fix for the x-axis of the plot.\n\n\nstaff_long <- staff_long |>\n  mutate(year = as.numeric(year))\n\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n           color = str_wrap(faculty_type, 20), \n           group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
   }
 ]
