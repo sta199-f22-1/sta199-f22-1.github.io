@@ -1561,6 +1561,104 @@
     "text": "library(tidyverse)\nlibrary(tidymodels)\n\n\nrc <- read_csv(\"data/roller_coasters.csv\")\n\nIn this application exercise, we will be looking at a roller coaster and amusement park database by Duane Marden.1 This database records multiple features of roller coasters. For the purpose of this activity, we will work with a random sample of 157 roller coasters.\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nage_group\n1: Older (Built between 1900-1979)\n2: Recent (1980-1999)\n3: Newest (2000-current)\n\n\ncoaster\nName of the roller coaster\n\n\npark\nName of the park where the roller coaster is located\n\n\ncity\nCity where the roller coaster is located\n\n\nstate\nState where the roller coaster is located\n\n\ntype\nMaterial of track (Steel or Wooden)\n\n\ndesign\nHow a passenger is positioned in the roller coaster:\nFlying: a roller coaster ridden while parallel with the track.\nInverted: a roller coaster which uses trains traveling beneath, rather than on top of, the track. Unlike a suspended roller coaster, an inverted roller coaster’s trains are rigidly attached to the track.\nSit Down: a traditional roller coaster ridden while sitting down.\nSuspended: a roller coaster using trains which travel beneath the track and pivot on a swinging arm from side to side, exaggerating the track’s banks and turns.\nStand Up: a coaster ridden while standing up instead of sitting down.\nPipeline: a coaster where riders are positioned between the rails instead of above or below.\nWing: a coaster where pairs of riders sit on either side of a roller coaster track in which nothing is above or below the riders.\n4th Dimension: a coaster where the cars have the ability to rotate on an axis perpendicular to that of the track.\n\n\nyear_opened\nYear when roller coaster opened\n\n\ntop_speed\nMaximum speed of roller coaster (mph)\n\n\nmax_height\nHighest point of roller coaster (ft)\n\n\ndrop\nLength of largest gap between high and low points of roller coaster (ft)\n\n\nlength\nLength of roller coaster track (ft)\n\n\nduration\nTime length of roller coaster ride (sec)\n\n\ninversions\nWhether or not roller coaster flips passengers at any point (Yes or No)\n\n\nnum_of_inversions\nNumber of times roller coaster flips passengers\n\n\n\n\nResearch question 1\n\nIs the true proportion of steel roller coasters opened before 1970 different than those opened after 1970?\n\n\nDemo: Create a new variable called opened_recently that has a response of yes if the roller coaster was opened after 1970, and no if the roller coaster was opened during or before 1970. Save this new factor variable in the rc data set. Additionally, make type a factor variable.\n\n\nrc <- rc |>\n  mutate(\n    opened_recently = if_else(year_opened > 1970, \"yes\" , \"no\"), \n    opened_recently = as.factor(opened_recently),\n    type = as.factor(type)\n  ) \n\n\nYour turn: Based on the research question, which of the following is the appropriate null hypothesis?\n\n\\(H_0\\): \\(\\mu = 0.5\\)\n\\(H_0\\): \\(p > 0.5\\)\n\\(H_0\\): \\(\\mu_1 - \\mu_2 = 0\\)\n\\(H_0\\): \\(p_1 - p_2 = 0\\)\n\n\nThe answer is (d).\n\nDemo: Write out the appropriate alternative hypothesis in both words and notation.\n\n\\(H_A\\): \\(p_1 - p_2 \\ne 0\\)\n\nDemo: Calculate the observed statistic.\n\n\npoint_estimate <- rc |>\n  specify(type ~ opened_recently, success = \"Steel\") |>\n  calculate(stat = \"diff in props\", order = c(\"yes\", \"no\"))\n\n\nDemo: How do we create a null distribution for this hypothesis test? Write out the steps below.\n\nShuffle responses into one pile.\nRedistribute data into two new piles of size n1 and n2.\nCalculate new difference in proportions.\nRepeat steps 1-3 many times to create the null distribution.\n\nDemo: Create the null distribution with 1,000 repeated samples.\n\n\nset.seed(101821)\n\nnull_dist <- rc %>%\n  specify(type ~ opened_recently, success = \"Steel\") %>%\n  hypothesize(null = \"independence\") %>%\n  generate(1000, type = \"permute\") %>%\n  calculate(stat = \"diff in props\", order = c(\"yes\", \"no\"))\n\n\nDemo: Visualize the null distribution and shade in the area used to calculate the p-value.\n\n\nvisualize(null_dist) +\n shade_p_value(obs_stat = point_estimate, direction = \"two sided\")\n\n\n\n\n\nYour turn: Calculate p-value. Then use the p-value to make your conclusion using a significance level of 0.1 and write out an appropriate conclusion below. Recall that the conclusion has 3 components.\n\nHow the p-value compares to the significance level.\nThe decision you make with respect to the hypotheses (reject \\(H_0\\) /fail to reject \\(H_0\\))\nThe conclusion in the context of the alternative hypothesis.\n\n\nSince the p-value is smaller than 10%, we reject the null hypothesis in favor of the alternative hypothesis. The data provide convincing evidence that the proportion of steel roller coasters opened before 1970 is different than those opened after 1970.\n\nnull_dist |>\n  get_p_value(obs_stat = point_estimate, direction = \"two sided\")\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an\napproximation based on the number of `reps` chosen in the `generate()` step. See\n`?get_p_value()` for more information.\n\n\n# A tibble: 1 × 1\n  p_value\n    <dbl>\n1       0\n\n\n\n\nResearch question 2\n\nWe want to investigate the relationship between how fast a roller coaster goes, and how long a roller coaster lasts. Specifically, we are interested in how well the duration of a roller coaster explains or predicts how fast it is.\n\n\nQuestion: Based on this research question, which two variables should we use from our data set? Which is our response?\n\ntop_speed and duration.\n\nDemo: Fit a model predicting top_speed from duration and display the tidy summary output.\n\n\nspeed_fit <- linear_reg() |>\n  fit(top_speed ~ duration, data = rc) \n\ntidy(speed_fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  <chr>          <dbl>     <dbl>     <dbl>    <dbl>\n1 (Intercept)  52.0       4.08       12.8  3.99e-24\n2 duration      0.0560    0.0305      1.83 6.92e- 2\n\n\n\nYour turn: Use your model to estimate the top speed of a roller coaster if their duration is 155 minutes\n\n\nduration_155 <- tibble(duration = 155)\n\npredict(speed_fit, new_data = duration_155)\n\n# A tibble: 1 × 1\n  .pred\n  <dbl>\n1  60.7\n\n\n\nDemo: Write out the estimated model in proper notation and interpret the slope coefficient\n\n\\(\\widehat{top~speed} = 52 + 0.056 \\times duration\\)\nFor each additional second the ride is longer, the predicted top speed of the roller coaster is higher by 0.057 miles per hour, on average.\n\nQuestion: The slope you calculated and interpeted above is a sample statistic (an estimate). It is possible (and quite likely) that the true slope of the relationship between durations and top speeds of all roller coasters is not exactly equal to this value. How can we quantify the uncertainty around this estimate?\n\nUse a confidence interval.\n\nYour turn: Describe how we can construct a bootstrap distribution for the slope of the model predicting top_speed from duration.\n\nTake a bootstrap sample of pairs of top_speed and duration.\nFit a model predicting top_speed from duration using the bootstrap sample and record the value of the slope.\nRepeat steps 1 and 2 many times.\n\nDemo: Now, construct this bootstrap distribution.\n\n\nset.seed(12345)\n\nboot_df_slope <- rc |>\n  specify(top_speed ~ duration) |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  calculate(stat = \"slope\")\n\nWarning: Removed 34 rows containing missing values.\n\n\n\nDemo: Create a 90% confidence interval by filling in the code below.\n\n\nboot_df_slope |>\n  summarize(\n    lower = quantile(stat, 0.05),\n    upper = quantile(stat, 0.95)\n  )\n\n# A tibble: 1 × 2\n    lower upper\n    <dbl> <dbl>\n1 -0.0195 0.132\n\n\n\nDemo: Interpret the confidence interval in the context of the problem.\n\nWe are 90% confident that, for each additional second the ride is longer, the predicted top speed of the roller coaster is lower by -0.0195 to higher by 0.132 miles per hour, on average.\n\nDemo: Now fit a model predicting log of top_speed from duration.\n\n\nrc <- rc |>\n  mutate(top_speed_log = log(top_speed))\n\nspeed_log_fit <- linear_reg() |>\n  fit(top_speed_log ~ duration, data = rc) \n\ntidy(speed_log_fit)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  <chr>          <dbl>     <dbl>     <dbl>    <dbl>\n1 (Intercept)  3.92     0.0686       57.1  2.15e-89\n2 duration     0.00104  0.000514      2.03 4.48e- 2\n\n\n\nDemo: Write the estimated model and interpret the slope.\n\n\\(\\widehat{log(top~speed)} = 3.92 + 0.00104 \\times duration\\)\nRecall that to interpret the slope value we need to exponentiate it!\nWhy?\n\\[\n\\begin{aligned}\nlog(y~for~x + 1) - log(y~for~x) &= \\beta_1 \\\\\nlog\\Big(\\frac{y~for~x + 1}{y~for~x}\\Big) &= \\beta_1 \\\\\ne^{log\\Big(\\frac{y~for~x + 1}{y~for~x}\\Big)} &= e^\\beta_1 \\\\\n\\frac{y~for~x + 1}{y~for~x} &= e^\\beta_1\n\\end{aligned}\n\\]\nThis implies that our explanatory variable has a multiplicative relationship with our response variable.\nFor each additional second the ride is longer, the predicted top speed of the roller coaster is higher by a factor of \\(e^0.00104 = 1.001\\), on average.\n\n\nResearch question 3\n\nWe are also interested in investigating if roller coasters opened after 1970 are faster than those opened before. For this question, we want to estimate the difference.\n\n\nQuestion: How is this different from question one? Should we make a confidence interval or conduct a hypothesis test?\n\nWe are interested in estimating the difference. This suggests we should make a confidence interval.\n\nDemo: Now, use bootstrapping to estimate the difference between the true speeds of roller coasters before and after 1970.\n\n\nset.seed(12345)\n\nboot_df <- rc |>\n  specify(top_speed ~ opened_recently) |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  calculate(stat = \"diff in means\", order = c(\"yes\", \"no\"))\n\nWarning: Removed 11 rows containing missing values.\n\n\n\nYour turn: Create a 99% confidence interval and interpret it in the context of the data and the research question.\n\n\nboot_df |>\n  summarize(\n    lower = quantile(stat, 0.005),\n    upper = quantile(stat, 0.995)\n  )\n\n# A tibble: 1 × 2\n  lower upper\n  <dbl> <dbl>\n1  8.88  23.3\n\n\nWe are 99% confident that the true mean speed between roller coasters after 1970 are 8.88 to 23.3 mph higher than the true mean speed for roller coasters before 1970.\n\n\nDiscussion\n\nBrainstorm the differences between generating new samples via bootstrapping and permuting. Write down the key differences below. Hint: Think back to the different sampling techniques between research question 1 and research questions 2 and 3.\n\n\n\n\n\n\nFootnotes\n\n\nRoller Coaster DataBase, UltimateRollerCoaster.com, ESTEEM: Enhancing Statistics Teachers Education with E-Modules.↩︎"
   },
   {
+    "objectID": "ae/ae-20-effective-dataviz-A.html",
+    "href": "ae/ae-20-effective-dataviz-A.html",
+    "title": "Trends instructional staff employees in universities",
+    "section": "",
+    "text": "The American Association of University Professors (AAUP) is a nonprofit membership association of faculty and other academic professionals. This report by the AAUP shows trends in instructional staff employees between 1975 and 2011, and contains the following image. What trends are apparent in this visualization?"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#packages",
+    "href": "ae/ae-20-effective-dataviz-A.html#packages",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#data",
+    "href": "ae/ae-20-effective-dataviz-A.html#data",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Data",
+    "text": "Data\nEach row in this dataset represents a faculty type, and the columns are the years for which we have data. The values are percentage of hires of that type of faculty for each year.\n\nstaff <- read_csv(\"data/instructional-staff.csv\")\nstaff\n\n# A tibble: 5 × 12\n  facult…¹ `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007` `2009`\n  <chr>     <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>\n1 Full-Ti…   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2   16.8\n2 Full-Ti…   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8      7.6\n3 Full-Ti…   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9   15.1\n4 Part-Ti…   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5   41.1\n5 Graduat…   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5   19.4\n# … with 1 more variable: `2011` <dbl>, and abbreviated variable name\n#   ¹​faculty_type"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#recreate",
+    "href": "ae/ae-20-effective-dataviz-A.html#recreate",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Recreate",
+    "text": "Recreate\n\nYour turn (10 minutes): Recreate the visualization above. Try to match as many of the elements as possible. Hint: You might need to reshape your data first.\n\n\nstaff_long <- staff |>\n  pivot_longer(cols = -faculty_type, names_to = \"year\", \n               values_to = \"percentage\") |>\n  mutate(\n    percentage = as.numeric(percentage),\n    faculty_type = fct_relevel(faculty_type,\n                               \"Full-Time Tenured Faculty\",\n                               \"Full-Time Tenure-Track Faculty\",\n                               \"Full-Time Non-Tenure-Track Faculty\",\n                               \"Part-Time Faculty\",\n                               \"Graduate Student Employees\")\n    )\n\n\nstaff_long |>\n  ggplot(aes(x = str_wrap(faculty_type, 20), \n             y = percentage, \n             fill = year)) +\n  geom_col(position = \"dodge\") +\n  scale_y_continuous(breaks = seq(5, 45, 5), limits = c(0, 45)) +\n  labs(\n    x = NULL, \n    y = \"Percent of Total Instructional Staff\", \n    fill = NULL,\n    title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n    subtitle = \"All Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n    ) +\n  theme(\n    legend.position = c(0.4, 0.93),\n    legend.direction = \"horizontal\",\n    legend.key.size = unit(0.2, \"cm\"),\n    legend.key.height = unit(0.1, \"cm\"),\n    legend.text.align = 0,\n    legend.background = element_rect(color = \"black\", linewidth = 0.2),\n    legend.text = element_text(size = 7),\n    panel.grid.minor = element_blank(),\n    panel.grid.major.x = element_blank(),\n    plot.caption = element_text(size = 8, hjust = 0)\n    ) +\n  guides(fill = guide_legend(nrow = 1))"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#represent-percentages-as-parts-of-a-whole",
+    "href": "ae/ae-20-effective-dataviz-A.html#represent-percentages-as-parts-of-a-whole",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Represent percentages as parts of a whole",
+    "text": "Represent percentages as parts of a whole\n\nDemo: Recreate the previous visualization where the percentages are represented as parts of a whole.\n\n\nstaff_long |>\n  ggplot(aes(x = str_wrap(faculty_type, 20), \n             y = percentage, \n             fill = fct_rev(year))) +\n  geom_col(position = \"fill\", color = \"white\", linewidth = 0.2) +\n  scale_y_continuous(labels = label_percent()) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       fill = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  theme(\n    legend.text.align = 0,\n    legend.background = element_rect(color = \"black\", size = 0.2),\n    legend.text = element_text(size = 7),\n    panel.grid.minor = element_blank(),\n    panel.grid.major.x = element_blank(),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )\n\nWarning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.\nℹ Please use the `linewidth` argument instead."
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#place-time-on-x-axis",
+    "href": "ae/ae-20-effective-dataviz-A.html#place-time-on-x-axis",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Place time on x-axis",
+    "text": "Place time on x-axis\n\nDemo: Convert the visualization to a line plot with time on the x-axis.\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#pay-attention-to-variable-types",
+    "href": "ae/ae-20-effective-dataviz-A.html#pay-attention-to-variable-types",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Pay attention to variable types",
+    "text": "Pay attention to variable types\n\nQuestion: What is wrong with the x-axis of the plot above? How can you fix it?\n\nTime is represented as a character string (equally spaces between levels) instead of on a continuous scale (with spacing indicating numbers of years between ticks.\n\nYour turn: Implement the fix for the x-axis of the plot.\n\n\nstaff_long <- staff_long |>\n  mutate(year = as.numeric(year))\n\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n           color = str_wrap(faculty_type, 20), \n           group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#use-an-accessible-color-scale",
+    "href": "ae/ae-20-effective-dataviz-A.html#use-an-accessible-color-scale",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use an accessible color scale",
+    "text": "Use an accessible color scale\nQuestion: What do we mean by an accessible color scale? What types of color vision deficiencies are there?\n\nDemo: What does the plot look like to people with various color vision deficiencies?\nDemo: Remake the plot with an accessible color scale.\n\n\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  ) +\n  scale_color_colorblind() # from ggthemes package"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#use-direct-labeling",
+    "href": "ae/ae-20-effective-dataviz-A.html#use-direct-labeling",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use direct labeling",
+    "text": "Use direct labeling\n\nDemo: Remove the legend and add labels for each line at the end of the line (where x is the max(x) recorded).\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type, \n             group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  geom_text(\n    data = staff_long |> filter(year == max(year)),\n    aes(x = year + 1, y = percentage, label = faculty_type),\n    hjust = \"left\", show.legend = FALSE, size = 4\n  ) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(    \n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 2.5, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\") +\n  scale_color_colorblind()"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#use-color-to-draw-attention",
+    "href": "ae/ae-20-effective-dataviz-A.html#use-color-to-draw-attention",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use color to draw attention",
+    "text": "Use color to draw attention\n\nDemo: Redo the line plot where Part-time Faculty is red and the rest are gray.\n\n\nstaff_long <- staff_long |>\n  mutate(faculty_type_color = if_else(faculty_type == \"Part-Time Faculty\", \"firebrick3\", \"gray40\"))\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type_color, group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  geom_text(\n    data = staff_long |> filter(year == max(year)),\n    aes(x = year + 1, y = percentage, label = faculty_type),\n    hjust = \"left\", show.legend = FALSE, size = 4\n  ) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  scale_color_identity() +\n  theme(\n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 2.5, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\")"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#pick-a-purpose",
+    "href": "ae/ae-20-effective-dataviz-A.html#pick-a-purpose",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Pick a purpose",
+    "text": "Pick a purpose\n\np <- staff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type_color, group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  scale_color_identity() +\n  theme(\n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 0.6, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\") +\n    annotate(\n    geom = \"text\",\n    x = 2012, y = 41, label = \"Part-Time\\nFaculty\", \n    color = \"firebrick3\", hjust = \"left\", size = 5\n  ) +\n  annotate(\n    geom = \"text\",\n    x = 2012, y = 13.5, label = \"Other\\nFaculty\", \n    color = \"gray40\", hjust = \"left\", size = 5\n  ) +\n  annotate(\n    geom = \"segment\",\n    x = 2011.5, xend = 2011.5,\n    y = 7, yend = 20,\n    color = \"gray40\", linetype = \"dotted\"\n  )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#use-labels-to-communicate-the-message",
+    "href": "ae/ae-20-effective-dataviz-A.html#use-labels-to-communicate-the-message",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use labels to communicate the message",
+    "text": "Use labels to communicate the message\n\np + \n  labs(\n    title = \"Instruction by part-time faculty on a steady increase\",\n    subtitle = \"Trends in Instructional Staff Employment Status, 1975-2011\\nAll Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\",\n    y = \"Percent of Total Instructional Staff\", \n    x = NULL\n)"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#simplify",
+    "href": "ae/ae-20-effective-dataviz-A.html#simplify",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Simplify",
+    "text": "Simplify\n\np + \n  labs(\n    title = \"Instruction by part-time faculty on a steady increase\",\n    subtitle = \"Trends in Instructional Staff Employment Status, 1975-2011\\nAll Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\",\n    y = \"Percent of Total Instructional Staff\", \n    x = NULL\n) +\n  theme(\n    panel.grid.minor = element_blank()\n    )"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz-A.html#summary",
+    "href": "ae/ae-20-effective-dataviz-A.html#summary",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Summary",
+    "text": "Summary\n\nRepresent percentages as parts of a whole\nPlace variables representing time on the x-axis when possible\nPay attention to data types, e.g., represent time as time on a continuous scale, not years as levels of a categorical variable\nPrefer direct labeling over legends\nUse accessible colors\nUse color to draw attention\nPick a purpose and label, color, annotate for that purpose\nCommunicate your main message directly in the plot labels\nSimplify before you call it done (a.k.a. “Before you leave the house, look in the mirror and take one thing off”)"
+  },
+  {
     "objectID": "ae/ae-12-modelling-fish-A.html",
     "href": "ae/ae-12-modelling-fish-A.html",
     "title": "Modelling fish",
@@ -1790,6 +1888,104 @@
     "title": "Modelling fish",
     "section": "",
     "text": "For this application exercise, we will work with data on fish. The dataset we will use, called fish, is on two common fish species in fish market sales.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\n\nfish <- read_csv(\"data/fish.csv\")\n\nThe data dictionary is below:\n\n\n\nvariable\ndescription\n\n\n\n\nspecies\nSpecies name of fish\n\n\nweight\nWeight, in grams\n\n\nlength_vertical\nVertical length, in cm\n\n\nlength_diagonal\nDiagonal length, in cm\n\n\nlength_cross\nCross length, in cm\n\n\nheight\nHeight, in cm\n\n\nwidth\nDiagonal width, in cm\n\n\n\n\nVisualizing the model\nWe’re going to investigate the relationship between the weights and heights of fish.\n\nDemo: Create an appropriate plot to investigate this relationship. Add appropriate labels to the plot.\n\n\n# add code here\n\n\nYour turn (5 minutes):\n\nIf you were to draw a a straight line to best represent the relationship between the heights and weights of fish, where would it go? Why?\nAdd response here.\nNow, let R draw the line for you. Refer to the documentation at https://ggplot2.tidyverse.org/reference/geom_smooth.html. Specifically, refer to the method section.\n\n\n# add code here\n\n\nWhat types of questions can this plot help answer?\n\nAdd response here.\nYour turn (3 minutes):\n\nWe can use this line to make predictions. Predict what you think the weight of a fish would be with a height of 10 cm, 15 cm, and 20 cm. Which prediction is considered extrapolation?\n\nAdd response here.\n\nWhat is a residual?\n\nAdd response here.\n\n\n\nModel fitting\n\nDemo: Fit a model to predict fish weights from their heights.\n\n\n# add code here\n\n\nYour turn (3 minutes): Predict what the weight of a fish would be with a height of 10 cm, 15 cm, and 20 cm using this model.\n\n\n# add code here\n\n\nDemo: Calculate predicted weights for all fish in the data and visualize the residuals under this model.\n\n\n# add code here\n\n\n\nModel summary\n\nDemo: Display the model summary including estimates for the slope and intercept along with measurements of uncertainty around them. Show how you can extract these values from the model output.\n\n\n# add code here\n\n\nDemo: Write out your model using mathematical notation.\n\nAdd response here.\n\n\nCorrelation\nWe can also assess correlation between two quantitative variables.\n\nYour turn (5 minutes):\n\nWhat is correlation? What are values correlation can take?\n\nAdd response here.\n\nAre you good at guessing correlation? Give it a try! https://www.rossmanchance.com/applets/2021/guesscorrelation/GuessCorrelation.html\n\nDemo: What is the correlation between heights and weights of fish?\n\n\n# add code here\n\n\n\nAdding a third variable\n\nDemo: Does the relationship between heights and weights of fish change if we take into consideration species? Plot two separate straight lines for the Bream and Roach species.\n\n\n# add code here\n\n\n\nFitting other models\n\nDemo: We can fit more models than just a straight line. Change the following code below to read method = \"loess\". What is different from the plot created before?\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html",
+    "href": "ae/ae-20-effective-dataviz.html",
+    "title": "Trends instructional staff employees in universities",
+    "section": "",
+    "text": "The American Association of University Professors (AAUP) is a nonprofit membership association of faculty and other academic professionals. This report by the AAUP shows trends in instructional staff employees between 1975 and 2011, and contains the following image. What trends are apparent in this visualization?"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#packages",
+    "href": "ae/ae-20-effective-dataviz.html#packages",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#data",
+    "href": "ae/ae-20-effective-dataviz.html#data",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Data",
+    "text": "Data\nEach row in this dataset represents a faculty type, and the columns are the years for which we have data. The values are percentage of hires of that type of faculty for each year.\n\nstaff <- read_csv(\"data/instructional-staff.csv\")\nstaff\n\n# A tibble: 5 × 12\n  facult…¹ `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007` `2009`\n  <chr>     <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>\n1 Full-Ti…   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2   16.8\n2 Full-Ti…   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8      7.6\n3 Full-Ti…   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9   15.1\n4 Part-Ti…   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5   41.1\n5 Graduat…   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5   19.4\n# … with 1 more variable: `2011` <dbl>, and abbreviated variable name\n#   ¹​faculty_type"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#recreate",
+    "href": "ae/ae-20-effective-dataviz.html#recreate",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Recreate",
+    "text": "Recreate\n\nYour turn (10 minutes): Recreate the visualization above. Try to match as many of the elements as possible. Hint: You might need to reshape your data first.\n\n\n# add code here\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#represent-percentages-as-parts-of-a-whole",
+    "href": "ae/ae-20-effective-dataviz.html#represent-percentages-as-parts-of-a-whole",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Represent percentages as parts of a whole",
+    "text": "Represent percentages as parts of a whole\n\nDemo: Recreate the previous visualization where the percentages are represented as parts of a whole.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#place-time-on-x-axis",
+    "href": "ae/ae-20-effective-dataviz.html#place-time-on-x-axis",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Place time on x-axis",
+    "text": "Place time on x-axis\n\nDemo: Convert the visualization to a line plot with time on the x-axis.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#pay-attention-to-variable-types",
+    "href": "ae/ae-20-effective-dataviz.html#pay-attention-to-variable-types",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Pay attention to variable types",
+    "text": "Pay attention to variable types\n\nQuestion: What is wrong with the x-axis of the plot above? How can you fix it?\n\nAdd response here.\n\nYour turn: Implement the fix for the x-axis of the plot.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-an-accessible-color-scale",
+    "href": "ae/ae-20-effective-dataviz.html#use-an-accessible-color-scale",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use an accessible color scale",
+    "text": "Use an accessible color scale\n\nQuestion: What do we mean by an accessible color scale? What types of color vision deficiencies are there?\n\nAdd response here.\n\nDemo: What does the plot look like to people with various color vision deficiencies?\nDemo: Remake the plot with an accessible color scale.\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-direct-labeling",
+    "href": "ae/ae-20-effective-dataviz.html#use-direct-labeling",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use direct labeling",
+    "text": "Use direct labeling\n\nDemo: Remove the legend and add labels for each line at the end of the line (where x is the max(x) recorded).\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-color-to-draw-attention",
+    "href": "ae/ae-20-effective-dataviz.html#use-color-to-draw-attention",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use color to draw attention",
+    "text": "Use color to draw attention\n\nDemo: Redo the line plot where Part-time Faculty is red and the rest are gray.\n\n\n# label: recode\n\n# add code here\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#pick-a-purpose",
+    "href": "ae/ae-20-effective-dataviz.html#pick-a-purpose",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Pick a purpose",
+    "text": "Pick a purpose\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#use-labels-to-communicate-the-message",
+    "href": "ae/ae-20-effective-dataviz.html#use-labels-to-communicate-the-message",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Use labels to communicate the message",
+    "text": "Use labels to communicate the message\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#simplify",
+    "href": "ae/ae-20-effective-dataviz.html#simplify",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Simplify",
+    "text": "Simplify\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-20-effective-dataviz.html#summary",
+    "href": "ae/ae-20-effective-dataviz.html#summary",
+    "title": "Trends instructional staff employees in universities",
+    "section": "Summary",
+    "text": "Summary\n\nRepresent percentages as parts of a whole\nPlace variables representing time on the x-axis when possible\nPay attention to data types, e.g., represent time as time on a continuous scale, not years as levels of a categorical variable\nPrefer direct labeling over legends\nUse accessible colors\nUse color to draw attention\nPick a purpose and label, color, annotate for that purpose\nCommunicate your main message directly in the plot labels\nSimplify before you call it done (a.k.a. “Before you leave the house, look in the mirror and take one thing off”)"
   },
   {
     "objectID": "ae/ae-04-joining-fisheries.html",
@@ -2062,7 +2258,7 @@
     "href": "index.html",
     "title": "STA 199: Introduction to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\n\n  \n  \n    \n      week\n      dow\n      date\n      what\n      topic\n      prepare\n      slides\n      ae\n      ae_sa\n      hw\n      hw_sa\n      lab\n      lab_sa\n      exam\n      project\n      notes\n    \n  \n  \n    1\nM\nAug 29\nLab\nNo lab\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nAug 30\nLec 1\nWelcome to STA 199\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 1\nLec 2\nMeet the toolkit\n\n\n\n\n\n\n\n\n\n\n\n    2\nM\nSep 5\nLab 0\nHello R!\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 0\n    \nT\nSep 6\nLec 3\nGrammar of graphics\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 8\nLec 4\nVisualizing various types of data\n\n\n\n\n\n\n\n\n\n\nRelease: HW 1\n    \nF\nSep 9\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 0 + AE 1\n    \nSu\nSep 11\n\n\n\n\n\n\n\n\n\n\n\n\nDue: AE 2\n    3\nM\nSep 12\nLab 1\nData visualization\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 1\n    \nT\nSep 13\nLec 5\nGrammar of data wrangling\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 15\nLec 6\nWorking with multiple data frames\n\n\n\n\n\n\n\n\n\n\nDue: HW 1 / Release: HW 2\n    \nF\nSep 16\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 1\n    4\nM\nSep 19\nLab 2\nData wrangling\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 2\n    \nT\nSep 20\nLec 7\nTidying data\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 22\nLec 8\nData types and classes\n\n\n\n\n\n\n\n\n\n\nDue HW 2\n    \nF\nSep 23\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 2\n    5\nM\nSep 26\nLab 3\nData tidying\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 3\n    \nT\nSep 27\nLec 9\nImporting and recoding data\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 29\nLec 10\nExam 1 Review\n\n\n\n\n\n\n\n\n\n\nRelease: Exam 1 at 12pm\n    \nF\nSep 30\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 3\n    6\nM\nOct 3\nLab\nNo lab - Work on Exam 1\n\n\n\n\n\n\n\n\n\n\nDue: Exam 1 at 2pm\n    \nT\nOct 4\nLec 11\nData science ethics - Misrepresentation\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 6\nLec 12\nData science ethics - Algorithmic bias + data privacy\n\n\n\n\n\n\n\n\n\n\nRelease: HW 3\n    7\nM\nOct 10\nLab\nNo lab - Fall break\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nOct 11\nLecture\nNo Lec - Fall break\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 13\nLec 13\nWeb scraping\n\n\n\n\n\n\n\n\n\n\nDue: HW 3\n    8\nM\nOct 17\nLab\nWork on project proposal\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nOct 18\nLec 14\nFunctions + iteration\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 20\nLec 15\nThe language of models\n\n\n\n\n\n\n\n\n\n\n\n    \nF\nOct 21\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Project proposal\n    9\nM\nOct 24\nLab 4\nProbability + Simpson's Paradox\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 4\n    \nT\nOct 25\nLec 16\nModels with a single predictor\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 27\nLec 17\nModels with multiple predictors\n\n\n\n\n\n\n\n\n\n\nRelease: HW 4\n    \nF\nOct 28\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 4\n    10\nM\nOct 31\nLab 5\nPredicting a numerical outcome\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 5\n    \nT\nNov 1\nLec 18\nModels with multiple predictors + Overfitting\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 3\nLec 19\nLogistic regression\n\n\n\n\n\n\n\n\n\n\nDue: HW 4 / Release: HW 5\n    \nF\nNov 4\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 5 / Release: HW 6\n    \nS\nNov 5\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Team peer evaluations\n    11\nM\nNov 7\nLab\nWork on project draft\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nNov 8\nLec 20\nQuantifying uncertainty with bootstrap intervals\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 10\nLec 21\nHypothesis testing via simulation\n\n\n\n\n\n\n\n\n\n\nDue: HW 5\n    \nF\nNov 11\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Project draft 1\n    12\nM\nNov 14\nLab 6\nPrediction + Bootstrapping\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 6\n    \nT\nNov 15\nLec 22\nInference overview\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 17\nLec 23\nExam 2 Review\n\n\n\n\n\n\n\n\n\n\nRelease: Exam 2 at 12pm\n    \nF\nNov 18\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 6\n    13\nM\nNov 21\nLab\nNo lab - Work on Exam 2\n\n\n\n\n\n\n\n\n\n\nDue: Exam 2 at 2pm\n    \nT\nNov 22\nLec 24\nNo lecture - Work on projects\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 24\nLecture\nNo lecture - Thanksgiving\n\n\n\n\n\n\n\n\n\n\n\n    \nSu\nNov 27\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Project draft 2 (optional)\n    14\nM\nNov 28\nLab\nWork on project peer review\n\n\n\n\n\n\n\n\n\n\nDue: Project peer review\n    \nT\nNov 29\nLec 25\nCommunicating data science results effectively\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nDec 1\nLec 26\nCustomizing Quarto reports and presentations\n\n\n\n\n\n\n\n\n\n\n\n    15\nM\nDec 5\nLab\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nDec 6\nLec 25\nLooking further topic 1\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nDec 8\nLec 26\nLooking further topic 2\n\n\n\n\n\n\n\n\n\n\nDue: Project everything\n    \nF\nDec 9\n\n\n\n\n\n\n\n\n\n\n\n\nDue: HW 6 / Statistics experience"
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\n\n  \n  \n    \n      week\n      dow\n      date\n      what\n      topic\n      prepare\n      slides\n      ae\n      ae_sa\n      hw\n      hw_sa\n      lab\n      lab_sa\n      exam\n      project\n      notes\n    \n  \n  \n    1\nM\nAug 29\nLab\nNo lab\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nAug 30\nLec 1\nWelcome to STA 199\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 1\nLec 2\nMeet the toolkit\n\n\n\n\n\n\n\n\n\n\n\n    2\nM\nSep 5\nLab 0\nHello R!\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 0\n    \nT\nSep 6\nLec 3\nGrammar of graphics\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 8\nLec 4\nVisualizing various types of data\n\n\n\n\n\n\n\n\n\n\nRelease: HW 1\n    \nF\nSep 9\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 0 + AE 1\n    \nSu\nSep 11\n\n\n\n\n\n\n\n\n\n\n\n\nDue: AE 2\n    3\nM\nSep 12\nLab 1\nData visualization\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 1\n    \nT\nSep 13\nLec 5\nGrammar of data wrangling\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 15\nLec 6\nWorking with multiple data frames\n\n\n\n\n\n\n\n\n\n\nDue: HW 1 / Release: HW 2\n    \nF\nSep 16\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 1\n    4\nM\nSep 19\nLab 2\nData wrangling\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 2\n    \nT\nSep 20\nLec 7\nTidying data\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 22\nLec 8\nData types and classes\n\n\n\n\n\n\n\n\n\n\nDue HW 2\n    \nF\nSep 23\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 2\n    5\nM\nSep 26\nLab 3\nData tidying\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 3\n    \nT\nSep 27\nLec 9\nImporting and recoding data\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nSep 29\nLec 10\nExam 1 Review\n\n\n\n\n\n\n\n\n\n\nRelease: Exam 1 at 12pm\n    \nF\nSep 30\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 3\n    6\nM\nOct 3\nLab\nNo lab - Work on Exam 1\n\n\n\n\n\n\n\n\n\n\nDue: Exam 1 at 2pm\n    \nT\nOct 4\nLec 11\nData science ethics - Misrepresentation\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 6\nLec 12\nData science ethics - Algorithmic bias + data privacy\n\n\n\n\n\n\n\n\n\n\nRelease: HW 3\n    7\nM\nOct 10\nLab\nNo lab - Fall break\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nOct 11\nLecture\nNo Lec - Fall break\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 13\nLec 13\nWeb scraping\n\n\n\n\n\n\n\n\n\n\nDue: HW 3\n    8\nM\nOct 17\nLab\nWork on project proposal\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nOct 18\nLec 14\nFunctions + iteration\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 20\nLec 15\nThe language of models\n\n\n\n\n\n\n\n\n\n\n\n    \nF\nOct 21\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Project proposal\n    9\nM\nOct 24\nLab 4\nProbability + Simpson's Paradox\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 4\n    \nT\nOct 25\nLec 16\nModels with a single predictor\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nOct 27\nLec 17\nModels with multiple predictors\n\n\n\n\n\n\n\n\n\n\nRelease: HW 4\n    \nF\nOct 28\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 4\n    10\nM\nOct 31\nLab 5\nPredicting a numerical outcome\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 5\n    \nT\nNov 1\nLec 18\nModels with multiple predictors + Overfitting\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 3\nLec 19\nLogistic regression\n\n\n\n\n\n\n\n\n\n\nDue: HW 4 / Release: HW 5\n    \nF\nNov 4\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 5 / Release: HW 6\n    \nS\nNov 5\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Team peer evaluations 1\n    11\nM\nNov 7\nLab\nWork on project draft\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nNov 8\nLec 20\nQuantifying uncertainty with bootstrap intervals\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 10\nLec 21\nHypothesis testing via simulation\n\n\n\n\n\n\n\n\n\n\nDue: HW 5\n    \nF\nNov 11\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Project draft 1\n    12\nM\nNov 14\nLab 6\nPrediction + Bootstrapping\n\n\n\n\n\n\n\n\n\n\nRelease: Lab 6\n    \nT\nNov 15\nLec 22\nInference overview\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 17\nLec 23\nExam 2 Review\n\n\n\n\n\n\n\n\n\n\nRelease: Exam 2 at 12pm\n    \nF\nNov 18\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Lab 6\n    13\nM\nNov 21\nLab\nNo lab - Work on Exam 2\n\n\n\n\n\n\n\n\n\n\nDue: Exam 2 at 2pm\n    \nT\nNov 22\nLec 24\nNo lecture - Work on projects\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nNov 24\nLecture\nNo lecture - Thanksgiving\n\n\n\n\n\n\n\n\n\n\n\n    \nF\nNov 25\n\n\n\n\n\n\n\n\n\n\n\n\nRelease: Exam retake (optional)\n    \nSu\nNov 27\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Project draft 2 (optional)\n    14\nM\nNov 28\nLab\nWork on project peer review\n\n\n\n\n\n\n\n\n\n\nDue: Project peer review\n    \nT\nNov 29\nLec 25\nCommunicating data science results effectively\n\n\n\n\n\n\n\n\n\n\nDue: Team peer evaluations 2\n    \nTh\nDec 1\nLec 26\nCustomizing Quarto reports and presentations\n\n\n\n\n\n\n\n\n\n\n\n    15\nM\nDec 5\nLab\nProject presentations\n\n\n\n\n\n\n\n\n\n\n\n    \nT\nDec 6\nLec 25\nLooking further topic 1\n\n\n\n\n\n\n\n\n\n\n\n    \nTh\nDec 8\nLec 26\nLooking further topic 2\n\n\n\n\n\n\n\n\n\n\nDue: Project everything\n    \nF\nDec 9\n\n\n\n\n\n\n\n\n\n\n\n\nDue: HW 6 / Statistics experience\n    16\nTh\nDec 15\n\n\n\n\n\n\n\n\n\n\n\n\nDue: Exam retake (optional)"
   },
   {
     "objectID": "course-team.html",
@@ -3514,6 +3710,55 @@
     "text": "Pivoting and joining\nLet’s visit https://www.garrickadenbuie.com/project/tidyexplain!\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/24-communicate.html#announcements",
+    "href": "slides/24-communicate.html#announcements",
+    "title": "Exam 2 review",
+    "section": "Announcements",
+    "text": "Announcements\n\nOffice hours today 2:45 - 4:45pm in person or on Zoom\nRemaining due dates:\n\n\nPeer eval 2 due tonight by 11pm. Late submission is not possible!\nSurvey on Sakai for topics requested for next week.\nProject presentations next Monday in lab – all team members must be present.\nProject write-up and final repo due 11:59pm Thur, Dec 8 – you will lose access to your repo at this time.\nHW 6 due 11:59pm Friday, Dec 9.\nRemaining application exercises due on the usual schedule.\n(Optional) Exam retake – due 11:59 pm Thur, Dec 15 – absolutely no late submissions, extensions, etc. for any reason."
+  },
+  {
+    "objectID": "slides/24-communicate.html#exam-retake",
+    "href": "slides/24-communicate.html#exam-retake",
+    "title": "Exam 2 review",
+    "section": "Exam retake",
+    "text": "Exam retake\n\nReleased after Exam 2 grades are released, by next week.\nWeighted average between your lowest exam score and what you earn on the retake\nIf you earned a 0% on Exam 2 and earn 100% on Exam Retake, you will earn an 85%.\nOverall task: Create a six question assessment covering specific topics from the course, write a key and a grading rubric for each, as well as a justification."
+  },
+  {
+    "objectID": "slides/24-communicate.html#project",
+    "href": "slides/24-communicate.html#project",
+    "title": "Exam 2 review",
+    "section": "Project",
+    "text": "Project\n\nReview peer evaluations left by your peers, implement updates as you see fit, close the issue once you review them.\nHave a clear plan for who is doing what, open issues on your repo, and assign them to individuals who can then close the issues as they finish a task.\nSchedule at least one team meting between today and your presentation to practice your presentation together."
+  },
+  {
+    "objectID": "slides/24-communicate.html#whats-going-on-in-this-plot",
+    "href": "slides/24-communicate.html#whats-going-on-in-this-plot",
+    "title": "Exam 2 review",
+    "section": "What’s going on in this plot?",
+    "text": "What’s going on in this plot?"
+  },
+  {
+    "objectID": "slides/24-communicate.html#take-a-sad-plot-make-it-better",
+    "href": "slides/24-communicate.html#take-a-sad-plot-make-it-better",
+    "title": "Exam 2 review",
+    "section": "Take A Sad Plot & Make It Better",
+    "text": "Take A Sad Plot & Make It Better\n\nSource: https://alison.netlify.app/rlm-sad-plot-better"
+  },
+  {
+    "objectID": "slides/24-communicate.html#ae-20",
+    "href": "slides/24-communicate.html#ae-20",
+    "title": "Exam 2 review",
+    "section": "ae-20",
+    "text": "ae-20\n\n\nGo to the course GitHub org and find your ae-20 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nYou should have already pushed updates on Tuesday, so you should be good for submission."
+  },
+  {
+    "objectID": "slides/24-communicate.html#recap",
+    "href": "slides/24-communicate.html#recap",
+    "title": "Exam 2 review",
+    "section": "Recap",
+    "text": "Recap\n\n\nRepresent percentages as parts of a whole\nPlace variables representing time on the x-axis when possible\nPay attention to data types, e.g., represent time as time on a continuous scale, not years as levels of a categorical variable\nPrefer direct labeling over legends\nUse accessible colors\nUse color to draw attention\nPick a purpose and label, color, annotate for that purpose\nCommunicate your main message directly in the plot labels\nSimplify before you call it done (a.k.a. “Before you leave the house, look in the mirror and take one thing off”)\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+  },
+  {
     "objectID": "slides/03-grammar-of-graphics.html#announcements",
     "href": "slides/03-grammar-of-graphics.html#announcements",
     "title": "Grammar of graphics",
@@ -4330,7 +4575,7 @@
     "href": "project-description.html",
     "title": "Project description",
     "section": "",
-    "text": "Proposal due Fri, Oct 21\nDraft 1 due Fri, Nov 11\nDraft 2 due Sun, Nov 27 (optional)\nPeer review due Mon, Nov 28\nPresentation + slides and final GitHub repo due Mon, Dec 5\nFinal report due Thu, Dec 8"
+    "text": "Proposal due Fri, Oct 21\nDraft 1 due Fri, Nov 11\nDraft 2 due Sun, Nov 27 (optional)\nPeer review due Mon, Nov 28\nPresentation + slides due Mon, Dec 5\nFinal report and final GitHub repo due Thu, Dec 8"
   },
   {
     "objectID": "project-description.html#criteria-for-datasets",
@@ -4499,110 +4744,5 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If you’re having difficulty launching an RStudio session from your reserved container, go to status.oit.duke.edu and scroll down to Teaching and Learning Tools. Under this heading you’ll find an entry called Container Manager (CMGR Coursework Containers).\n\nIf the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course Slack to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\n\nAnother approach is to request a restart of your container. To do so, select your container as you usually do and then, instead of Login, click on Request Restart. Read the warning in the next page, and then click once more to restart your container."
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html",
-    "href": "ae/ae-20-effective-dataviz.html",
-    "title": "Trends instructional staff employees in universities",
-    "section": "",
-    "text": "The American Association of University Professors (AAUP) is a nonprofit membership association of faculty and other academic professionals. This report by the AAUP shows trends in instructional staff employees between 1975 and 2011, and contains the following image. What trends are apparent in this visualization?"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#packages",
-    "href": "ae/ae-20-effective-dataviz.html#packages",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(ggthemes)"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#data",
-    "href": "ae/ae-20-effective-dataviz.html#data",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Data",
-    "text": "Data\nEach row in this dataset represents a faculty type, and the columns are the years for which we have data. The values are percentage of hires of that type of faculty for each year.\n\nstaff <- read_csv(\"data/instructional-staff.csv\")\nstaff\n\n# A tibble: 5 × 12\n  facult…¹ `1975` `1989` `1993` `1995` `1999` `2001` `2003` `2005` `2007` `2009`\n  <chr>     <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>\n1 Full-Ti…   29     27.6   25     24.8   21.8   20.3   19.3   17.8   17.2   16.8\n2 Full-Ti…   16.1   11.4   10.2    9.6    8.9    9.2    8.8    8.2    8      7.6\n3 Full-Ti…   10.3   14.1   13.6   13.6   15.2   15.5   15     14.8   14.9   15.1\n4 Part-Ti…   24     30.4   33.1   33.2   35.5   36     37     39.3   40.5   41.1\n5 Graduat…   20.5   16.5   18.1   18.8   18.7   19     20     19.9   19.5   19.4\n# … with 1 more variable: `2011` <dbl>, and abbreviated variable name\n#   ¹​faculty_type"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#recreate",
-    "href": "ae/ae-20-effective-dataviz.html#recreate",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Recreate",
-    "text": "Recreate\n\nYour turn (10 minutes): Recreate the visualization above. Try to match as many of the elements as possible. Hint: You might need to reshape your data first.\n\n\nstaff_long <- staff |>\n  pivot_longer(cols = -faculty_type, names_to = \"year\", \n               values_to = \"percentage\") |>\n  mutate(\n    percentage = as.numeric(percentage),\n    faculty_type = fct_relevel(faculty_type,\n                               \"Full-Time Tenured Faculty\",\n                               \"Full-Time Tenure-Track Faculty\",\n                               \"Full-Time Non-Tenure-Track Faculty\",\n                               \"Part-Time Faculty\",\n                               \"Graduate Student Employees\")\n    )\n\n\nstaff_long |>\n  ggplot(aes(x = str_wrap(faculty_type, 20), \n             y = percentage, \n             fill = year)) +\n  geom_col(position = \"dodge\") +\n  scale_y_continuous(breaks = seq(5, 45, 5), limits = c(0, 45)) +\n  labs(\n    x = NULL, \n    y = \"Percent of Total Instructional Staff\", \n    fill = NULL,\n    title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n    subtitle = \"All Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n    ) +\n  theme(\n    legend.position = c(0.4, 0.93),\n    legend.direction = \"horizontal\",\n    legend.key.size = unit(0.2, \"cm\"),\n    legend.key.height = unit(0.1, \"cm\"),\n    legend.text.align = 0,\n    legend.background = element_rect(color = \"black\", linewidth = 0.2),\n    legend.text = element_text(size = 7),\n    panel.grid.minor = element_blank(),\n    panel.grid.major.x = element_blank(),\n    plot.caption = element_text(size = 8, hjust = 0)\n    ) +\n  guides(fill = guide_legend(nrow = 1))"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#represent-percentages-as-parts-of-a-whole",
-    "href": "ae/ae-20-effective-dataviz.html#represent-percentages-as-parts-of-a-whole",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Represent percentages as parts of a whole",
-    "text": "Represent percentages as parts of a whole\n\nDemo: Recreate the previous visualization where the percentages are represented as parts of a whole.\n\n\nstaff_long |>\n  ggplot(aes(x = str_wrap(faculty_type, 20), \n             y = percentage, \n             fill = fct_rev(year))) +\n  geom_col(position = \"fill\", color = \"white\", linewidth = 0.2) +\n  scale_y_continuous(labels = label_percent()) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       fill = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  theme(\n    legend.text.align = 0,\n    legend.background = element_rect(color = \"black\", size = 0.2),\n    legend.text = element_text(size = 7),\n    panel.grid.minor = element_blank(),\n    panel.grid.major.x = element_blank(),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )\n\nWarning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.\nℹ Please use the `linewidth` argument instead."
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#place-time-on-x-axis",
-    "href": "ae/ae-20-effective-dataviz.html#place-time-on-x-axis",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Place time on x-axis",
-    "text": "Place time on x-axis\n\nDemo: Convert the visualization to a line plot with time on the x-axis.\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#represent-time-as-time",
-    "href": "ae/ae-20-effective-dataviz.html#represent-time-as-time",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Represent time as time",
-    "text": "Represent time as time\n\nstaff_long <- staff_long |>\n  mutate(year = as.numeric(year))\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#use-an-accessible-color-scale",
-    "href": "ae/ae-20-effective-dataviz.html#use-an-accessible-color-scale",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Use an accessible color scale",
-    "text": "Use an accessible color scale\nQuestion: What do we mean by an accessible color scale? What types of color vision deficiencies are there?\n\nDemo: What does the plot look like to people with various color vision deficiencies?\nDemo: Remake the plot with an accessible color scale.\n\n\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n             color = str_wrap(faculty_type, 20), \n             group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  ) +\n  scale_color_colorblind() # from ggthemes package"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#use-direct-labeling",
-    "href": "ae/ae-20-effective-dataviz.html#use-direct-labeling",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Use direct labeling",
-    "text": "Use direct labeling\n\nDemo: Remove the legend and add labels for each line at the end of the line (where x is the max(x) recorded).\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type, \n             group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  geom_text(\n    data = staff_long |> filter(year == max(year)),\n    aes(x = year + 1, y = percentage, label = faculty_type),\n    hjust = \"left\", show.legend = FALSE, size = 4\n  ) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(    \n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 2.5, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\") +\n  scale_color_colorblind()"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#use-color-to-draw-attention",
-    "href": "ae/ae-20-effective-dataviz.html#use-color-to-draw-attention",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Use color to draw attention",
-    "text": "Use color to draw attention\n\nDemo: Redo the line plot where Part-time Faculty is red and the rest are gray.\n\n\nstaff_long <- staff_long |>\n  mutate(faculty_type_color = if_else(faculty_type == \"Part-Time Faculty\", \"firebrick3\", \"gray40\"))\n\n\nstaff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type_color, group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  geom_text(\n    data = staff_long |> filter(year == max(year)),\n    aes(x = year + 1, y = percentage, label = faculty_type),\n    hjust = \"left\", show.legend = FALSE, size = 4\n  ) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  scale_color_identity() +\n  theme(\n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 2.5, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\")"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#pick-a-purpose",
-    "href": "ae/ae-20-effective-dataviz.html#pick-a-purpose",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Pick a purpose",
-    "text": "Pick a purpose\n\np <- staff_long |>\n  ggplot(aes(x = year, \n             y = percentage, \n             color = faculty_type_color, group = faculty_type)) +\n  geom_line(linewidth = 1, show.legend = FALSE) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  scale_color_identity() +\n  theme(\n    plot.caption = element_text(size = 8, hjust = 0),\n    plot.margin = margin(0.1, 0.6, 0.1, 0.1, unit = \"in\")\n    ) +\n  coord_cartesian(clip = \"off\") +\n    annotate(\n    geom = \"text\",\n    x = 2012, y = 41, label = \"Part-Time\\nFaculty\", \n    color = \"firebrick3\", hjust = \"left\", size = 5\n  ) +\n  annotate(\n    geom = \"text\",\n    x = 2012, y = 13.5, label = \"Other\\nFaculty\", \n    color = \"gray40\", hjust = \"left\", size = 5\n  ) +\n  annotate(\n    geom = \"segment\",\n    x = 2011.5, xend = 2011.5,\n    y = 7, yend = 20,\n    color = \"gray40\", linetype = \"dotted\"\n  )"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#use-labels-to-communicate-the-message",
-    "href": "ae/ae-20-effective-dataviz.html#use-labels-to-communicate-the-message",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Use labels to communicate the message",
-    "text": "Use labels to communicate the message\n\np + \n  labs(\n    title = \"Instruction by part-time faculty on a steady increase\",\n    subtitle = \"Trends in Instructional Staff Employment Status, 1975-2011\\nAll Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\",\n    y = \"Percent of Total Instructional Staff\", \n    x = NULL\n)"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#simplify",
-    "href": "ae/ae-20-effective-dataviz.html#simplify",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Simplify",
-    "text": "Simplify\n\np + \n  labs(\n    title = \"Instruction by part-time faculty on a steady increase\",\n    subtitle = \"Trends in Instructional Staff Employment Status, 1975-2011\\nAll Institutions, National Totals\",\n    caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\",\n    y = \"Percent of Total Instructional Staff\", \n    x = NULL\n) +\n  theme(\n    panel.grid.minor = element_blank()\n    )"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#summary",
-    "href": "ae/ae-20-effective-dataviz.html#summary",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Summary",
-    "text": "Summary\n\nRepresent percentages as parts of a whole\nPlace variables representing time on the x-axis when possible\nPay attention to data types, e.g., represent time as time on a continuous scale, not years as levels of a categorical variable\nPrefer direct labeling over legends\nUse accessible colors\nUse color to draw attention\nPick a purpose and label, color, annotate for that purpose\nCommunicate your main message directly in the plot labels\nSimplify before you call it done (a.k.a. “Before you leave the house, look in the mirror and take one thing off”)"
-  },
-  {
-    "objectID": "ae/ae-20-effective-dataviz.html#pay-attention-to-variable-types",
-    "href": "ae/ae-20-effective-dataviz.html#pay-attention-to-variable-types",
-    "title": "Trends instructional staff employees in universities",
-    "section": "Pay attention to variable types",
-    "text": "Pay attention to variable types\n\nQuestion: What is wrong with the x-axis of the plot above? How can you fix it?\n\nTime is represented as a character string (equally spaces between levels) instead of on a continuous scale (with spacing indicating numbers of years between ticks.\n\nYour turn: Implement the fix for the x-axis of the plot.\n\n\nstaff_long <- staff_long |>\n  mutate(year = as.numeric(year))\n\nggplot(staff_long,\n       aes(x = year, \n           y = percentage, \n           color = str_wrap(faculty_type, 20), \n           group = str_wrap(faculty_type, 20))) +\n  geom_line(linewidth = 1) +\n  labs(x = NULL, \n       y = \"Percent of Total Instructional Staff\", \n       color = NULL,\n       title = \"Trends in Instructional Staff Employment Status, 1975-2011\",\n       subtitle = \"All Institutions, National Totals\",\n       caption = \"Source: US Department of Education, IPEDS Fall Staff Survey\"\n       ) +\n  scale_y_continuous(labels = label_percent(accuracy = 1, scale = 1)) +\n  theme(\n    legend.key.height = unit(1.5, \"cm\"),\n    plot.caption = element_text(size = 8, hjust = 0)\n  )"
   }
 ]
