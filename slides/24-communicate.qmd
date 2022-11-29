@@ -1,7 +1,7 @@
 ---
 title: "Exam 2 review"
-subtitle: "Lecture 23"
-date: "November 17, 2022"
+subtitle: "Lecture 24"
+date: "November 29, 2022"
 format: revealjs
 ---
 
