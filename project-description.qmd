@@ -352,7 +352,7 @@ The written report is worth 40 points, broken down as follows
 
 ## Slides
 
-In addition to the written report, your team will also create presentation slides and record a video presentation that summarize and showcase your project.
+In addition to the written report, your team will also create presentation slides and deliver presentation that summarize and showcase your project.
 Introduce your research question and data set, showcase visualizations, and discuss the primary conclusions.
 These slides should serve as a brief visual addition to your written report and will be graded for content and quality.
 

@@ -1,0 +1,41 @@
+---
+title: "Customizing Quarto reports and presentations"
+subtitle: "Lecture 25"
+date: "December 1, 2022"
+format: revealjs
+---
+
+# Warm up
+
+## Course evaluations {.smaller}
+
+-   Your investment in completing the course and TA evaluation thoughtfully for about 10 minutes today will not only help instructors improve their courses, but their instruction techniques as well.
+
+-   Most of the ratings and responses you provide in your evaluations this semester will be shared with future students.
+    The more students that contribute evaluations, the more access every student will have to course evaluation data when making future course enrollment decisions.
+
+-   You can address the evaluation forms through links in email reminders or by logging in to [duke.evaluationkit.com](https://duke.evaluationkit.com/) (for course evaluations).
+
+-   Goal: If we can hit 80% response rate on both evaluations, everyone in the class will get an additional point on their HW average.
+
+## Time for course evaluations
+
+```{r}
+#| echo: false
+
+library(countdown)
+countdown_fullscreen(minutes = 10)
+```
+
+## What to expect on Monday
+
+Project presentations!
+🥳
+
+-   Make sure your presentation is pushed to your GitHub repo before your lab section.
+
+-   Get to lab on time, 5 minutes prior if possible.
+
+-   Find out your presentation order when you get there.
+
+-   
