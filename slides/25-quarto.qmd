@@ -27,7 +27,7 @@ library(countdown)
 countdown_fullscreen(minutes = 10)
 ```
 
-## Project presentations on Monday! 🥳
+## Project presentations on Monday! 🥳 {.smaller}
 
 -   Make sure your presentation is pushed to your GitHub repo before your lab section.
 
@@ -61,6 +61,8 @@ countdown_fullscreen(minutes = 10)
 -   Further control over figure layout with the **patchwork** package.
 
 -   Chunk options around what makes it in your final report: `message`, `echo`, etc.
+
+-   Citations.
 
 -   Finalizing your report with `echo: false`.
 

@@ -2307,7 +2307,7 @@
     "href": "slides/25-quarto.html#writing-your-project-report-with-quarto",
     "title": "Customizing Quarto reports and presentations",
     "section": "Writing your project report with Quarto",
-    "text": "Writing your project report with Quarto\n\nFigure sizing: fig-width, fig-height, etc. in code chunks.\nFigure layout: layout-ncol for placing multiple figures in a chunk.\nFurther control over figure layout with the patchwork package.\nChunk options around what makes it in your final report: message, echo, etc.\nFinalizing your report with echo: false."
+    "text": "Writing your project report with Quarto\n\nFigure sizing: fig-width, fig-height, etc. in code chunks.\nFigure layout: layout-ncol for placing multiple figures in a chunk.\nFurther control over figure layout with the patchwork package.\nChunk options around what makes it in your final report: message, echo, etc.\nCitations.\nFinalizing your report with echo: false."
   },
   {
     "objectID": "slides/25-quarto.html#building-your-project-website-with-quarto",
