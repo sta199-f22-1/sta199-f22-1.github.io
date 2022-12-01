@@ -16,7 +16,7 @@ format: revealjs
 
 -   You can address the evaluation forms through links in email reminders or by logging in to [duke.evaluationkit.com](https://duke.evaluationkit.com/) (for course evaluations).
 
--   Goal: If we can hit 80% response rate on both evaluations, everyone in the class will get an additional point on their HW average.
+-   Goal: If we can hit 80% response rate on [**both**]{.underline} course and TA evaluations, everyone in the class will get an additional point on their HW average.
 
 ## Time for course evaluations
 
@@ -27,15 +27,53 @@ library(countdown)
 countdown_fullscreen(minutes = 10)
 ```
 
-## What to expect on Monday
-
-Project presentations!
-🥳
+## Project presentations on Monday! 🥳
 
 -   Make sure your presentation is pushed to your GitHub repo before your lab section.
 
--   Get to lab on time, 5 minutes prior if possible.
+-   Get to lab on time, 5 minutes prior if possible -- **all team members must be present in class and take part in the presentation + Q&A**
 
 -   Find out your presentation order when you get there.
 
--   
+-   Deliver or play your 5-minute presentation.
+
+-   Answer questions during your own Q&A or ask questions to others.
+
+-   Fill out feedback forms while you listen to others' presentations.
+
+## Project write-ups due Thursday
+
+-   There's a good chance you'll be done with these on Monday as well
+
+-   But you might want to improve your write-up based on inspiration from other teams' presentations and/or ideas that came up during your Q&A.
+
+-   Project repos will close at 11:59pm on Thursday.
+    There is no Gradescope submission, just push your final edits to GitHub.
+
+# Quarto demos
+
+## Writing your project report with Quarto
+
+-   Figure sizing: `fig-width`, `fig-height`, etc. in code chunks.
+
+-   Figure layout: `layout-ncol` for placing multiple figures in a chunk.
+
+-   Further control over figure layout with the **patchwork** package.
+
+-   Chunk options around what makes it in your final report: `message`, `echo`, etc.
+
+-   Finalizing your report with `echo: false`.
+
+## Building your project website with Quarto
+
+-   The `docs` folder.
+
+-   Making sure your website reflects your latest changes.
+
+-   Customizing the look of your website.
+
+## The presentation
+
+-   **Option 1:** Make your slides not in Quarto but make sure they're available in your Quarto project website.
+
+-   **Option 2:** Make your slides with Quarto.

@@ -2279,7 +2279,7 @@
     "href": "slides/25-quarto.html#course-evaluations",
     "title": "Customizing Quarto reports and presentations",
     "section": "Course evaluations",
-    "text": "Course evaluations\n\nYour investment in completing the course and TA evaluation thoughtfully for about 10 minutes today will not only help instructors improve their courses, but their instruction techniques as well.\nMost of the ratings and responses you provide in your evaluations this semester will be shared with future students. The more students that contribute evaluations, the more access every student will have to course evaluation data when making future course enrollment decisions.\nYou can address the evaluation forms through links in email reminders or by logging in to duke.evaluationkit.com (for course evaluations).\nGoal: If we can hit 80% response rate on both evaluations, everyone in the class will get an additional point on their HW average."
+    "text": "Course evaluations\n\nYour investment in completing the course and TA evaluation thoughtfully for about 10 minutes today will not only help instructors improve their courses, but their instruction techniques as well.\nMost of the ratings and responses you provide in your evaluations this semester will be shared with future students. The more students that contribute evaluations, the more access every student will have to course evaluation data when making future course enrollment decisions.\nYou can address the evaluation forms through links in email reminders or by logging in to duke.evaluationkit.com (for course evaluations).\nGoal: If we can hit 80% response rate on both course and TA evaluations, everyone in the class will get an additional point on their HW average."
   },
   {
     "objectID": "slides/25-quarto.html#time-for-course-evaluations",
@@ -2289,11 +2289,39 @@
     "text": "Time for course evaluations\n\n\n\n−+\n10:00"
   },
   {
-    "objectID": "slides/25-quarto.html#what-to-expect-on-monday",
-    "href": "slides/25-quarto.html#what-to-expect-on-monday",
+    "objectID": "slides/25-quarto.html#project-presentations-on-monday",
+    "href": "slides/25-quarto.html#project-presentations-on-monday",
     "title": "Customizing Quarto reports and presentations",
-    "section": "What to expect on Monday",
-    "text": "What to expect on Monday\nProject presentations! 🥳\n\nMake sure your presentation is pushed to your GitHub repo before your lab section.\nGet to lab on time, 5 minutes prior if possible.\nFind out your presentation order when you get there.\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
+    "section": "Project presentations on Monday! 🥳",
+    "text": "Project presentations on Monday! 🥳\n\nMake sure your presentation is pushed to your GitHub repo before your lab section.\nGet to lab on time, 5 minutes prior if possible – all team members must be present in class and take part in the presentation + Q&A\nFind out your presentation order when you get there.\nDeliver or play your 5-minute presentation.\nAnswer questions during your own Q&A or ask questions to others.\nFill out feedback forms while you listen to others’ presentations."
+  },
+  {
+    "objectID": "slides/25-quarto.html#project-write-ups-due-thursday",
+    "href": "slides/25-quarto.html#project-write-ups-due-thursday",
+    "title": "Customizing Quarto reports and presentations",
+    "section": "Project write-ups due Thursday",
+    "text": "Project write-ups due Thursday\n\nThere’s a good chance you’ll be done with these on Monday as well\nBut you might want to improve your write-up based on inspiration from other teams’ presentations and/or ideas that came up during your Q&A.\nProject repos will close at 11:59pm on Thursday. There is no Gradescope submission, just push your final edits to GitHub."
+  },
+  {
+    "objectID": "slides/25-quarto.html#writing-your-project-report-with-quarto",
+    "href": "slides/25-quarto.html#writing-your-project-report-with-quarto",
+    "title": "Customizing Quarto reports and presentations",
+    "section": "Writing your project report with Quarto",
+    "text": "Writing your project report with Quarto\n\nFigure sizing: fig-width, fig-height, etc. in code chunks.\nFigure layout: layout-ncol for placing multiple figures in a chunk.\nFurther control over figure layout with the patchwork package.\nChunk options around what makes it in your final report: message, echo, etc.\nFinalizing your report with echo: false."
+  },
+  {
+    "objectID": "slides/25-quarto.html#building-your-project-website-with-quarto",
+    "href": "slides/25-quarto.html#building-your-project-website-with-quarto",
+    "title": "Customizing Quarto reports and presentations",
+    "section": "Building your project website with Quarto",
+    "text": "Building your project website with Quarto\n\nThe docs folder.\nMaking sure your website reflects your latest changes.\nCustomizing the look of your website."
+  },
+  {
+    "objectID": "slides/25-quarto.html#the-presentation",
+    "href": "slides/25-quarto.html#the-presentation",
+    "title": "Customizing Quarto reports and presentations",
+    "section": "The presentation",
+    "text": "The presentation\n\nOption 1: Make your slides not in Quarto but make sure they’re available in your Quarto project website.\nOption 2: Make your slides with Quarto.\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
     "objectID": "slides/15-language-of-models.html#while-you-wait-for-class-to-begin",
