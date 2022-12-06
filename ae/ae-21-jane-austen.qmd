@@ -1,0 +1,182 @@
+---
+title: "He replied / she cried: Text mining and gender roles"
+categories: 
+  - Application exercise
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Introduction
+
+> Which verbs follow "she" and "he" pronouns in Jane Austen novels?
+> Are they similar or different?
+
+**Goal:** Use text mining methods to explore whether verbs that follow she and he pronouns are similar or different.
+
+**Inspirations:**
+
+-   Blog post by Julia Silge: [https://juliasilge.com/blog/gender-pronouns](https://juliasilge.com/blog/gender-pronouns/)
+-   Jockers, Matthew, and Gabi Kirilloff. ["Understanding gender and character agency in the 19th century novel."](https://culturalanalytics.org/article/11066.pdf) Journal of Cultural Analytics 2.2 (2016): 11066.
+
+## Packages
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(tidytext)
+library(knitr)
+library(janeaustenr) # install.packages("janeaustenr)
+library(textdata)    # install.packages("textdata)
+```
+
+## Data
+
+The **janeaustenr** package offers a function, `austen_books()`, that returns a tidy data frame of Jane Austen's 6 completed, published novels.
+
+```{r}
+#| label: get-data
+
+# add code here
+```
+
+-   **Demo:** Which books are included in the dataset?
+
+```{r}
+#| label: books
+
+# add code here
+```
+
+# Word frequencies
+
+-   **Question:** What would you expect to be the most common word in Jane Austen novels? Would you expect it to be the same across all books?
+
+Answers may vary.
+
+-   **Demo:** Split the `text` column into word tokens.
+
+```{r}
+#| label: words
+
+# add code here
+```
+
+-   **Your turn:** Discover the top 10 most commonly used words in each of Jane Austen's books.
+
+With stop words:
+
+```{r}
+#| label: top-words
+
+# add code here
+```
+
+-   **Demo:** Let's do better, without the "stop words".
+
+```{r}
+#| label: stop-words
+
+stop_words
+```
+
+Without stop words:
+
+```{r}
+#| label: top-without-stop-words
+
+# add code here
+```
+
+With better ordering:
+
+```{r}
+#| label: top-without-stop-words-better
+
+# add code here
+```
+
+# Bigram frequencies
+
+An n-gram is a contiguous series of $n$ words from a text; e.g., a **bigram** is a pair of words, with $n = 2$.
+
+-   **Demo:** Split the `text` column into bigram tokens.
+
+```{r}
+#| label: bigrams
+
+# add code here
+```
+
+-   **Your turn:** Visualize the frequencies of top 10 bigrams in each of Jane Austen's books.
+
+```{r}
+#| label: top-bigrams
+
+# add code here
+```
+
+# Verbs that follow she or he
+
+First, let's define the pronouns of interest:
+
+```{r}
+#| label: pronouns
+
+pronouns <- c("he", "she")
+```
+
+-   **Demo:** Filter the dataset for bigrams that start with either "she" or "he" and calculate the number of times these bigrams appeared.
+
+```{r}
+#| label: bigram-counts
+
+# add code here
+```
+
+-   **Discussion:** What can we do next to see if there is a difference in the types of verbs that follow "he" vs. "she"?
+
+Answers may vary.
+
+-   **Demo:** Which words have about the same likelihood of following "he" or "she" in Jane Austen's novels?
+
+```{r}
+#| label: word-ratios
+
+# add code here
+```
+
+```{r}
+#| label: similar-he-she
+
+# add code here
+```
+
+-   **Demo:** Which words have different likelihoods of following "he" or "she" in Jane Austen's novels?
+
+```{r}
+#| label: different-he-she
+
+# add code here
+```
+
+# Sentiment analysis
+
+One way to analyze the sentiment of a text is to consider the text as a combination of its individual words and the sentiment content of the whole text as the sum of the sentiment content of the individual words.
+This isn't the only way to approach sentiment analysis, but it is an often-used approach, and an approach that naturally takes advantage of the tidy tool ecosystem.[^1]
+
+[^1]: Tidy Text Mining: <https://www.tidytextmining.com/sentiment.html>.
+
+```{r}
+#| label: sentiments
+
+sentiments <- get_sentiments("afinn")
+sentiments
+```
+
+```{r}
+#| label: sentiments-he-she
+
+# add code here
+```

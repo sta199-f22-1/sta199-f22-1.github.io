@@ -1,0 +1,284 @@
+---
+title: "He replied / she cried: Text mining and gender roles"
+categories: 
+  - Application exercise
+  - Answers
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+::: callout-important
+These are suggested answers.
+This document should be used as reference only, it\'s not designed to be an exhaustive key.
+:::
+
+# Introduction
+
+> Which verbs follow "she" and "he" pronouns in Jane Austen novels?
+> Are they similar or different?
+
+**Goal:** Use text mining methods to explore whether verbs that follow she and he pronouns are similar or different.
+
+**Inspirations:**
+
+-   Blog post by Julia Silge: [https://juliasilge.com/blog/gender-pronouns](https://juliasilge.com/blog/gender-pronouns/)
+-   Jockers, Matthew, and Gabi Kirilloff. ["Understanding gender and character agency in the 19th century novel."](https://culturalanalytics.org/article/11066.pdf) Journal of Cultural Analytics 2.2 (2016): 11066.
+
+## Packages
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(tidytext)
+library(knitr)
+library(janeaustenr) # install.packages("janeaustenr)
+```
+
+## Data
+
+The **janeaustenr** package offers a function, `austen_books()`, that returns a tidy data frame of Jane Austen's 6 completed, published novels.
+
+```{r}
+#| label: get-data
+
+austen_books <- austen_books() |>
+  filter(text != "")
+```
+
+-   **Demo:** Which books are included in the dataset?
+
+```{r}
+#| label: books
+
+austen_books |>
+  distinct(book)
+```
+
+# Word frequencies
+
+-   **Question:** What would you expect to be the most common word in Jane Austen novels? Would you expect it to be the same across all books?
+
+Answers may vary.
+
+-   **Demo:** Split the `text` column into word tokens.
+
+```{r}
+#| label: words
+
+austen_words <- austen_books |>
+  unnest_tokens(output = word, input = text) # token = "words" by default
+```
+
+-   **Your turn:** Discover the top 10 most commonly used words in each of Jane Austen's books.
+
+With stop words:
+
+```{r}
+#| label: top-words
+
+austen_words |>
+  count(book, word, sort = TRUE) |>
+  group_by(book) |>
+  slice_head(n = 10) |>
+  pivot_wider(
+    names_from = book, 
+    values_from = n,
+    values_fill = 0
+    )
+```
+
+-   **Demo:** Let's do better, without the "stop words".
+
+```{r}
+#| label: stop-words
+
+stop_words
+```
+
+Without stop words:
+
+```{r}
+#| label: top-without-stop-words
+
+austen_words |>
+  anti_join(stop_words) |>
+  count(book, word, sort = TRUE) |>
+  group_by(book) |>
+  slice_head(n = 10) |>
+  ggplot(aes(y = word, x = n, fill = book)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~book, scales = "free") +
+  labs(y = NULL)
+```
+
+With better ordering:
+
+```{r}
+#| label: top-without-stop-words-better
+
+austen_words |>
+  anti_join(stop_words) |>
+  count(book, word, sort = TRUE) |>
+  group_by(book) |>
+  slice_head(n = 10) |>
+  ggplot(aes(y = reorder_within(word, n, book), x = n, fill = book)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~book, scales = "free") +
+  scale_y_reordered() +
+  labs(y = NULL)
+```
+
+# Bigram frequencies
+
+An n-gram is a contiguous series of $n$ words from a text; e.g., a **bigram** is a pair of words, with $n = 2$.
+
+-   **Demo:** Split the `text` column into bigram tokens.
+
+```{r}
+#| label: bigrams
+
+austen_bigrams <- austen_books |>
+  unnest_tokens(bigram, text, token = "ngrams", n = 2) |>
+  filter(!is.na(bigram))
+
+austen_bigrams
+```
+
+-   **Your turn:** Visualize the frequencies of top 10 bigrams in each of Jane Austen's books.
+
+```{r}
+#| label: top-bigrams
+
+austen_bigrams |>
+  count(book, bigram, sort = TRUE) |>
+  group_by(book) |>
+  slice_head(n = 10) |>
+  ggplot(aes(y = reorder_within(bigram, n, book), x = n, fill = book)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~book, scales = "free") +
+  scale_y_reordered() +
+  labs(y = NULL)
+```
+
+# Verbs that follow she or he
+
+First, let's define the pronouns of interest:
+
+```{r}
+#| label: pronouns
+
+pronouns <- c("he", "she")
+```
+
+-   **Demo:** Filter the dataset for bigrams that start with either "she" or "he" and calculate the number of times these bigrams appeared.
+
+```{r}
+#| label: bigram-counts
+
+bigram_counts <- austen_bigrams |>
+  count(bigram, sort = TRUE) |>
+  separate(bigram, into = c("word1", "word2"), sep = " ") |>
+  filter(word1 %in% pronouns) |>
+  count(word1, word2, wt = n, sort = TRUE) |>
+  rename(total = n)
+
+bigram_counts
+```
+
+-   **Discussion:** What can we do next to see if there is a difference in the types of verbs that follow "he" vs. "she"?
+
+Answers may vary.
+
+-   **Demo:** Which words have about the same likelihood of following "he" or "she" in Jane Austen's novels?
+
+```{r}
+#| label: word-ratios
+
+word_ratios <- bigram_counts |>
+  group_by(word2) |>
+  filter(sum(total) > 10) |>
+  ungroup() |>
+  pivot_wider(names_from = word1, values_from = total, values_fill = 0) |>
+  arrange(word2) |>
+  mutate(
+    she = (she+1)/sum(she+1),
+    he = (he+1)/sum(he+1),
+    logratio = log(she / he, base = 2)
+  ) |>
+  arrange(desc(logratio))
+
+word_ratios
+```
+
+```{r}
+#| label: similar-he-she
+
+word_ratios |> 
+  arrange(abs(logratio))
+
+```
+
+-   **Demo:** Which words have different likelihoods of following "he" or "she" in Jane Austen's novels?
+
+```{r}
+#| label: different-he-she
+
+word_ratios |>
+  mutate(abslogratio = abs(logratio)) |>
+  group_by(logratio < 0) |>
+  top_n(15, abslogratio) |>
+  ungroup() |>
+  mutate(word = reorder(word2, logratio)) |>
+  ggplot(aes(word, logratio, color = logratio < 0)) +
+  geom_segment(
+    aes(
+      x = word, xend = word,
+      y = 0, yend = logratio
+    ),
+    linewidth = 1.1, alpha = 0.6
+  ) +
+  geom_point(size = 3.5) +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = "Relative appearance after 'she' compared to 'he'",
+    title = "Words paired with 'he' and 'she' in Jane Austen's novels",
+    subtitle = "Women remember, read, and feel while men stop, take, and reply"
+  ) +
+  scale_color_discrete(name = "", labels = c("More 'she'", "More 'he'")) +
+  scale_y_continuous(
+    breaks = seq(-3, 3),
+    labels = c(
+      "0.125x", "0.25x", "0.5x",
+      "Same", "2x", "4x", "8x"
+    )
+  )
+```
+
+# Sentiment analysis
+
+One way to analyze the sentiment of a text is to consider the text as a combination of its individual words and the sentiment content of the whole text as the sum of the sentiment content of the individual words.
+This isn't the only way to approach sentiment analysis, but it is an often-used approach, and an approach that naturally takes advantage of the tidy tool ecosystem.[^1]
+
+[^1]: Tidy Text Mining: <https://www.tidytextmining.com/sentiment.html>.
+
+```{r}
+#| label: sentiments
+
+sentiments <- get_sentiments("afinn")
+sentiments
+```
+
+```{r}
+#| label: sentiments-he-she
+
+bigram_counts |>
+  left_join(sentiments, by = c("word2" = "word")) |>
+  filter(!is.na(value)) |>
+  mutate(sentiment = total * value) |>
+  group_by(word1) |>
+  arrange(desc(abs(sentiment))) |>
+  slice_head(n = 10)
+```

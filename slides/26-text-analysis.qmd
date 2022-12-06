@@ -1,0 +1,87 @@
+---
+title: "Looking further: Text analysis"
+subtitle: "Lecture 26"
+date: "December 6, 2022"
+format: revealjs
+---
+
+# Warm up
+
+## Announcements {.smaller}
+
+-   Course + TA evaluations -- We're at \~30% only
+
+-   Any project questions?
+    Any questions about remaining assessments?
+
+# Text analysis
+
+## Tidytext {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   Using tidy data principles can make many text mining tasks easier, more effective, and consistent with tools already in wide use
+-   Learn more at [tidytextmining.com](https://www.tidytextmining.com/)
+:::
+
+::: {.column width="50%"}
+![](images/26/tidytext.png){fig-align="right" width="400"}
+:::
+:::
+
+```{r}
+library(tidyverse)
+library(tidytext)
+```
+
+## What is tidy text? {.smaller}
+
+```{r}
+text <- c("Oh! Get me away from here, I'm dying",
+          "Play me a song to set me free",
+          "Nobody writes them like they used to",
+          "So it may as well be me",
+          "Here on my own now after hours",
+          "Here on my own now on a bus",
+          "Think of it this way",
+          "You could either be successful or be us",
+          "With our winning smiles, and us",
+          "With our catchy tunes or worse",
+          "Now we're photogenic",
+          "You know, we don't stand a chance")
+text
+```
+
+## What is tidy text?
+
+```{r}
+text_df <- tibble(line = 1:12, text = text)
+text_df |> print(n = 12)
+```
+
+## What is tidy text?
+
+```{r}
+text_df |>
+  unnest_tokens(word, text)
+```
+
+## Counting words
+
+```{r}
+text_df |>
+  unnest_tokens(word, text) |>
+  count(word, sort = TRUE)
+```
+
+# Application exercise
+
+## `ae-21`
+
+::: appex
+::: nonincremental
+-   Go to the course [GitHub org](https://github.com/sta199-f22-1) and find your `ae-21` (repo name will be suffixed with your GitHub name).
+-   Clone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.
+-   Render, commit, and push your edits by the AE deadline -- 3 days from today.
+:::
+:::
