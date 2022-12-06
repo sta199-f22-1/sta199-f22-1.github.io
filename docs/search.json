@@ -1691,7 +1691,7 @@
     "href": "ae/ae-21-jane-austen-A.html",
     "title": "He replied / she cried: Text mining and gender roles",
     "section": "",
-    "text": "Important\n\n\n\nThese are suggested answers. This document should be used as reference only, it's not designed to be an exhaustive key."
+    "text": "Important\n\n\n\nThese are suggested answers. This document should be used as reference only, it’s not designed to be an exhaustive key."
   },
   {
     "objectID": "ae/ae-21-jane-austen-A.html#packages",
@@ -2464,11 +2464,18 @@
     "text": "ae-12\n\n\n\nGo to the course GitHub org and find your ae-12 (repo name will be suffixed with your GitHub name).\nClone the repo in your container, open the Quarto document in the repo, and follow along and complete the exercises.\nRender, commit, and push your edits by the AE deadline – 3 days from today.\n\n\n\n\n\n\n🔗 sta199-f22-1.github.io"
   },
   {
+    "objectID": "slides/26-text-analysis.html#while-you-wait",
+    "href": "slides/26-text-analysis.html#while-you-wait",
+    "title": "Looking further: Text analysis",
+    "section": "While you wait",
+    "text": "While you wait\n\nFill out course + TA evaluations\nClone ae-21"
+  },
+  {
     "objectID": "slides/26-text-analysis.html#announcements",
     "href": "slides/26-text-analysis.html#announcements",
     "title": "Looking further: Text analysis",
     "section": "Announcements",
-    "text": "Announcements\n\nCourse + TA evaluations – We’re at ~30% only\nAny project questions? Any questions about remaining assessments?"
+    "text": "Announcements\n\nCourse + TA evaluations – We’re at ~40% only\nAny project questions? Any questions about remaining assessments?"
   },
   {
     "objectID": "slides/26-text-analysis.html#tidytext",

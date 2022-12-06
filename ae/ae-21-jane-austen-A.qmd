@@ -10,7 +10,7 @@ editor_options:
 
 ::: callout-important
 These are suggested answers.
-This document should be used as reference only, it\'s not designed to be an exhaustive key.
+This document should be used as reference only, it's not designed to be an exhaustive key.
 :::
 
 # Introduction
@@ -85,8 +85,10 @@ austen_words |>
   pivot_wider(
     names_from = book, 
     values_from = n,
-    values_fill = 0
-    )
+    values_fn = as.character,
+    values_fill = "Not in top 10"
+    ) |>
+  kable()
 ```
 
 -   **Demo:** Let's do better, without the "stop words".

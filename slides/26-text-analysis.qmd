@@ -7,9 +7,15 @@ format: revealjs
 
 # Warm up
 
+## While you wait {.smaller}
+
+-   Fill out course + TA evaluations
+
+-   Clone `ae-21`
+
 ## Announcements {.smaller}
 
--   Course + TA evaluations -- We're at \~30% only
+-   Course + TA evaluations -- We're at \~40% only
 
 -   Any project questions?
     Any questions about remaining assessments?
